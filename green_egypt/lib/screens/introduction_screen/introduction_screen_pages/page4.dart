@@ -9,8 +9,8 @@ class Page4 extends StatelessWidget {
       decoration: BoxDecoration(
           image: DecorationImage(
               image: image,
-              colorFilter: ColorFilter.mode(
-                  Colors.black.withOpacity(.3), BlendMode.darken),
+              // colorFilter: ColorFilter.mode(
+              //     Colors.black.withOpacity(.3), BlendMode.darken),
               fit: BoxFit.cover,
               alignment: Alignment.center)),
       width: MediaQuery.of(context).size.width,

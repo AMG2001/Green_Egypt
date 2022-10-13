@@ -17,9 +17,23 @@ class SplachScreenCustom extends StatelessWidget {
       animationDuration: Duration(seconds: 1),
       centered: true,
       splashIconSize: Get.height,
-      splash: 'assets/introduction_images/5_light.jpg',
+      splash: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              Icons.recycling_sharp,
+              color: Colors.green,
+              size: 60,
+            ),
+            SizedBox(
+              height: 18,
+            ),
+            Text("🍀 Green Egypt 🍀",style: TextStyle(fontSize: 24),)
+          ]),
+
       nextScreen:
-      /**
+          /**
        * If first Launch Shared preference has value true , 
        * it mean that application opened , so open on login screen 
        * else it mean that it is first time application opened , so
