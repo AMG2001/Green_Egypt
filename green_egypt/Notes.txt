@@ -1,0 +1,4 @@
+1- used State management "GetX" .
+2- "screens Folder" will contain all UI only 
+3- pages backend will be seperated as controllers .
+4- "services folder" will contain all firebase and SharedPreferences work .
