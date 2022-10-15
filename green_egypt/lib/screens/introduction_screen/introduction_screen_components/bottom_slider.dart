@@ -91,8 +91,7 @@ class BottomSlider extends StatelessWidget {
                           if (controller.index == 4) {
                             await FirstLaunch.changeFirstLaunchValue()
                                 .then((value) {
-                              Get.offNamed(PagesNames.loginScreen);
-                              print("value of first laucn changed !!");
+                              Get.offNamed(PagesNames.startScreen);
                             });
                           } else {
                             controller.increaseIndex();

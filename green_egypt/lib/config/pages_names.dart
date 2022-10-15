@@ -3,12 +3,14 @@ import 'package:green_egypt/screens/home_page/home_page.dart';
 import 'package:green_egypt/screens/introduction_screen/introduction_screen.dart';
 import 'package:green_egypt/screens/login_screen/login_screen.dart';
 import 'package:green_egypt/screens/splach_screen/splach_screen.dart';
+import 'package:green_egypt/screens/start_screen/start_screen.dart';
 
 class PagesNames {
   static String introductionScreen = "/intro";
   static String splachScreen = "/splach";
   static String loginScreen = "/login";
   static String homePage = "/home";
+  static String startScreen = "/start";
 
   static List<GetPage> listOfPages = [
     GetPage(
@@ -26,6 +28,10 @@ class PagesNames {
     GetPage(
         name: homePage,
         page: () => HomePage(),
-        transition: Transition.leftToRight)
+        transition: Transition.leftToRight),
+    GetPage(
+        name: startScreen,
+        page: () => StartScreen(),
+        transition: Transition.fade)
   ];
 }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:green_egypt/screens/introduction_screen/introduction_screen.dart';
 import 'package:green_egypt/screens/login_screen/login_screen.dart';
+import 'package:green_egypt/screens/start_screen/start_screen.dart';
 import 'package:green_egypt/services/Shared_preferences/first_launch.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -39,7 +40,7 @@ class SplachScreenCustom extends StatelessWidget {
        * else it mean that it is first time application opened , so
        * open on intro screen .
        */
-          FirstLaunch.firstLaunchDone() ? LoginScreen() : IntroductionScreen(),
+          FirstLaunch.firstLaunchDone() ? StartScreen() : IntroductionScreen(),
       splashTransition: SplashTransition.fadeTransition,
       pageTransitionType: PageTransitionType.fade,
     );
