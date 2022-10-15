@@ -37,7 +37,8 @@ dependencies:
   get: ^4.6.5
   shared_preferences: ^2.0.15
   smooth_page_indicator: ^1.0.0+2
-
+  firebase_auth: ^3.11.2
+  firebase_core: ^1.24.0
 dev_dependencies:
   flutter_lints: ^2.0.0
   flutter_test:
@@ -57,7 +58,7 @@ flutter:
     - assets/application/
     - assets/animated_vectors/
     - assets/courses/
-    - assets/fonts/
+   # - assets/fonts/
     - assets/icons/
     - assets/introduction_images/
     - assets/login/

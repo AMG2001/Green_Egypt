@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "448811679409",
+    "project_id": "green-egypt-f80b9",
+    "storage_bucket": "green-egypt-f80b9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:448811679409:android:91065846cdf93986aeec90",
+        "android_client_info": {
+          "package_name": "tech.mavica.green_egypt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "448811679409-5kpkgv5glhiau21ij9n54m2r16cqh7v0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuzui1J-zbTgMbiwoUAnNB5bG6RfEyENs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "448811679409-5kpkgv5glhiau21ij9n54m2r16cqh7v0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
