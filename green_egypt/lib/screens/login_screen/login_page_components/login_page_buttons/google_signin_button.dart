@@ -33,7 +33,13 @@ class GoogleSignInButton extends StatelessWidget {
            */
       onPressed: () async {
         try {
-          await GoogleAuth.signInWithGoogle();
+          await GoogleAuth.signInWithGoogle().then((data) {
+            print("email : ${data.user!.email}");
+            print("usuer name : ${data.user!.displayName}");
+            print(1);
+            print(2); // 10 sec // async
+            print(3);
+          });
         } catch (e) {
           print(e);
         }

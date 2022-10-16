@@ -1,7 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
-import 'package:get/get.dart';
-import 'package:green_egypt/config/pages_names.dart';
 import 'package:green_egypt/services/firebase_services/facebook_auth.dart';
 
 class FacebookSignInButton extends StatelessWidget {
@@ -21,10 +19,9 @@ class FacebookSignInButton extends StatelessWidget {
       ),
       onPressed: () async {
         try {
-          await FaceBookAuthCustom.signInWithFacebook().then((value) {
-            print('user name : ${value.user!.displayName}');
-            print('user email is : ${value.user!.email}');
-          });
+          await FaceBookAuthCustom.signInWithFacebook();
+          // FirebaseAuth.instance.signOut();
+          // print('sign out');
         } catch (e) {
           print(e);
         }
