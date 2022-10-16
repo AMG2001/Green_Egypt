@@ -36,6 +36,7 @@ dependencies:
   firebase_core: ^1.24.0
   flutter:
     sdk: flutter
+  fluttertoast: ^8.1.1
   font_awesome_flutter: ^10.2.1
   get: ^4.6.5
   lottie: ^1.4.3

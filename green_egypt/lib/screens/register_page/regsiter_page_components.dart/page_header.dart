@@ -10,6 +10,7 @@ class PageHeader extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Hero(
           tag: Constants.recyclingIconTag,
@@ -18,7 +19,7 @@ class PageHeader extends StatelessWidget {
             child: Icon(
               Icons.recycling_outlined,
               color: Colors.green,
-              size: 72,
+              size: 108,
             ),
           ),
         ),
@@ -31,7 +32,7 @@ class PageHeader extends StatelessWidget {
         Align(
           alignment: Alignment.center,
           child: Text(
-            "Welcome Between GoLearn Family",
+            "🍀 Regsiter now to be one of Green_Egypt Family 🍀",
             style: Theme.of(context).textTheme.bodyMedium,
           ),
         ),
@@ -39,11 +40,11 @@ class PageHeader extends StatelessWidget {
                          * Sign up now message
                          */
         SizedBox(
-          height: MediaQuery.of(context).size.height * .02,
+          height: MediaQuery.of(context).size.height * .04,
         ),
         Text(
-          "Sign up ",
-          style: TextStyle(fontSize: 24, color: Colors.green),
+          "Enter your Details : ",
+          style: TextStyle(fontSize: 18, color: Colors.green),
         ),
 
         /**

@@ -136,7 +136,7 @@ class StartScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: Get.height * .05,
+                  height: Get.height * .04,
                 )
               ],
             ),
