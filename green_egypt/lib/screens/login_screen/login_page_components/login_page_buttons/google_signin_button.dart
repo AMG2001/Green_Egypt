@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:green_egypt/services/firebase_services/google_auth.dart';
 
 class GoogleSignInButton extends StatelessWidget {
   /**
@@ -29,46 +32,11 @@ class GoogleSignInButton extends StatelessWidget {
            * on pressed
            */
       onPressed: () async {
-        // try {
-        //   /**
-        //    * Trying to access with Google Account
-        //    */
-        //   await GoogleAuthController()
-        //       .signInWithGoogle()
-        //       .then((userData) async {
-        //     /**
-        //          * After logging with Google Account .. get User data and store them
-        //          */
-        //     await UserLogs.settingUserInfo(
-        //         userName: userData.user!.displayName!,
-        //         email: userData.user!.email!,
-        //         photoUrl: userData.user!.photoURL!);
-        //     print("google user name : ${userData.user!.displayName}");
-        //     print("Google email : ${userData.user!.email}");
-        //     print("Google image url  : ${userData.user!.photoURL}");
-        //     /**
-        //          * Store logging user info .
-        //          */
-        //     await UserLoggedController.loggingUser();
-        //     print("user Logs Saved Successfully #");
-        //     /**
-        //      * Navigate to home Screen - Welcome in app
-        //      */
-        //     Get.offNamed(PagesNames.homePageScreenName);
-        //   });
-        // } catch (e) {
-        //   /**
-        //    * if there is any error - Show Toast with error message
-        //    */
-        //   Fluttertoast.showToast(
-        //       msg: e.toString(),
-        //       toastLength: Toast.LENGTH_SHORT,
-        //       gravity: ToastGravity.BOTTOM,
-        //       timeInSecForIosWeb: 1,
-        //       backgroundColor: Colors.red,
-        //       textColor: Colors.white,
-        //       fontSize: 16.0);
-        // }
+        try {
+          await GoogleAuth.signInWithGoogle();
+        } catch (e) {
+          print(e);
+        }
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),

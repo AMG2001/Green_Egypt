@@ -14,7 +14,7 @@ class SplachScreenCustom extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedSplashScreen(
       // time in milli seconds
-      duration: 1000,
+      duration: 2500,
       animationDuration: Duration(seconds: 1),
       centered: true,
       splashIconSize: Get.height,

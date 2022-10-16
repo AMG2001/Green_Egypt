@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:get/get.dart';
 import 'package:green_egypt/config/pages_names.dart';
+import 'package:green_egypt/services/firebase_services/facebook_auth.dart';
 
 class FacebookSignInButton extends StatelessWidget {
   const FacebookSignInButton({
@@ -18,27 +20,14 @@ class FacebookSignInButton extends StatelessWidget {
         ),
       ),
       onPressed: () async {
-        // await FacebookAuthController().signInWithFacebook().then((userData)async {
-          /**
-                 * After logging with Google Account .. get User data and store them
-                 */
-            // await UserLogs.settingUserInfo(
-            //     userName: userData.user!.displayName!,
-            //     email: userData.user!.email!,
-            //     photoUrl: userData.user!.photoURL!);
-            // print("Facebook user name : ${userData.user!.displayName}");
-            // print("Facebook email : ${userData.user!.email}");
-            // print("Facebook image url  : ${userData.user!.photoURL}");
-            /**
-                 * Store logging user info .
-                 */
-            // await UserLoggedController.loggingUser();
-            // print("user Logs Saved Successfully #");
-            /**
-             * Navigate to home Screen - Welcome in app
-             */
-            // Get.offNamed(PagesNames.homePage);
-        // });
+        try {
+          await FaceBookAuthCustom.signInWithFacebook().then((value) {
+            print('user name : ${value.user!.displayName}');
+            print('user email is : ${value.user!.email}');
+          });
+        } catch (e) {
+          print(e);
+        }
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),
