@@ -2,6 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:green_egypt/config/pages_names.dart';
+import 'package:green_egypt/config/user_data_model/user_data_model.dart';
 import 'package:green_egypt/services/firebase_services/google_auth.dart';
 
 class GoogleSignInButton extends StatelessWidget {
@@ -33,13 +35,12 @@ class GoogleSignInButton extends StatelessWidget {
            */
       onPressed: () async {
         try {
-          await GoogleAuth.signInWithGoogle().then((data) {
-            print("email : ${data.user!.email}");
-            print("usuer name : ${data.user!.displayName}");
-            print(1);
-            print(2); // 10 sec // async
-            print(3);
-          });
+          await GoogleAuth.signInWithGoogle().then((data) async {
+            await UserDataModel.initiateUserDataModel(
+                email: data.user!.email!,
+                name: data.user!.displayName!,
+                imageUrl: data.user!.photoURL!);
+          }).then((value) => Get.offNamed(PagesNames.homePage));
         } catch (e) {
           print(e);
         }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Page2 extends StatelessWidget {
-   AssetImage image;
+  AssetImage image;
   Page2({required this.image});
   @override
   Widget build(BuildContext context) {
@@ -9,8 +9,8 @@ class Page2 extends StatelessWidget {
       decoration: BoxDecoration(
           image: DecorationImage(
               image: image,
-            //  colorFilter: ColorFilter.mode(
-            //       Colors.black.withOpacity(.3), BlendMode.darken),
+              colorFilter: ColorFilter.mode(
+                  Colors.black.withOpacity(.3), BlendMode.darken),
               fit: BoxFit.cover,
               alignment: Alignment.center)),
       width: MediaQuery.of(context).size.width,
@@ -21,7 +21,7 @@ class Page2 extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(32.0),
             child: Text(
-              "",
+              "Plastic takes hundreds of years to decompose ⚠ \n\nImagine its Effect on the environment !!",
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 24,

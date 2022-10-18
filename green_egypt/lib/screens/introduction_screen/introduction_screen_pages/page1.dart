@@ -10,8 +10,8 @@ class Page1 extends StatelessWidget {
       decoration: BoxDecoration(
           image: DecorationImage(
               image: image,
-            //  colorFilter: ColorFilter.mode(
-            //       Colors.black.withOpacity(.3), BlendMode.darken),
+              colorFilter: ColorFilter.mode(
+                  Colors.black.withOpacity(.3), BlendMode.darken),
               fit: BoxFit.cover,
               alignment: Alignment.center)),
       width: MediaQuery.of(context).size.width,
@@ -23,14 +23,14 @@ class Page1 extends StatelessWidget {
           children: [
             SizedBox(height: MediaQuery.of(context).size.height * .1),
             Text(
-              "",
+              "Recycling is not an optional Action !! \n",
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 24,
                   fontWeight: FontWeight.w300),
             ),
             Text(
-              "",
+              "Saving Nature must be one of our main duties 🍀",
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 24,

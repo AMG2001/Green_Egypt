@@ -12,7 +12,8 @@ class PagesNames {
   static String loginScreen = "/login";
   static String homePage = "/home";
   static String startScreen = "/start";
-    static String registerPage = "/register";
+  static String registerPage = "/register";
+  static String feedBackPage = "/feedBack";
 
   static List<GetPage> listOfPages = [
     GetPage(
@@ -35,8 +36,12 @@ class PagesNames {
         name: startScreen,
         page: () => StartScreen(),
         transition: Transition.fade),
-            GetPage(
+    GetPage(
         name: registerPage,
+        page: () => RegisterPage(),
+        transition: Transition.fade),
+        GetPage(
+        name: feedBackPage,
         page: () => RegisterPage(),
         transition: Transition.fade)
   ];

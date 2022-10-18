@@ -6,8 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:green_egypt/config/pages_names.dart';
 import 'package:green_egypt/screens/home_page/home_page.dart';
-import 'package:green_egypt/utils/fire_auth.dart';
-import 'package:green_egypt/utils/validator.dart';
+import 'package:green_egypt/services/firebase_services/fire_auth.dart';
+import 'package:green_egypt/services/firebase_services/validator.dart';
+
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

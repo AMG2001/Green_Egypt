@@ -1,11 +1,4 @@
-import 'dart:ui';
-
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:green_egypt/config/pages_names.dart';
-import 'package:green_egypt/screens/home_page/home_page.dart';
 import 'package:green_egypt/screens/login_screen/login_page_components/login_page_buttons/facebook_login_button.dart';
 import 'package:green_egypt/screens/login_screen/login_page_components/login_page_buttons/google_signin_button.dart';
 import 'package:green_egypt/screens/login_screen/login_page_components/login_page_buttons/register_and_forget_password_row.dart';
@@ -13,8 +6,7 @@ import 'package:green_egypt/screens/login_screen/login_page_components/login_pag
 import 'package:green_egypt/screens/login_screen/login_page_components/login_page_header_image.dart';
 import 'package:green_egypt/screens/login_screen/login_page_components/passwordTextField/password_text_field.dart';
 import 'package:green_egypt/screens/login_screen/login_page_components/userNameTextField/user_name_text_field.dart';
-import 'package:green_egypt/utils/fire_auth.dart';
-import 'package:green_egypt/utils/validator.dart';
+
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

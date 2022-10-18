@@ -22,11 +22,11 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
      * Pages background Images
      */
     super.initState();
-    image1 = const AssetImage('assets/introduction_images/p1.png');
-    image2 = const AssetImage('assets/introduction_images/p2.png');
-    image3 = const AssetImage('assets/introduction_images/p3.png');
-    image4 = const AssetImage('assets/introduction_images/p4.png');
-    image5 = const AssetImage('assets/introduction_images/p5.png');
+    image1 = const AssetImage('assets/introduction_images/1.jpg');
+    image2 = const AssetImage('assets/introduction_images/2.jpg');
+    image3 = const AssetImage('assets/introduction_images/3.jpg');
+    image4 = const AssetImage('assets/introduction_images/4.jpg');
+    image5 = const AssetImage('assets/introduction_images/5.jpg');
     print("Images preloaded !!");
   }
 

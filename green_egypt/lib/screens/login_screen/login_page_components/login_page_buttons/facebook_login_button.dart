@@ -21,8 +21,8 @@ class FacebookSignInButton extends StatelessWidget {
       ),
       onPressed: () async {
         try {
-          await FaceBookAuthCustom.signInWithFacebook()
-              .then((value) => Get.offNamed(PagesNames.homePage));
+          await FaceBookAuthCustom.signInWithFacebook();
+
           // FirebaseAuth.instance.signOut();
           // print('sign out');
         } catch (e) {

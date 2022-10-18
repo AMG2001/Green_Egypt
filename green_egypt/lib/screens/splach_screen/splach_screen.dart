@@ -2,6 +2,8 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:green_egypt/config/images_paths.dart';
+import 'package:green_egypt/config/user_data_model/user_data_model.dart';
+import 'package:green_egypt/screens/home_page/home_page.dart';
 import 'package:green_egypt/screens/introduction_screen/introduction_screen.dart';
 import 'package:green_egypt/screens/start_screen/start_screen.dart';
 import 'package:green_egypt/services/Shared_preferences/first_launch.dart';
@@ -66,7 +68,13 @@ class SplachScreenCustom extends StatelessWidget {
        * else it mean that it is first time application opened , so
        * open on intro screen .
        */
-          FirstLaunch.firstLaunchDone() ? StartScreen() : IntroductionScreen(),
+
+          FirstLaunch.firstLaunchDone()
+              ? (UserDataModel.getUserLoggedInBool()
+                  ? HomePage()
+                  : StartScreen())
+              : IntroductionScreen(),
+
       splashTransition: SplashTransition.fadeTransition,
       pageTransitionType: PageTransitionType.fade,
     );
