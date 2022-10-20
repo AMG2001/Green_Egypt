@@ -83,7 +83,7 @@ class SplachScreenCustom extends StatelessWidget {
        * open on intro screen .
        */
 
-          FirstLaunch.firstLaunchDone()
+          FirstLaunch.getFirstLaunchDoneBool()
               ? (UserDataModel.getUserLoggedInBool()
                   ? HomePage()
                   : StartScreen())

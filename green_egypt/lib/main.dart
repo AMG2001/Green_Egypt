@@ -9,7 +9,7 @@ void main() async {
   // this line because i made main method Async 👀
   WidgetsFlutterBinding.ensureInitialized();
   // to initiate all Application Shared Preferences in one line 🔥 .
-  await SharedPreferencesClass.initAllSharedPreferences();
+  SharedPreferencesClass.initAllSharedPreferences();
   /**
    * Initializing Firebase on Application Level .
    */
