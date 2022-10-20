@@ -2,18 +2,24 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class FirstLaunch {
   static late SharedPreferences firstLaunchBool;
+  static const String firstLaunchTag = 'firstLaunchDone';
+  static late bool firstLaunchDoneBool;
   static Future<void> init() async {
     firstLaunchBool = await SharedPreferences.getInstance();
-   if(firstLaunchBool.getBool("firstLaunchDone") == null){
-      await firstLaunchBool.setBool('firstLaunchDone', false);
-   }
+    if (firstLaunchBool.getBool(firstLaunchTag) == null) {
+      await firstLaunchBool
+          .setBool(firstLaunchTag, false)
+          .then((value) => firstLaunchDoneBool = value);
+    }
   }
 
   static bool firstLaunchDone() {
-    return firstLaunchBool.getBool("firstLaunchDone")!;
+    return firstLaunchDoneBool;
   }
 
   static Future<void> changeFirstLaunchValue() async {
-    await firstLaunchBool.setBool('firstLaunchDone', true);
+    await firstLaunchBool
+        .setBool(firstLaunchTag, true)
+        .then((value) => firstLaunchDoneBool = value);
   }
 }

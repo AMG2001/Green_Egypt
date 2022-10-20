@@ -10,24 +10,38 @@ import 'package:green_egypt/services/Shared_preferences/first_launch.dart';
 import 'package:page_transition/page_transition.dart';
 
 class SplachScreenCustom extends StatelessWidget {
-  const SplachScreenCustom({super.key});
+  SplachScreenCustom({super.key});
 
   @override
   Widget build(BuildContext context) {
     return AnimatedSplashScreen(
       // time in milli seconds
-      duration: 2500,
+      duration: 2000,
+      /**
+       * Fade Animation Duration
+       */
       animationDuration: Duration(seconds: 1),
+      /**
+       * Centeralize image
+       */
       centered: true,
       splashIconSize: Get.height,
-
       splash: Container(
+        /**
+         * make image take the width of the screen
+         */
         width: Get.width,
+        /**
+         * make image take the height of the screen
+         */
         height: Get.height,
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(ImagesPaths.splashImagePath),
             fit: BoxFit.cover,
+            /**
+             * Add darl layer on the image
+             */
             colorFilter: ColorFilter.mode(
                 Colors.black.withOpacity(0.55), BlendMode.darken),
           ),
@@ -74,9 +88,11 @@ class SplachScreenCustom extends StatelessWidget {
                   ? HomePage()
                   : StartScreen())
               : IntroductionScreen(),
-
       splashTransition: SplashTransition.fadeTransition,
       pageTransitionType: PageTransitionType.fade,
     );
   }
 }
+/**
+ * 
+ */

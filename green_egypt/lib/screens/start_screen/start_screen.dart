@@ -2,6 +2,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:green_egypt/config/constants.dart';
+import 'package:green_egypt/config/images_paths.dart';
 import 'package:green_egypt/config/pages_names.dart';
 
 class StartScreen extends StatelessWidget {
@@ -16,9 +17,15 @@ class StartScreen extends StatelessWidget {
         decoration: BoxDecoration(
           image: DecorationImage(
             fit: BoxFit.cover,
+            /**
+             * Adding dark layer on the image
+             */
             colorFilter: ColorFilter.mode(
                 Colors.black.withOpacity(0.3), BlendMode.darken),
-            image: AssetImage("assets/images/start.jpg"),
+                /**
+                 * start page background Image 
+                 */
+            image: AssetImage(ImagesPaths.startPageImagePath),
           ),
         ),
         child: SafeArea(
@@ -28,6 +35,9 @@ class StartScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
+                /**
+                 * Row of recycling icon and Animated Text
+                 */
                 Row(
                   children: [
                     Hero(
@@ -76,6 +86,9 @@ class StartScreen extends StatelessWidget {
                     ),
                   ),
                   onPressed: () {
+                    /**
+                     * Navigate to Register Page
+                     */
                     Get.toNamed(PagesNames.registerPage);
                   },
                   child: Row(

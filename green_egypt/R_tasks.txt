@@ -1,0 +1,10 @@
+** Todo :
+1- finish Google Auth "Ios config".
+2- finish Facebook auth "Ios config".
+3- finish Feedback Page Backend "Not now".
+
+** Docs Journey 🤍 : 
+1- project main View 
+2- each folder in detailed .
+3- each page in detailed .
+4- Data paths and logic . 
