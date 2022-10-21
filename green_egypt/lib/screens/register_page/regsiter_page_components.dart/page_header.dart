@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:green_egypt/config/constants.dart';
+import 'package:green_egypt/config/dimensions.dart';
+import 'package:green_egypt/config/vectos_paths.dart';
 import 'package:lottie/lottie.dart';
 
 class PageHeader extends StatelessWidget {
@@ -8,27 +9,21 @@ class PageHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Hero(
-          tag: Constants.recyclingIconTag,
-          child: Align(
-            alignment: Alignment.center,
-            child: Icon(
-              Icons.recycling_outlined,
-              color: Colors.green,
-              size: 108,
-            ),
-          ),
+        Align(
+          alignment: Alignment.center,
+          child: Lottie.asset(VectorsPaths.signUpAnimation,
+              height: Dimensions.height * .35),
         ),
         SizedBox(
           height: 18,
         ),
         /**
-                         * Welcome message
-                         */
+                       * Welcome message
+                       */
         Align(
           alignment: Alignment.center,
           child: Text(
@@ -37,8 +32,8 @@ class PageHeader extends StatelessWidget {
           ),
         ),
         /**
-                         * Sign up now message
-                         */
+                       * Sign up now message
+                       */
         SizedBox(
           height: MediaQuery.of(context).size.height * .04,
         ),
@@ -48,8 +43,8 @@ class PageHeader extends StatelessWidget {
         ),
 
         /**
-                             * Row of first and last name
-                             */
+                           * Row of first and last name
+                           */
         SizedBox(
           height: MediaQuery.of(context).size.height * .02,
         ),

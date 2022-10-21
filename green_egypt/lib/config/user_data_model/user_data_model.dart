@@ -76,19 +76,27 @@ class UserDataModel {
     /**
          * initialize userName in userDataModelSharedPref
          */
-    await userDataModelSharedPref.setString(_userNameKey, name);
+    await userDataModelSharedPref
+        .setString(_userNameKey, name)
+        .then((value) => userName = name);
     /**
          * initialize userEmail in userDataModelSharedPref
          */
-    await userDataModelSharedPref.setString(_userEmailKey, email);
+    await userDataModelSharedPref
+        .setString(_userEmailKey, email)
+        .then((value) => userEmail = email);
     /**
          * initialize userImageUrl in userDataModelSharedPref
          */
-    await userDataModelSharedPref.setString(_userImageURLKey, imageUrl);
+    await userDataModelSharedPref
+        .setString(_userImageURLKey, imageUrl)
+        .then((value) => userImageURL = imageUrl);
     /**
          * initialize userLoggedInBool in userDataModelSharedPref
          */
-    await userDataModelSharedPref.setBool(_userLoggedInKey, true);
+    await userDataModelSharedPref
+        .setBool(_userLoggedInKey, true)
+        .then((value) => userLoggedIn = true);
   }
 
   /**
@@ -96,13 +104,21 @@ class UserDataModel {
    */
   static Future<void> userLoggedOut() async {
     // reset userName in userDataModel Object to ""
-    await userDataModelSharedPref.setString(_userNameKey, "");
+    await userDataModelSharedPref
+        .setString(_userNameKey, "")
+        .then((value) => userName = "");
     // reset userEmail in userDataModel Object to ""
-    await userDataModelSharedPref.setString(_userEmailKey, "");
+    await userDataModelSharedPref
+        .setString(_userEmailKey, "")
+        .then((value) => userEmail = "");
     // reset userImageUrl in userDataModel Object to ""
-    await userDataModelSharedPref.setString(_userImageURLKey, "");
+    await userDataModelSharedPref
+        .setString(_userImageURLKey, "")
+        .then((value) => userImageURL = "");
     // reset userLoggedInBool in userDataModel Object to false
-    await userDataModelSharedPref.setBool(_userLoggedInKey, false);
+    await userDataModelSharedPref
+        .setBool(_userLoggedInKey, false)
+        .then((value) => userLoggedIn = false);
   }
 
   // return user name - String

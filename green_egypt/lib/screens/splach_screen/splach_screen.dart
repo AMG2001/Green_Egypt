@@ -1,11 +1,11 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:green_egypt/config/dimensions.dart';
 import 'package:green_egypt/config/images_paths.dart';
 import 'package:green_egypt/config/user_data_model/user_data_model.dart';
 import 'package:green_egypt/screens/home_page/home_page.dart';
-import 'package:green_egypt/screens/intro_screen_2/intro_screen_2.dart';
-import 'package:green_egypt/screens/introduction_screen/introduction_screen.dart';
+import 'package:green_egypt/screens/introduction_screen/intro_screen_2.dart';
 import 'package:green_egypt/screens/start_screen/start_screen.dart';
 import 'package:green_egypt/services/Shared_preferences/first_launch.dart';
 import 'package:page_transition/page_transition.dart';
@@ -15,6 +15,9 @@ class SplachScreenCustom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("Get width : ${Get.mediaQuery.size.width}");
+    print("Dimensions width : ${Dimensions.width}");
+    print("context width : ${context.width}");
     return AnimatedSplashScreen(
       // time in milli seconds
       duration: 2000,
@@ -88,7 +91,7 @@ class SplachScreenCustom extends StatelessWidget {
               ? (UserDataModel.getUserLoggedInBool()
                   ? HomePage()
                   : StartScreen())
-              : IntroScreen2(),
+              : IntroductionScreen(),
       splashTransition: SplashTransition.fadeTransition,
       pageTransitionType: PageTransitionType.fade,
     );

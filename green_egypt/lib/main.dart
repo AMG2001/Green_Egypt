@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:green_egypt/config/pages_names.dart';
 import 'package:green_egypt/firebase_options.dart';
 import 'package:green_egypt/services/Shared_preferences/shared_preferences_class.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 void main() async {
   // this line because i made main method Async 👀
@@ -15,7 +16,7 @@ void main() async {
    */
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
-);
+  );
   // run Flutter 🤍
   runApp(GreenEgypt());
 }
@@ -25,23 +26,30 @@ class GreenEgypt extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: "Green_Egypt 🍀",
-      /**
-       * Hide debug banner
-       */
-      debugShowCheckedModeBanner: false,
-      /**
-       * all application Routes are stored in 1 variable for cleaner code : 
-       */
-      getPages: PagesNames.listOfPages,
-      /**
-       * Application will start from splach Screen , 
-       * then intro if application opened for first time .
-       * else application will open directly on login if user not logged .
-       * if user logged , open on main page "will be implemented tomorrow" .
-       */
-      initialRoute: PagesNames.splachScreen,
+    return ResponsiveSizer(
+      builder: (BuildContext, Orientation, ScreenType) {
+        return GetMaterialApp(
+          /**android
+         * Application Title
+         */
+          title: "Green_Egypt 🍀",
+          /**
+         * Hide debug banner
+         */
+          debugShowCheckedModeBanner: false,
+          /**
+         * all application Routes are stored in 1 variable for cleaner code : 
+         */
+          getPages: PagesNames.listOfPages,
+          /**
+         * Application will start from splach Screen , 
+         * then intro if application opened for first time .
+         * else application will open directly on login if user not logged .
+         * if user logged , open on main page "will be implemented tomorrow" .
+         */
+          initialRoute: PagesNames.splachScreen,
+        );
+      },
     );
   }
 }

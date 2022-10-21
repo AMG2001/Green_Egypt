@@ -36,8 +36,10 @@ class HomePage extends StatelessWidget {
               ),
               ElevatedButton(
                   onPressed: () async {
-                    await FirebaseAuth.instance.signOut();
-                    Get.offNamed(PagesNames.loginScreen);
+                    await FirebaseAuth.instance.signOut().then((value) async {
+                      await UserDataModel.userLoggedOut().then(
+                          (value) => Get.offNamed(PagesNames.loginScreen));
+                    });
                   },
                   child: Text("Sign out"))
             ],

@@ -40,6 +40,8 @@ class GoogleSignInButton extends StatelessWidget {
                 email: data.user!.email!,
                 name: data.user!.displayName!,
                 imageUrl: data.user!.photoURL!);
+            print("email is : ${data.user!.email!}");
+            print("name is : ${data.user!.displayName!}");
           }).then((value) => Get.offNamed(PagesNames.homePage));
         } catch (e) {
           print(e);

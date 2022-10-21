@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:green_egypt/config/dimensions.dart';
 import 'package:green_egypt/screens/register_page/register_page_controller.dart';
 import 'package:green_egypt/screens/register_page/regsiter_page_components.dart/email_text_field.dart';
 import 'package:green_egypt/screens/register_page/regsiter_page_components.dart/first_name_text_field.dart';
@@ -22,11 +23,9 @@ class RegisterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Container(
-          width: Get.width,
-          height: Get.height,
-          child: SingleChildScrollView(
-            child: Padding(
+        child: ListView(
+          children: [
+            Padding(
               padding: const EdgeInsets.all(16.0),
               /**
                * main Column
@@ -38,8 +37,7 @@ class RegisterPage extends StatelessWidget {
                       autovalidateMode: controller.validationMode,
                       key: sigUpFormState,
                       child: Container(
-                        width: Get.width,
-                        height: Get.height,
+                        width: Dimensions.width,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,20 +61,20 @@ class RegisterPage extends StatelessWidget {
                               ],
                             ),
                             /**
-                           * Page Header Widget
-                           */
+                       * Page Header Widget
+                       */
                             PageHeader(),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 /**
-                               * First Name TF Column
-                               */
+                           * First Name TF Column
+                           */
                                 FirstNameTF(
                                     firstNameController: firstNameController),
                                 /**
-                               * Last Name TF Column
-                               */
+                           * Last Name TF Column
+                           */
                                 LastNameTF(
                                     lastNameController: lastNameController),
                               ],
@@ -89,15 +87,15 @@ class RegisterPage extends StatelessWidget {
                               height: MediaQuery.of(context).size.height * .01,
                             ),
                             /**
-                           * Email TF
-                           */
+                       * Email TF
+                       */
                             EmailTF(emailController: emailController),
                             SizedBox(
                               height: MediaQuery.of(context).size.height * .02,
                             ),
                             /**
-                                   * Password TF
-                                   */
+                               * Password TF
+                               */
 
                             Text("Password"),
                             SizedBox(
@@ -124,7 +122,7 @@ class RegisterPage extends StatelessWidget {
                     );
                   }),
             ),
-          ),
+          ],
         ),
       ),
     );

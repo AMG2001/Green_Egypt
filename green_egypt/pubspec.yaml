@@ -43,6 +43,7 @@ dependencies:
   get: ^4.6.5
   google_sign_in: ^5.4.2
   lottie: ^1.4.3
+  responsive_sizer: ^3.1.1
   shared_preferences: ^2.0.15
   smooth_page_indicator: ^1.0.0+2
 dev_dependencies:
