@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:green_egypt/screens/home_page/home_page.dart';
+import 'package:green_egypt/screens/intro_screen_2/intro_screen_2.dart';
 import 'package:green_egypt/screens/introduction_screen/introduction_screen.dart';
 import 'package:green_egypt/screens/login_screen/login_screen.dart';
 import 'package:green_egypt/screens/register_page/register_page.dart';
@@ -14,7 +15,7 @@ class PagesNames {
   static String startScreen = "/start";
   static String registerPage = "/register";
   static String feedBackPage = "/feedBack";
-
+  static String introScreen2 = "/introScreen2";
   static List<GetPage> listOfPages = [
     GetPage(
         name: PagesNames.splachScreen,
@@ -40,9 +41,13 @@ class PagesNames {
         name: registerPage,
         page: () => RegisterPage(),
         transition: Transition.fade),
-        GetPage(
+    GetPage(
         name: feedBackPage,
         page: () => RegisterPage(),
+        transition: Transition.fade),
+    GetPage(
+        name: introScreen2,
+        page: () => IntroScreen2(),
         transition: Transition.fade)
   ];
 }

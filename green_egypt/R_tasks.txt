@@ -4,7 +4,16 @@
 3- finish Feedback Page Backend "Not now".
 
 ** Docs Journey 🤍 : 
-1- project main View 
+1- project main View ✔
 2- each folder in detailed .
 3- each page in detailed .
 4- Data paths and logic . 
+---- Screens docs : 
+1- main :
+2- splach :
+3- start : 
+4- Register Page :
+5- Login Page : 
+6- introduction Screen : "Waiting to finish design".
+7- home page : 
+8- feedback Page :  

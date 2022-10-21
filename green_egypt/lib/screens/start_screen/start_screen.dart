@@ -51,6 +51,9 @@ class StartScreen extends StatelessWidget {
                     SizedBox(
                       width: 12,
                     ),
+                    /**
+                     * Animated text "Green_Egypt"
+                     */
                     AnimatedTextKit(
                       repeatForever: true,
                       animatedTexts: [
@@ -74,6 +77,9 @@ class StartScreen extends StatelessWidget {
                 SizedBox(
                   height: 12,
                 ),
+                /**
+                 * Regsiter button
+                 */
                 OutlinedButton(
                   style: ButtonStyle(
                     side: MaterialStateProperty.all<BorderSide>(
@@ -118,6 +124,9 @@ class StartScreen extends StatelessWidget {
                 SizedBox(
                   height: 12,
                 ),
+                /**
+                 * Login button
+                 */
                 ElevatedButton(
                   style: ButtonStyle(
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
