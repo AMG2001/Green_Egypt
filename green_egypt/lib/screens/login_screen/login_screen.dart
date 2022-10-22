@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:green_egypt/config/dimensions.dart';
 import 'package:green_egypt/screens/login_screen/login_page_components/login_page_buttons/facebook_login_button.dart';
 import 'package:green_egypt/screens/login_screen/login_page_components/login_page_buttons/google_signin_button.dart';
 import 'package:green_egypt/screens/login_screen/login_page_components/login_page_buttons/register_and_forget_password_row.dart';
@@ -6,7 +7,6 @@ import 'package:green_egypt/screens/login_screen/login_page_components/login_pag
 import 'package:green_egypt/screens/login_screen/login_page_components/login_page_header_image.dart';
 import 'package:green_egypt/screens/login_screen/login_page_components/passwordTextField/password_text_field.dart';
 import 'package:green_egypt/screens/login_screen/login_page_components/userNameTextField/user_name_text_field.dart';
-
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -95,6 +95,40 @@ class _MyWidgetState extends State<LoginScreen> {
                         child: Column(
                           children: [
                             /**
+                               * login Anonymous
+                               */
+
+                            SignInButton(
+                              emailController: userNameTextEditingController,
+                              passwordController: passwordTextEditingController,
+                            ),
+                            SizedBox(
+                              height: MediaQuery.of(context).size.width * .03,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Container(
+                                    width: Dimensions.width * .3,
+                                    color: Colors.grey[300],
+                                    height: 2),
+                                SizedBox(
+                                  width: 12,
+                                ),
+                                Text("or"),
+                                SizedBox(
+                                  width: 12,
+                                ),
+                                Container(
+                                    width: Dimensions.width * .3,
+                                    color: Colors.grey[300],
+                                    height: 2),
+                              ],
+                            ),
+                            SizedBox(
+                              height: MediaQuery.of(context).size.width * .03,
+                            ),
+                            /**
                                * Signin with Google button
                                */
                             GoogleSignInButton(),
@@ -105,16 +139,6 @@ class _MyWidgetState extends State<LoginScreen> {
                                * Signin with Facebook
                                */
                             FacebookSignInButton(),
-                            /**
-                               * login Anonymous
-                               */
-                            SizedBox(
-                              height: MediaQuery.of(context).size.width * .03,
-                            ),
-                            SignInButton(
-                              emailController: userNameTextEditingController,
-                              passwordController: passwordTextEditingController,
-                            ),
                           ],
                         ),
                       )
