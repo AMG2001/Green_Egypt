@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:green_egypt/screens/feed_back_page/feed_back_page_components/page_header.dart';
+import 'package:green_egypt/screens/feed_back_page/feed_back_page_components/second_section.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class FeedBackPage extends StatefulWidget {
   const FeedBackPage({Key? key}) : super(key: key);
@@ -21,124 +24,11 @@ class _FeedBackPageState extends State<FeedBackPage> {
           ),
           child: Column(
             children: [
-              Expanded(
-                  child: Container(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: const [
-                    Text(
-                      ' R E S Y ',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        backgroundColor: Colors.deepOrangeAccent,
-                        fontSize: 28,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 22,
-                    ),
-                    Text(
-                      'How was Tin Shed Garden Cafe?',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                        fontSize: 24,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 15,
-                    ),
-                    Text(
-                      'we appreciate feedback about your experince',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 16,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 30.0,
-                    ),
-                    Divider(
-                      height: 1,
-                      color: Colors.black54,
-                    )
-                  ],
-                ),
-                width: double.infinity,
-                alignment: Alignment.center,
-              )),
-              Expanded(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 8.0,
-                        horizontal: 12,
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          const Text(
-                            'How likely are you recommend Tin shed Garden Cafe to others?',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
-                              fontSize: 18,
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          RatingBar.builder(
-                            itemCount: 5,
-                            initialRating: 2,
-                            minRating: 1,
-                            allowHalfRating: true,
-                            direction: Axis.horizontal,
-                            itemPadding:
-                                const EdgeInsets.symmetric(horizontal: 8),
-                            itemBuilder: (context, index) => const Icon(
-                              Icons.star,
-                              color: Colors.deepOrangeAccent,
-                            ),
-                            onRatingUpdate: (value) {},
-                          ),
-                          const SizedBox(
-                            height: 15,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 30,
-                            ),
-                            child: Row(
-                              children: const [
-                                Text(
-                                  'Not Likely',
-                                ),
-                                Text(
-                                  '----------------------------------------------------',
-                                ),
-                                Text(
-                                  'Likely',
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    const Divider(
-                      height: 1,
-                      color: Colors.black54,
-                    ),
-                  ],
-                ),
-              ),
+              /**
+               * Page Header
+               */
+              FeedbackHeader(),
+              SecondSection(),
               Expanded(
                 child: Column(
                   children: [
@@ -165,6 +55,7 @@ class _FeedBackPageState extends State<FeedBackPage> {
                       ),
                     ),
                     Expanded(
+                      flex: 1,
                       child: Column(
                         children: [
                           Row(

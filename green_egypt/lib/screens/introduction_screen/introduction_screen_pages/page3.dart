@@ -107,7 +107,7 @@ class Page3 extends StatelessWidget {
                   backgroundColor: MaterialStateProperty.all<Color>(pageColor)),
               onPressed: () {
                 controller.nextPage(
-                    duration: Duration(milliseconds: 750), curve: Curves.ease);
+                    duration: Duration(milliseconds: 750), curve: Curves.easeInOut);
               },
               child: Row(
                 mainAxisSize: MainAxisSize.min,

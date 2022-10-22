@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:green_egypt/config/pages_names.dart';
 
 class SignInButton extends StatelessWidget {
   TextEditingController emailController;
@@ -18,18 +20,13 @@ class SignInButton extends StatelessWidget {
       style: ButtonStyle(
         shape: MaterialStateProperty.all<OutlinedBorder>(
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(28))),
-        backgroundColor:
-            MaterialStateProperty.all<Color>(Colors.green),
+        backgroundColor: MaterialStateProperty.all<Color>(Colors.green),
       ),
       /**
        * Button Action
        */
       onPressed: () async {
-        /**
-         * Sign in with custom email and password
-         */
-        // await SignInWithEmailAndPassword(context: context)
-        //     .signIn(emailController.text, passwordController.text);
+        Get.toNamed(PagesNames.feedBackPage);
       },
       child: Padding(
         padding: const EdgeInsets.all(18.0),

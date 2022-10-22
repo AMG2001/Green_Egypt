@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:green_egypt/screens/feed_back_page/feed_back_page.dart';
 import 'package:green_egypt/screens/home_page/home_page.dart';
 import 'package:green_egypt/screens/introduction_screen/intro_screen_2.dart';
 import 'package:green_egypt/screens/login_screen/login_screen.dart';
@@ -41,7 +42,7 @@ class PagesNames {
         transition: Transition.fade),
     GetPage(
         name: feedBackPage,
-        page: () => RegisterPage(),
+        page: () => FeedBackPage(),
         transition: Transition.fade),
   ];
 }

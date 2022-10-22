@@ -54,11 +54,9 @@ class SplachScreenCustom extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(
-                Icons.recycling_sharp,
-                color: Colors.green,
-                size: 60,
-              ),
+              Image(
+                  image: AssetImage(ImagesPaths.applicationLogo),
+                  width: Dimensions.width * .35),
               SizedBox(
                 height: 18,
               ),

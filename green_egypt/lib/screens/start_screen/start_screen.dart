@@ -2,6 +2,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:green_egypt/config/constants.dart';
+import 'package:green_egypt/config/dimensions.dart';
 import 'package:green_egypt/config/images_paths.dart';
 import 'package:green_egypt/config/pages_names.dart';
 
@@ -22,7 +23,7 @@ class StartScreen extends StatelessWidget {
              */
             colorFilter: ColorFilter.mode(
                 Colors.black.withOpacity(0.3), BlendMode.darken),
-                /**
+            /**
                  * start page background Image 
                  */
             image: AssetImage(ImagesPaths.startPageImagePath),
@@ -40,13 +41,9 @@ class StartScreen extends StatelessWidget {
                  */
                 Row(
                   children: [
-                    Hero(
-                      tag: Constants.recyclingIconTag,
-                      child: Icon(
-                        Icons.recycling_outlined,
-                        color: Colors.green,
-                        size: 56,
-                      ),
+                    Image(
+                      image: AssetImage(ImagesPaths.applicationLogo),
+                      width: Dimensions.width * .15,
                     ),
                     SizedBox(
                       width: 12,
