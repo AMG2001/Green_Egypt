@@ -36,23 +36,25 @@ class GoogleSignInButton extends StatelessWidget {
            */
       onPressed: () async {
         try {
+          /**
+           * First Fetch data from online Firestore
+           */
           await GoogleAuth.signInWithGoogle().then((data) async {
-            print("Button user name in button : ${data.user!.displayName}");
-            print("Button email is : ${data.user!.email!}");
-            // print("Button phone number is : ${data.user!.phoneNumber!}");
-            print("Button user image url : ${data.user!.photoURL}");
-            Get.offNamed(PagesNames.homePage);
-            // await UserDataModel.initiateUserDataModel(
-            //         email: data.user!.email!,
-            //         name: data.user!.displayName!,
-            //         imageUrl: data.user!.photoURL!,
-            //         userPhoneNumber: data.user!.phoneNumber!)
-            //     .then((value) {
-            //   print("email is : ${data.user!.email!}");
-            //   print("name is : ${data.user!.displayName!}");
-            //   print("phone number is : ${data.user!.phoneNumber!}");
-          });
-          // }).then((value) => Get.offNamed(PagesNames.homePage));
+            /**
+             * Second store all user data in UserDataModel with number = ""
+             * Number will be changed from user account setting inside application .
+             */
+            await UserDataModel.initiateUserDataModel(
+                // initiate user email .
+                email: data.user!.email!,
+                // initiate user name .
+                name: data.user!.displayName!,
+                // initiate user image url .
+                imageUrl: data.user!.photoURL!,
+                // initiate user number with default value : "" .
+                userPhoneNumber: "");
+            // after all these configrations finished , move to HomePage() .
+          }).then((value) => Get.offNamed(PagesNames.homePage));
         } on FirebaseAuthException catch (e) {
           CustomToast.showRedToast(messsage: e.code);
         }

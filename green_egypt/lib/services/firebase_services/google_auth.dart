@@ -16,12 +16,6 @@ class GoogleAuth {
     );
 
     // Once signed in, return the UserCredential
-    return await FirebaseAuth.instance
-        .signInWithCredential(credential)
-        .then((value) {
-      print("user email is : ${value.user!.email}");
-      print("user name is : ${value.user!.displayName}");
-      return value;
-    });
+    return await FirebaseAuth.instance.signInWithCredential(credential);
   }
 }
