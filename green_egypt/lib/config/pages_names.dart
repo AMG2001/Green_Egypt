@@ -29,9 +29,7 @@ class PagesNames {
         page: () => LoginScreen(),
         transition: Transition.fade),
     GetPage(
-        name: homePage,
-        page: () => HomePage(),
-        transition: Transition.leftToRight),
+        name: homePage, page: () => HomePage(), transition: Transition.fade),
     GetPage(
         name: startScreen,
         page: () => StartScreen(),

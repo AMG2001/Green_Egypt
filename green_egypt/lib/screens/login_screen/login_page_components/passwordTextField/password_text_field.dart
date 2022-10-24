@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:green_egypt/screens/login_screen/login_page_components/passwordTextField/password_tf_controller.dart';
 import 'package:green_egypt/screens/login_screen/login_page_components/userNameTextField/user_name_tf_controller.dart';
+
 class PasswordTextField extends StatelessWidget {
   PasswordTextField({
     Key? key,
@@ -25,6 +26,13 @@ class PasswordTextField extends StatelessWidget {
              * Password Text Field
              */
         child: TextFormField(
+          validator: (value) {
+            if (value == "" || value == null) {
+              return "You can't leave password empty";
+            } else if (value.length < 8) {
+              return "Password must be 8 or more !!";
+            }
+          },
           style: Theme.of(context).textTheme.subtitle1,
           controller: passwordTextEditingController,
           onEditingComplete: () {
@@ -45,7 +53,7 @@ class PasswordTextField extends StatelessWidget {
             ),
             labelText: "Password",
             labelStyle: TextStyle(color: controller.pLabelColor),
-            focusColor:Colors.green,
+            focusColor: Colors.green,
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
               borderSide: BorderSide(color: Colors.green),

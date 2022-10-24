@@ -35,6 +35,9 @@ class RegisterPageController extends GetxController {
   }
 
   void changeValidationMode() {
+    /**
+     * Keep tracking user input and validate it immediatly !! 🔥🤍
+     */
     validationMode = AutovalidateMode.onUserInteraction;
     update();
   }

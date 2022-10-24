@@ -18,12 +18,19 @@ class UserNameTextField extends StatelessWidget {
     return GetBuilder<UserNameTFController>(builder: (controller) {
       return Container(
         padding: EdgeInsets.symmetric(
-           horizontal: MediaQuery.of(context).size.width * .05),
+            horizontal: MediaQuery.of(context).size.width * .05),
         width: MediaQuery.of(context).size.width,
         /**
              * User Name Text Field
              */
         child: TextFormField(
+          validator: ((value) {
+            if (value!.isEmpty) {
+              return "you can't leave user name field empty !!";
+            } else if (!value.isEmail) {
+              return "this is not email !!";
+            }
+          }),
           style: Theme.of(context).textTheme.subtitle1,
           controller: userNameTextEditingController,
           onEditingComplete: () {
@@ -43,7 +50,7 @@ class UserNameTextField extends StatelessWidget {
                 )),
             labelText: "UserName",
             labelStyle: TextStyle(color: controller.labelColor),
-            focusColor:Colors.green,
+            focusColor: Colors.green,
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
               borderSide: BorderSide(color: Colors.green),

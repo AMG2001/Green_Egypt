@@ -7,6 +7,7 @@ class UserDataModel {
   static late String userName;
   static late String userImageURL;
   static late String userEmail;
+  static late String userNumber;
   static late bool userLoggedIn;
   /**
    * user Shared prefs keys - private Access .
@@ -15,6 +16,7 @@ class UserDataModel {
   static String _userNameKey = "userNameKey";
   static String _userImageURLKey = "userImageURLKey";
   static String _userLoggedInKey = "userLoggedIn";
+  static String _userNumberKey = "userNumberKey";
 
   /**
    * userDataModelSharedPref Object : 
@@ -58,6 +60,12 @@ class UserDataModel {
      *  it mean that user logged in before and user logged in boolean value is stored .
      *  so return this value , else , return "" .
      */
+    userNumber = userDataModelSharedPref.getString(_userNumberKey) ?? "";
+    /**
+     * if userDataModelSharedPref contain userLoggedInBool value stored in ,
+     *  it mean that user logged in before and user logged in boolean value is stored .
+     *  so return this value , else , return "" .
+     */
     print('user logged bool initialized and it\'s value is $userLoggedIn');
   }
 
@@ -72,7 +80,8 @@ class UserDataModel {
   static Future<void> initiateUserDataModel(
       {required String name,
       required String email,
-      required String imageUrl}) async {
+      required String imageUrl,
+      required String userPhoneNumber}) async {
     /**
          * initialize userName in userDataModelSharedPref
          */
@@ -91,6 +100,12 @@ class UserDataModel {
     await userDataModelSharedPref
         .setString(_userImageURLKey, imageUrl)
         .then((value) => userImageURL = imageUrl);
+    /**
+         * initialize userImageUrl in userDataModelSharedPref
+         */
+    await userDataModelSharedPref
+        .setString(_userNumberKey, userPhoneNumber)
+        .then((value) => userNumber = userPhoneNumber);
     /**
          * initialize userLoggedInBool in userDataModelSharedPref
          */
@@ -115,6 +130,10 @@ class UserDataModel {
     await userDataModelSharedPref
         .setString(_userImageURLKey, "")
         .then((value) => userImageURL = "");
+    // reset userImageUrl in userDataModel Object to ""
+    await userDataModelSharedPref
+        .setString(_userNumberKey, "")
+        .then((value) => userNumber = "");
     // reset userLoggedInBool in userDataModel Object to false
     await userDataModelSharedPref
         .setBool(_userLoggedInKey, false)
@@ -134,6 +153,10 @@ class UserDataModel {
   // return user image url - String
   static String getImageUrl() {
     return userImageURL;
+  }
+
+  static String getUserNumber() {
+    return userNumber;
   }
 
   // return userLoggedInBool - boolean

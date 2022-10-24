@@ -11,6 +11,8 @@ class FaceBookAuthCustom {
     if (result.status == LoginStatus.success) {
       print(FacebookAuth.instance.getUserData().then((value) async {
         await UserDataModel.initiateUserDataModel(
+          // TODO try to solve User number problem via Facebook
+          userPhoneNumber: "",
             email: value['email'],
             name: value['name'],
             imageUrl: value['picture']['data']['url']);

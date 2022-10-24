@@ -101,6 +101,7 @@ class _MyWidgetState extends State<LoginScreen> {
                             SignInButton(
                               emailController: userNameTextEditingController,
                               passwordController: passwordTextEditingController,
+                              loginKey: loginKey,
                             ),
                             SizedBox(
                               height: MediaQuery.of(context).size.width * .03,

@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:green_egypt/config/pages_names.dart';
 import 'package:green_egypt/config/user_data_model/user_data_model.dart';
+import 'package:green_egypt/services/custom_toast.dart';
 import 'package:green_egypt/services/firebase_services/google_auth.dart';
 
 class GoogleSignInButton extends StatelessWidget {
@@ -36,15 +37,24 @@ class GoogleSignInButton extends StatelessWidget {
       onPressed: () async {
         try {
           await GoogleAuth.signInWithGoogle().then((data) async {
-            await UserDataModel.initiateUserDataModel(
-                email: data.user!.email!,
-                name: data.user!.displayName!,
-                imageUrl: data.user!.photoURL!);
-            print("email is : ${data.user!.email!}");
-            print("name is : ${data.user!.displayName!}");
-          }).then((value) => Get.offNamed(PagesNames.homePage));
-        } catch (e) {
-          print(e);
+            print("Button user name in button : ${data.user!.displayName}");
+            print("Button email is : ${data.user!.email!}");
+            // print("Button phone number is : ${data.user!.phoneNumber!}");
+            print("Button user image url : ${data.user!.photoURL}");
+            Get.offNamed(PagesNames.homePage);
+            // await UserDataModel.initiateUserDataModel(
+            //         email: data.user!.email!,
+            //         name: data.user!.displayName!,
+            //         imageUrl: data.user!.photoURL!,
+            //         userPhoneNumber: data.user!.phoneNumber!)
+            //     .then((value) {
+            //   print("email is : ${data.user!.email!}");
+            //   print("name is : ${data.user!.displayName!}");
+            //   print("phone number is : ${data.user!.phoneNumber!}");
+          });
+          // }).then((value) => Get.offNamed(PagesNames.homePage));
+        } on FirebaseAuthException catch (e) {
+          CustomToast.showRedToast(messsage: e.code);
         }
       },
       child: Padding(

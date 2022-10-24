@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -53,10 +54,11 @@ class RegisterAndForgetPasswordRow extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              // Fluttertoast.showToast(
-              //     msg: "this Function isn't Available now !!",
-              //     toastLength: Toast.LENGTH_SHORT,
-              //     backgroundColor: Colors.black);
+              // TODO add forget password Feature .
+              Fluttertoast.showToast(
+                  msg: "this Function isn't Available now !!",
+                  toastLength: Toast.LENGTH_SHORT,
+                  backgroundColor: Colors.black);
             },
             child: Text(
               "Forgot Password?",

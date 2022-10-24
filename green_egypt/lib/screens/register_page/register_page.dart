@@ -8,6 +8,7 @@ import 'package:green_egypt/screens/register_page/regsiter_page_components.dart/
 import 'package:green_egypt/screens/register_page/regsiter_page_components.dart/page_header.dart';
 import 'package:green_egypt/screens/register_page/regsiter_page_components.dart/password_text_field.dart';
 import 'package:green_egypt/screens/register_page/regsiter_page_components.dart/sign_up_button.dart';
+import 'package:green_egypt/screens/register_page/regsiter_page_components.dart/user_number_TF.dart';
 
 class RegisterPage extends StatelessWidget {
   final signUpPageController =
@@ -17,6 +18,7 @@ class RegisterPage extends StatelessWidget {
   TextEditingController lastNameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController userNumberController = TextEditingController();
   RegisterPage({super.key});
 
   @override
@@ -107,15 +109,24 @@ class RegisterPage extends StatelessWidget {
                             SizedBox(
                               height: MediaQuery.of(context).size.height * .02,
                             ),
+                            Text("Mobile Number"),
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * .02,
+                            ),
+                            UserNumberTF(
+                                userNumberController: userNumberController,
+                                signUpPageController: signUpPageController),
                             SizedBox(
                               height: MediaQuery.of(context).size.height * .02,
                             ),
                             SignUpButton(
-                                sigUpFormState: sigUpFormState,
-                                emailController: emailController,
-                                passwordController: passwordController,
-                                firstNameController: firstNameController,
-                                lastNameController: lastNameController)
+                              sigUpFormState: sigUpFormState,
+                              emailController: emailController,
+                              passwordController: passwordController,
+                              firstNameController: firstNameController,
+                              lastNameController: lastNameController,
+                              userNumberController: userNumberController,
+                            )
                           ],
                         ),
                       ),
