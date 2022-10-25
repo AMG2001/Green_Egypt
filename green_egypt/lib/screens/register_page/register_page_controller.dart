@@ -126,7 +126,7 @@ class RegisterPageController extends GetxController {
                       /**
                          * Navigate to Home Screen 
                          */
-                      Get.offNamed(PagesNames.homePage);
+                      Get.offNamed(PagesNames.loginScreen);
                     });
                     return Padding(
                       padding: const EdgeInsets.all(12.0),
