@@ -1,8 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:green_egypt/config/pages_names.dart';
+import 'package:green_egypt/config/user_data_model/user_data_model.dart';
 import 'package:green_egypt/services/custom_toast.dart';
 import 'package:lottie/lottie.dart';
 
@@ -45,38 +47,64 @@ class SignInButton extends StatelessWidget {
                     child: CircularProgressIndicator(color: Colors.white),
                   );
                 });
+            /**
+                 * Sign in with email and password 
+                 */
             await FirebaseAuth.instance
                 .signInWithEmailAndPassword(
                     email: emailController.text,
                     password: passwordController.text)
-                .then((value) {
+                .then((value) async {
               /**
+                   * Fetch user data from FireStore .
+                   */
+              final result = await FirebaseFirestore.instance
+                  .collection('user_logs')
+                  .where('user_email', isEqualTo: emailController.text)
+                  .get()
+                  .then((value) async {
+                /**
+               * Get user document and store it in userDocument variable .
+               */
+                var userDocument = value.docs.map((e) => e.data()).first;
+                /**
+               * initialize user data model .
+               */
+                await UserDataModel.initiateUserDataModel(
+                        name: userDocument['user_name'],
+                        email: userDocument['user_email'],
+                        imageUrl: userDocument['user_image_url'],
+                        userPhoneNumber: userDocument['user_phone_number'])
+                    .then((value) {
+                  /**
                * Remove loading indicator
                */
-              Get.back();
-              /**
+                  Get.back();
+                  /**
            * Show success animation
            */
-              showDialog(
-                  context: context,
-                  builder: (context) {
-                    Future.delayed(Duration(seconds: 3), () {
-                      /**
+                  showDialog(
+                      context: context,
+                      builder: (context) {
+                        Future.delayed(Duration(seconds: 3), () {
+                          /**
                         * Remove Success Animation
                         */
-                      Get.back();
-                      /**
+                          Get.back();
+                          /**
                          * Navigate to Home Screen 
                          */
-                      Get.offNamed(PagesNames.homePage);
-                    });
-                    return Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Lottie.asset(
-                          'assets/animated_vectors/register_success.json',
-                          repeat: false),
-                    );
-                  });
+                          Get.offNamed(PagesNames.homePage);
+                        });
+                        return Padding(
+                          padding: const EdgeInsets.all(12.0),
+                          child: Lottie.asset(
+                              'assets/animated_vectors/register_success.json',
+                              repeat: false),
+                        );
+                      });
+                });
+              });
             });
           } on FirebaseAuthException catch (e) {
             /**

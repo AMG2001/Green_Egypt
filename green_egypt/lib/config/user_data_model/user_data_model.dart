@@ -163,4 +163,10 @@ class UserDataModel {
   static bool getUserLoggedInBool() {
     return userLoggedIn;
   }
+
+  Map<String, dynamic> getUserDataFromJson() {
+    Map<String, dynamic> userData = {};
+    
+    return userData;
+  }
 }

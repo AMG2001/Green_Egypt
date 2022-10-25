@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -39,22 +40,68 @@ class GoogleSignInButton extends StatelessWidget {
           /**
            * First Fetch data from online Firestore
            */
-          await GoogleAuth.signInWithGoogle().then((data) async {
+          await GoogleAuth.signInWithGoogle().then((userCredential) async {
             /**
              * Second store all user data in UserDataModel with number = ""
              * Number will be changed from user account setting inside application .
              */
-            await UserDataModel.initiateUserDataModel(
-                // initiate user email .
-                email: data.user!.email!,
-                // initiate user name .
-                name: data.user!.displayName!,
-                // initiate user image url .
-                imageUrl: data.user!.photoURL!,
-                // initiate user number with default value : "" .
-                userPhoneNumber: "");
-            // after all these configrations finished , move to HomePage() .
-          }).then((value) => Get.offNamed(PagesNames.homePage));
+            /**
+         * try to get user data from firestore , if there is an error :
+         * it mean that user is first time login with this account , so 
+         * get data , send it to firestore , add data also to UserDataModel . 
+         */
+            try {
+              final document = await FirebaseFirestore.instance
+                  .collection('user_logs')
+                  .where('user_email', isEqualTo: userCredential.user!.email)
+                  .get();
+
+              /**
+         * if there is no errors , it mean that this user account is registered before on firestore,
+         * so get account data in map and then store it in UserDataModel .
+         * then navigate to HomePage
+         */
+              var userData = document.docs.map((e) => e.data()).first;
+              /**
+           * Store fetched data in UserDataModel .
+           */
+              await UserDataModel.initiateUserDataModel(
+                      // TODO try to solve User number problem via Facebook
+                      userPhoneNumber: userData['user_phone_number'],
+                      email: userData['user_email'],
+                      name: userData['user_name'],
+                      imageUrl: userData['user_image_url'])
+                  .then((value) => Get.offNamed(PagesNames.homePage));
+            } catch (e) {
+              /**
+               * add user in firestore but without id
+               */
+              await FirebaseFirestore.instance.collection('user_logs').add({
+                'user_email': userCredential.user!.email,
+                'user_name': userCredential.user!.displayName,
+                'user_image_url': userCredential.user!.photoURL,
+                'user_phone_number': ""
+              }).then((document) async {
+                /**
+             * update user data on firestore by adding id .
+             */
+                await FirebaseFirestore.instance
+                    .collection('user_logs')
+                    .doc(document.id)
+                    .update({'user_id': document.id}).then((x) async {
+                  /**
+                   * add user data into UserDataModel
+                   */
+                  await UserDataModel.initiateUserDataModel(
+                      // TODO try to solve User number problem via Facebook
+                      userPhoneNumber: "",
+                      email: userCredential.user!.email!,
+                      name: userCredential.user!.displayName!,
+                      imageUrl: userCredential.user!.photoURL!);
+                }).then((value) => Get.offNamed(PagesNames.homePage));
+              });
+            }
+          });
         } on FirebaseAuthException catch (e) {
           CustomToast.showRedToast(messsage: e.code);
         }
