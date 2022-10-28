@@ -1,12 +1,8 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:green_egypt/config/pages_names.dart';
-import 'package:green_egypt/config/user_data_model/user_data_model.dart';
 import 'package:green_egypt/screens/home_page/home_screen/home_screen.dart';
-import 'package:green_egypt/screens/home_page/more_page/more_page.dart';
 import 'package:green_egypt/screens/home_page/transactions_page/transactions_page.dart';
+import 'package:green_egypt/screens/home_page/more_page/more_page.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class HomePage extends StatefulWidget {
