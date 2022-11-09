@@ -37,7 +37,7 @@ class GreenEgypt extends StatelessWidget {
          * Get Builder that will change the theme depending on user choice 
          */
         return GetBuilder<ApplicationThemeController>(
-          /**
+            /**
            * Changing theme logic stored in ApplicationThemeController
            * theme itself is stored in ApplicationTheme .
            */

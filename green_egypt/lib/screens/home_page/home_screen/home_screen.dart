@@ -10,9 +10,17 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: Get.width,
-      height: Get.height,
-      child: Column(
+        width: Get.width,
+        height: Get.height,
+        child: Image(
+          fit: BoxFit.fitHeight,
+          image: AssetImage("assets/images/main_page.jpeg"),
+        ));
+  }
+}
+
+/**
+ * Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           CircleAvatar(
@@ -42,6 +50,4 @@ class HomeScreen extends StatelessWidget {
               child: Text("Sign out"))
         ],
       ),
-    );
-  }
-}
+ */

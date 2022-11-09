@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:green_egypt/config/dimensions.dart';
 
-class MorePage extends StatelessWidget {
-  const MorePage({Key? key}) : super(key: key);
+class QrCodePage extends StatelessWidget {
+  const QrCodePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,19 +11,7 @@ class MorePage extends StatelessWidget {
         height: Dimensions.height,
         child: Image(
           fit: BoxFit.fitWidth,
-          image: AssetImage('assets/images/more_page.jpeg'),
+          image: AssetImage('assets/images/qrcode_page.jpeg'),
         ));
   }
 }
-
-/**
- * Column(
-  children: [
-    Row(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: [
-        IconButton(Icons.elli)
-      ],)
-  ],
-),
- */
