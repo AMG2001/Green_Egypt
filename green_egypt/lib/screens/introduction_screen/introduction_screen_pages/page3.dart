@@ -101,6 +101,7 @@ class Page3 extends StatelessWidget {
           ),
           ElevatedButton(
               style: ButtonStyle(
+                  padding: MaterialStateProperty.all<EdgeInsetsGeometry>(EdgeInsets.all(16)),
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(16))),
@@ -111,7 +112,7 @@ class Page3 extends StatelessWidget {
               },
               child: Row(
                 mainAxisSize: MainAxisSize.min,
-                children: [Text("Next"), Icon(Icons.navigate_next_outlined)],
+                children: [ Icon(Icons.arrow_forward_rounded)],
               ))
         ],
       ),

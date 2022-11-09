@@ -38,7 +38,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
      * initialize introPages List to load pages with images , text , idicator m colors and buttons .
      */
     introPages = [
-      Page1(image: image1, controller: pageController),
+      Page1(image: image1,controller: pageController),
       Page2(image: image2, controller: pageController),
       Page3(image: image3, controller: pageController),
       Page4(image: image4, controller: pageController),

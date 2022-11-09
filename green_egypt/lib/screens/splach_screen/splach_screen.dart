@@ -56,7 +56,7 @@ class SplachScreenCustom extends StatelessWidget {
             children: [
               Image(
                   image: AssetImage(ImagesPaths.applicationLogo),
-                  width: Dimensions.width * .35),
+                  width: Dimensions.width * .2),
               SizedBox(
                 height: 18,
               ),

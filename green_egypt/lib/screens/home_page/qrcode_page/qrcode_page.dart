@@ -1,17 +1,72 @@
-import 'package:flutter/material.dart';
-import 'package:green_egypt/config/dimensions.dart';
+import 'dart:io';
 
-class QrCodePage extends StatelessWidget {
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:qr_code_scanner/qr_code_scanner.dart';
+
+class QrCodePage extends StatefulWidget {
   const QrCodePage({super.key});
 
   @override
+  State<QrCodePage> createState() => _QrCodePageState();
+}
+
+class _QrCodePageState extends State<QrCodePage> {
+  final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
+  Barcode? result;
+  QRViewController? controller;
+
+  // In order to get hot reload to work we need to pause the camera if the platform
+  // is android, or resume the camera if the platform is iOS.
+  @override
+  void reassemble() {
+    super.reassemble();
+    if (Platform.isAndroid) {
+      controller!.pauseCamera();
+    } else if (Platform.isIOS) {
+      controller!.resumeCamera();
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Container(
-        width: Dimensions.width,
-        height: Dimensions.height,
-        child: Image(
-          fit: BoxFit.fitWidth,
-          image: AssetImage('assets/images/qrcode_page.jpeg'),
-        ));
+    return Scaffold(
+      body: Column(
+        children: <Widget>[
+          Expanded(
+            flex: 5,
+            child: QRView(
+              cameraFacing: CameraFacing.back,
+              key: qrKey,
+              onQRViewCreated: _onQRViewCreated,
+            ),
+          ),
+          Expanded(
+            flex: 2,
+            child: Center(
+              child: (result != null)
+                  ? Text(
+                      'Barcode Type: ${describeEnum(result!.format)}  \n  Data: ${result!.code}')
+                  : Text('Scan a code'),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  void _onQRViewCreated(QRViewController controller) {
+    this.controller = controller;
+    controller.scannedDataStream.listen((scanData) {
+      setState(() {
+        result = scanData;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    controller?.dispose();
+    super.dispose();
   }
 }

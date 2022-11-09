@@ -49,10 +49,13 @@ dependencies:
   shared_preferences: ^2.0.15
   smooth_page_indicator: ^1.0.0+2
 dev_dependencies:
+  flutter_barcode_scanner: ^2.0.0
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
   font_awesome_flutter: ^10.2.1
+  qr_code_scanner: ^1.0.1
+  qr_flutter: ^4.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -80,10 +83,11 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  #  fonts:
+  #    - family: Inter
+  #      fonts:
+  #        - asset: assets/fonts/Inter-Regular.ttf
+  #        weight: 400
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
