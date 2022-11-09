@@ -46,7 +46,7 @@ class _QrCodePageState extends State<QrCodePage> {
             child: Center(
               child: (result != null)
                   ? Text(
-                      'Barcode Type: ${describeEnum(result!.format)}  \n  Data: ${result!.code}')
+                      'Barcode Type: ${describeEnum(result!.format)}  \nData: ${result!.code}')
                   : Text('Scan a code'),
             ),
           )

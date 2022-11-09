@@ -10,7 +10,7 @@ class CustomToast {
         timeInSecForIosWeb: 1,
         backgroundColor: Colors.green,
         textColor: Colors.white,
-        fontSize: 16.0);
+        fontSize: 14.0);
   }
 
   static void showRedToast({required String messsage}) {
@@ -21,7 +21,7 @@ class CustomToast {
         timeInSecForIosWeb: 1,
         backgroundColor: Colors.red,
         textColor: Colors.white,
-        fontSize: 16.0);
+        fontSize: 14.0);
   }
 
   static void showBlackToast({required String messsage}) {
@@ -32,6 +32,17 @@ class CustomToast {
         timeInSecForIosWeb: 1,
         backgroundColor: Colors.black,
         textColor: Colors.white,
-        fontSize: 16.0);
+        fontSize: 14.0);
+  }
+
+  static void showGreyToast({required String messsage}) {
+    Fluttertoast.showToast(
+        msg: messsage,
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.BOTTOM,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.grey,
+        textColor: Colors.white,
+        fontSize: 14.0);
   }
 }
