@@ -30,15 +30,15 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
     /**
      * initialize images with it's path
      */
-    image1 = const AssetImage('assets/introduction_images/organic_basket.png');
-    image2 = const AssetImage('assets/introduction_images/plastic_basket.png');
-    image3 = const AssetImage('assets/introduction_images/glass_basket.png');
-    image4 = const AssetImage('assets/introduction_images/paper_basket.png');
+    image1 = const AssetImage('assets/introduction_images/first_design.png');
+    image2 = const AssetImage('assets/introduction_images/second_design.png');
+    image3 = const AssetImage('assets/introduction_images/third_design.png');
+    image4 = const AssetImage('assets/introduction_images/fourth_design.png');
     /**
      * initialize introPages List to load pages with images , text , idicator m colors and buttons .
      */
     introPages = [
-      Page1(image: image1,controller: pageController),
+      Page1(image: image1, controller: pageController),
       Page2(image: image2, controller: pageController),
       Page3(image: image3, controller: pageController),
       Page4(image: image4, controller: pageController),

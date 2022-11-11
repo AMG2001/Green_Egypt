@@ -22,7 +22,7 @@ class SecondSection extends StatelessWidget {
                 height: Dimensions.height * .025,
               ),
               const Text(
-                'How likely are you recommend Tin shed Garden Cafe to others?',
+                'How likely are you recommend Green Egypt Application to others?',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Colors.black,

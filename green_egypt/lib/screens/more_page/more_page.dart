@@ -94,7 +94,7 @@ class MorePage extends StatelessWidget {
               ),
               ListTile(
                 onTap: () async {
-                  Get.toNamed(PagesNames.loginScreen);
+                  Get.offNamed(PagesNames.loginScreen);
                   await UserDataModel.userLoggedOut();
                   await FirebaseAuth.instance.signOut();
                 },
