@@ -9,6 +9,8 @@ class MorePageHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+    
+      height: Dimensions.height * .25,
       child:
           Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
         Container(

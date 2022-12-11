@@ -16,11 +16,16 @@ class MorePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("assets/images/more_page_background.png"),
+                fit: BoxFit.cover,
+                alignment: Alignment.topCenter)),
         width: Dimensions.width,
         height: Dimensions.height,
         child: Padding(
           padding: const EdgeInsets.all(12.0),
-          child: Column(
+          child: ListView(
             // mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               SizedBox(

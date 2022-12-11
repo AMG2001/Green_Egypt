@@ -4,11 +4,18 @@ class UserDataModel {
   /**
    * User Data model variables
    */
+  // will hold user name "First + last name " .
   static late String userName;
+  // user image URL .
   static late String userImageURL;
+  // user email .
   static late String userEmail;
+  // user phone number .
   static late String userNumber;
+  // user state , logged in or not .
   static late bool userLoggedIn;
+  // user credintial "one of staff of regular user ".
+  static late String userCredintial;
   /**
    * user Shared prefs keys - private Access .
    */
@@ -17,6 +24,7 @@ class UserDataModel {
   static String _userImageURLKey = "userImageURLKey";
   static String _userLoggedInKey = "userLoggedIn";
   static String _userNumberKey = "userNumberKey";
+  static String _userCredintialKey = "userCredintial";
 
   /**
    * userDataModelSharedPref Object : 
@@ -66,6 +74,12 @@ class UserDataModel {
      *  it mean that user logged in before and user logged in boolean value is stored .
      *  so return this value , else , return "" .
      */
+    userCredintial = userDataModelSharedPref.getString(_userCredintialKey) ?? "";
+    /**
+     * if userDataModelSharedPref contain userLoggedInBool value stored in ,
+     *  it mean that user logged in before and user logged in boolean value is stored .
+     *  so return this value , else , return "" .
+     */
     print('user logged bool initialized and it\'s value is $userLoggedIn');
   }
 
@@ -77,11 +91,14 @@ class UserDataModel {
    * 3- UserImageUrl
    * and add them into userDataModelSharedPref Object
    */
+
+  // TODO : add user Credintail here .
   static Future<void> initiateUserDataModel(
       {required String name,
       required String email,
       required String imageUrl,
-      required String userPhoneNumber}) async {
+      required String userPhoneNumber,
+      }) async {
     /**
          * initialize userName in userDataModelSharedPref
          */
@@ -166,7 +183,7 @@ class UserDataModel {
 
   Map<String, dynamic> getUserDataFromJson() {
     Map<String, dynamic> userData = {};
-    
+
     return userData;
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:green_egypt/config/dimensions.dart';
 import 'package:green_egypt/config/vectos_paths.dart';
 import 'package:lottie/lottie.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class PageHeader extends StatelessWidget {
   const PageHeader({Key? key}) : super(key: key);
@@ -39,7 +40,7 @@ class PageHeader extends StatelessWidget {
         ),
         Text(
           "Enter your Details : ",
-          style: TextStyle(fontSize: 18, color: Colors.green),
+          style: TextStyle(fontSize: 18.sp, color: Colors.green),
         ),
 
         /**

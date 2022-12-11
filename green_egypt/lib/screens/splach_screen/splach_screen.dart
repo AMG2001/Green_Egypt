@@ -9,6 +9,7 @@ import 'package:green_egypt/screens/introduction_screen/intro_screen_2.dart';
 import 'package:green_egypt/screens/start_screen/start_screen.dart';
 import 'package:green_egypt/services/Shared_preferences/first_launch.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class SplachScreenCustom extends StatelessWidget {
   SplachScreenCustom({super.key});
@@ -62,7 +63,7 @@ class SplachScreenCustom extends StatelessWidget {
               ),
               Text(
                 "🍀 Green Egypt 🍀",
-                style: TextStyle(fontSize: 24, color: Colors.white),
+                style: TextStyle(fontSize: 18.sp, color: Colors.white),
               ),
               SizedBox(
                 height: 24,
@@ -71,7 +72,7 @@ class SplachScreenCustom extends StatelessWidget {
                 alignment: Alignment.bottomCenter,
                 child: Text(
                   "Saving Nature is our Duty 💚",
-                  style: TextStyle(fontSize: 16, color: Colors.white),
+                  style: TextStyle(fontSize: 14.sp, color: Colors.white),
                 ),
               )
             ]),

@@ -10,8 +10,9 @@ class TransactionPage extends StatelessWidget {
         width: Dimensions.width,
         height: Dimensions.height,
         child: Image(
-          fit: BoxFit.fitWidth,
-          image: AssetImage('assets/images/transaction_page.jpeg'),
+          alignment: Alignment.topCenter,
+          fit: BoxFit.cover,
+          image: AssetImage('assets/images/transaction_page_design.png'),
         ));
   }
 }

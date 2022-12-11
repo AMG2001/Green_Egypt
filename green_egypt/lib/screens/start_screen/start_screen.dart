@@ -5,6 +5,7 @@ import 'package:green_egypt/config/constants.dart';
 import 'package:green_egypt/config/dimensions.dart';
 import 'package:green_egypt/config/images_paths.dart';
 import 'package:green_egypt/config/pages_names.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class StartScreen extends StatelessWidget {
   const StartScreen({super.key});
@@ -58,7 +59,7 @@ class StartScreen extends StatelessWidget {
                           'Green_Egypt 🍀',
                           speed: Duration(milliseconds: 500),
                           textStyle:
-                              TextStyle(color: Colors.white, fontSize: 24),
+                              TextStyle(color: Colors.white, fontSize: 20.sp),
                         ),
                       ],
                     ),

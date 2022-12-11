@@ -7,7 +7,6 @@ class Assets {
   static const String animatedVectorsRegisterAnimation = 'assets/animated_vectors/register_animation.json';
   static const String animatedVectorsRegisterSuccess = 'assets/animated_vectors/register_success.json';
   static const String animatedVectorsUnderConstruction = 'assets/animated_vectors/under_construction.json';
-  static const String assetsIntroductionImagesFirstScreenDesign = 'assets/introduction_images/first_screen_design.svg';
   static const String iconsFacebook = 'assets/icons/facebook.png';
   static const String iconsGoogle = 'assets/icons/google.png';
   static const String imagesApplicationLogo = 'assets/images/application_logo.png';
@@ -17,12 +16,14 @@ class Assets {
   static const String imagesSplash = 'assets/images/splash.jpg';
   static const String imagesStart = 'assets/images/start.jpg';
   static const String imagesTransactionPage = 'assets/images/transaction_page.jpeg';
-  static const String introductionImagesFirstScreen = 'assets/introduction_images/first_screen.svg';
-  static const String introductionImagesFirstScreenDesign = 'assets/introduction_images/first_screen_design.png';
+  static const String introductionImagesFirstDesign = 'assets/introduction_images/first_design.png';
+  static const String introductionImagesFourthDesign = 'assets/introduction_images/fourth_design.png';
   static const String introductionImagesGlassBasket = 'assets/introduction_images/glass_basket.png';
   static const String introductionImagesOrganicBasket = 'assets/introduction_images/organic_basket.png';
   static const String introductionImagesPaperBasket = 'assets/introduction_images/paper_basket.png';
   static const String introductionImagesPlasticBasket = 'assets/introduction_images/plastic_basket.png';
+  static const String introductionImagesSecondDesign = 'assets/introduction_images/second_design.png';
+  static const String introductionImagesThirdDesign = 'assets/introduction_images/third_design.png';
   static const String loginLoginBackground = 'assets/login/login_background.png';
   static const String splachSplash = 'assets/splach/splash.jpg';
 
