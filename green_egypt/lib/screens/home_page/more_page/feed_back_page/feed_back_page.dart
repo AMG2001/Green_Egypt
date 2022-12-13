@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:green_egypt/config/dimensions.dart';
-import 'package:green_egypt/screens/feed_back_page/feed_back_page_components/page_header.dart';
-import 'package:green_egypt/screens/feed_back_page/feed_back_page_components/second_section.dart';
-import 'package:green_egypt/screens/feed_back_page/feed_back_page_components/third_section.dart';
+import 'package:green_egypt/screens/home_page/more_page/feed_back_page/feed_back_page_components/page_header.dart';
+import 'package:green_egypt/screens/home_page/more_page/feed_back_page/feed_back_page_components/second_section.dart';
+import 'package:green_egypt/screens/home_page/more_page/feed_back_page/feed_back_page_components/third_section.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class FeedBackPage extends StatefulWidget {
