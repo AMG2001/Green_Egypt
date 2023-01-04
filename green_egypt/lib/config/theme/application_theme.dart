@@ -12,11 +12,11 @@ class ApplicationTheme {
 /**
  * -------------------------- Primary Color --------------------------
  */
-      primaryColor: Colors.green,
+      primaryColor: Color(0xFF5AE4A7),
       /**
   * -------------------------- AppBar Theme --------------------------
   */
-      appBarTheme: AppBarTheme(backgroundColor: Colors.green),
+      appBarTheme: AppBarTheme(backgroundColor: Color(0xFF5AE4A7)),
       /***
      * -------------------------- Prrmary Text Theme --------------------------
      */
@@ -53,8 +53,8 @@ class ApplicationTheme {
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
           textStyle: TextStyle(color: Colors.white),
-          primary: Colors.green,
-          side: BorderSide(color: Colors.green, width: 2),
+          primary: Color(0xFF5AE4A7),
+          side: BorderSide(color: Color(0xFF5AE4A7), width: 2),
         ),
       ),
       /**
@@ -63,7 +63,7 @@ class ApplicationTheme {
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           textStyle: TextStyle(color: Colors.white),
-          primary: Colors.green,
+          primary: Color(0xFF5AE4A7),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
@@ -75,7 +75,7 @@ class ApplicationTheme {
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
           textStyle: TextStyle(color: Colors.white),
-          primary: Colors.green,
+          primary: Color(0xFF5AE4A7),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
@@ -85,7 +85,7 @@ class ApplicationTheme {
  * 4- Floating action button
  */
       floatingActionButtonTheme: FloatingActionButtonThemeData(
-        backgroundColor: Colors.green,
+        backgroundColor: Color(0xFF5AE4A7),
         foregroundColor: Colors.white,
         iconSize: 18,
       ),
@@ -95,23 +95,23 @@ class ApplicationTheme {
      *************************************************************************
      * */
       inputDecorationTheme: InputDecorationTheme(
-        prefixIconColor: Colors.green,
+        prefixIconColor: Color(0xFF5AE4A7),
         focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
-            borderSide: BorderSide(color: Colors.green)),
+            borderSide: BorderSide(color: Color(0xFF5AE4A7))),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide: BorderSide(color: Colors.green),
+          borderSide: BorderSide(color: Color(0xFF5AE4A7)),
         ),
       ),
       /**
                * *************************** Cursor Color **********************************
                */
-      textSelectionTheme: TextSelectionThemeData(cursorColor: Colors.green),
+      textSelectionTheme: TextSelectionThemeData(cursorColor: Color(0xFF5AE4A7)),
       /**
            * ************************* TF prefix - postfix themeing **********************
            */
-      iconTheme: IconThemeData(color: Colors.green));
+      iconTheme: IconThemeData(color: Color(0xFF5AE4A7)));
 
   /**
    * ############################# Application light theme property ###########################
@@ -125,11 +125,11 @@ class ApplicationTheme {
 /**
  * -------------------------- Primary Color --------------------------
  */
-      primaryColor: Colors.green,
+      primaryColor: Color(0xFF5AE4A7),
       /**
   * -------------------------- AppBar Theme --------------------------
   */
-      appBarTheme: AppBarTheme(backgroundColor: Colors.green),
+      appBarTheme: AppBarTheme(backgroundColor: Color(0xFF5AE4A7)),
       /***
      * -------------------------- Prrmary Text Theme --------------------------
      */
@@ -166,8 +166,8 @@ class ApplicationTheme {
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
           textStyle: TextStyle(color: Colors.black),
-          primary: Colors.green,
-          side: BorderSide(color: Colors.green, width: 2),
+          primary: Color(0xFF5AE4A7),
+          side: BorderSide(color: Color(0xFF5AE4A7), width: 2),
         ),
       ),
       /**
@@ -176,7 +176,7 @@ class ApplicationTheme {
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           textStyle: TextStyle(color: Colors.black),
-          primary: Colors.green,
+          primary: Color(0xFF5AE4A7),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
@@ -188,7 +188,7 @@ class ApplicationTheme {
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
           textStyle: TextStyle(color: Colors.black),
-          primary: Colors.green,
+          primary: Color(0xFF5AE4A7),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
@@ -198,7 +198,7 @@ class ApplicationTheme {
  * 4- Floating action button
  */
       floatingActionButtonTheme: FloatingActionButtonThemeData(
-        backgroundColor: Colors.green,
+        backgroundColor: Color(0xFF5AE4A7),
         foregroundColor: Colors.black,
         iconSize: 18,
       ),
@@ -208,21 +208,21 @@ class ApplicationTheme {
      *************************************************************************
      * */
       inputDecorationTheme: InputDecorationTheme(
-        prefixIconColor: Colors.green,
+        prefixIconColor: Color(0xFF5AE4A7),
         focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
-            borderSide: BorderSide(color: Colors.green)),
+            borderSide: BorderSide(color: Color(0xFF5AE4A7))),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide: BorderSide(color: Colors.green),
+          borderSide: BorderSide(color: Color(0xFF5AE4A7)),
         ),
       ),
       /**
                * *************************** Cursor Color **********************************
                */
-      textSelectionTheme: TextSelectionThemeData(cursorColor: Colors.green),
+      textSelectionTheme: TextSelectionThemeData(cursorColor: Color(0xFF5AE4A7)),
       /**
            * ************************* TF prefix - postfix themeing **********************
            */
-      iconTheme: IconThemeData(color: Colors.green));
+      iconTheme: IconThemeData(color: Color(0xFF5AE4A7)));
 }

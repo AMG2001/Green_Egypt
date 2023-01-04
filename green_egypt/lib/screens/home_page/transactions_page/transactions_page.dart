@@ -5,6 +5,7 @@ import 'package:green_egypt/config/dimensions.dart';
 import 'package:green_egypt/config/pages_names.dart';
 import 'package:green_egypt/screens/home_page/transactions_page/transactions_page_components/bottom_container.dart';
 import 'package:green_egypt/screens/home_page/transactions_page/transactions_page_components/month_bar_model.dart';
+import 'package:green_egypt/screens/home_page/transactions_page/transactions_page_components/top_container.dart';
 import 'package:green_egypt/screens/home_page/transactions_page/transactions_page_components/transactions_page_header.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -83,7 +84,7 @@ class TransactionPage extends StatelessWidget {
               icon: Icon(Icons.bookmarks_outlined),
               title: Text("Transactions"),
               textAlign: TextAlign.center,
-              activeColor: Color(0xFFFFCA38)),
+              activeColor: Color(0xFF5AE4A7)),
           BottomNavyBarItem(
               icon: Icon(Icons.more_horiz_outlined),
               title: Text("more"),
@@ -101,74 +102,7 @@ class TransactionPage extends StatelessWidget {
         width: Dimensions.width,
         height: Dimensions.height,
         child: Column(
-          children: [
-            Expanded(
-              child: Container(
-                decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [Colors.black, Colors.white])),
-                width: Dimensions.width,
-
-                /**
-                   * it will be coded later
-                 */
-
-                child: Column(
-                  children: [
-                    TransactionsPageHeader(),
-                    SizedBox(
-                      height: 6.h,
-                    ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        MonthBarModel(
-                          month: "Jan",
-                          barHeight: Dimensions.height * .15,
-                        ),
-                        MonthBarModel(
-                          month: "Feb",
-                          barHeight: Dimensions.height * .15,
-                        ),
-                        MonthBarModel(
-                          month: "Mar",
-                          barHeight: Dimensions.height * .1,
-                        ),
-                        MonthBarModel(
-                          month: "Apr",
-                          barHeight: Dimensions.height * .09,
-                        ),
-                        MonthBarModel(
-                          month: "May",
-                          barHeight: Dimensions.height * .08,
-                        ),
-                        MonthBarModel(
-                          month: "Jun",
-                          barHeight: Dimensions.height * .1,
-                        ),
-                        MonthBarModel(
-                          month: "Jul",
-                          barHeight: Dimensions.height * .15,
-                        ),
-                        MonthBarModel(
-                          month: "Aug",
-                          barHeight: Dimensions.height * .15,
-                        ),
-                        MonthBarModel(
-                          month: "Sep",
-                          barHeight: Dimensions.height * .15,
-                        )
-                      ],
-                    )
-                  ],
-                ),
-              ),
-            ),
-            BottomContainer()
-          ],
+          children: [TopContainer(), BottomContainer()],
         ),
       ),
     );

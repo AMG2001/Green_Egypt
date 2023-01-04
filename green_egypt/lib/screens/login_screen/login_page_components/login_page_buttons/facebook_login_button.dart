@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:green_egypt/config/pages_names.dart';
 import 'package:green_egypt/services/firebase_services/facebook_auth.dart';
+import 'package:green_egypt/services/firebase_services/firebase_services.dart';
 
 class FacebookSignInButton extends StatelessWidget {
   const FacebookSignInButton({
@@ -21,7 +22,7 @@ class FacebookSignInButton extends StatelessWidget {
       ),
       onPressed: () async {
         try {
-          await FaceBookAuthCustom.signInWithFacebook();
+          await FirebaseCustomServices.signInWithFacebook();
 
           // FirebaseAuth.instance.signOut();
           // print('sign out');

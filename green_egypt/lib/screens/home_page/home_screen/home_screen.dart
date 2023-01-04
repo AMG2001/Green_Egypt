@@ -12,10 +12,7 @@ class HomeScreen extends StatelessWidget {
     return Container(
         width: Get.width,
         height: Get.height,
-        child: Image(
-          fit: BoxFit.fitHeight,
-          image: AssetImage("assets/images/main_page.jpeg"),
-        ));
+        );
   }
 }
 

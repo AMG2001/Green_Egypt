@@ -6,11 +6,13 @@ import 'package:get/get.dart';
 import 'package:green_egypt/config/pages_names.dart';
 import 'package:green_egypt/config/user_data_model/user_data_model.dart';
 import 'package:green_egypt/services/custom_toast.dart';
+import 'package:green_egypt/services/firebase_services/firebase_services.dart';
 import 'package:lottie/lottie.dart';
 
 class RegisterPageController extends GetxController {
   var validationMode = AutovalidateMode.disabled;
   bool securePassword = true;
+  String userCredintial = "normal_user";
   FaIcon eyeIcon = FaIcon(FontAwesomeIcons.eyeSlash);
   Color eyeIconColor = Colors.grey;
 
@@ -19,6 +21,11 @@ class RegisterPageController extends GetxController {
       FontAwesomeIcons.eyeSlash,
       color: eyeIconColor,
     );
+  }
+
+  void chageUserCredintial(String newCategory) {
+    userCredintial = newCategory;
+    update();
   }
 
   void changeShowPasswordValue() {
@@ -52,6 +59,7 @@ class RegisterPageController extends GetxController {
       {required BuildContext context,
       required TextEditingController emailController,
       required TextEditingController passwordController,
+      required String userCategory,
       required TextEditingController firstNameController,
       required TextEditingController lastNameController,
       required TextEditingController userNumberController}) async {
@@ -71,74 +79,45 @@ class RegisterPageController extends GetxController {
             );
           });
       /**
-           * Register user in firebase Auth
+           * Regsiter New User 
            */
-      await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(
-              email: emailController.text, password: passwordController.text)
-          .then((value) async {
-        String userName =
-            "${firstNameController.text} ${lastNameController.text}";
-        /**
-                     * Store all user data locally in UserDataModel .
-                     */
-        await UserDataModel.initiateUserDataModel(
-                name: userName,
-                email: emailController.text,
-                userPhoneNumber: userNumberController.text,
-                imageUrl:
-                    "https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg")
-            .then((value) async {
-          /**
-                       * Store user data in fireStore , but without id : 
-                       */
-          await FirebaseFirestore.instance.collection('user_logs').add({
-            'user_name': userName,
-            'user_first_name': firstNameController.text,
-            'user_last_name': lastNameController.text,
-            'user_email':emailController.text,
-            'user_image_url':
-                "https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg",
-            'user_phone_number': userNumberController.text
-          }).then((value) async {
-            /**
-                     * update the same record by adding id to .
-                     */
-            await FirebaseFirestore.instance
-                .collection('user_logs')
-                .doc(value.id)
-                .update({'user_id': value.id}).then((value) {
-              /**
+      FirebaseCustomServices.registerNewUser(
+              email: emailController.text,
+              password: passwordController.text,
+              firstName: firstNameController.text,
+              lastName: lastNameController.text,
+              userNumber: userNumberController.text,
+              userCredintial: userCredintial)
+          .then((value) {
+                   /**
                      * Remove loading indicator
                      */
               Get.back();
               /**
- * Show animted success vector
- */
-              showDialog(
-                  context: context,
-                  builder: (context) {
-                    Future.delayed(Duration(seconds: 3), () {
-                      /**
+                * Show animted success vector
+                */
+              // TODO : show success animation .
+             showDialog(
+                      context: context,
+                      builder: (context) {
+                        Future.delayed(Duration(seconds: 3), () {
+                          /**
                         * Remove Success Animation
                         */
-                      Get.back();
-                      /**
+                          Get.back();
+                          /**
                          * Navigate to Home Screen 
                          */
-                      Get.offNamed(PagesNames.loginScreen);
-                    });
-                    return Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Lottie.asset(
-                          'assets/animated_vectors/register_success.json',
-                          repeat: false),
-                    );
-                  });
-            });
+                          Get.offNamed(PagesNames.homePage);
+                        });
+                        return Padding(
+                          padding: const EdgeInsets.all(12.0),
+                          child: Lottie.asset(
+                              'assets/animated_vectors/register_done_animation.json',
+                              repeat: false),
+                        );
+                      });   
           });
-        });
-      });
     } on FirebaseAuthException catch (e) {
       Get.back();
       CustomToast.showRedToast(messsage: e.toString());

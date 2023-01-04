@@ -71,6 +71,7 @@ class SignInButton extends StatelessWidget {
                * initialize user data model .
                */
                 await UserDataModel.initiateUserDataModel(
+                  userCredintialArg: userDocument['user_credintial'],
                         name: userDocument['user_name'],
                         email: userDocument['user_email'],
                         imageUrl: userDocument['user_image_url'],

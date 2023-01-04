@@ -98,6 +98,7 @@ class UserDataModel {
       required String email,
       required String imageUrl,
       required String userPhoneNumber,
+      required String userCredintialArg
       }) async {
     /**
          * initialize userName in userDataModelSharedPref
@@ -123,6 +124,12 @@ class UserDataModel {
     await userDataModelSharedPref
         .setString(_userNumberKey, userPhoneNumber)
         .then((value) => userNumber = userPhoneNumber);
+    /**
+         * initialize userCredintials in userDataModelSharedPref
+         */
+        await userDataModelSharedPref
+        .setString(_userCredintialKey, userCredintialArg)
+        .then((value) => userCredintial = userCredintialArg);
     /**
          * initialize userLoggedInBool in userDataModelSharedPref
          */
@@ -151,6 +158,10 @@ class UserDataModel {
     await userDataModelSharedPref
         .setString(_userNumberKey, "")
         .then((value) => userNumber = "");
+         // reset userCredinital data  in userDataModel Object to ""
+    await userDataModelSharedPref
+        .setString(_userCredintialKey, "")
+        .then((value) => userCredintial = "");
     // reset userLoggedInBool in userDataModel Object to false
     await userDataModelSharedPref
         .setBool(_userLoggedInKey, false)
@@ -176,6 +187,10 @@ class UserDataModel {
     return userNumber;
   }
 
+// return userCredintial - String
+  static String getUserCredintial() {
+    return userCredintial;
+  }
   // return userLoggedInBool - boolean
   static bool getUserLoggedInBool() {
     return userLoggedIn;

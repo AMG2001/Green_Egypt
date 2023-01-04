@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:green_egypt/config/dimensions.dart';
 import 'package:green_egypt/config/user_data_model/user_data_model.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class MorePageHeader extends StatelessWidget {
   const MorePageHeader({super.key});
@@ -9,14 +10,27 @@ class MorePageHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-    
       height: Dimensions.height * .25,
       child:
           Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-        Container(
-          child: CircleAvatar(
-            radius: 65,
-            backgroundImage: NetworkImage(UserDataModel.userImageURL),
+            // TODO 
+        CachedNetworkImage(
+          // imageBuilder: (context, imageProvider) => Container(
+          //   decoration: BoxDecoration(
+          //     borderRadius: BorderRadius.circular(25),
+          //     image: DecorationImage(
+          //       image: imageProvider,
+          //       fit: BoxFit.cover,
+          //     ),
+          //   ),
+          // ),
+          imageUrl: UserDataModel.userImageURL,
+          width: Dimensions.width * .35,
+          progressIndicatorBuilder: (context, url, downloadProgress) =>
+              CircularProgressIndicator(value: downloadProgress.progress),
+          errorWidget: (context, url, error) => Icon(
+            Icons.error,
+            color: Colors.red,
           ),
         ),
         SizedBox(

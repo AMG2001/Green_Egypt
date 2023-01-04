@@ -36,11 +36,11 @@ dependencies:
   cupertino_icons: ^1.0.2
   firebase_auth: ^4.0.2
   firebase_storage: ^11.0.2
-  flutter_svg: ^1.1.6
   flutter:
     sdk: flutter
   flutter_facebook_auth: ^4.4.1+1
   flutter_rating_bar: ^4.0.1
+  flutter_svg: ^1.1.6
   fluttertoast: ^8.1.1
   font_awesome_flutter: ^10.2.1
   get: ^4.6.5
@@ -50,6 +50,7 @@ dependencies:
   shared_preferences: ^2.0.15
   smooth_page_indicator: ^1.0.0+2
 dev_dependencies:
+  cached_network_image: ^3.2.3
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter

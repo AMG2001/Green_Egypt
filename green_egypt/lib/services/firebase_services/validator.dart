@@ -1,4 +1,7 @@
 class Validator {
+  /**
+   * Validator class is custom class used to validate email and password 
+   */
   static String? validateEmail({required String email}) {
     RegExp emailRegExp = RegExp(
         r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");

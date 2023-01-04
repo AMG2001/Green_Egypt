@@ -60,10 +60,9 @@ class _QrCodePageState extends State<QrCodePage> {
               icon: Icon(Icons.qr_code_scanner_rounded),
               title: Text(
                 "qr code",
-                style: TextStyle(color: Colors.white),
               ),
               textAlign: TextAlign.center,
-              activeColor: Colors.blueAccent),
+              activeColor: Color(0xFF5AE4A7)),
           BottomNavyBarItem(
               icon: Icon(Icons.bookmarks_outlined),
               title: Text("Transactions"),

@@ -29,7 +29,9 @@ class RegisterPage extends StatelessWidget {
 
   TextEditingController userNumberController = TextEditingController();
 
-  int _groupValue = 1;
+  int _groupValue = 0;
+
+  String userCategory = "";
 
   @override
   Widget build(BuildContext context) {
@@ -147,6 +149,7 @@ class RegisterPage extends StatelessWidget {
                                     MediaQuery.of(context).size.height * .02,
                               ),
                               SignUpButton(
+                                userCredintial: controller.userCredintial,
                                 sigUpFormState: sigUpFormState,
                                 emailController: emailController,
                                 passwordController: passwordController,

@@ -15,107 +15,139 @@ class MorePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("assets/images/more_page_background.png"),
-                fit: BoxFit.cover,
-                alignment: Alignment.topCenter)),
-        width: Dimensions.width,
-        height: Dimensions.height,
-        child: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: ListView(
-            // mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              SizedBox(
-                height: Dimensions.height * .05,
+      body: SafeArea(
+        child: Stack(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.center,
+                  colors: [Color(0xFF5AE4A7), Colors.white],
+                ),
               ),
-              MorePageHeader(),
-              SizedBox(
-                height: Dimensions.height * .03,
-              ),
-              Container(
-                height: 1.5,
-                width: Dimensions.width * .75,
-                color: Colors.grey[300],
-              ),
-              SizedBox(
-                height: Dimensions.height * .03,
-              ),
-              /**
-                   * Transactions History option
+              width: Dimensions.width,
+              height: Dimensions.height,
+              child: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: ListView(
+                  // mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    SizedBox(
+                      height: Dimensions.height * .05,
+                    ),
+                    MorePageHeader(),
+                    SizedBox(
+                      height: Dimensions.height * .03,
+                    ),
+                    Container(
+                      height: 1.5,
+                      width: Dimensions.width * .75,
+                      color: Colors.grey[300],
+                    ),
+                    SizedBox(
+                      height: Dimensions.height * .03,
+                    ),
+                    /**
+                         * Transactions History option
+                         */
+                    TransactionsOption(),
+                    /**
+                         * Green Egypt Machines Locations option
+                         */
+                    GreenEgyptMachinesOption(),
+                    /**
+                   * Settings option
                    */
-              TransactionsOption(),
-              /**
-                   * Green Egypt Machines Locations option
-                   */
-              GreenEgyptMachinesOption(),
-              /**
-             * Settings option
-             */
-              SettingsOption(),
-              SizedBox(
-                height: Dimensions.height * .03,
-              ),
-              Container(
-                height: 1.5,
-                width: Dimensions.width * .75,
-                color: Colors.grey[300],
-              ),
-              SizedBox(
-                height: Dimensions.height * .03,
-              ),
-              ListTile(
-                onTap: () {
-                  Get.toNamed(PagesNames.feedBackPage);
-                },
-                leading: Icon(
-                  Icons.feedback,
-                  color: Colors.purple[300],
-                ),
-                title: Text(" Send feedback"),
-                trailing: Icon(
-                  Icons.arrow_forward_ios,
-                  color: Colors.grey,
-                  size: 18.sp,
-                ),
-              ),
-              ListTile(
-                onTap: () {
-                  CustomToast.showBlackToast(
-                      messsage: "This Function not added yet !");
-                },
-                leading: Icon(
-                  Icons.help,
-                  color: Colors.blue[300],
-                ),
-                title: Text(" Help"),
-                trailing: Icon(
-                  Icons.arrow_forward_ios,
-                  size: 18.sp,
-                  color: Colors.grey,
-                ),
-              ),
-              ListTile(
-                onTap: () async {
-                  Get.offNamed(PagesNames.loginScreen);
-                  await UserDataModel.userLoggedOut();
-                  await FirebaseAuth.instance.signOut();
-                },
-                leading: Icon(
-                  Icons.login_sharp,
-                  color: Colors.black,
-                ),
-                title: Text(" Logout"),
-                trailing: Icon(
-                  Icons.arrow_forward_ios,
-                  size: 18.sp,
-                  color: Colors.grey,
+                    SettingsOption(),
+                    SizedBox(
+                      height: Dimensions.height * .03,
+                    ),
+                    Container(
+                      height: 1.5,
+                      width: Dimensions.width * .75,
+                      color: Colors.grey[300],
+                    ),
+                    SizedBox(
+                      height: Dimensions.height * .03,
+                    ),
+                    ListTile(
+                      onTap: () {
+                        Get.toNamed(PagesNames.feedBackPage);
+                      },
+                      leading: Icon(
+                        Icons.feedback,
+                        color: Colors.purple[300],
+                      ),
+                      title: Text(" Send feedback"),
+                      trailing: Icon(
+                        Icons.arrow_forward_ios,
+                        color: Colors.grey,
+                        size: 18.sp,
+                      ),
+                    ),
+                    ListTile(
+                      onTap: () {
+                        CustomToast.showBlackToast(
+                            messsage: "This Function not added yet !");
+                      },
+                      leading: Icon(
+                        Icons.help,
+                        color: Colors.blue[300],
+                      ),
+                      title: Text(" Help"),
+                      trailing: Icon(
+                        Icons.arrow_forward_ios,
+                        size: 18.sp,
+                        color: Colors.grey,
+                      ),
+                    ),
+                    ListTile(
+                      onTap: () async {
+                        Get.offAllNamed(PagesNames.loginScreen);
+                        await UserDataModel.userLoggedOut();
+                        await FirebaseAuth.instance.signOut();
+                      },
+                      leading: Icon(
+                        Icons.login_sharp,
+                        color: Colors.black,
+                      ),
+                      title: Text(" Logout"),
+                      trailing: Icon(
+                        Icons.arrow_forward_ios,
+                        size: 18.sp,
+                        color: Colors.grey,
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ],
-          ),
+            ),
+            Container(
+              width: Dimensions.width,
+              height: Dimensions.height * .1,
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: Dimensions.height * .03,
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SizedBox(width: Dimensions.width * .05),
+                      IconButton(
+                          icon: Icon(
+                            Icons.arrow_back,
+                            size: 28,
+                            color: Colors.black54,
+                          ),
+                          onPressed: (() => Get.back()))
+                    ],
+                  ),
+                ],
+              ),
+            )
+          ],
         ),
       ),
     );

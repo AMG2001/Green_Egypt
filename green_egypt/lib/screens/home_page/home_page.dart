@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> {
                     icon: Icon(Icons.home_outlined),
                     title: Text("home"),
                     textAlign: TextAlign.center,
-                    activeColor: Color(0xFF9E9ED1)),
+                    activeColor: Color(0xFF5AE4A7)),
                 BottomNavyBarItem(
                     icon: Icon(Icons.qr_code_scanner_rounded),
                     title: Text("qr code"),
