@@ -42,40 +42,15 @@ class SplachScreenCustom extends StatelessWidget {
         height: Get.height,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(ImagesPaths.splashImagePath),
+            image: AssetImage('assets/images/splach_screen_images/splach Screen design.png'),
             fit: BoxFit.cover,
             /**
              * Add darl layer on the image
              */
-            colorFilter: ColorFilter.mode(
-                Colors.black.withOpacity(0.55), BlendMode.darken),
+            // colorFilter: ColorFilter.mode(
+            //     Colors.black.withOpacity(0.55), BlendMode.darken),
           ),
         ),
-        child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Image(
-                  image: AssetImage(ImagesPaths.applicationLogo),
-                  width: Dimensions.width * .2),
-              SizedBox(
-                height: 18,
-              ),
-              Text(
-                "🍀 Green Egypt 🍀",
-                style: TextStyle(fontSize: 18.sp, color: Colors.white),
-              ),
-              SizedBox(
-                height: 24,
-              ),
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: Text(
-                  "Saving Nature is our Duty 💚",
-                  style: TextStyle(fontSize: 14.sp, color: Colors.white),
-                ),
-              )
-            ]),
       ),
 
       nextScreen:

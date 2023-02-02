@@ -15,12 +15,12 @@ class ListOfCategoriesItems extends StatelessWidget {
         width: Dimensions.width,
         child: ListView(scrollDirection: Axis.horizontal, children: [
           CategoriesListItem(
-              itemImagePath: 'assets/images/Plastic_bag.png',
+              itemImagePath: 'assets/images/main_page_images/Plastic_bag.png',
               itemType: "Plastic"),
           CategoriesListItem(
-              itemImagePath: 'assets/images/glass.png', itemType: "Glass"),
+              itemImagePath: 'assets/images/main_page_images/glass.png', itemType: "Glass"),
           CategoriesListItem(
-              itemImagePath: 'assets/images/paper_box.png', itemType: "Paper"),
+              itemImagePath: 'assets/images/main_page_images/paper_box.png', itemType: "Paper"),
         ]),
       ),
     );

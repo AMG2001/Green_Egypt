@@ -10,7 +10,10 @@ import 'package:green_egypt/config/theme/default_fonts.dart';
 import 'package:green_egypt/config/user_data_model/user_data_model.dart';
 import 'package:green_egypt/screens/home_page/home_page_components/card_of_earned_saved_recycled.dart';
 import 'package:green_egypt/screens/home_page/home_page_components/categories_list_item.dart';
+import 'package:green_egypt/screens/home_page/home_page_components/eco_friendly_tips_row.dart';
+import 'package:green_egypt/screens/home_page/home_page_components/friendly_tips_item.dart';
 import 'package:green_egypt/screens/home_page/home_page_components/list_of_categories_items.dart';
+import 'package:green_egypt/screens/home_page/home_page_components/list_of_friendly_tips.dart';
 import 'package:green_egypt/screens/home_page/home_page_controller.dart';
 import 'package:green_egypt/screens/home_page/qrcode_page/qrcode_page.dart';
 import 'package:green_egypt/screens/home_page/transactions_page/transactions_page.dart';
@@ -148,56 +151,15 @@ class _HomePageState extends State<HomePage> {
                           )
                         ],
                       ),
+                      /**
+                       * Horizontal list of categories as plastic , glass and paper
+                       */
                       ListOfCategoriesItems(),
-                      Container(
-                        width: Dimensions.width,
-                        height: 0.4 * Dimensions.height,
-                        child: Column(
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 16),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    "Transactions",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 17),
-                                  ),
-                                  TextButton(
-                                    onPressed: () {},
-                                    child: Text(
-                                      "View All",
-                                      style: TextStyle(
-                                          color: Color(0XFFD9D9D9),
-                                          fontWeight: FontWeight.w600),
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                            Container(
-                              padding: EdgeInsets.all(8),
-                              decoration: BoxDecoration(
-                                  color: DefaultColors.defaultWhite,
-                                  borderRadius: BorderRadius.circular(14)),
-                              child: ListTile(
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(12)),
-                                leading: Image.asset(
-                                    'assets/images/disposable cutlery.png',
-                                    width: Dimensions.width * .1),
-                                title: Text("Switch off your plug sockets"),
-                                subtitle: Text(
-                                    "Save energy - and money! - by turning off your plugs."),
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
+                      /**
+                       * Eco friendly tips row with view all option
+                       */
+                      EcoFriendlyTipsRow(),
+                     ListOfFriendlyTips()
                     ],
                   ),
                 ),
