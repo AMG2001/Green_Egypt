@@ -203,7 +203,7 @@ class FirebaseCustomServices {
                   email: value['email'],
                   name: value['name'],
                   imageUrl: value['picture']['data']['url']);
-            }).then((value) => Get.offNamed(PagesNames.homePage));
+            }).then((value) => Get.offAllNamed(PagesNames.homePage));
           });
         }
         // you are logged

@@ -5,6 +5,7 @@ import 'package:green_egypt/config/constants.dart';
 import 'package:green_egypt/config/dimensions.dart';
 import 'package:green_egypt/config/images_paths.dart';
 import 'package:green_egypt/config/pages_names.dart';
+import 'package:green_egypt/config/theme/default_colors.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class StartScreen extends StatelessWidget {
@@ -14,11 +15,12 @@ class StartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        width: Dimensions.width,
+        height: Dimensions.height,
         decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.center,
-                colors: [Color(0xFF5AE4A7), Colors.white])),
+            image: DecorationImage(
+                image: AssetImage(
+                    'assets/images/start_screen_images/start_screen_background_drak.png'))),
         child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(16.0),
@@ -26,12 +28,12 @@ class StartScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 SizedBox(
-                  height: Dimensions.height * .3,
+                  height: Dimensions.height * .4,
                 ),
                 Image(
                   image: AssetImage(ImagesPaths.applicationLogo),
                   width: Dimensions.width * .1,
-                  height: Dimensions.height * .18,
+                  height: Dimensions.height * .1,
                 ),
                 SizedBox(
                   height: Dimensions.height * .04,
@@ -49,7 +51,7 @@ class StartScreen extends StatelessWidget {
                       repeatForever: true,
                       animatedTexts: [
                         TypewriterAnimatedText(
-                          'Green_Egypt 🍀',
+                          'Green_Egypt',
                           speed: Duration(milliseconds: 500),
                           textStyle:
                               TextStyle(color: Colors.black, fontSize: 20.sp),
@@ -63,7 +65,7 @@ class StartScreen extends StatelessWidget {
                 ),
                 Text(
                   "Don't have an Account !",
-                  style: TextStyle(color: Colors.black),
+                  style: TextStyle(color: Colors.white),
                 ),
                 SizedBox(
                   height: 12,
@@ -73,11 +75,11 @@ class StartScreen extends StatelessWidget {
                  */
                 OutlinedButton(
                   style: ButtonStyle(
-                    side: MaterialStateProperty.all<BorderSide>(
-                        BorderSide(color: Color(0xFF5AE4A7), width: 2)),
+                    side: MaterialStateProperty.all<BorderSide>(BorderSide(
+                        color: DefaultColors.defaultGreen, width: 2)),
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(
-                        side: BorderSide(color: Color(0xFF5AE4A7)),
+                        side: BorderSide(color: DefaultColors.defaultGreen),
                         borderRadius: BorderRadius.circular(16),
                       ),
                     ),
@@ -100,7 +102,7 @@ class StartScreen extends StatelessWidget {
                       ),
                       Icon(
                         Icons.person_add_alt_outlined,
-                        color: Color(0xFF5AE4A7),
+                        color: DefaultColors.defaultGreen,
                       )
                     ],
                   ),
@@ -110,7 +112,7 @@ class StartScreen extends StatelessWidget {
                 ),
                 Text(
                   "Already have an Account !",
-                  style: TextStyle(color: Colors.black),
+                  style: TextStyle(color: Colors.white),
                 ),
                 SizedBox(
                   height: 12,
@@ -122,12 +124,12 @@ class StartScreen extends StatelessWidget {
                   style: ButtonStyle(
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
-                          side: BorderSide(color: Color(0xFF5AE4A7)),
+                          side: BorderSide(color: DefaultColors.defaultGreen),
                           borderRadius: BorderRadius.circular(16),
                         ),
                       ),
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(Color(0xFF5AE4A7))),
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                          DefaultColors.defaultGreen)),
                   onPressed: () {
                     Get.toNamed(PagesNames.loginScreen);
                   },

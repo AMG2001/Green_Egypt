@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:green_egypt/config/dimensions.dart';
 import 'package:green_egypt/config/theme/default_colors.dart';
+import 'package:green_egypt/screens/home_page/home_page_components/home_page_animations_controller.dart';
+import 'package:green_egypt/screens/home_page/home_page_components/user_detail_column.dart';
 
 class CardOfEarnedSavedRecycled extends StatelessWidget {
-  String earned;
-  String saved;
-  String recycled;
-  CardOfEarnedSavedRecycled(
-      {required this.earned, required this.saved, required this.recycled});
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -18,39 +15,43 @@ class CardOfEarnedSavedRecycled extends StatelessWidget {
           width: Dimensions.width,
           height: Dimensions.height * .2,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(24),
-              color: DefaultColors.defaultGreen),
+            image: DecorationImage(
+              image: AssetImage(
+                  'assets/images/main_page_images/card_background.png'),
+              fit: BoxFit.cover,
+            ),
+            borderRadius: BorderRadius.circular(24),
+            color: DefaultColors.defaultGreen,
+          ),
           child: Row(
             children: [
               /**
                              * Earned Currency Column
                              */
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Icon(
-                      Icons.currency_exchange_outlined,
-                      color: Colors.yellow[300],
-                      size: 28,
-                    ),
-                    Text(
-                      earned,
-                      style: TextStyle(
-                          fontSize: 32,
-                          color: Colors.yellow[50]!.withOpacity(.9),
-                          fontWeight: FontWeight.w500),
-                    ),
-                    Text(
-                      "EARNED",
-                      style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w500),
-                    )
-                  ],
-                ),
-              ),
+              UserDetailColumn(
+                  icon: Icon(
+                    Icons.currency_exchange_rounded,
+                    color: Colors.yellow[400],
+                  ),
+                  detailValue: '1250',
+                  detailTitle: 'EARNED',
+                  animationMilliSeconds: 500),
+              UserDetailColumn(
+                  icon: Icon(
+                    Icons.cloud,
+                    color: Colors.grey[350],
+                    size: 28,
+                  ),
+                  detailValue: '350g',
+                  detailTitle: 'SAVED CO2',
+                  animationMilliSeconds: 500),
+              UserDetailColumn(
+                  icon: Icon(
+                    Icons.currency_exchange_rounded,
+                  ),
+                  detailValue: '17',
+                  detailTitle: 'RECYCLED',
+                  animationMilliSeconds: 500),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -60,71 +61,6 @@ class CardOfEarnedSavedRecycled extends StatelessWidget {
                     color: Colors.green[900]!.withOpacity(.2),
                   )
                 ],
-              ),
-              /**
-                             * Saved Co2 Column
-                             */
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Icon(
-                      Icons.cloud,
-                      color: Colors.grey[350],
-                      size: 28,
-                    ),
-                    Text(
-                      saved + "g",
-                      style: TextStyle(
-                          fontSize: 32,
-                          color: Colors.yellow[50]!.withOpacity(.9),
-                          fontWeight: FontWeight.w500),
-                    ),
-                    Text(
-                      "SAVED CO2",
-                      style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w500),
-                    )
-                  ],
-                ),
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    width: 2,
-                    height: Dimensions.height * .1,
-                    color: Colors.green[900]!.withOpacity(.2),
-                  )
-                ],
-              ),
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Icon(
-                      Icons.recycling_outlined,
-                      color: Colors.green[800],
-                      size: 28,
-                    ),
-                    Text(
-                      recycled,
-                      style: TextStyle(
-                          fontSize: 32,
-                          color: Colors.yellow[50]!.withOpacity(.9),
-                          fontWeight: FontWeight.w500),
-                    ),
-                    Text(
-                      "RECYCLED",
-                      style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w500),
-                    )
-                  ],
-                ),
               ),
             ],
           ),

@@ -95,7 +95,7 @@ class SignInButton extends StatelessWidget {
                           /**
                          * Navigate to Home Screen 
                          */
-                          Get.offNamed(PagesNames.homePage);
+                          Get.offAllNamed(PagesNames.homePage);
                         });
                         return Padding(
                           padding: const EdgeInsets.all(12.0),

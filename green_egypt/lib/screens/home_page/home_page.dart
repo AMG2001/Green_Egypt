@@ -1,27 +1,22 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:green_egypt/config/dimensions.dart';
 import 'package:green_egypt/config/pages_names.dart';
-import 'package:green_egypt/config/theme/application_theme.dart';
-import 'package:green_egypt/config/theme/default_colors.dart';
 import 'package:green_egypt/config/theme/default_fonts.dart';
-import 'package:green_egypt/config/user_data_model/user_data_model.dart';
 import 'package:green_egypt/screens/home_page/home_page_components/card_of_earned_saved_recycled.dart';
-import 'package:green_egypt/screens/home_page/home_page_components/categories_list_item.dart';
 import 'package:green_egypt/screens/home_page/home_page_components/eco_friendly_tips_row.dart';
-import 'package:green_egypt/screens/home_page/home_page_components/friendly_tips_item.dart';
+import 'package:green_egypt/screens/home_page/home_page_components/home_page_actions.dart';
+import 'package:green_egypt/screens/home_page/home_page_components/home_page_animations_controller.dart';
+import 'package:green_egypt/screens/home_page/home_page_components/home_page_title.dart';
 import 'package:green_egypt/screens/home_page/home_page_components/list_of_categories_items.dart';
 import 'package:green_egypt/screens/home_page/home_page_components/list_of_friendly_tips.dart';
 import 'package:green_egypt/screens/home_page/home_page_controller.dart';
-import 'package:green_egypt/screens/home_page/qrcode_page/qrcode_page.dart';
-import 'package:green_egypt/screens/home_page/transactions_page/transactions_page.dart';
-import 'package:green_egypt/screens/home_page/more_page/more_page.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:badges/badges.dart' as badges;
 
 class HomePage extends StatefulWidget {
+  final homePageAnimationsController = Get.put(HomePageAnimationsController());
   final homePageController = Get.put(HomePageController());
   HomePage({super.key});
 
@@ -51,51 +46,10 @@ class _HomePageState extends State<HomePage> {
         builder: (controller) {
           return Scaffold(
             appBar: AppBar(
-              actions: [
-                Padding(
-                  padding: const EdgeInsets.only(right: 16),
-                  child: GestureDetector(
-                    onTap: () {},
-                    child: Center(
-                      child: badges.Badge(
-                        child: Icon(
-                          Icons.notifications,
-                          color: DefaultColors.defaultBlack,
-                          size: 28,
-                        ),
-                        position: badges.BadgePosition.custom(top: 0),
-                        badgeStyle: badges.BadgeStyle(
-                            badgeColor: DefaultColors.defaultGreen),
-                      ),
-                    ),
-                  ),
-                )
-              ],
-              elevation: 0,
-              backgroundColor: Colors.white,
-              title: Row(
-                children: [
-                  Container(
-                    height: 36,
-                    width: 48,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: NetworkImage(UserDataModel.userImageURL)),
-                        borderRadius: BorderRadius.circular(8)),
-                  ),
-                  SizedBox(
-                    width: 8,
-                  ),
-                  Text(
-                    "Hello , ${UserDataModel.userName}",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 16,
-                        fontFamily: DefaultFonts.defaultLondrinaSolidThin),
-                  ),
-                ],
-              ),
-            ),
+                actions: [HomePageActions()],
+                elevation: 0,
+                backgroundColor: Colors.white,
+                title: HomePageTitle()),
             bottomNavigationBar: BottomNavyBar(
               selectedIndex: controller.currentIndex,
               curve: Curves.linear,
@@ -137,8 +91,7 @@ class _HomePageState extends State<HomePage> {
                   height: Dimensions.height,
                   child: Column(
                     children: [
-                      CardOfEarnedSavedRecycled(
-                          earned: '1250', saved: '350', recycled: '17'),
+                      CardOfEarnedSavedRecycled(),
                       Row(
                         children: [
                           Text(
@@ -159,7 +112,10 @@ class _HomePageState extends State<HomePage> {
                        * Eco friendly tips row with view all option
                        */
                       EcoFriendlyTipsRow(),
-                     ListOfFriendlyTips()
+                      /**
+                       * Vertical list of friendly tips
+                       */
+                      ListOfFriendlyTips()
                     ],
                   ),
                 ),
