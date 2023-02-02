@@ -26,8 +26,13 @@ class UserCategoryOptions extends StatelessWidget {
                   groupValue: groupValue,
                   onChanged: ((value) {
                     setState(() {
-                      value == 0 ? registerPageController.userCredintial = "normal_user" : "staff";
-                      CustomToast.showGreenToast(messsage: "choosen Credintial : ${registerPageController.userCredintial}");
+                      value == 0
+                          ? registerPageController.userCredintial =
+                              "normal_user"
+                          : "staff";
+                      CustomToast.showGreenToast(
+                          messsage:
+                              "choosen Credintial : ${registerPageController.userCredintial}");
                       groupValue = value!;
                     });
                   }),
@@ -47,8 +52,12 @@ class UserCategoryOptions extends StatelessWidget {
                   groupValue: groupValue,
                   onChanged: ((value) {
                     setState(() {
-                      value == 1 ? registerPageController.userCredintial = "staff" : "normal_user";
-                       CustomToast.showGreenToast(messsage: "choosen Credintial : ${registerPageController.userCredintial}");
+                      value == 1
+                          ? registerPageController.userCredintial = "staff"
+                          : "normal_user";
+                      CustomToast.showGreenToast(
+                          messsage:
+                              "choosen Credintial : ${registerPageController.userCredintial}");
                       groupValue = value!;
                     });
                   }),

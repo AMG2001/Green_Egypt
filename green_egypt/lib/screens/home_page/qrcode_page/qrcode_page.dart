@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:green_egypt/config/pages_names.dart';
+import 'package:green_egypt/config/theme/default_colors.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -40,11 +41,24 @@ class _QrCodePageState extends State<QrCodePage> {
   ];
 
   void navigateToPageWithIndex(int pageIndex) {
-    Get.offNamed(homePagesNames[pageIndex]);
+    pageIndex == 2
+        ? Get.toNamed(homePagesNames[pageIndex])
+        : Get.offNamed(homePagesNames[pageIndex]);
   }
+
+  // void resumeCamera() async {
+  //   await controller!.resumeCamera();
+  // }
+
+  // @override
+  // void initState() {
+  // resumeCamera();
+  //   super.initState();
+  // }
 
   @override
   Widget build(BuildContext context) {
+    // resumeCamera();
     return Scaffold(
       bottomNavigationBar: BottomNavyBar(
         selectedIndex: 1,
@@ -62,7 +76,7 @@ class _QrCodePageState extends State<QrCodePage> {
                 "qr code",
               ),
               textAlign: TextAlign.center,
-              activeColor: Color(0xFF5AE4A7)),
+              activeColor: DefaultColors.defaultGreen),
           BottomNavyBarItem(
               icon: Icon(Icons.bookmarks_outlined),
               title: Text("Transactions"),
@@ -84,8 +98,10 @@ class _QrCodePageState extends State<QrCodePage> {
       body: Column(
         children: <Widget>[
           Expanded(
-            flex: 5,
+            flex: 4,
             child: QRView(
+              overlay: QrScannerOverlayShape(
+                  borderColor: Colors.red, borderRadius: 16.0),
               cameraFacing: CameraFacing.back,
               key: qrKey,
               onQRViewCreated: _onQRViewCreated,
@@ -109,6 +125,7 @@ class _QrCodePageState extends State<QrCodePage> {
     this.controller = controller;
     controller.scannedDataStream.listen((scanData) {
       setState(() {
+        // TODO : get data from QR and store points into user Points .
         result = scanData;
       });
     });

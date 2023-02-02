@@ -50,10 +50,12 @@ dependencies:
   shared_preferences: ^2.0.15
   smooth_page_indicator: ^1.0.0+2
 dev_dependencies:
+  badges: ^3.0.2
   cached_network_image: ^3.2.3
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
+  fluttertoast: ^8.1.2
   font_awesome_flutter: ^10.2.1
   qr_code_scanner: ^1.0.1
 
@@ -72,6 +74,7 @@ flutter:
     - assets/icons/
     - assets/introduction_images/
     - assets/images/
+    - assets/fonts/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see
@@ -81,12 +84,13 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
+  fonts:
+    - family: LondrinaSolid_Bold
+      fonts:
+        - asset: assets/fonts/LondrinaSolid-Regular.ttf
+    - family: LondrinaSolid_Thin
+      fonts:
+        - asset: assets/fonts/LondrinaSolid-Light.ttf
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

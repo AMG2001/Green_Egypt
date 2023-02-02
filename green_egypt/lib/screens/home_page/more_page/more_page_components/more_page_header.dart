@@ -13,7 +13,7 @@ class MorePageHeader extends StatelessWidget {
       height: Dimensions.height * .25,
       child:
           Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-            // TODO 
+        // TODO
         CachedNetworkImage(
           // imageBuilder: (context, imageProvider) => Container(
           //   decoration: BoxDecoration(
@@ -37,14 +37,14 @@ class MorePageHeader extends StatelessWidget {
           height: Dimensions.height * .02,
         ),
         Text(
-          UserDataModel.userName,
+          "${UserDataModel.userName}",
           style: TextStyle(fontSize: 16.sp),
         ),
         SizedBox(
           height: Dimensions.height * .02,
         ),
         Text(
-          UserDataModel.userEmail,
+          "user account : ${UserDataModel.userEmail}",
           style: TextStyle(color: Colors.grey, fontSize: 14.sp),
         )
       ]),

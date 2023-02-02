@@ -1,10 +1,50 @@
 import 'package:flutter/material.dart';
+import 'package:green_egypt/config/theme/default_fonts.dart';
 
 class ApplicationTheme {
   /**
    ####################### Application dark theme property ##############################
    */
   static ThemeData applicationDarkTheme = ThemeData.dark().copyWith(
+      textTheme: TextTheme(
+        button: TextStyle(
+            color: Colors.white,
+            fontSize: 18,
+            fontFamily: DefaultFonts.defaultLondrinaSolidThin),
+        headline1: TextStyle(
+            color: Colors.white,
+            fontSize: 72,
+            fontFamily: DefaultFonts.defaultLondrinaSolidThin),
+        headline2: TextStyle(
+            color: Colors.white,
+            fontSize: 56,
+            fontFamily: DefaultFonts.defaultLondrinaSolidThin),
+        headline3: TextStyle(
+            color: Colors.white,
+            fontSize: 48,
+            fontFamily: DefaultFonts.defaultLondrinaSolidThin),
+        headline4: TextStyle(
+            color: Colors.white,
+            fontSize: 32,
+            fontFamily: DefaultFonts.defaultLondrinaSolidThin),
+        headline5: TextStyle(
+            color: Colors.white,
+            fontSize: 24,
+            fontFamily: DefaultFonts.defaultLondrinaSolidThin),
+        headline6: TextStyle(
+            color: Colors.white,
+            fontSize: 16,
+            fontFamily: DefaultFonts.defaultLondrinaSolidThin),
+        bodyText2: TextStyle(
+            color: Colors.white,
+            fontSize: 16,
+            fontFamily: DefaultFonts.defaultLondrinaSolidThin),
+        subtitle1: TextStyle(
+            color: Colors.white,
+            fontSize: 16,
+            fontFamily: DefaultFonts.defaultLondrinaSolidThin),
+      ),
+
       /**
      * -------------------- Scaffold Background Color -----------------------
      */
@@ -12,24 +52,51 @@ class ApplicationTheme {
 /**
  * -------------------------- Primary Color --------------------------
  */
-      primaryColor: Color(0xFF5AE4A7),
+      primaryColor: Color(0xFF90AD19),
       /**
   * -------------------------- AppBar Theme --------------------------
   */
-      appBarTheme: AppBarTheme(backgroundColor: Color(0xFF5AE4A7)),
+      appBarTheme: AppBarTheme(backgroundColor: Color(0xFF90AD19)),
       /***
      * -------------------------- Prrmary Text Theme --------------------------
      */
-      primaryTextTheme: const TextTheme(
-        button: TextStyle(color: Colors.white, fontSize: 18),
-        headline1: TextStyle(color: Colors.white, fontSize: 72),
-        headline2: TextStyle(color: Colors.white, fontSize: 56),
-        headline3: TextStyle(color: Colors.white, fontSize: 48),
-        headline4: TextStyle(color: Colors.white, fontSize: 32),
-        headline5: TextStyle(color: Colors.white, fontSize: 24),
-        headline6: TextStyle(color: Colors.white, fontSize: 16),
-        bodyText2: TextStyle(color: Colors.white, fontSize: 16),
-        subtitle1: TextStyle(color: Colors.white, fontSize: 16),
+      primaryTextTheme: TextTheme(
+        button: TextStyle(
+            color: Colors.white,
+            fontSize: 18,
+            fontFamily: DefaultFonts.defaultLondrinaSolidThin),
+        headline1: TextStyle(
+            color: Colors.white,
+            fontSize: 72,
+            fontFamily: DefaultFonts.defaultLondrinaSolidThin),
+        headline2: TextStyle(
+            color: Colors.white,
+            fontSize: 56,
+            fontFamily: DefaultFonts.defaultLondrinaSolidThin),
+        headline3: TextStyle(
+            color: Colors.white,
+            fontSize: 48,
+            fontFamily: DefaultFonts.defaultLondrinaSolidThin),
+        headline4: TextStyle(
+            color: Colors.white,
+            fontSize: 32,
+            fontFamily: DefaultFonts.defaultLondrinaSolidThin),
+        headline5: TextStyle(
+            color: Colors.white,
+            fontSize: 24,
+            fontFamily: DefaultFonts.defaultLondrinaSolidThin),
+        headline6: TextStyle(
+            color: Colors.white,
+            fontSize: 16,
+            fontFamily: DefaultFonts.defaultLondrinaSolidThin),
+        bodyText2: TextStyle(
+            color: Colors.white,
+            fontSize: 16,
+            fontFamily: DefaultFonts.defaultLondrinaSolidThin),
+        subtitle1: TextStyle(
+            color: Colors.white,
+            fontSize: 16,
+            fontFamily: DefaultFonts.defaultLondrinaSolidThin),
       ),
       /**
      * ----------------------------- Drawer Theme -------------------------
@@ -53,8 +120,8 @@ class ApplicationTheme {
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
           textStyle: TextStyle(color: Colors.white),
-          primary: Color(0xFF5AE4A7),
-          side: BorderSide(color: Color(0xFF5AE4A7), width: 2),
+          primary: Color(0xFF90AD19),
+          side: BorderSide(color: Color(0xFF90AD19), width: 2),
         ),
       ),
       /**
@@ -63,7 +130,7 @@ class ApplicationTheme {
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           textStyle: TextStyle(color: Colors.white),
-          primary: Color(0xFF5AE4A7),
+          primary: Color(0xFF90AD19),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
@@ -75,7 +142,7 @@ class ApplicationTheme {
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
           textStyle: TextStyle(color: Colors.white),
-          primary: Color(0xFF5AE4A7),
+          primary: Color(0xFF90AD19),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
@@ -85,7 +152,7 @@ class ApplicationTheme {
  * 4- Floating action button
  */
       floatingActionButtonTheme: FloatingActionButtonThemeData(
-        backgroundColor: Color(0xFF5AE4A7),
+        backgroundColor: Color(0xFF90AD19),
         foregroundColor: Colors.white,
         iconSize: 18,
       ),
@@ -95,23 +162,24 @@ class ApplicationTheme {
      *************************************************************************
      * */
       inputDecorationTheme: InputDecorationTheme(
-        prefixIconColor: Color(0xFF5AE4A7),
+        prefixIconColor: Color(0xFF90AD19),
         focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
-            borderSide: BorderSide(color: Color(0xFF5AE4A7))),
+            borderSide: BorderSide(color: Color(0xFF90AD19))),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide: BorderSide(color: Color(0xFF5AE4A7)),
+          borderSide: BorderSide(color: Color(0xFF90AD19)),
         ),
       ),
       /**
                * *************************** Cursor Color **********************************
                */
-      textSelectionTheme: TextSelectionThemeData(cursorColor: Color(0xFF5AE4A7)),
+      textSelectionTheme:
+          TextSelectionThemeData(cursorColor: Color(0xFF90AD19)),
       /**
            * ************************* TF prefix - postfix themeing **********************
            */
-      iconTheme: IconThemeData(color: Color(0xFF5AE4A7)));
+      iconTheme: IconThemeData(color: Color(0xFF90AD19)));
 
   /**
    * ############################# Application light theme property ###########################
@@ -125,24 +193,90 @@ class ApplicationTheme {
 /**
  * -------------------------- Primary Color --------------------------
  */
-      primaryColor: Color(0xFF5AE4A7),
+      primaryColor: Color(0xFF90AD19),
       /**
   * -------------------------- AppBar Theme --------------------------
   */
-      appBarTheme: AppBarTheme(backgroundColor: Color(0xFF5AE4A7)),
+      appBarTheme: AppBarTheme(backgroundColor: Color(0xFF90AD19)),
       /***
      * -------------------------- Prrmary Text Theme --------------------------
      */
-      primaryTextTheme: const TextTheme(
-        button: TextStyle(color: Colors.black, fontSize: 18),
-        headline1: TextStyle(color: Colors.black, fontSize: 72),
-        headline2: TextStyle(color: Colors.black, fontSize: 56),
-        headline3: TextStyle(color: Colors.black, fontSize: 48),
-        headline4: TextStyle(color: Colors.black, fontSize: 32),
-        headline5: TextStyle(color: Colors.black, fontSize: 24),
-        headline6: TextStyle(color: Colors.black, fontSize: 16),
-        bodyText2: TextStyle(color: Colors.black, fontSize: 16),
-        subtitle1: TextStyle(color: Colors.black, fontSize: 16),
+
+      textTheme: TextTheme(
+        button: TextStyle(
+            color: Colors.black,
+            fontSize: 18,
+            fontFamily: DefaultFonts.defaultLondrinaSolidThin),
+        headline1: TextStyle(
+            color: Colors.black,
+            fontSize: 72,
+            fontFamily: DefaultFonts.defaultLondrinaSolidThin),
+        headline2: TextStyle(
+            color: Colors.black,
+            fontSize: 56,
+            fontFamily: DefaultFonts.defaultLondrinaSolidThin),
+        headline3: TextStyle(
+            color: Colors.black,
+            fontSize: 48,
+            fontFamily: DefaultFonts.defaultLondrinaSolidThin),
+        headline4: TextStyle(
+            color: Colors.black,
+            fontSize: 32,
+            fontFamily: DefaultFonts.defaultLondrinaSolidThin),
+        headline5: TextStyle(
+            color: Colors.black,
+            fontSize: 24,
+            fontFamily: DefaultFonts.defaultLondrinaSolidThin),
+        headline6: TextStyle(
+            color: Colors.black,
+            fontSize: 16,
+            fontFamily: DefaultFonts.defaultLondrinaSolidThin),
+        bodyText2: TextStyle(
+            color: Colors.black,
+            fontSize: 16,
+            fontFamily: DefaultFonts.defaultLondrinaSolidThin),
+        subtitle1: TextStyle(
+            color: Colors.black,
+            fontSize: 16,
+            fontFamily: DefaultFonts.defaultLondrinaSolidThin),
+      ),
+      primaryTextTheme: TextTheme(
+        button: TextStyle(
+            color: Colors.black,
+            fontSize: 18,
+            fontFamily: DefaultFonts.defaultLondrinaSolidThin),
+        headline1: TextStyle(
+            color: Colors.black,
+            fontSize: 72,
+            fontFamily: DefaultFonts.defaultLondrinaSolidThin),
+        headline2: TextStyle(
+            color: Colors.black,
+            fontSize: 56,
+            fontFamily: DefaultFonts.defaultLondrinaSolidThin),
+        headline3: TextStyle(
+            color: Colors.black,
+            fontSize: 48,
+            fontFamily: DefaultFonts.defaultLondrinaSolidThin),
+        headline4: TextStyle(
+            color: Colors.black,
+            fontSize: 32,
+            fontFamily: DefaultFonts.defaultLondrinaSolidThin),
+        headline5: TextStyle(
+            color: Colors.black,
+            fontSize: 24,
+            fontFamily: DefaultFonts.defaultLondrinaSolidThin),
+        headline6: TextStyle(
+            color: Colors.black,
+            fontSize: 16,
+            fontFamily: DefaultFonts.defaultLondrinaSolidThin),
+        bodyText2: TextStyle(
+            color: Colors.black,
+            fontSize: 16,
+            fontFamily: DefaultFonts.defaultLondrinaSolidThin),
+        subtitle1: TextStyle(
+            color: Colors.black,
+            fontSize: 16,
+            fontFamily: DefaultFonts.defaultLondrinaSolidThin),
       ),
       /**
      * ----------------------------- Drawer Theme -------------------------
@@ -166,8 +300,8 @@ class ApplicationTheme {
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
           textStyle: TextStyle(color: Colors.black),
-          primary: Color(0xFF5AE4A7),
-          side: BorderSide(color: Color(0xFF5AE4A7), width: 2),
+          primary: Color(0xFF90AD19),
+          side: BorderSide(color: Color(0xFF90AD19), width: 2),
         ),
       ),
       /**
@@ -176,7 +310,7 @@ class ApplicationTheme {
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           textStyle: TextStyle(color: Colors.black),
-          primary: Color(0xFF5AE4A7),
+          primary: Color(0xFF90AD19),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
@@ -188,7 +322,7 @@ class ApplicationTheme {
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
           textStyle: TextStyle(color: Colors.black),
-          primary: Color(0xFF5AE4A7),
+          primary: Color(0xFF90AD19),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
@@ -198,7 +332,7 @@ class ApplicationTheme {
  * 4- Floating action button
  */
       floatingActionButtonTheme: FloatingActionButtonThemeData(
-        backgroundColor: Color(0xFF5AE4A7),
+        backgroundColor: Color(0xFF90AD19),
         foregroundColor: Colors.black,
         iconSize: 18,
       ),
@@ -208,21 +342,22 @@ class ApplicationTheme {
      *************************************************************************
      * */
       inputDecorationTheme: InputDecorationTheme(
-        prefixIconColor: Color(0xFF5AE4A7),
+        prefixIconColor: Color(0xFF90AD19),
         focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
-            borderSide: BorderSide(color: Color(0xFF5AE4A7))),
+            borderSide: BorderSide(color: Color(0xFF90AD19))),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide: BorderSide(color: Color(0xFF5AE4A7)),
+          borderSide: BorderSide(color: Color(0xFF90AD19)),
         ),
       ),
       /**
                * *************************** Cursor Color **********************************
                */
-      textSelectionTheme: TextSelectionThemeData(cursorColor: Color(0xFF5AE4A7)),
+      textSelectionTheme:
+          TextSelectionThemeData(cursorColor: Color(0xFF90AD19)),
       /**
            * ************************* TF prefix - postfix themeing **********************
            */
-      iconTheme: IconThemeData(color: Color(0xFF5AE4A7)));
+      iconTheme: IconThemeData(color: Color(0xFF90AD19)));
 }

@@ -1,17 +1,26 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:green_egypt/config/dimensions.dart';
 import 'package:green_egypt/config/pages_names.dart';
+import 'package:green_egypt/config/theme/application_theme.dart';
+import 'package:green_egypt/config/theme/default_colors.dart';
+import 'package:green_egypt/config/theme/default_fonts.dart';
+import 'package:green_egypt/config/user_data_model/user_data_model.dart';
+import 'package:green_egypt/screens/home_page/home_page_components/card_of_earned_saved_recycled.dart';
+import 'package:green_egypt/screens/home_page/home_page_components/categories_list_item.dart';
+import 'package:green_egypt/screens/home_page/home_page_components/list_of_categories_items.dart';
 import 'package:green_egypt/screens/home_page/home_page_controller.dart';
-import 'package:green_egypt/screens/home_page/home_screen/home_screen.dart';
 import 'package:green_egypt/screens/home_page/qrcode_page/qrcode_page.dart';
 import 'package:green_egypt/screens/home_page/transactions_page/transactions_page.dart';
 import 'package:green_egypt/screens/home_page/more_page/more_page.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:badges/badges.dart' as badges;
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  final homePageController = Get.put(HomePageController());
+  HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -26,6 +35,9 @@ class _HomePageState extends State<HomePage> {
   ];
 
   void navigateToPageWithIndex(int pageIndex) {
+    pageIndex == 2
+        ? Get.toNamed(homePagesNames[pageIndex])
+        : Get.offNamed(homePagesNames[pageIndex]);
     Get.offNamed(homePagesNames[pageIndex]);
   }
 
@@ -35,6 +47,52 @@ class _HomePageState extends State<HomePage> {
         init: HomePageController(),
         builder: (controller) {
           return Scaffold(
+            appBar: AppBar(
+              actions: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 16),
+                  child: GestureDetector(
+                    onTap: () {},
+                    child: Center(
+                      child: badges.Badge(
+                        child: Icon(
+                          Icons.notifications,
+                          color: DefaultColors.defaultBlack,
+                          size: 28,
+                        ),
+                        position: badges.BadgePosition.custom(top: 0),
+                        badgeStyle: badges.BadgeStyle(
+                            badgeColor: DefaultColors.defaultGreen),
+                      ),
+                    ),
+                  ),
+                )
+              ],
+              elevation: 0,
+              backgroundColor: Colors.white,
+              title: Row(
+                children: [
+                  Container(
+                    height: 36,
+                    width: 48,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: NetworkImage(UserDataModel.userImageURL)),
+                        borderRadius: BorderRadius.circular(8)),
+                  ),
+                  SizedBox(
+                    width: 8,
+                  ),
+                  Text(
+                    "Hello , ${UserDataModel.userName}",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 16,
+                        fontFamily: DefaultFonts.defaultLondrinaSolidThin),
+                  ),
+                ],
+              ),
+            ),
             bottomNavigationBar: BottomNavyBar(
               selectedIndex: controller.currentIndex,
               curve: Curves.linear,
@@ -44,7 +102,7 @@ class _HomePageState extends State<HomePage> {
                     icon: Icon(Icons.home_outlined),
                     title: Text("home"),
                     textAlign: TextAlign.center,
-                    activeColor: Color(0xFF5AE4A7)),
+                    activeColor: Color(0xFF90AD19)),
                 BottomNavyBarItem(
                     icon: Icon(Icons.qr_code_scanner_rounded),
                     title: Text("qr code"),
@@ -69,9 +127,80 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             body: SafeArea(
-              child: Container(
-                width: Dimensions.width,
-                height: Dimensions.height,
+              child: Padding(
+                padding: EdgeInsets.only(left: 16, right: 16, top: 16),
+                child: Container(
+                  width: Dimensions.width,
+                  height: Dimensions.height,
+                  child: Column(
+                    children: [
+                      CardOfEarnedSavedRecycled(
+                          earned: '1250', saved: '350', recycled: '17'),
+                      Row(
+                        children: [
+                          Text(
+                            "Waste Categories",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 24,
+                                fontFamily:
+                                    DefaultFonts.defaultLondrinaSolidThin),
+                          )
+                        ],
+                      ),
+                      ListOfCategoriesItems(),
+                      Container(
+                        width: Dimensions.width,
+                        height: 0.4 * Dimensions.height,
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 16),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "Transactions",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 17),
+                                  ),
+                                  TextButton(
+                                    onPressed: () {},
+                                    child: Text(
+                                      "View All",
+                                      style: TextStyle(
+                                          color: Color(0XFFD9D9D9),
+                                          fontWeight: FontWeight.w600),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                            Container(
+                              padding: EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                                  color: DefaultColors.defaultWhite,
+                                  borderRadius: BorderRadius.circular(14)),
+                              child: ListTile(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(12)),
+                                leading: Image.asset(
+                                    'assets/images/disposable cutlery.png',
+                                    width: Dimensions.width * .1),
+                                title: Text("Switch off your plug sockets"),
+                                subtitle: Text(
+                                    "Save energy - and money! - by turning off your plugs."),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ),
           );

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:green_egypt/config/dimensions.dart';
 import 'package:green_egypt/config/pages_names.dart';
+import 'package:green_egypt/config/theme/default_colors.dart';
 import 'package:green_egypt/screens/home_page/transactions_page/transactions_page_components/bottom_container.dart';
 import 'package:green_egypt/screens/home_page/transactions_page/transactions_page_components/month_bar_model.dart';
 import 'package:green_egypt/screens/home_page/transactions_page/transactions_page_components/top_container.dart';
@@ -31,22 +32,24 @@ class TransactionPage extends StatelessWidget {
         centerTitle: true,
         title: Row(
             mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextButton(
-                onPressed: () {},
-                child: Container(
-                  padding: EdgeInsets.all(8),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(4),
-                      border: Border.all(color: Colors.white)),
-                  child: Icon(
-                    Icons.arrow_back_ios_sharp,
-                    size: 16,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
+              // TextButton(
+              //   onPressed: () {
+              //     Get.back();
+              //   },
+              //   child: Container(
+              //     padding: EdgeInsets.all(8),
+              //     decoration: BoxDecoration(
+              //         borderRadius: BorderRadius.circular(4),
+              //         border: Border.all(color: Colors.white)),
+              //     child: Icon(
+              //       Icons.arrow_back_ios_sharp,
+              //       size: 16,
+              //       color: Colors.white,
+              //     ),
+              //   ),
+              // ),
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -84,7 +87,7 @@ class TransactionPage extends StatelessWidget {
               icon: Icon(Icons.bookmarks_outlined),
               title: Text("Transactions"),
               textAlign: TextAlign.center,
-              activeColor: Color(0xFF5AE4A7)),
+              activeColor: DefaultColors.defaultGreen),
           BottomNavyBarItem(
               icon: Icon(Icons.more_horiz_outlined),
               title: Text("more"),

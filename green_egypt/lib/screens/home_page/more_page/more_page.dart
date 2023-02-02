@@ -19,13 +19,6 @@ class MorePage extends StatelessWidget {
         child: Stack(
           children: [
             Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.center,
-                  colors: [Color(0xFF5AE4A7), Colors.white],
-                ),
-              ),
               width: Dimensions.width,
               height: Dimensions.height,
               child: Padding(
