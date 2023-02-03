@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:green_egypt/config/pages_names.dart';
 import 'package:green_egypt/config/user_data_model/user_data_model.dart';
 import 'package:green_egypt/services/custom_toast.dart';
+import 'package:lottie/lottie.dart';
 
 class FirebaseCustomServices {
   /**
@@ -27,7 +28,7 @@ class FirebaseCustomServices {
   /**
    * Signing in with Google : 
    */
-  static Future<void> signInWithGoogle() async {
+  static Future<void> signInWithGoogle(BuildContext context) async {
     // Trigger the authentication flow
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
     // Obtain the auth details from the request
@@ -75,8 +76,9 @@ class FirebaseCustomServices {
                 email: userData['user_email'],
                 name: userData['user_name'],
                 imageUrl: userData['user_image_url'])
-            .then((value) => Get.offNamed(PagesNames.homePage));
+            .then((value) => Get.offAllNamed(PagesNames.homePage));
       } catch (e) {
+        print(e);
         /**
                * Getting data from Google Auth [name , image , email , phoneNumber]
                * add user in firestore but without id
@@ -104,7 +106,33 @@ class FirebaseCustomServices {
                 email: userCredential.user!.email!,
                 name: userCredential.user!.displayName!,
                 imageUrl: userCredential.user!.photoURL!);
-          }).then((value) => Get.offNamed(PagesNames.homePage));
+          }).then((value) {
+            Get.offAllNamed(PagesNames.homePage);
+            /**
+           * Show success animation
+           */
+        
+            // showDialog(
+            //     context: context,
+            //     builder: (context) {
+            //       Future.delayed(Duration(seconds: 3), () {
+            //         /**
+            //             * Remove Success Animation
+            //             */
+            //         Get.back();
+            //         /**
+            //              * Navigate to Home Screen 
+            //              */
+            //         Get.offAllNamed(PagesNames.homePage);
+            //       });
+            //       return Padding(
+            //         padding: const EdgeInsets.all(12.0),
+            //         child: Lottie.asset(
+            //             'assets/animated_vectors/register_success.json',
+            //             repeat: false),
+            //       );
+            //     });
+          });
         });
       }
     });
@@ -175,11 +203,12 @@ class FirebaseCustomServices {
                   email: userData['user_email'],
                   name: userData['user_name'],
                   imageUrl: userData['user_image_url'])
-              .then((value) => Get.offNamed(PagesNames.homePage));
+              .then((value) => Get.offAllNamed(PagesNames.homePage));
         } catch (e) {
           /**
                * add user in firestore but without id
                */
+          print(e);
           await FirebaseFirestore.instance.collection('user_logs').add({
             'user_email': value['email'],
             'user_name': value['name'],

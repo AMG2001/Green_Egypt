@@ -45,7 +45,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions web = FirebaseOptions(
     apiKey: 'AIzaSyB7cdZ2-SVTVSjdsaSqNstRXn87tR0CAqA',
-    appId: '1:448811679409:web:8fb1ec3c88ccfb42aeec90',
+    appId: '1:448811679409:web:acda9bfd034f2f14aeec90',
     messagingSenderId: '448811679409',
     projectId: 'green-egypt-f80b9',
     authDomain: 'green-egypt-f80b9.firebaseapp.com',
@@ -54,7 +54,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBuzui1J-zbTgMbiwoUAnNB5bG6RfEyENs',
-    appId: '1:448811679409:android:91065846cdf93986aeec90',
+    appId: '1:448811679409:android:3c0985348c7ea715aeec90',
     messagingSenderId: '448811679409',
     projectId: 'green-egypt-f80b9',
     storageBucket: 'green-egypt-f80b9.appspot.com',
@@ -62,20 +62,22 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyD4jlld_8EOpru3ynQIpmAQltlsNkAisxY',
-    appId: '1:448811679409:ios:405b603dba536aefaeec90',
+    appId: '1:448811679409:ios:f792a5b2035eb362aeec90',
     messagingSenderId: '448811679409',
     projectId: 'green-egypt-f80b9',
     storageBucket: 'green-egypt-f80b9.appspot.com',
+    androidClientId: '448811679409-op22jdur6are3b4hvdfc16dvet4mnfoo.apps.googleusercontent.com',
     iosClientId: '448811679409-ge4p8hp974b5lilv4o9fiq1dh1t3t09u.apps.googleusercontent.com',
     iosBundleId: 'tech.mavica.greenEgypt',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
     apiKey: 'AIzaSyD4jlld_8EOpru3ynQIpmAQltlsNkAisxY',
-    appId: '1:448811679409:ios:405b603dba536aefaeec90',
+    appId: '1:448811679409:ios:f792a5b2035eb362aeec90',
     messagingSenderId: '448811679409',
     projectId: 'green-egypt-f80b9',
     storageBucket: 'green-egypt-f80b9.appspot.com',
+    androidClientId: '448811679409-op22jdur6are3b4hvdfc16dvet4mnfoo.apps.googleusercontent.com',
     iosClientId: '448811679409-ge4p8hp974b5lilv4o9fiq1dh1t3t09u.apps.googleusercontent.com',
     iosBundleId: 'tech.mavica.greenEgypt',
   );

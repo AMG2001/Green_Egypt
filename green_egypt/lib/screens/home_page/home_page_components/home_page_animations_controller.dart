@@ -10,7 +10,7 @@ class HomePageAnimationsController extends GetxController {
 
   void decreaseWasteCategoriesListAnimatedContainerWidth() {
     Timer(
-      Duration(milliseconds: 1500),
+      Duration(milliseconds: 1000),
       () {
         wasteCategoriesListAnimatedContainerWidth = 0.0;
         update();
@@ -19,7 +19,7 @@ class HomePageAnimationsController extends GetxController {
   }
 
   void decreaseAnimaredContainerSize() {
-    Timer(Duration(milliseconds:1500), () {
+    Timer(Duration(milliseconds: 1000), () {
       animatedContainerHeight = 0;
       update();
     });
@@ -27,7 +27,7 @@ class HomePageAnimationsController extends GetxController {
 
   void removeHidden() {
     Timer(
-      Duration(milliseconds: 1500),
+      Duration(milliseconds: 1000),
       () {
         itemOpacity = 1.0;
         update();

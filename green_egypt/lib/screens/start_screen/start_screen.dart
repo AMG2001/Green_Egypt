@@ -95,7 +95,7 @@ class StartScreen extends StatelessWidget {
                     children: [
                       Text(
                         "Register",
-                        style: TextStyle(color: Colors.black),
+                        style: TextStyle(color: Colors.white),
                       ),
                       SizedBox(
                         width: 12,

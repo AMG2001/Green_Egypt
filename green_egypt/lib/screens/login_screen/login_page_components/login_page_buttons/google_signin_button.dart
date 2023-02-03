@@ -40,8 +40,9 @@ class GoogleSignInButton extends StatelessWidget {
           /**
            * First Fetch data from online Firestore
            */
-          await FirebaseCustomServices.signInWithGoogle();
+          await FirebaseCustomServices.signInWithGoogle(context);
         } catch (e) {
+          print(e);
           CustomToast.showRedToast(messsage: e.toString());
         }
       },

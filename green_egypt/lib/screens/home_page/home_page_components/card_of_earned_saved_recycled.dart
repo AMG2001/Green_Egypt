@@ -36,6 +36,16 @@ class CardOfEarnedSavedRecycled extends StatelessWidget {
                   detailValue: '1250',
                   detailTitle: 'EARNED',
                   animationMilliSeconds: 500),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    width: 2,
+                    height: Dimensions.height * .1,
+                    color: Colors.white.withOpacity(.9),
+                  )
+                ],
+              ),
               UserDetailColumn(
                   icon: Icon(
                     Icons.cloud,
@@ -45,9 +55,21 @@ class CardOfEarnedSavedRecycled extends StatelessWidget {
                   detailValue: '350g',
                   detailTitle: 'SAVED CO2',
                   animationMilliSeconds: 500),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    width: 2,
+                    height: Dimensions.height * .1,
+                    color: Colors.white.withOpacity(.9),
+                  )
+                ],
+              ),
               UserDetailColumn(
                   icon: Icon(
-                    Icons.currency_exchange_rounded,
+                    Icons.recycling_outlined,
+                    color: Colors.green,
+                    size: 28,
                   ),
                   detailValue: '17',
                   detailTitle: 'RECYCLED',
