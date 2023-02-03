@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class HomePageAnimationsController extends GetxController {
-  double animatedContainerHeight = 100;
+  double animatedContainerHeight = 80;
   double itemOpacity = 0.0;
-  double wasteCategoriesListAnimatedContainerWidth = 150;
+  double wasteCategoriesListAnimatedContainerWidth = 120;
 
   void decreaseWasteCategoriesListAnimatedContainerWidth() {
     Timer(

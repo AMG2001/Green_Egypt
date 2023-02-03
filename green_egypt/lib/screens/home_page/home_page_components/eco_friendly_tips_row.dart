@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:green_egypt/config/dimensions.dart';
 import 'package:green_egypt/config/theme/default_colors.dart';
 import 'package:green_egypt/config/theme/default_fonts.dart';
+import 'package:green_egypt/screens/home_page/salah_screen.dart';
 
 class EcoFriendlyTipsRow extends StatelessWidget {
   const EcoFriendlyTipsRow({super.key});
@@ -25,7 +27,11 @@ class EcoFriendlyTipsRow extends StatelessWidget {
                       fontSize: 22),
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(WasteCategoryView(),
+                        transition: Transition.leftToRight,
+                        curve: Curves.easeInOutCubic);
+                  },
                   child: Text(
                     "View All",
                     style: TextStyle(
