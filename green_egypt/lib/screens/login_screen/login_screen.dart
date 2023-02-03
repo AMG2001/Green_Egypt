@@ -24,8 +24,8 @@ class _MyWidgetState extends State<LoginScreen> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
+          width: Dimensions.width,
+          height: Dimensions.height,
           child: SingleChildScrollView(
             child: Column(
               children: [
@@ -33,7 +33,7 @@ class _MyWidgetState extends State<LoginScreen> {
                    * Container that contain login apge header image
                    */
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * .02,
+                  height: Dimensions.height * .02,
                 ),
                 LoginPageHeaderImage(),
 
@@ -48,31 +48,31 @@ class _MyWidgetState extends State<LoginScreen> {
                          * Login Now Text
                          */
                       SizedBox(
-                        height: MediaQuery.of(context).size.height * .02,
+                        height: Dimensions.height * .02,
                       ),
                       Text(
                         "Login Now",
                         style: TextStyle(
-                            fontSize: MediaQuery.of(context).size.width * .06,
+                            fontSize: Dimensions.width * .06,
                             fontWeight: FontWeight.w500),
                       ),
                       SizedBox(
-                          height: MediaQuery.of(context).size.height * .02),
+                          height: Dimensions.height * .02),
                       /**
                                  * Description Text
                                  */
                       Text(
                         "Please enter the details below to continue.",
                         style: TextStyle(
-                            fontSize: MediaQuery.of(context).size.width * .035,
+                            fontSize: Dimensions.width * .035,
                             color: Colors.grey[400],
                             fontWeight: FontWeight.w400),
                       ),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.01,
+                        height: Dimensions.height * 0.01,
                       ),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height * .01,
+                        height: Dimensions.height * .01,
                       ),
                       /***
                          * User Name Text Field
@@ -84,14 +84,14 @@ class _MyWidgetState extends State<LoginScreen> {
                                  * Password Text Field
                                  */
                       SizedBox(
-                        height: MediaQuery.of(context).size.height * .02,
+                        height: Dimensions.height * .02,
                       ),
                       PasswordTextField(
                           passwordTextEditingController:
                               passwordTextEditingController),
                       RegisterAndForgetPasswordRow(),
                       Container(
-                        width: MediaQuery.of(context).size.width * .8,
+                        width: Dimensions.width * .8,
                         child: Column(
                           children: [
                             /**
@@ -104,7 +104,7 @@ class _MyWidgetState extends State<LoginScreen> {
                               loginKey: loginKey,
                             ),
                             SizedBox(
-                              height: MediaQuery.of(context).size.width * .03,
+                              height: Dimensions.width * .03,
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -127,14 +127,14 @@ class _MyWidgetState extends State<LoginScreen> {
                               ],
                             ),
                             SizedBox(
-                              height: MediaQuery.of(context).size.width * .03,
+                              height: Dimensions.width * .03,
                             ),
                             /**
                                * Signin with Google button
                                */
                             GoogleSignInButton(),
                             SizedBox(
-                              height: MediaQuery.of(context).size.width * .03,
+                              height: Dimensions.width * .03,
                             ),
                             /**
                                * Signin with Facebook
