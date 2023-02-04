@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 import 'package:green_egypt/config/dimensions.dart';
 import 'package:green_egypt/config/theme/default_colors.dart';
 import 'package:green_egypt/config/theme/default_fonts.dart';
+import 'package:green_egypt/screens/home_page/home_page_components/eco_friendly_full_tips.dart';
 import 'package:green_egypt/screens/home_page/home_page_components/home_page_animations_controller.dart';
-import 'package:green_egypt/screens/home_page/waste_category_view.dart';
 
 class EcoFriendlyTipsRow extends StatelessWidget {
   const EcoFriendlyTipsRow({super.key});
@@ -34,7 +34,12 @@ class EcoFriendlyTipsRow extends StatelessWidget {
                               fontSize: 22),
                         ),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.to(EcoFriendlyFullTips(),
+                                transition: Transition.downToUp,
+                                curve: Curves.easeInCubic,
+                                duration: Duration(seconds: 1));
+                          },
                           child: Text(
                             "View All",
                             style: TextStyle(
