@@ -18,9 +18,11 @@ class StartScreen extends StatelessWidget {
         width: Dimensions.width,
         height: Dimensions.height,
         decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage(
-                    'assets/images/start_screen_images/start_screen_background_drak.png'))),
+          image: DecorationImage(
+              image: AssetImage(
+                  'assets/images/start_screen_images/start_screen_background_drak.png'),
+              fit: BoxFit.cover),
+        ),
         child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(16.0),

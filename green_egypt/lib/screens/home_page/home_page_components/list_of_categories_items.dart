@@ -4,6 +4,7 @@ import 'package:green_egypt/config/dimensions.dart';
 import 'package:green_egypt/config/theme/default_colors.dart';
 import 'package:green_egypt/screens/home_page/home_page_components/categories_list_item.dart';
 import 'package:green_egypt/screens/home_page/home_page_components/home_page_animations_controller.dart';
+import 'package:green_egypt/screens/home_page/salah_screen.dart';
 
 class ListOfCategoriesItems extends StatelessWidget {
   const ListOfCategoriesItems({super.key});
@@ -26,16 +27,32 @@ class ListOfCategoriesItems extends StatelessWidget {
                   width: controller.wasteCategoriesListAnimatedContainerWidth,
                 ),
                 CategoriesListItem(
+                    heroTag: 'plastic',
                     itemImagePath:
                         'assets/images/main_page_images/Plastic_bag.png',
-                    itemType: "Plastic"),
+                    itemType: "Plastic",
+                    itemShowPage: WasteCategoryView(
+                      heroTag: 'plastic',
+                      imagePath:
+                          'assets/images/main_page_images/Plastic_bag.png',
+                    )),
                 CategoriesListItem(
+                    heroTag: 'glass',
                     itemImagePath: 'assets/images/main_page_images/glass.png',
-                    itemType: "Glass"),
+                    itemType: "Glass",
+                    itemShowPage: WasteCategoryView(
+                      heroTag: 'glass',
+                      imagePath: 'assets/images/main_page_images/glass.png',
+                    )),
                 CategoriesListItem(
+                    heroTag: 'paper',
                     itemImagePath:
                         'assets/images/main_page_images/paper_box.png',
-                    itemType: "Paper"),
+                    itemType: "Paper",
+                    itemShowPage: WasteCategoryView(
+                      heroTag: 'paper',
+                      imagePath: 'assets/images/main_page_images/paper_box.png',
+                    )),
               ]),
             );
           }),

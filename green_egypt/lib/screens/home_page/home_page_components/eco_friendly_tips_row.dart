@@ -27,11 +27,7 @@ class EcoFriendlyTipsRow extends StatelessWidget {
                       fontSize: 22),
                 ),
                 TextButton(
-                  onPressed: () {
-                    Get.to(WasteCategoryView(),
-                        transition: Transition.leftToRight,
-                        curve: Curves.easeInOutCubic);
-                  },
+                  onPressed: () {},
                   child: Text(
                     "View All",
                     style: TextStyle(
