@@ -24,14 +24,14 @@ class UserDetailColumn extends StatelessWidget {
           controller.removeHidden();
           return Expanded(
             child: AnimatedOpacity(
-              duration: Duration(seconds: 1),
+              duration: Duration(milliseconds: 750),
               opacity: controller.itemOpacity,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   AnimatedContainer(
                       curve: Curves.easeInOutCubic,
-                      duration: Duration(seconds: 1),
+                      duration: Duration(milliseconds: 750),
                       height: controller.animatedContainerHeight),
                   icon,
                   Text(

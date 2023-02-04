@@ -4,7 +4,7 @@ import 'package:green_egypt/config/dimensions.dart';
 import 'package:green_egypt/config/theme/default_colors.dart';
 import 'package:green_egypt/screens/home_page/home_page_components/categories_list_item.dart';
 import 'package:green_egypt/screens/home_page/home_page_components/home_page_animations_controller.dart';
-import 'package:green_egypt/screens/home_page/salah_screen.dart';
+import 'package:green_egypt/screens/home_page/waste_category_view.dart';
 
 class ListOfCategoriesItems extends StatelessWidget {
   const ListOfCategoriesItems({super.key});
@@ -23,7 +23,7 @@ class ListOfCategoriesItems extends StatelessWidget {
               child: ListView(scrollDirection: Axis.horizontal, children: [
                 AnimatedContainer(
                   curve: Curves.easeInOutCubic,
-                  duration: Duration(seconds: 1),
+                  duration: Duration(milliseconds: 750),
                   width: controller.wasteCategoriesListAnimatedContainerWidth,
                 ),
                 CategoriesListItem(
