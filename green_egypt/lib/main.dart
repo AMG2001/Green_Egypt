@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:green_egypt/config/localization/locale.dart';
 import 'package:green_egypt/config/pages_names.dart';
 import 'package:green_egypt/config/theme/application_theme_controller.dart';
 import 'package:green_egypt/firebase_options.dart';
@@ -37,6 +38,7 @@ class GreenEgypt extends StatelessWidget {
          * Get Builder that will change the theme depending on user choice 
          */
         return GetBuilder<ApplicationThemeController>(
+          
             /**
            * Changing theme logic stored in ApplicationThemeController
            * theme itself is stored in ApplicationTheme .
@@ -44,6 +46,8 @@ class GreenEgypt extends StatelessWidget {
             init: ApplicationThemeController(),
             builder: (controller) {
               return GetMaterialApp(
+                translations: ApplicationLocal(),
+                locale: Get.deviceLocale,
                 /**
                  * Get Current theme and if changed , change application theme .
                  */

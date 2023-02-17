@@ -1,0 +1,34 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:green_egypt/config/pages_names.dart';
+import 'package:green_egypt/config/theme/application_theme_controller.dart';
+import 'package:green_egypt/config/user_data_model/user_data_model.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
+
+class LogoutOption extends StatelessWidget {
+  late ApplicationThemeController applicationThemeController;
+  LogoutOption({required this.applicationThemeController});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      horizontalTitleGap: 0,
+      onTap: () async {
+        Get.offAllNamed(PagesNames.loginScreen);
+        await UserDataModel.userLoggedOut();
+        await FirebaseAuth.instance.signOut();
+      },
+      leading: Icon(
+        Icons.login_sharp,
+        color: applicationThemeController.isDark ? Colors.white : Colors.black,
+      ),
+      title: Text("Logout"),
+      trailing: Icon(
+        Icons.arrow_forward_ios,
+        size: 18.sp,
+        color: Colors.grey,
+      ),
+    );
+  }
+}

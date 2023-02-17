@@ -7,6 +7,7 @@ class GreenEgyptMachinesOption extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      horizontalTitleGap: 0,
       leading: Icon(
         Icons.location_on_outlined,
         color: Colors.green,

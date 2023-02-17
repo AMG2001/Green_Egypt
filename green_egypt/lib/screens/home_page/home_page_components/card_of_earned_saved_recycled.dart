@@ -34,7 +34,7 @@ class CardOfEarnedSavedRecycled extends StatelessWidget {
                     color: Colors.yellow[400],
                   ),
                   detailValue: '1250',
-                  detailTitle: 'EARNED',
+                  detailTitle: 'EARNED'.tr,
                   animationMilliSeconds: 500),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -53,7 +53,7 @@ class CardOfEarnedSavedRecycled extends StatelessWidget {
                     size: 28,
                   ),
                   detailValue: '350g',
-                  detailTitle: 'SAVED CO2',
+                  detailTitle: 'SAVED CO2'.tr,
                   animationMilliSeconds: 500),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -72,7 +72,7 @@ class CardOfEarnedSavedRecycled extends StatelessWidget {
                     size: 28,
                   ),
                   detailValue: '17',
-                  detailTitle: 'RECYCLED',
+                  detailTitle: 'RECYCLED'.tr,
                   animationMilliSeconds: 500),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,

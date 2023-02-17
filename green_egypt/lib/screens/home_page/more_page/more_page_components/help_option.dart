@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:green_egypt/services/custom_toast.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-class TransactionsOption extends StatelessWidget {
-  const TransactionsOption({super.key});
+class HelpOption extends StatelessWidget {
+  const HelpOption({super.key});
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
       horizontalTitleGap: 0,
+      onTap: () {
+        CustomToast.showBlackToast(messsage: "This Function not added yet !");
+      },
       leading: Icon(
-        Icons.history,
-        color: Colors.red,
+        Icons.help,
+        color: Colors.blue[300],
       ),
-      title: Text("Transactions history"),
+      title: Text("Help"),
       trailing: Icon(
         Icons.arrow_forward_ios,
         size: 18.sp,

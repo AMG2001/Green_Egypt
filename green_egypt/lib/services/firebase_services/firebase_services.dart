@@ -40,6 +40,34 @@ class FirebaseCustomServices {
       accessToken: googleAuth?.accessToken,
       idToken: googleAuth?.idToken,
     );
+    /**
+     * show snackbar to show state :
+     */
+    Get.snackbar(
+        'Login Status', 'Login Done successfuly ✔️ , moving to home page',
+        colorText: Colors.black);
+    /**
+     * show login Success Animation :
+     */
+    showDialog(
+        context: context,
+        builder: (context) {
+          Future.delayed(Duration(seconds: 3), () {
+            /**
+                        * Remove Success Animation
+                        */
+            Get.back();
+            /**
+                         * Navigate to Home Screen 
+                         */
+            Get.offNamed(PagesNames.homePage);
+          });
+          return Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: Lottie.asset('assets/animated_vectors/login_success.json',
+                repeat: false),
+          );
+        });
 
     // Once signed in, return the UserCredential
     await FirebaseAuth.instance
@@ -76,9 +104,14 @@ class FirebaseCustomServices {
                 email: userData['user_email'],
                 name: userData['user_name'],
                 imageUrl: userData['user_image_url'])
-            .then((value) => Get.offAllNamed(PagesNames.homePage));
+            .then((value) {
+          Get.offAllNamed(PagesNames.homePage);
+        });
       } catch (e) {
         print(e);
+        Get.snackbar(
+            'Login Status', 'Login Done successfuly ✔️ , moving to home page',
+            colorText: Colors.black);
         /**
                * Getting data from Google Auth [name , image , email , phoneNumber]
                * add user in firestore but without id
@@ -107,31 +140,12 @@ class FirebaseCustomServices {
                 name: userCredential.user!.displayName!,
                 imageUrl: userCredential.user!.photoURL!);
           }).then((value) {
+            Get.snackbar('Login Status',
+                'Login Done successfuly ✔️ , moving to home page');
             Get.offAllNamed(PagesNames.homePage);
             /**
            * Show success animation
            */
-        
-            // showDialog(
-            //     context: context,
-            //     builder: (context) {
-            //       Future.delayed(Duration(seconds: 3), () {
-            //         /**
-            //             * Remove Success Animation
-            //             */
-            //         Get.back();
-            //         /**
-            //              * Navigate to Home Screen 
-            //              */
-            //         Get.offAllNamed(PagesNames.homePage);
-            //       });
-            //       return Padding(
-            //         padding: const EdgeInsets.all(12.0),
-            //         child: Lottie.asset(
-            //             'assets/animated_vectors/register_success.json',
-            //             repeat: false),
-            //       );
-            //     });
           });
         });
       }
