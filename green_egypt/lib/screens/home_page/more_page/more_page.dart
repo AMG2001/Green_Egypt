@@ -73,7 +73,8 @@ class MorePage extends StatelessWidget {
                     /**
                    * ****************************** Language Option ******************************
                    */
-                    LanguageOption(),
+                    LanguageOption(
+                        applicationThemeController: applicationThemeController),
                     /**
                    * **************************** Application theme Option *****************************
                    */

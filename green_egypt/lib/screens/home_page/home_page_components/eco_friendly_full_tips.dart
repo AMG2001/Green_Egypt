@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:green_egypt/config/dimensions.dart';
+import 'package:green_egypt/config/theme/application_theme_controller.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:green_egypt/screens/home_page/home_page_components/friendly_tips_item.dart';
 
 class EcoFriendlyFullTips extends StatelessWidget {
-  const EcoFriendlyFullTips({super.key});
+  final applicationThemeController = Get.put(ApplicationThemeController());
+  EcoFriendlyFullTips({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +15,8 @@ class EcoFriendlyFullTips extends StatelessWidget {
      * Implement List view with 15 tip .
      */
     return Scaffold(
-      backgroundColor: Color(0xfffefefc),
+      backgroundColor:
+          applicationThemeController.isDark ? Colors.black : Color(0xfffefefc),
       body: Column(
         children: [
           Row(
@@ -24,12 +27,14 @@ class EcoFriendlyFullTips extends StatelessWidget {
           Container(
             width: Dimensions.width,
             height: Dimensions.height,
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(32),
                 topRight: Radius.circular(32),
               ),
-              color: Color(0xfff7f5f5),
+              color: applicationThemeController.isDark
+                  ? Colors.black
+                  : Color(0xfff7f5f5),
             ),
             child: ListView(
               scrollDirection: Axis.vertical,

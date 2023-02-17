@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:green_egypt/config/dimensions.dart';
+import 'package:green_egypt/config/theme/application_theme_controller.dart';
 import 'package:green_egypt/screens/home_page/home_page_components/categories_list_item.dart';
 import 'package:green_egypt/screens/home_page/home_page_components/home_page_animations_controller.dart';
 import 'package:green_egypt/screens/home_page/waste_category_view.dart';
 
 class ListOfCategoriesItems extends StatelessWidget {
-  const ListOfCategoriesItems({super.key});
+  final applicationThemeController = Get.put(ApplicationThemeController());
+  ListOfCategoriesItems({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +28,7 @@ class ListOfCategoriesItems extends StatelessWidget {
                   width: controller.wasteCategoriesListAnimatedContainerWidth,
                 ),
                 CategoriesListItem(
+                    applicationThemeController: applicationThemeController,
                     heroTag: 'plastic',
                     itemImagePath:
                         'assets/images/main_page_images/Plastic_bag.png',
@@ -36,6 +39,7 @@ class ListOfCategoriesItems extends StatelessWidget {
                           'assets/images/main_page_images/Plastic_bag.png',
                     )),
                 CategoriesListItem(
+                    applicationThemeController: applicationThemeController,
                     heroTag: 'glass',
                     itemImagePath: 'assets/images/main_page_images/glass.png',
                     itemType: "Glass",
@@ -44,6 +48,7 @@ class ListOfCategoriesItems extends StatelessWidget {
                       imagePath: 'assets/images/main_page_images/glass.png',
                     )),
                 CategoriesListItem(
+                    applicationThemeController: applicationThemeController,
                     heroTag: 'paper',
                     itemImagePath:
                         'assets/images/main_page_images/paper_box.png',
