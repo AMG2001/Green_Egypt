@@ -25,6 +25,65 @@ class FirebaseCustomServices {
    * 2. email and password sign in .
    * 3. Facebook signing in .
    */
+
+  /**
+ * After login , add user fetched data from google auth to firestore .
+ */
+  static Future<DocumentReference<Map<String, dynamic>>>
+      addUserFetchedData_InFireStore(
+          {required String userEmail,
+          required String userName,
+          required String imageUrl,
+          required String phoneNumber,
+          required String userCredintial}) async {
+    return await FirebaseFirestore.instance.collection('user_logs').add({
+      'user_email': userEmail,
+      'user_name': userName,
+      'user_image_url': imageUrl,
+      'user_phone_number': phoneNumber,
+      'user_credintial': userCredintial
+    });
+  }
+
+  /**
+   * After adding user data into firestore , get generated id and add it with other user data .
+   */
+  static Future<void> addId_ToUserDataInFireStore(
+      DocumentReference<Map<String, dynamic>> document) async {
+    await FirebaseFirestore.instance
+        .collection('user_logs')
+        .doc(document.id)
+        .update({'user_id': document.id});
+  }
+
+/**
+ * get user data from firestore to init it in UserDataModel shared preferences .
+ */
+  static Future<QuerySnapshot<Map<String, dynamic>>> getUserDataFromFireStore(
+      String userEmail) async {
+    return await FirebaseFirestore.instance
+        .collection('user_logs')
+        .where('user_email', isEqualTo: userEmail)
+        .get();
+  }
+
+  /**
+   * Store Fethced data from fire Store into User Data Model .
+   */
+  static Future<void> store_userFethcedData_InUserDataModel(
+      {required String phoneNumber,
+      required String userCredintial,
+      required String userEmail,
+      required String userName,
+      required String userImageUrl}) async {
+    await UserDataModel.initiateUserDataModel(
+        userPhoneNumber: phoneNumber,
+        userCredintialArg: userCredintial,
+        email: userEmail,
+        name: userName,
+        imageUrl: userImageUrl);
+  }
+
   /**
    * Signing in with Google : 
    */
@@ -84,11 +143,8 @@ class FirebaseCustomServices {
          * get data , send it to firestore , add data also to UserDataModel . 
          */
       try {
-        final document = await FirebaseFirestore.instance
-            .collection('user_logs')
-            .where('user_email', isEqualTo: userCredential.user!.email)
-            .get();
-
+        final document =
+            await getUserDataFromFireStore(userCredential.user!.email!);
         /**
          * if there is no errors ✔ , it mean that this user account is registered before on firestore,
          * so get account data in map and then store it in UserDataModel .
@@ -98,12 +154,12 @@ class FirebaseCustomServices {
         /**
            * Store fetched data in UserDataModel .
            */
-        await UserDataModel.initiateUserDataModel(
-                userCredintialArg: userData['user_credintial'],
-                userPhoneNumber: userData['user_phone_number'],
-                email: userData['user_email'],
-                name: userData['user_name'],
-                imageUrl: userData['user_image_url'])
+        await store_userFethcedData_InUserDataModel(
+                phoneNumber: userData['user_phone_number'],
+                userCredintial: userData['user_credintial'],
+                userEmail: userData['user_email'],
+                userName: userData['user_name'],
+                userImageUrl: userData['user_image_url'])
             .then((value) {
           Get.offAllNamed(PagesNames.homePage);
         });
@@ -116,29 +172,27 @@ class FirebaseCustomServices {
                * Getting data from Google Auth [name , image , email , phoneNumber]
                * add user in firestore but without id
                */
-        await FirebaseFirestore.instance.collection('user_logs').add({
-          'user_email': userCredential.user!.email,
-          'user_name': userCredential.user!.displayName,
-          'user_image_url': userCredential.user!.photoURL,
-          'user_phone_number': "",
-          'user_credintial': "normal_user"
-        }).then((document) async {
+
+        await addUserFetchedData_InFireStore(
+                userName: userCredential.user!.displayName!,
+                userEmail: userCredential.user!.email!,
+                imageUrl: userCredential.user!.photoURL!,
+                phoneNumber: "",
+                userCredintial: "normal_user")
+            .then((document) async {
           /**
              * update user data on firestore by adding id .
              */
-          await FirebaseFirestore.instance
-              .collection('user_logs')
-              .doc(document.id)
-              .update({'user_id': document.id}).then((x) async {
+          await addId_ToUserDataInFireStore(document).then((x) async {
             /**
                    * add user data into UserDataModel
                    */
-            await UserDataModel.initiateUserDataModel(
-                userPhoneNumber: "",
-                userCredintialArg: "normal_user",
-                email: userCredential.user!.email!,
-                name: userCredential.user!.displayName!,
-                imageUrl: userCredential.user!.photoURL!);
+            await store_userFethcedData_InUserDataModel(
+                phoneNumber: "",
+                userCredintial: "normal_user",
+                userEmail: userCredential.user!.email!,
+                userName: userCredential.user!.displayName!,
+                userImageUrl: userCredential.user!.photoURL!);
           }).then((value) {
             Get.snackbar('Login Status',
                 'Login Done successfuly ✔️ , moving to home page');
@@ -197,11 +251,7 @@ class FirebaseCustomServices {
          * get data , send it to firestore , add data also to UserDataModel . 
          */
         try {
-          final document = await FirebaseFirestore.instance
-              .collection('user_logs')
-              .where('user_email', isEqualTo: value['email'])
-              .get();
-
+          final document = await getUserDataFromFireStore(value['email']);
           /**
          * if there is no errors , it mean that this user account is registered before on firestore,
          * so get account data in map and then store it in UserDataModel .
@@ -211,12 +261,13 @@ class FirebaseCustomServices {
           /**
            * Store fetched data in UserDataModel .
            */
-          await UserDataModel.initiateUserDataModel(
-                  userCredintialArg: userData['user_credintial'],
-                  userPhoneNumber: userData['user_phone_number'],
-                  email: userData['user_email'],
-                  name: userData['user_name'],
-                  imageUrl: userData['user_image_url'])
+
+          await store_userFethcedData_InUserDataModel(
+                  userName: userData['user_name'],
+                  userEmail: userData['user_email'],
+                  userImageUrl: userData['user_image_url'],
+                  phoneNumber: userData['user_phone_number'],
+                  userCredintial: userData['user_credintial'])
               .then((value) => Get.offAllNamed(PagesNames.homePage));
         } catch (e) {
           /**
