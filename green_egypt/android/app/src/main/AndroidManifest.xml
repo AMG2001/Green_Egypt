@@ -2,7 +2,7 @@
     package="tech.mavica.green_egypt">
    <application
 
-        android:label="green_egypt"
+        android:label="Green Egypt"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
           <activity android:name="com.facebook.FacebookActivity"

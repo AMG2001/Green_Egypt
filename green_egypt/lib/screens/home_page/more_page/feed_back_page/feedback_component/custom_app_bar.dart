@@ -20,8 +20,7 @@ class CustomAppBar extends StatelessWidget {
         SizedBox(width: Constants.kDefaultPadding),
         Text(
           'Feedback!',
-          style: TextStyle(
-              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 24),
+          style: TextStyle(color: Colors.white, fontSize: 24),
         )
       ],
     );
