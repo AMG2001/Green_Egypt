@@ -7,6 +7,7 @@ import 'package:green_egypt/config/pages_names.dart';
 import 'package:green_egypt/config/user_data_model/user_data_model.dart';
 import 'package:green_egypt/services/custom_toast.dart';
 import 'package:green_egypt/services/firebase_services/firebase_services.dart';
+import 'package:green_egypt/services/firebase_services/google_auth.dart';
 
 class GoogleSignInButton extends StatelessWidget {
   /**
@@ -40,7 +41,7 @@ class GoogleSignInButton extends StatelessWidget {
           /**
            * First Fetch data from online Firestore
            */
-          await FirebaseCustomServices.signInWithGoogle(context);
+          await GoogleCustomAuth.signInWithGoogle(context);
         } catch (e) {
           print(e);
           CustomToast.showRedToast(messsage: e.toString());

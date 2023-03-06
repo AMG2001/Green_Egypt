@@ -16,6 +16,8 @@ class UserDataModel {
   static late bool userLoggedIn;
   // user credintial "one of staff of regular user ".
   static late String userCredintial;
+  // user id getted from firestore
+  static late String userId;
   /**
    * user Shared prefs keys - private Access .
    */
@@ -25,7 +27,7 @@ class UserDataModel {
   static String _userLoggedInKey = "userLoggedIn";
   static String _userNumberKey = "userNumberKey";
   static String _userCredintialKey = "userCredintial";
-
+  static String _userIdKey = "userId";
   /**
    * userDataModelSharedPref Object : 
    */
@@ -74,13 +76,15 @@ class UserDataModel {
      *  it mean that user logged in before and user logged in boolean value is stored .
      *  so return this value , else , return "" .
      */
-    userCredintial = userDataModelSharedPref.getString(_userCredintialKey) ?? "";
+    userCredintial =
+        userDataModelSharedPref.getString(_userCredintialKey) ?? "";
     /**
      * if userDataModelSharedPref contain userLoggedInBool value stored in ,
      *  it mean that user logged in before and user logged in boolean value is stored .
      *  so return this value , else , return "" .
      */
     print('user logged bool initialized and it\'s value is $userLoggedIn');
+    userId = userDataModelSharedPref.getString(_userIdKey) ?? "";
   }
 
   /**
@@ -94,12 +98,16 @@ class UserDataModel {
 
   // TODO : add user Credintail here .
   static Future<void> initiateUserDataModel(
-      {required String name,
+      {required String id,
+      required String name,
       required String email,
       required String imageUrl,
       required String userPhoneNumber,
-      required String userCredintialArg
-      }) async {
+      required String userCredintialArg}) async {
+    // setting id to shared pref
+    await userDataModelSharedPref
+        .setString(_userIdKey, id)
+        .then((value) => userId = id);
     /**
          * initialize userName in userDataModelSharedPref
          */
@@ -127,7 +135,7 @@ class UserDataModel {
     /**
          * initialize userCredintials in userDataModelSharedPref
          */
-        await userDataModelSharedPref
+    await userDataModelSharedPref
         .setString(_userCredintialKey, userCredintialArg)
         .then((value) => userCredintial = userCredintialArg);
     /**
@@ -144,6 +152,9 @@ class UserDataModel {
   static Future<void> userLoggedOut() async {
     // reset userName in userDataModel Object to ""
     await userDataModelSharedPref
+        .setString(_userIdKey, "")
+        .then((value) => userId = "");
+    await userDataModelSharedPref
         .setString(_userNameKey, "")
         .then((value) => userName = "");
     // reset userEmail in userDataModel Object to ""
@@ -158,7 +169,7 @@ class UserDataModel {
     await userDataModelSharedPref
         .setString(_userNumberKey, "")
         .then((value) => userNumber = "");
-         // reset userCredinital data  in userDataModel Object to ""
+    // reset userCredinital data  in userDataModel Object to ""
     await userDataModelSharedPref
         .setString(_userCredintialKey, "")
         .then((value) => userCredintial = "");
@@ -191,14 +202,14 @@ class UserDataModel {
   static String getUserCredintial() {
     return userCredintial;
   }
+
   // return userLoggedInBool - boolean
   static bool getUserLoggedInBool() {
     return userLoggedIn;
   }
 
-  Map<String, dynamic> getUserDataFromJson() {
-    Map<String, dynamic> userData = {};
-
-    return userData;
+// return userCredintial - String
+  static String getUserId() {
+    return userId;
   }
 }

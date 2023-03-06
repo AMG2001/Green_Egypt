@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:green_egypt/config/dimensions.dart';
+import 'package:green_egypt/config/theme/default_colors.dart';
 import 'package:green_egypt/config/vectos_paths.dart';
 import 'package:lottie/lottie.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -15,19 +16,6 @@ class PageHeader extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        // Align(
-        //   alignment: Alignment.center,
-        //   child: CachedNetworkImage(
-        //     height: Dimensions.height * .35,
-        //     imageUrl:
-        //         "https://drive.google.com/file/d/1GlpHvk3QrQRO-Mj7wmbnZibwO4x6xTB6/view?usp=share_link",
-        //     placeholder: (context, url) => CircularProgressIndicator(),
-        //     errorWidget: (context, url, error) => Icon(
-        //       Icons.error,
-        //       color: Colors.red,
-        //     ),
-        //   ),
-        // ),
         Align(
           alignment: Alignment.center,
           child: Lottie.asset('assets/animated_vectors/register_animation.json',
@@ -54,7 +42,7 @@ class PageHeader extends StatelessWidget {
         ),
         Text(
           "Enter your Details : ",
-          style: TextStyle(fontSize: 18.sp, color: Color(0xFF5AE4A7)),
+          style: TextStyle(fontSize: 18.sp, color: DefaultColors.defaultGreen),
         ),
 
         /**

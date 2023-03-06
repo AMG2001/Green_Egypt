@@ -38,25 +38,25 @@ dependencies:
   firebase_storage: ^11.0.2
   flutter:
     sdk: flutter
-  flutter_facebook_auth: ^4.4.1+1
+  flutter_facebook_auth: ^5.0.8
   flutter_rating_bar: ^4.0.1
-  flutter_svg: ^1.1.6
-  fluttertoast: ^8.1.1
+  flutter_svg: ^2.0.2
+  fluttertoast: ^8.2.1
   font_awesome_flutter: ^10.2.1
   get: ^4.6.5
-  google_sign_in: ^5.4.2
-  lottie: ^1.4.3
+  google_sign_in: ^6.0.2
+  lottie: ^2.2.0
+  quickalert: ^1.0.1
   responsive_sizer: ^3.1.1
-  shared_preferences: ^2.0.15
-  smooth_page_indicator: ^1.0.0+2
+  shared_preferences: ^2.0.18
+  smooth_page_indicator: ^1.0.1
+  smooth_star_rating_null_safety: ^1.0.4+2
 dev_dependencies:
   badges: ^3.0.2
   cached_network_image: ^3.2.3
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
-  fluttertoast: ^8.1.2
-  font_awesome_flutter: ^10.2.1
   qr_code_scanner: ^1.0.1
 
 # For information on the generic Dart part of this file, see the

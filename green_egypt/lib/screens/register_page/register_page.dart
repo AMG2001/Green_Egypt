@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:green_egypt/config/dimensions.dart';
+import 'package:green_egypt/config/theme/default_colors.dart';
 import 'package:green_egypt/screens/register_page/register_page_controller.dart';
 import 'package:green_egypt/screens/register_page/regsiter_page_components.dart/email_text_field.dart';
 import 'package:green_egypt/screens/register_page/regsiter_page_components.dart/first_name_text_field.dart';
@@ -65,13 +66,13 @@ class RegisterPage extends StatelessWidget {
                                     style: ButtonStyle(
                                         backgroundColor:
                                             MaterialStateProperty.all<Color>(
-                                                Colors.green)),
+                                                DefaultColors.defaultGreen)),
                                     onPressed: () {
                                       Get.back();
                                     },
                                     icon: Icon(
                                       Icons.arrow_back_sharp,
-                                      color: Colors.green,
+                                      color: DefaultColors.defaultGreen,
                                       size: 28,
                                     ),
                                   ),

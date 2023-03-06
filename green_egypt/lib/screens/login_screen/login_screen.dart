@@ -3,7 +3,7 @@ import 'package:green_egypt/config/dimensions.dart';
 import 'package:green_egypt/screens/login_screen/login_page_components/login_page_buttons/facebook_login_button.dart';
 import 'package:green_egypt/screens/login_screen/login_page_components/login_page_buttons/google_signin_button.dart';
 import 'package:green_egypt/screens/login_screen/login_page_components/login_page_buttons/register_and_forget_password_row.dart';
-import 'package:green_egypt/screens/login_screen/login_page_components/login_page_buttons/sing_in_button.dart';
+import 'package:green_egypt/screens/login_screen/login_page_components/login_page_buttons/sign_in_button.dart';
 import 'package:green_egypt/screens/login_screen/login_page_components/login_page_header_image.dart';
 import 'package:green_egypt/screens/login_screen/login_page_components/passwordTextField/password_text_field.dart';
 import 'package:green_egypt/screens/login_screen/login_page_components/userNameTextField/user_name_text_field.dart';

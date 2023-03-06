@@ -46,8 +46,8 @@ class PagesNames {
         transition: Transition.fade),
     GetPage(
         name: feedBackPage,
-        page: () => FeedBackPage(),
-        transition: Transition.fade),
+        page: () => FeedbackPage(),
+        transition: Transition.rightToLeft),
     GetPage(
         name: morePage, page: () => MorePage(), transition: Transition.fade),
     GetPage(

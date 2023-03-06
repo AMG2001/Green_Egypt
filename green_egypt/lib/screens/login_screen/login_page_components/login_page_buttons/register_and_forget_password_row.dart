@@ -4,6 +4,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:green_egypt/config/pages_names.dart';
+import 'package:green_egypt/config/theme/default_colors.dart';
 
 import 'package:page_transition/page_transition.dart';
 
@@ -25,10 +26,10 @@ class RegisterAndForgetPasswordRow extends StatelessWidget {
           OutlinedButton(
             style: ButtonStyle(
               side: MaterialStateProperty.all<BorderSide>(
-                  BorderSide(color: Colors.green)),
+                  BorderSide(color: DefaultColors.defaultGreen)),
               shape: MaterialStateProperty.all<OutlinedBorder>(
                   RoundedRectangleBorder(
-                      side: BorderSide(color: Colors.green),
+                      side: BorderSide(color: DefaultColors.defaultGreen),
                       borderRadius: BorderRadius.circular(28))),
             ),
             /**
@@ -46,7 +47,7 @@ class RegisterAndForgetPasswordRow extends StatelessWidget {
                 ),
                 FaIcon(
                   FontAwesomeIcons.arrowRight,
-                  color: Colors.green,
+                  color: DefaultColors.defaultGreen,
                   size: 12,
                 )
               ],
@@ -62,7 +63,7 @@ class RegisterAndForgetPasswordRow extends StatelessWidget {
             },
             child: Text(
               "Forgot Password?",
-              style: TextStyle(color: Colors.green, fontSize: 14),
+              style: TextStyle(color: DefaultColors.defaultGreen, fontSize: 14),
             ),
           )
         ],

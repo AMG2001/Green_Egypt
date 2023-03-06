@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:green_egypt/config/pages_names.dart';
+import 'package:green_egypt/config/theme/default_colors.dart';
 import 'package:green_egypt/config/user_data_model/user_data_model.dart';
 import 'package:green_egypt/services/custom_toast.dart';
 import 'package:green_egypt/services/firebase_services/firebase_services.dart';
@@ -37,7 +38,7 @@ class RegisterPageController extends GetxController {
         color: eyeIconColor,
       );
     } else {
-      eyeIconColor = Colors.green;
+      eyeIconColor = DefaultColors.defaultGreen;
       eyeIcon = FaIcon(
         FontAwesomeIcons.eye,
         color: eyeIconColor,
@@ -89,35 +90,35 @@ class RegisterPageController extends GetxController {
               userNumber: userNumberController.text,
               userCredintial: userCredintial)
           .then((value) {
-                   /**
+        /**
                      * Remove loading indicator
                      */
-              Get.back();
-              /**
+        Get.back();
+        /**
                 * Show animted success vector
                 */
-              // TODO : show success animation .
-             showDialog(
-                      context: context,
-                      builder: (context) {
-                        Future.delayed(Duration(seconds: 3), () {
-                          /**
+        // TODO : show success animation .
+        showDialog(
+            context: context,
+            builder: (context) {
+              Future.delayed(Duration(seconds: 3), () {
+                /**
                         * Remove Success Animation
                         */
-                          Get.back();
-                          /**
+                Get.back();
+                /**
                          * Navigate to Home Screen 
                          */
-                          Get.offNamed(PagesNames.homePage);
-                        });
-                        return Padding(
-                          padding: const EdgeInsets.all(12.0),
-                          child: Lottie.asset(
-                              'assets/animated_vectors/register_done_animation.json',
-                              repeat: false),
-                        );
-                      });   
-          });
+                Get.offAllNamed(PagesNames.homePage);
+              });
+              return Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Lottie.asset(
+                    'assets/animated_vectors/register_done_animation.json',
+                    repeat: false),
+              );
+            });
+      });
     } on FirebaseAuthException catch (e) {
       Get.back();
       CustomToast.showRedToast(messsage: e.toString());

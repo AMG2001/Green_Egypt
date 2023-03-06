@@ -71,12 +71,14 @@ class FirebaseCustomServices {
    * Store Fethced data from fire Store into User Data Model .
    */
   static Future<void> store_userFethcedData_InUserDataModel(
-      {required String phoneNumber,
+      {required String userId,
+      required String phoneNumber,
       required String userCredintial,
       required String userEmail,
       required String userName,
       required String userImageUrl}) async {
     await UserDataModel.initiateUserDataModel(
+        id: userId,
         userPhoneNumber: phoneNumber,
         userCredintialArg: userCredintial,
         email: userEmail,
@@ -87,124 +89,6 @@ class FirebaseCustomServices {
   /**
    * Signing in with Google : 
    */
-  static Future<void> signInWithGoogle(BuildContext context) async {
-    // Trigger the authentication flow
-    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-    // Obtain the auth details from the request
-    final GoogleSignInAuthentication? googleAuth =
-        await googleUser?.authentication;
-
-    // Create a new credential
-    final credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth?.accessToken,
-      idToken: googleAuth?.idToken,
-    );
-    /**
-     * show snackbar to show state :
-     */
-    Get.snackbar(
-        'Login Status', 'Login Done successfuly ✔️ , moving to home page',
-        colorText: Colors.black);
-    /**
-     * show login Success Animation :
-     */
-    showDialog(
-        context: context,
-        builder: (context) {
-          Future.delayed(Duration(seconds: 3), () {
-            /**
-                        * Remove Success Animation
-                        */
-            Get.back();
-            /**
-                         * Navigate to Home Screen 
-                         */
-            Get.offNamed(PagesNames.homePage);
-          });
-          return Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: Lottie.asset('assets/animated_vectors/login_success.json',
-                repeat: false),
-          );
-        });
-
-    // Once signed in, return the UserCredential
-    await FirebaseAuth.instance
-        .signInWithCredential(credential)
-        .then((userCredential) async {
-      /**
-             * Second store all user data in UserDataModel with number = "" and userCategory = "normal_user"
-             * phone number will be changed from user account setting inside application .
-             */
-
-      /**
-         * try to get user data from firestore , if there is an error :
-         * it mean that user is first time login with this account , so 
-         * get data , send it to firestore , add data also to UserDataModel . 
-         */
-      try {
-        final document =
-            await getUserDataFromFireStore(userCredential.user!.email!);
-        /**
-         * if there is no errors ✔ , it mean that this user account is registered before on firestore,
-         * so get account data in map and then store it in UserDataModel .
-         * then navigate to HomePage
-         */
-        var userData = document.docs.map((e) => e.data()).first;
-        /**
-           * Store fetched data in UserDataModel .
-           */
-        await store_userFethcedData_InUserDataModel(
-                phoneNumber: userData['user_phone_number'],
-                userCredintial: userData['user_credintial'],
-                userEmail: userData['user_email'],
-                userName: userData['user_name'],
-                userImageUrl: userData['user_image_url'])
-            .then((value) {
-          Get.offAllNamed(PagesNames.homePage);
-        });
-      } catch (e) {
-        print(e);
-        Get.snackbar(
-            'Login Status', 'Login Done successfuly ✔️ , moving to home page',
-            colorText: Colors.black);
-        /**
-               * Getting data from Google Auth [name , image , email , phoneNumber]
-               * add user in firestore but without id
-               */
-
-        await addUserFetchedData_InFireStore(
-                userName: userCredential.user!.displayName!,
-                userEmail: userCredential.user!.email!,
-                imageUrl: userCredential.user!.photoURL!,
-                phoneNumber: "",
-                userCredintial: "normal_user")
-            .then((document) async {
-          /**
-             * update user data on firestore by adding id .
-             */
-          await addId_ToUserDataInFireStore(document).then((x) async {
-            /**
-                   * add user data into UserDataModel
-                   */
-            await store_userFethcedData_InUserDataModel(
-                phoneNumber: "",
-                userCredintial: "normal_user",
-                userEmail: userCredential.user!.email!,
-                userName: userCredential.user!.displayName!,
-                userImageUrl: userCredential.user!.photoURL!);
-          }).then((value) {
-            Get.snackbar('Login Status',
-                'Login Done successfuly ✔️ , moving to home page');
-            Get.offAllNamed(PagesNames.homePage);
-            /**
-           * Show success animation
-           */
-          });
-        });
-      }
-    });
-  }
 
   /**
    * Sign in with email and password : 
@@ -236,80 +120,6 @@ class FirebaseCustomServices {
   }
 
   /**
-   * Signing in with Facebook : 
-   */
-
-  static Future<void> signInWithFacebook() async {
-    final LoginResult result = await FacebookAuth.instance
-        .login(); // by default we request the email and the public profile
-// or FacebookAuth.i.login()
-    if (result.status == LoginStatus.success) {
-      FacebookAuth.instance.getUserData().then((value) async {
-        /**
-         * try to get user data from firestore , if there is an error :
-         * it mean that user is first time login with this account , so 
-         * get data , send it to firestore , add data also to UserDataModel . 
-         */
-        try {
-          final document = await getUserDataFromFireStore(value['email']);
-          /**
-         * if there is no errors , it mean that this user account is registered before on firestore,
-         * so get account data in map and then store it in UserDataModel .
-         * then navigate to HomePage
-         */
-          var userData = document.docs.map((e) => e.data()).first;
-          /**
-           * Store fetched data in UserDataModel .
-           */
-
-          await store_userFethcedData_InUserDataModel(
-                  userName: userData['user_name'],
-                  userEmail: userData['user_email'],
-                  userImageUrl: userData['user_image_url'],
-                  phoneNumber: userData['user_phone_number'],
-                  userCredintial: userData['user_credintial'])
-              .then((value) => Get.offAllNamed(PagesNames.homePage));
-        } catch (e) {
-          /**
-               * add user in firestore but without id
-               */
-          print(e);
-          await FirebaseFirestore.instance.collection('user_logs').add({
-            'user_email': value['email'],
-            'user_name': value['name'],
-            'user_credintial': 'normal_user',
-            'user_image_url': value['picture']['data']['url'],
-            'user_phone_number': ""
-          }).then((document) async {
-            /**
-             * update user data on firestore by adding id .
-             */
-            await FirebaseFirestore.instance
-                .collection('user_logs')
-                .doc(document.id)
-                .update({'user_id': document.id}).then((x) async {
-              /**
-                   * add user data into UserDataModel
-                   */
-              await UserDataModel.initiateUserDataModel(
-                  userCredintialArg: "normal_user",
-                  userPhoneNumber: "",
-                  email: value['email'],
-                  name: value['name'],
-                  imageUrl: value['picture']['data']['url']);
-            }).then((value) => Get.offAllNamed(PagesNames.homePage));
-          });
-        }
-        // you are logged
-        final AccessToken accessToken = result.accessToken!;
-      });
-    } else {
-      print(result.status);
-      print(result.message);
-    }
-  }
-
-  /**
            * Register user in firebase Auth
            */
   static Future<void> registerNewUser({
@@ -325,36 +135,38 @@ class FirebaseCustomServices {
         .then((value) async {
       String userName = "${firstName} ${lastName}";
       /**
-                     * Store all user data locally in UserDataModel .
-                     */
-      await UserDataModel.initiateUserDataModel(
-              name: userName,
-              email: email,
-              userPhoneNumber: userNumber,
-              userCredintialArg: userCredintial,
-              imageUrl:
-                  "https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg")
-          .then((value) async {
-        /**
                        * Store user data in fireStore , but without id : 
                        */
-        await FirebaseFirestore.instance.collection('user_logs').add({
-          'user_name': userName,
-          'user_first_name': firstName,
-          'user_last_name': lastName,
-          'user_email': email,
-          'user_image_url':
-              "https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg",
-          'user_phone_number': userNumber,
-          'user_credintial': userCredintial
-        }).then((value) async {
+      await FirebaseFirestore.instance.collection('user_logs').add({
+        'user_name': userName,
+        'user_first_name': firstName,
+        'user_last_name': lastName,
+        'user_email': email,
+        'user_image_url':
+            "https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg",
+        'user_phone_number': userNumber,
+        'user_credintial': userCredintial
+      }).then((value) async {
+        String id = value.id;
+        /**
+                     * Store all user data locally in UserDataModel .
+                     */
+        await UserDataModel.initiateUserDataModel(
+                id: value.id,
+                name: userName,
+                email: email,
+                userPhoneNumber: userNumber,
+                userCredintialArg: userCredintial,
+                imageUrl:
+                    "https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg")
+            .then((value) async {
           /**
                      * update the same record by adding id to .
                      */
           await FirebaseFirestore.instance
               .collection('user_logs')
-              .doc(value.id)
-              .update({'user_id': value.id});
+              .doc(id)
+              .update({'user_id': id});
         });
       });
     });
