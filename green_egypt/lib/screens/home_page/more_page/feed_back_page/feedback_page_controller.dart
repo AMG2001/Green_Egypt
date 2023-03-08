@@ -68,6 +68,7 @@ class FeedbackPageController extends GetxController {
       'user_name': userName,
       'user_phone_number': userPhoneNumber,
       'user_review': review,
+      'rating':'${rating} / 5',
       'review_date_and_time': currentDateAndTime
     });
   }

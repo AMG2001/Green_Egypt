@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:green_egypt/config/constants.dart';
+import 'package:green_egypt/config/theme/application_theme.dart';
+import 'package:green_egypt/config/theme/application_theme_controller.dart';
 import 'package:green_egypt/config/theme/default_colors.dart';
 import 'package:green_egypt/screens/home_page/more_page/feed_back_page/feedback_component/rounded_button.dart';
 import 'package:green_egypt/screens/home_page/more_page/feed_back_page/feedback_page_controller.dart';
@@ -7,6 +10,8 @@ import 'package:green_egypt/services/custom_toast.dart';
 import 'package:quickalert/quickalert.dart';
 
 class ReviewArea_SubmitButton extends StatelessWidget {
+  ApplicationThemeController themeController =
+      Get.put(ApplicationThemeController());
   late FeedbackPageController controller;
   GlobalKey<FormState> reviewFormKey = GlobalKey<FormState>();
   ReviewArea_SubmitButton({required this.controller});
@@ -19,7 +24,9 @@ class ReviewArea_SubmitButton extends StatelessWidget {
           Container(
             padding: EdgeInsets.all(Constants.kDefaultPadding),
             decoration: BoxDecoration(
-                color: Colors.white,
+                color: themeController.isDark
+                    ? Colors.grey[100]!.withOpacity(.2)
+                    : Colors.white,
                 borderRadius: BorderRadius.circular(12.0),
                 boxShadow: [
                   BoxShadow(

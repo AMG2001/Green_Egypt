@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:green_egypt/config/theme/default_colors.dart';
 
 class CustomToast {
   static void showGreenToast({required String messsage}) {
@@ -8,7 +9,7 @@ class CustomToast {
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.BOTTOM,
         timeInSecForIosWeb: 1,
-        backgroundColor: Colors.green,
+        backgroundColor: DefaultColors.defaultGreen,
         textColor: Colors.white,
         fontSize: 14.0);
   }
