@@ -68,7 +68,7 @@ class CardOfEarnedSavedRecycled extends StatelessWidget {
               UserDetailColumn(
                   icon: Icon(
                     Icons.recycling_outlined,
-                    color: Colors.green,
+                    color: Colors.green[800],
                     size: 28,
                   ),
                   detailValue: '17',

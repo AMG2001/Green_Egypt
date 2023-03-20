@@ -41,9 +41,7 @@ class _QrCodePageState extends State<QrCodePage> {
   ];
 
   void navigateToPageWithIndex(int pageIndex) {
-    pageIndex == 2
-        ? Get.toNamed(homePagesNames[pageIndex])
-        : Get.offNamed(homePagesNames[pageIndex]);
+    Get.offAllNamed(homePagesNames[pageIndex]);
   }
 
   // void resumeCamera() async {

@@ -37,15 +37,7 @@ class GoogleSignInButton extends StatelessWidget {
            * on pressed
            */
       onPressed: () async {
-        try {
-          /**
-           * First Fetch data from online Firestore
-           */
-          await GoogleCustomAuth.signInWithGoogle(context);
-        } catch (e) {
-          print(e);
-          CustomToast.showRedToast(messsage: e.toString());
-        }
+        await GoogleCustomAuth.signInWithGoogle(context);
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),
