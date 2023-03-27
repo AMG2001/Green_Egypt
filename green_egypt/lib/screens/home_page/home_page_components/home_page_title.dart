@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:green_egypt/config/theme/default_fonts.dart';
-import 'package:green_egypt/config/user_data_model/user_data_model.dart';
 import 'package:green_egypt/services/boxes/user_data_db.dart';
 
 class HomePageTitle extends StatelessWidget {

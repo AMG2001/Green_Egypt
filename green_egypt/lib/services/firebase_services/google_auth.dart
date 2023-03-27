@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:green_egypt/config/pages_names.dart';
-import 'package:green_egypt/config/user_data_model/user_data_model.dart';
 import 'package:green_egypt/services/boxes/user_data_db.dart';
 import 'package:green_egypt/services/console_message.dart';
 import 'package:green_egypt/services/firebase_services/firebase_services.dart';
@@ -274,7 +273,9 @@ class GoogleCustomAuth {
          * then navigate to HomePage
          */
         var userData = document.docs.map((e) => e.data()).first;
-
+        /**
+           * Store fetched data in user data box .
+           */
         UserDataBox.instance.put_allUserData(
             id: userData['user_id'],
             name: userData['user_name'],
@@ -282,19 +283,7 @@ class GoogleCustomAuth {
             imageUrl: userData['user_image_url'],
             phoneNumber: userData['user_phone_number'],
             credintial: userData['user_credintial']);
-        /**
-           * Store fetched data in UserDataModel .
-           */
-        await UserDataModel.initiateUserDataModel(
-                id: userData['user_id'],
-                userCredintialArg: userData['user_credintial'],
-                userPhoneNumber: userData['user_phone_number'],
-                email: userData['user_email'],
-                name: userData['user_name'],
-                imageUrl: userData['user_image_url'])
-            .then((value) {
-          Get.offAllNamed(PagesNames.homePage);
-        });
+        Get.offAllNamed(PagesNames.homePage);
       } catch (e) {
         print(e);
         Get.snackbar(
@@ -322,13 +311,15 @@ class GoogleCustomAuth {
             /**
                    * add user data into UserDataModel
                    */
-            await UserDataModel.initiateUserDataModel(
+
+            UserDataBox.instance.put_allUserData(
                 id: user_id,
-                userPhoneNumber: "",
-                userCredintialArg: "normal_user",
-                email: userCredential.user!.email!,
                 name: userCredential.user!.displayName!,
-                imageUrl: userCredential.user!.photoURL!);
+                email: userCredential.user!.email!,
+                imageUrl: userCredential.user!.photoURL!,
+                phoneNumber: "",
+                credintial: 'normal_user');
+            Get.offAllNamed(PagesNames.homePage);
           }).then((value) {
             Get.snackbar('Login Status',
                 'Login Done successfuly ✔️ , moving to home page');

@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:get/get.dart';
 import 'package:green_egypt/config/pages_names.dart';
-import 'package:green_egypt/config/user_data_model/user_data_model.dart';
+import 'package:green_egypt/services/boxes/user_data_db.dart';
 import 'package:green_egypt/services/firebase_services/firebase_services.dart';
 
 class FacebookCustomAuth {
@@ -21,7 +21,9 @@ class FacebookCustomAuth {
          * get data , send it to firestore , add data also to UserDataModel . 
          */
         try {
-          final document = await FirebaseCustomServices.getUserDataFromFireStore(value['email']);
+          final document =
+              await FirebaseCustomServices.getUserDataFromFireStore(
+                  value['email']);
           /**
          * if there is no errors , it mean that this user account is registered before on firestore,
          * so get account data in map and then store it in UserDataModel .
@@ -54,15 +56,17 @@ class FacebookCustomAuth {
           }).then((document) async {
             String id = document.id;
             /**
-                   * add user data into UserDataModel
+                   * add user data into user data box
                    */
-            await UserDataModel.initiateUserDataModel(
+
+            UserDataBox.instance.put_allUserData(
                 id: document.id,
-                userCredintialArg: "normal_user",
-                userPhoneNumber: "",
-                email: value['email'],
                 name: value['name'],
-                imageUrl: value['picture']['data']['url']);
+                email: value['email'],
+                imageUrl: value['picture']['data']['url'],
+                phoneNumber: "",
+                credintial: "normal_user");
+
             /**
              * update user data on firestore by adding id .
              */

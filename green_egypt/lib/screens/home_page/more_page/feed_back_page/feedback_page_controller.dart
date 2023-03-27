@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:green_egypt/config/theme/default_colors.dart';
-import 'package:green_egypt/config/user_data_model/user_data_model.dart';
+import 'package:green_egypt/services/boxes/user_data_db.dart';
 import 'package:quickalert/quickalert.dart';
 import 'package:intl/intl.dart';
 
@@ -25,11 +25,11 @@ class FeedbackPageController extends GetxController {
   set setRating(int rating) => this.rating = rating;
 
   FeedbackPageController({required this.context}) {
-    userName = UserDataModel.userName;
-    userImageUrl = UserDataModel.userImageURL;
-    userEmail = UserDataModel.userEmail;
-    userPhoneNumber = UserDataModel.userNumber;
-    userId = UserDataModel.userId;
+    userName = UserDataBox.instance.get_userName();
+    userImageUrl = UserDataBox.instance.get_userImageUrl();
+    userEmail = UserDataBox.instance.get_email();
+    userPhoneNumber = UserDataBox.instance.get_phoneNumber();
+    userId = UserDataBox.instance.get_id();
     rating = 0;
     review = "";
   }

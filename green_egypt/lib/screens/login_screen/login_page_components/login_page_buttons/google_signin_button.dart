@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:green_egypt/config/pages_names.dart';
-import 'package:green_egypt/config/user_data_model/user_data_model.dart';
 import 'package:green_egypt/services/custom_toast.dart';
 import 'package:green_egypt/services/firebase_services/firebase_services.dart';
 import 'package:green_egypt/services/firebase_services/google_auth.dart';

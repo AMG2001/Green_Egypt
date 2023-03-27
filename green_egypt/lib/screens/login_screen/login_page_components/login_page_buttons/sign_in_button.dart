@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:green_egypt/config/pages_names.dart';
-import 'package:green_egypt/config/user_data_model/user_data_model.dart';
+import 'package:green_egypt/services/boxes/user_data_db.dart';
 import 'package:green_egypt/services/custom_toast.dart';
 import 'package:lottie/lottie.dart';
 
@@ -68,17 +68,10 @@ class SignInButton extends StatelessWidget {
                */
                 var userDocument = value.docs.map((e) => e.data()).first;
                 /**
-               * initialize user data model .
-               */
-                await UserDataModel.initiateUserDataModel(
-                  id: userDocument['user_id'],
-                  userCredintialArg: userDocument['user_credintial'],
-                        name: userDocument['user_name'],
-                        email: userDocument['user_email'],
-                        imageUrl: userDocument['user_image_url'],
-                        userPhoneNumber: userDocument['user_phone_number'])
-                    .then((value) {
-                  /**
+                 * add data to user data box .
+                 */
+                UserDataBox.instance.put_allUserData(id: userDocument['user_id'], name: userDocument['user_name'], email: userDocument['user_email'], imageUrl: userDocument['user_image_url'], phoneNumber: userDocument['user_phone_number'], credintial: userDocument['user_credintial']);
+                /**
                * Remove loading indicator
                */
                   Get.back();
@@ -105,7 +98,6 @@ class SignInButton extends StatelessWidget {
                               repeat: false),
                         );
                       });
-                });
               });
             });
           } on FirebaseAuthException catch (e) {

@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'package:green_egypt/config/dimensions.dart';
 import 'package:green_egypt/config/pages_names.dart';
 import 'package:green_egypt/config/theme/application_theme_controller.dart';
-import 'package:green_egypt/config/user_data_model/user_data_model.dart';
 import 'package:green_egypt/screens/home_page/more_page/more_page_components/application_theme_option.dart';
 import 'package:green_egypt/screens/home_page/more_page/more_page_components/green_egypt_machines_option.dart';
 import 'package:green_egypt/screens/home_page/more_page/more_page_components/green_egypt_support_divider.dart';

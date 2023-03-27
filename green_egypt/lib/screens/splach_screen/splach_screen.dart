@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:green_egypt/config/dimensions.dart';
 import 'package:green_egypt/config/images_paths.dart';
-import 'package:green_egypt/config/user_data_model/user_data_model.dart';
 import 'package:green_egypt/screens/home_page/home_page.dart';
 import 'package:green_egypt/screens/introduction_screen/intro_screen_2.dart';
 import 'package:green_egypt/screens/start_screen/start_screen.dart';
 import 'package:green_egypt/services/Shared_preferences/first_launch.dart';
+import 'package:green_egypt/services/boxes/user_data_db.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -62,7 +62,7 @@ class SplachScreenCustom extends StatelessWidget {
        */
 
           FirstLaunch.getFirstLaunchDoneBool()
-              ? (UserDataModel.getUserLoggedInBool()
+              ? (UserDataBox.instance.get_loggedInBool()
                   ? HomePage()
                   : StartScreen())
               : IntroductionScreen(),

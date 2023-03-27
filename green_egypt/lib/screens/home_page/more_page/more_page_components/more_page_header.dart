@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:green_egypt/config/dimensions.dart';
-import 'package:green_egypt/config/user_data_model/user_data_model.dart';
+import 'package:green_egypt/services/boxes/user_data_db.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
@@ -15,7 +15,7 @@ class MorePageHeader extends StatelessWidget {
           Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
         // TODO
         CircleAvatar(
-          backgroundImage: NetworkImage(UserDataModel.userImageURL),
+          backgroundImage: NetworkImage(UserDataBox.instance.get_userImageUrl()),
           radius: 65,
           // child: CachedNetworkImage(
           //   // imageBuilder: (context, imageProvider) => Container(
@@ -41,14 +41,14 @@ class MorePageHeader extends StatelessWidget {
           height: Dimensions.height * .02,
         ),
         Text(
-          "${UserDataModel.userName}",
+          "${UserDataBox.instance.get_userName()}",
           style: TextStyle(fontSize: 16.sp),
         ),
         SizedBox(
           height: Dimensions.height * .02,
         ),
         Text(
-          "user account : ${UserDataModel.userEmail}",
+          "user account : ${UserDataBox.instance.get_email()}",
           style: TextStyle(color: Colors.grey, fontSize: 14.sp),
         ),
         SizedBox(

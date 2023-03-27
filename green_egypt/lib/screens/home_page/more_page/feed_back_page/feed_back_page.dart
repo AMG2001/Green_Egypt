@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:green_egypt/config/constants.dart';
 import 'package:green_egypt/config/theme/default_colors.dart';
-import 'package:green_egypt/config/user_data_model/user_data_model.dart';
 import 'package:green_egypt/screens/home_page/more_page/feed_back_page/feedback_component/app_header.dart';
 import 'package:green_egypt/screens/home_page/more_page/feed_back_page/feedback_component/custom_app_bar.dart';
 import 'package:green_egypt/screens/home_page/more_page/feed_back_page/feedback_component/reviewArea_submitButton.dart';
 import 'package:green_egypt/screens/home_page/more_page/feed_back_page/feedback_component/points.dart';
 import 'package:green_egypt/screens/home_page/more_page/feed_back_page/feedback_page_controller.dart';
+import 'package:green_egypt/services/boxes/user_data_db.dart';
 import 'package:smooth_star_rating_null_safety/smooth_star_rating_null_safety.dart';
 
 class FeedbackPage extends StatelessWidget {
@@ -51,7 +51,7 @@ class FeedbackPage extends StatelessWidget {
                         ),
                         SizedBox(height: Constants.kDefaultPadding),
                         Text(
-                          'Hi , ' + UserDataModel.userName,
+                          'Hi , ' + UserDataBox.instance.get_userName(),
                           style: TextStyle(
                             color: DefaultColors.kTextLightColor,
                             fontSize: 18,

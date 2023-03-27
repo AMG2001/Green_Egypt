@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:green_egypt/config/user_data_model/user_data_model.dart';
 import 'package:green_egypt/services/console_message.dart';
 import 'package:green_egypt/services/custom_toast.dart';
 import '../boxes/user_data_db.dart';
@@ -92,13 +91,13 @@ class FirebaseCustomServices {
       required String userEmail,
       required String userName,
       required String userImageUrl}) async {
-    await UserDataModel.initiateUserDataModel(
+    UserDataBox.instance.put_allUserData(
         id: userId,
-        userPhoneNumber: phoneNumber,
-        userCredintialArg: userCredintial,
-        email: userEmail,
         name: userName,
-        imageUrl: userImageUrl);
+        email: userEmail,
+        imageUrl: userImageUrl,
+        phoneNumber: phoneNumber,
+        credintial: userCredintial);
   }
 
   /**
@@ -169,25 +168,12 @@ class FirebaseCustomServices {
             phoneNumber: userNumber,
             credintial: userCredintial);
         /**
-                     * Store all user data locally in UserDataModel .
-                     */
-        await UserDataModel.initiateUserDataModel(
-                id: value.id,
-                name: userName,
-                email: email,
-                userPhoneNumber: userNumber,
-                userCredintialArg: userCredintial,
-                imageUrl:
-                    "https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg")
-            .then((value) async {
-          /**
                      * update the same record by adding id to .
                      */
-          await FirebaseFirestore.instance
-              .collection('user_logs')
-              .doc(id)
-              .update({'user_id': id});
-        });
+        await FirebaseFirestore.instance
+            .collection('user_logs')
+            .doc(id)
+            .update({'user_id': id});
       });
     });
   }

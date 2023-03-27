@@ -41,7 +41,7 @@ class UserDataBox {
   }
 
   String get_userName() {
-    return _userDataBox.get(_key_userName,defaultValue:"");
+    return _userDataBox.get(_key_userName, defaultValue: "");
   }
 
   /**
@@ -52,7 +52,7 @@ class UserDataBox {
   }
 
   String get_userImageUrl() {
-    return _userDataBox.get(_key_userImageUrl, defaultValue:"");
+    return _userDataBox.get(_key_userImageUrl, defaultValue: "");
   }
 
   /**
@@ -74,7 +74,7 @@ class UserDataBox {
   }
 
   String get_phoneNumber() {
-    return _userDataBox.get(_key_userPhoneNumber,defaultValue:  "");
+    return _userDataBox.get(_key_userPhoneNumber, defaultValue: "");
   }
 
   /**
@@ -124,5 +124,15 @@ class UserDataBox {
     put_userPhoneNumber(phoneNumber: phoneNumber);
     put_userCredintial(credintail: credintial);
     put_loggedInBool(loggedIn: true);
+  }
+
+  void userLoggedOut() {
+    put_userId(id: "");
+    put_userName(userName: "");
+    put_userEmail(email: "");
+    put_userImageUrl(userImageUrl: "");
+    put_userPhoneNumber(phoneNumber: "");
+    put_userCredintial(credintail: '');
+    put_loggedInBool(loggedIn: false);
   }
 }

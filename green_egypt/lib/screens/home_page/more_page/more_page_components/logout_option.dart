@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:green_egypt/config/pages_names.dart';
 import 'package:green_egypt/config/theme/application_theme_controller.dart';
-import 'package:green_egypt/config/user_data_model/user_data_model.dart';
+import 'package:green_egypt/services/boxes/user_data_db.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class LogoutOption extends StatelessWidget {
@@ -16,7 +16,7 @@ class LogoutOption extends StatelessWidget {
       horizontalTitleGap: 0,
       onTap: () async {
         Get.offAllNamed(PagesNames.loginScreen);
-        await UserDataModel.userLoggedOut();
+        UserDataBox.instance.userLoggedOut();
         await FirebaseAuth.instance.signOut();
       },
       leading: Icon(
