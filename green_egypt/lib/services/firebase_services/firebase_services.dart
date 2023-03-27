@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:green_egypt/config/user_data_model/user_data_model.dart';
 import 'package:green_egypt/services/console_message.dart';
 import 'package:green_egypt/services/custom_toast.dart';
+import '../boxes/user_data_db.dart';
 
 class FirebaseCustomServices {
   /**
@@ -70,7 +71,7 @@ class FirebaseCustomServices {
       if (x.docs.isEmpty) {
         print('\n\n'
             'this user first time logged in'
-            '\n\n');    
+            '\n\n');
       } else {
         ConsoleMessage.successMessage('getting user data from firestore done');
         print('\n\n'
@@ -158,6 +159,15 @@ class FirebaseCustomServices {
         'user_credintial': userCredintial
       }).then((value) async {
         String id = value.id;
+
+        UserDataBox.instance.put_allUserData(
+            id: id,
+            name: userName,
+            email: email,
+            imageUrl:
+                "https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg",
+            phoneNumber: userNumber,
+            credintial: userCredintial);
         /**
                      * Store all user data locally in UserDataModel .
                      */

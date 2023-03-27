@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:green_egypt/config/pages_names.dart';
 import 'package:green_egypt/config/user_data_model/user_data_model.dart';
+import 'package:green_egypt/services/boxes/user_data_db.dart';
 import 'package:green_egypt/services/console_message.dart';
 import 'package:green_egypt/services/firebase_services/firebase_services.dart';
 import 'package:lottie/lottie.dart';
@@ -273,6 +274,14 @@ class GoogleCustomAuth {
          * then navigate to HomePage
          */
         var userData = document.docs.map((e) => e.data()).first;
+
+        UserDataBox.instance.put_allUserData(
+            id: userData['user_id'],
+            name: userData['user_name'],
+            email: userData['user_email'],
+            imageUrl: userData['user_image_url'],
+            phoneNumber: userData['user_phone_number'],
+            credintial: userData['user_credintial']);
         /**
            * Store fetched data in UserDataModel .
            */

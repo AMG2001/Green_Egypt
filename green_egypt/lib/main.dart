@@ -6,11 +6,16 @@ import 'package:green_egypt/config/pages_names.dart';
 import 'package:green_egypt/config/theme/application_theme_controller.dart';
 import 'package:green_egypt/firebase_options.dart';
 import 'package:green_egypt/services/Shared_preferences/shared_preferences_class.dart';
+import 'package:green_egypt/services/boxes/user_data_db.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:hive/hive.dart';
 
 void main() async {
   // this line because i made main method Async 👀
   WidgetsFlutterBinding.ensureInitialized();
+  // initaite Hive Boxes instead of SharedPreferences .
+  await Hive.initFlutter();
   // to initiate all Application Shared Preferences in one line 🔥 .
   SharedPreferencesClass.initAllSharedPreferences();
   /**
@@ -38,7 +43,7 @@ class GreenEgypt extends StatelessWidget {
          * Get Builder that will change the theme depending on user choice 
          */
         return GetBuilder<ApplicationThemeController>(
-          
+
             /**
            * Changing theme logic stored in ApplicationThemeController
            * theme itself is stored in ApplicationTheme .
