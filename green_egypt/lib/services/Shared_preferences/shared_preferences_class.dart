@@ -7,10 +7,11 @@ class SharedPreferencesClass {
   static final applicationThemeController =
       Get.put(ApplicationThemeController(), permanent: true);
   static Future<void> initAllSharedPreferences() async {
-    await FirstLaunch.init();
-    await applicationThemeController.init();
     // user Data Box that contain all user data stored in .
     // boxes are local storing objects as Shared Preferences put with extra speed .
     UserDataBox.instance.initiateUserBox();
+    await FirstLaunch.init();
+    await applicationThemeController.init();
+    
   }
 }

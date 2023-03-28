@@ -21,7 +21,7 @@ class TransactionPage extends StatelessWidget {
   ];
 
   void navigateToPageWithIndex(int pageIndex) {
-    Get.offNamed(homePagesNames[pageIndex]);
+    Get.offAllNamed(homePagesNames[pageIndex]);
   }
 
   @override

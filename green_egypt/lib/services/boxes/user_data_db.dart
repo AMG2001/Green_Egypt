@@ -12,6 +12,10 @@ class UserDataBox {
   String _key_userLoggedIn = 'loggedIn';
   String _key_userCredintial = 'userCredintial';
   String _key_userId = 'userId';
+  String _key_apply_review_before = "apply_review_before";
+  String _key_userEarnedCash = "user_earned_cash";
+  String _key_userSavedCo2 = "user_saved_co2";
+  String _key_userRecycledItems = "user_recycled_items";
 
   /**
    * Singleton Class .
@@ -110,29 +114,86 @@ class UserDataBox {
     return _userDataBox.get(_key_userId, defaultValue: "");
   }
 
+  /**
+   *  **************************** Apply review before Boolean operations ***********************************
+   */
+  void put_applyReviewBefore({required bool apply}) async {
+    await _userDataBox.put(_key_apply_review_before, apply);
+  }
+
+  bool get_applyReviewBeforeBool() {
+    return _userDataBox.get(_key_apply_review_before, defaultValue: false);
+  }
+
+  /**
+   *  **************************** Apply review before Boolean operations ***********************************
+   */
+  void put_earnedCash({required int earned}) async {
+    await _userDataBox.put(_key_userEarnedCash, earned);
+  }
+
+  int get_earnedCash() {
+    return _userDataBox.get(_key_userEarnedCash, defaultValue: 0);
+  }
+
+  /**
+   *  **************************** Apply review before Boolean operations ***********************************
+   */
+  void put_savedCo2({required int saved}) async {
+    await _userDataBox.put(_key_userSavedCo2, saved);
+  }
+
+  int get_savedCo2() {
+    return _userDataBox.get(_key_userSavedCo2, defaultValue: "");
+  }
+
+  /**
+   *  **************************** Apply review before Boolean operations ***********************************
+   */
+  void put_recycledItems({required int recycled}) async {
+    await _userDataBox.put(_key_userRecycledItems, recycled);
+  }
+
+  int get_recycledItems() {
+    return _userDataBox.get(_key_userRecycledItems, defaultValue: 0);
+  }
+
   void put_allUserData(
       {required String id,
       required String name,
       required String email,
       required String imageUrl,
       required String phoneNumber,
-      required String credintial}) {
+      required String credintial,
+      required int earned,
+      required int savedCo2,
+      required int recycledItems,
+      required bool reviewedBefore,
+      required bool loggedIn}) {
     put_userId(id: id);
     put_userName(userName: name);
     put_userEmail(email: email);
     put_userImageUrl(userImageUrl: imageUrl);
     put_userPhoneNumber(phoneNumber: phoneNumber);
     put_userCredintial(credintail: credintial);
-    put_loggedInBool(loggedIn: true);
+    put_earnedCash(earned: earned);
+    put_savedCo2(saved: savedCo2);
+    put_recycledItems(recycled: recycledItems);
+    put_applyReviewBefore(apply: reviewedBefore);
+    put_loggedInBool(loggedIn: loggedIn);
   }
 
   void userLoggedOut() {
-    put_userId(id: "");
+   put_userId(id: "");
     put_userName(userName: "");
     put_userEmail(email: "");
     put_userImageUrl(userImageUrl: "");
     put_userPhoneNumber(phoneNumber: "");
-    put_userCredintial(credintail: '');
+    put_userCredintial(credintail: "");
+    put_earnedCash(earned: 0);
+    put_savedCo2(saved: 0);
+    put_recycledItems(recycled: 0);
+    put_applyReviewBefore(apply: false);
     put_loggedInBool(loggedIn: false);
   }
 }

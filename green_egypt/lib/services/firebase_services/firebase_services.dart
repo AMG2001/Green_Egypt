@@ -1,5 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:green_egypt/config/theme/default_colors.dart';
 import 'package:green_egypt/services/console_message.dart';
 import 'package:green_egypt/services/custom_toast.dart';
 import '../boxes/user_data_db.dart';
@@ -8,49 +11,49 @@ class FirebaseCustomServices {
   /**
  * After login , add user fetched data from google auth to firestore .
  */
-  static Future<DocumentReference<Map<String, dynamic>>>
-      addUserFetchedData_InFireStore(
-          {required String userEmail,
-          required String userName,
-          required String imageUrl,
-          required String phoneNumber,
-          required String userCredintial}) async {
-    var x;
-    try {
-      await FirebaseFirestore.instance.collection('user_logs').add({
-        'user_email': userEmail,
-        'user_name': userName,
-        'user_image_url': imageUrl,
-        'user_phone_number': phoneNumber,
-        'user_credintial': userCredintial
-      }).then((value) {
-        x = value;
-      });
-      ConsoleMessage.successMessage('uploading user data without id done');
-    } catch (e) {
-      ConsoleMessage.errorMessage(
-          'error while uploading user data without id', e.toString());
-    }
-    return x;
-  }
+  // static Future<DocumentReference<Map<String, dynamic>>>
+  //     addUserFetchedData_InFireStore(
+  //         {required String userEmail,
+  //         required String userName,
+  //         required String imageUrl,
+  //         required String phoneNumber,
+  //         required String userCredintial}) async {
+  //   var x;
+  //   try {
+  //     await FirebaseFirestore.instance.collection('user_logs').add({
+  //       'user_email': userEmail,
+  //       'user_name': userName,
+  //       'user_image_url': imageUrl,
+  //       'user_phone_number': phoneNumber,
+  //       'user_credintial': userCredintial
+  //     }).then((value) {
+  //       x = value;
+  //     });
+  //     ConsoleMessage.successMessage('uploading user data without id done');
+  //   } catch (e) {
+  //     ConsoleMessage.errorMessage(
+  //         'error while uploading user data without id', e.toString());
+  //   }
+  //   return x;
+  // }
 
   /**
    * After adding user data into firestore , get generated id and add it with other user data .
    */
-  static Future<void> addId_ToUserDataInFireStore(
-      DocumentReference<Map<String, dynamic>> document) async {
-    try {
-      await FirebaseFirestore.instance
-          .collection('user_logs')
-          .doc(document.id)
-          .update({'user_id': document.id});
+  // static Future<void> addId_ToUserDataInFireStore(
+  //     DocumentReference<Map<String, dynamic>> document) async {
+  //   try {
+  //     await FirebaseFirestore.instance
+  //         .collection('user_logs')
+  //         .doc(document.id)
+  //         .update({'user_id': document.id});
 
-      ConsoleMessage.successMessage('adding id to user data done');
-    } catch (e) {
-      ConsoleMessage.errorMessage(
-          'error while uploading user id with other data', e.toString());
-    }
-  }
+  //     ConsoleMessage.successMessage('adding id to user data done');
+  //   } catch (e) {
+  //     ConsoleMessage.errorMessage(
+  //         'error while uploading user id with other data', e.toString());
+  //   }
+  // }
 
 /**
  * get user data from firestore to init it in UserDataModel shared preferences .
@@ -84,21 +87,21 @@ class FirebaseCustomServices {
   /**
    * Store Fethced data from fire Store into User Data Model .
    */
-  static Future<void> store_userFethcedData_InUserDataModel(
-      {required String userId,
-      required String phoneNumber,
-      required String userCredintial,
-      required String userEmail,
-      required String userName,
-      required String userImageUrl}) async {
-    UserDataBox.instance.put_allUserData(
-        id: userId,
-        name: userName,
-        email: userEmail,
-        imageUrl: userImageUrl,
-        phoneNumber: phoneNumber,
-        credintial: userCredintial);
-  }
+  // static Future<void> store_userFethcedData_InUserDataModel(
+  //     {required String userId,
+  //     required String phoneNumber,
+  //     required String userCredintial,
+  //     required String userEmail,
+  //     required String userName,
+  //     required String userImageUrl}) async {
+  //   UserDataBox.instance.put_allUserData(
+  //       id: userId,
+  //       name: userName,
+  //       email: userEmail,
+  //       imageUrl: userImageUrl,
+  //       phoneNumber: phoneNumber,
+  //       credintial: userCredintial);
+  // }
 
   /**
    * Sign in with email and password : 
@@ -159,14 +162,14 @@ class FirebaseCustomServices {
       }).then((value) async {
         String id = value.id;
 
-        UserDataBox.instance.put_allUserData(
-            id: id,
-            name: userName,
-            email: email,
-            imageUrl:
-                "https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg",
-            phoneNumber: userNumber,
-            credintial: userCredintial);
+        // UserDataBox.instance.put_allUserData(
+        //     id: id,
+        //     name: userName,
+        //     email: email,
+        //     imageUrl:
+        //         "https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg",
+        //     phoneNumber: userNumber,
+        //     credintial: userCredintial);
         /**
                      * update the same record by adding id to .
                      */
@@ -177,4 +180,41 @@ class FirebaseCustomServices {
       });
     });
   }
+
+ static Future<void> updateUserName(
+      {required BuildContext context, required String newName}) async {
+    UserDataBox.instance.put_userName(userName: newName);
+    showDialog(
+      context: context,
+      builder: (context) {
+        return Center(
+          child: CircularProgressIndicator(color: DefaultColors.defaultGreen),
+        );
+      },
+    );
+    await FirebaseFirestore.instance
+        .collection('user_logs')
+        .doc(UserDataBox.instance.get_id())
+        .update({'user_name': newName});
+    Get.back();
+  }
+
+  static Future<void> updatePhoneNumber(
+      {required BuildContext context, required String phoneNumber}) async {
+    UserDataBox.instance.put_userPhoneNumber(phoneNumber: phoneNumber);
+    showDialog(
+      context: context,
+      builder: (context) {
+        return Center(
+          child: CircularProgressIndicator(color: DefaultColors.defaultGreen),
+        );
+      },
+    );
+    await FirebaseFirestore.instance
+        .collection('user_logs')
+        .doc(UserDataBox.instance.get_id())
+        .update({'user_phone_number': phoneNumber});
+    Get.back();
+  }
+
 }

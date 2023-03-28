@@ -73,13 +73,7 @@ class ReviewArea_SubmitButton extends StatelessWidget {
                   bgColor: DefaultColors.kPrimaryColor,
                   tap: () {
                     if (reviewFormKey.currentState!.validate()) {
-                      // print('user id : ${controller.userId}');
-                      // print('user name : ${controller.userName}');
-                      // print('user email : ${controller.userEmail}');
-                      // print(
-                      //     'user phone number : ${controller.userPhoneNumber}');
-                      // print('user rating : ${controller.rating}');
-                      // print('user review : ${controller.review}');
+                      // TODO need to implement if the user applyed opinion before .
                       controller.uploadUserReview_OnFireStore(
                           review: controller.review,
                           userRatingsStars: controller.rating);

@@ -70,34 +70,40 @@ class SignInButton extends StatelessWidget {
                 /**
                  * add data to user data box .
                  */
-                UserDataBox.instance.put_allUserData(id: userDocument['user_id'], name: userDocument['user_name'], email: userDocument['user_email'], imageUrl: userDocument['user_image_url'], phoneNumber: userDocument['user_phone_number'], credintial: userDocument['user_credintial']);
+                UserDataBox.instance.put_allUserData(
+                    id: userDocument['user_id'],
+                    name: userDocument['user_name'],
+                    email: userDocument['user_email'],
+                    imageUrl: userDocument['user_image_url'],
+                    phoneNumber: userDocument['user_phone_number'],
+                    credintial: userDocument['user_credintial']);
                 /**
                * Remove loading indicator
                */
-                  Get.back();
-                  /**
+                Get.back();
+                /**
            * Show success animation
            */
-                  showDialog(
-                      context: context,
-                      builder: (context) {
-                        Future.delayed(Duration(seconds: 3), () {
-                          /**
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      Future.delayed(Duration(seconds: 3), () {
+                        /**
                         * Remove Success Animation
                         */
-                          Get.back();
-                          /**
+                        Get.back();
+                        /**
                          * Navigate to Home Screen 
                          */
-                          Get.offAllNamed(PagesNames.homePage);
-                        });
-                        return Padding(
-                          padding: const EdgeInsets.all(12.0),
-                          child: Lottie.asset(
-                              'assets/animated_vectors/register_success.json',
-                              repeat: false),
-                        );
+                        Get.offAllNamed(PagesNames.homePage);
                       });
+                      return Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: Lottie.asset(
+                            'assets/animated_vectors/register_success.json',
+                            repeat: false),
+                      );
+                    });
               });
             });
           } on FirebaseAuthException catch (e) {

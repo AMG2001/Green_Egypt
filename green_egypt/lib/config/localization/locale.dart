@@ -11,7 +11,7 @@ class ApplicationLocal implements Translations {
   Map<String, Map<String, String>> get keys => {
         'ar': {
           'EARNED': 'مكسب',
-          'SAVED CO2': '',
+          'SAVED CO2': 'حفظ Co2',
           'RECYCLED': "اعيد تدويره",
           'Plastic': 'بلاستيك',
           'Glass': 'زجاج',
