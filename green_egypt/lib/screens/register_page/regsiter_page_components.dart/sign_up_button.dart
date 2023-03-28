@@ -49,18 +49,14 @@ class SignUpButton extends StatelessWidget {
         ),
         onPressed: () async {
           if (sigUpFormState.currentState!.validate() && userCredintial != "") {
-            try {
-              await registerPageController.registerNewUser(
-                  userCategory: userCredintial,
-                  context: context,
-                  emailController: emailController,
-                  passwordController: passwordController,
-                  firstNameController: firstNameController,
-                  lastNameController: lastNameController,
-                  userNumberController: userNumberController);
-            } catch (e) {
-              CustomToast.showRedToast(messsage: e.toString());
-            }
+            await registerPageController.registerNewUser(
+                userCredintial: userCredintial,
+                context: context,
+                emailController: emailController,
+                passwordController: passwordController,
+                firstNameController: firstNameController,
+                lastNameController: lastNameController,
+                userNumberController: userNumberController);
           } else {
             CustomToast.showBlackToast(
                 messsage:

@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:green_egypt/config/pages_names.dart';
 import 'package:green_egypt/services/boxes/user_data_db.dart';
 import 'package:green_egypt/services/custom_toast.dart';
+import 'package:green_egypt/services/firebase_services/firebase_services.dart';
 import 'package:lottie/lottie.dart';
 
 class SignInButton extends StatelessWidget {
@@ -55,28 +56,11 @@ class SignInButton extends StatelessWidget {
                     email: emailController.text,
                     password: passwordController.text)
                 .then((value) async {
-              /**
-                   * Fetch user data from FireStore .
-                   */
-              final result = await FirebaseFirestore.instance
-                  .collection('user_logs')
-                  .where('user_email', isEqualTo: emailController.text)
-                  .get()
-                  .then((value) async {
-                /**
-               * Get user document and store it in userDocument variable .
-               */
-                var userDocument = value.docs.map((e) => e.data()).first;
-                /**
-                 * add data to user data box .
-                 */
-                UserDataBox.instance.put_allUserData(
-                    id: userDocument['user_id'],
-                    name: userDocument['user_name'],
-                    email: userDocument['user_email'],
-                    imageUrl: userDocument['user_image_url'],
-                    phoneNumber: userDocument['user_phone_number'],
-                    credintial: userDocument['user_credintial']);
+              FirebaseCustomServices.instance
+                  .signInUser_withEmailAndPassword_thenStoreDataLocally(
+                      emailController: emailController,
+                      passwordController: passwordController)
+                  .then((value) {
                 /**
                * Remove loading indicator
                */

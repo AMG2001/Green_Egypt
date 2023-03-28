@@ -59,14 +59,10 @@ class RegisterPageController extends GetxController {
       {required BuildContext context,
       required TextEditingController emailController,
       required TextEditingController passwordController,
-      required String userCategory,
+      required String userCredintial,
       required TextEditingController firstNameController,
       required TextEditingController lastNameController,
       required TextEditingController userNumberController}) async {
-    /**
-             * ############################## To remeber how it work #############################
-             * Visit : https://tech-mavica.notion.site/Green-Egypt-Docs-73034b5905e444c2ae85761ff20a4d6f
-             */
     try {
       /**
        * Show loading Indicator
@@ -81,13 +77,14 @@ class RegisterPageController extends GetxController {
       /**
            * Regsiter New User 
            */
-      FirebaseCustomServices.registerNewUser(
+      FirebaseCustomServices.instance
+          .registerNewUser(
               email: emailController.text,
               password: passwordController.text,
               firstName: firstNameController.text,
               lastName: lastNameController.text,
-              userNumber: userNumberController.text,
-              userCredintial: userCredintial)
+              phoneNumber: userNumberController.text,
+              credintial: userCredintial)
           .then((value) {
         /**
                      * Remove loading indicator
@@ -119,8 +116,7 @@ class RegisterPageController extends GetxController {
             });
       });
     } on FirebaseAuthException catch (e) {
-      Get.back();
-      CustomToast.showRedToast(messsage: e.toString());
+      
     }
   }
 }

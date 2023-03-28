@@ -88,11 +88,10 @@ class GoogleCustomAuth {
             phoneNumber: userData['user_phone_number'],
             credintial: userData['user_credintial'],
             earned: userData['user_earned_cash'],
-            savedCo2:userData['user_saved_co2'] ,
+            savedCo2: userData['user_saved_co2'],
             recycledItems: userData['user_recycled_items'],
-            loggedIn:true ,
-            reviewedBefore: userData['user_review_before']
-            );
+            loggedIn: true,
+            reviewedBefore: userData['user_review_before']);
         Get.offAllNamed(PagesNames.homePage);
       } catch (e) {
         // if the code enter Here , this mean it's first time
@@ -102,56 +101,14 @@ class GoogleCustomAuth {
         Get.snackbar(
             'Login Status', 'Login Done successfuly ✔️ , moving to home page',
             colorText: Colors.black);
-              /**
-               * Getting data from Google Auth [name , image , email , phoneNumber]
-               * add user in firestore but without id
-               */
-        await FirebaseFirestore.instance.collection('user_logs').add({
-          'user_name': userCredential.user!.displayName,
-          'user_email': userCredential.user!.email,
-          'user_image_url': userCredential.user!.photoURL,
-          'user_phone_number': "",
-          'user_earned_cash':0,
-          'user_saved_co2':0,
-          'user_recycled_items':0,
-          'user_review_before':false,
-          'user_credintial': "normal_user"
-        }).then((document) async {
-          var user_id = document.id;
-          /**
-             * update user data on firestore by adding id .
-             */
-          await FirebaseFirestore.instance
-              .collection('user_logs')
-              .doc(document.id)
-              .update({'user_id': document.id}).then((x) async {
-            /**
-                   * add user data into UserDataModel
-                   */
-
-            UserDataBox.instance.put_allUserData(
-                id: user_id,
-                name: userCredential.user!.displayName!,
-                email: userCredential.user!.email!,
-                imageUrl: userCredential.user!.photoURL!,
-                phoneNumber: "",
-                credintial: 'normal_user',
-                earned: 0,
-                recycledItems: 0,
-                savedCo2: 0,
-                loggedIn: true,
-                reviewedBefore: false
-                );
-            Get.offAllNamed(PagesNames.homePage);
-          }).then((value) {
-            Get.snackbar('Login Status',
-                'Login Done successfuly ✔️ , moving to home page');
-            Get.offAllNamed(PagesNames.homePage);
-            /**
-           * Show success animation
-           */
-          });
-        });
+        // 1. get user Google account info and upload it to Firestore .
+        // 2. Store all user data in userDataBox .
+        FirebaseCustomServices.instance
+            .uploadUserDataToFirestore_thenStoreDataLocally(
+                userCredential: userCredential);
+        Get.snackbar(
+            'Login Status', 'Login Done successfuly ✔️ , moving to home page');
+        Get.offAllNamed(PagesNames.homePage);
       }
     });
   }

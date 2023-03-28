@@ -9,179 +9,229 @@ import '../boxes/user_data_db.dart';
 
 class FirebaseCustomServices {
   /**
- * After login , add user fetched data from google auth to firestore .
- */
-  // static Future<DocumentReference<Map<String, dynamic>>>
-  //     addUserFetchedData_InFireStore(
-  //         {required String userEmail,
-  //         required String userName,
-  //         required String imageUrl,
-  //         required String phoneNumber,
-  //         required String userCredintial}) async {
-  //   var x;
-  //   try {
-  //     await FirebaseFirestore.instance.collection('user_logs').add({
-  //       'user_email': userEmail,
-  //       'user_name': userName,
-  //       'user_image_url': imageUrl,
-  //       'user_phone_number': phoneNumber,
-  //       'user_credintial': userCredintial
-  //     }).then((value) {
-  //       x = value;
-  //     });
-  //     ConsoleMessage.successMessage('uploading user data without id done');
-  //   } catch (e) {
-  //     ConsoleMessage.errorMessage(
-  //         'error while uploading user data without id', e.toString());
-  //   }
-  //   return x;
-  // }
+   * Make class as Singleton .
+   */
+  FirebaseCustomServices._privateConstructor();
+
+  static final FirebaseCustomServices _instance =
+      FirebaseCustomServices._privateConstructor();
+
+  static FirebaseCustomServices get instance => _instance;
+
+  String _key_collection_user_logs = 'user_logs';
+  String _key_userId = "user_id";
+  String _key_userName = "user_name";
+  String _key_userEmail = "user_email";
+  String _key_userImageUrl = "userImageUrl";
+  String _key_userPhoneNumber = "phone_number";
+  String _key_userEarnedCash = "earned_cash";
+  String _key_userSavedCo2 = "saved_co2";
+  String _key_userRecycledItems = "recycled_items";
+  String _key_userReviewBefore = "review_before";
+  String _key_userCredintial = "user_credintial";
 
   /**
-   * After adding user data into firestore , get generated id and add it with other user data .
+   * After login with google , if this is first time user logged in
+   * then get user data and upload it to firestore .
    */
-  // static Future<void> addId_ToUserDataInFireStore(
-  //     DocumentReference<Map<String, dynamic>> document) async {
-  //   try {
-  //     await FirebaseFirestore.instance
-  //         .collection('user_logs')
-  //         .doc(document.id)
-  //         .update({'user_id': document.id});
-
-  //     ConsoleMessage.successMessage('adding id to user data done');
-  //   } catch (e) {
-  //     ConsoleMessage.errorMessage(
-  //         'error while uploading user id with other data', e.toString());
-  //   }
-  // }
-
-/**
- * get user data from firestore to init it in UserDataModel shared preferences .
- */
-  static Future<QuerySnapshot<Map<String, dynamic>>> getUserDataFromFireStore(
-      String userEmail) async {
-    late QuerySnapshot<Map<String, dynamic>> x;
-    print('\n\n'
-        'user email is : $userEmail'
-        '\n\n');
-    await FirebaseFirestore.instance
-        .collection('user_logs')
-        .where('user_email', isEqualTo: userEmail)
-        .get()
-        .then((value) {
-      x = value;
-      if (x.docs.isEmpty) {
-        print('\n\n'
-            'this user first time logged in'
-            '\n\n');
-      } else {
-        ConsoleMessage.successMessage('getting user data from firestore done');
-        print('\n\n'
-            'user getted data from firestore is : ${x.docs}'
-            '\n\n');
-      }
-    });
-    return x;
+  Future<void> googleLogin_uploadUserDataToFirestore_thenStoreDataLocally(
+      {required UserCredential userCredential,
+      String userName = "",
+      String userEmail = "",
+      String userImageUrl = "",
+      String phoneNumber = "",
+      int earnedCash = 0,
+      int savedCo2 = 0,
+      int recycledItems = 0,
+      bool reviewBefore = false,
+      String credintial = "normal_user"}) async {
+    var user_id;
+    try {
+      await FirebaseFirestore.instance.collection('user_logs').add({
+        _key_userName: userCredential.user!.displayName,
+        _key_userEmail: userCredential.user!.email,
+        _key_userImageUrl: userCredential.user!.photoURL,
+        _key_userPhoneNumber: "",
+        _key_userEarnedCash: 0,
+        _key_userSavedCo2: 0,
+        _key_userRecycledItems: 0,
+        _key_userReviewBefore: false,
+        _key_userCredintial: "normal_user"
+      }).then((document) async {
+        user_id = document.id;
+        /**
+             * update user data on firestore by adding id .
+             */
+        await FirebaseFirestore.instance
+            .collection(_key_collection_user_logs)
+            .doc(document.id)
+            .update({_key_userId: document.id});
+      });
+      /**
+                   * add user data into UserDataModel
+                   */
+      UserDataBox.instance.put_allUserData(
+          id: user_id,
+          name: userCredential.user!.displayName!,
+          email: userCredential.user!.email!,
+          imageUrl: userCredential.user!.photoURL!,
+          phoneNumber: "",
+          credintial: 'normal_user',
+          earned: 0,
+          recycledItems: 0,
+          savedCo2: 0,
+          loggedIn: true,
+          reviewedBefore: false);
+    } catch (e) {
+      CustomToast.showRedToast(messsage: "error : ${e.toString()}");
+    }
   }
 
   /**
-   * Store Fethced data from fire Store into User Data Model .
+   * this method is used
    */
-  // static Future<void> store_userFethcedData_InUserDataModel(
-  //     {required String userId,
-  //     required String phoneNumber,
-  //     required String userCredintial,
-  //     required String userEmail,
-  //     required String userName,
-  //     required String userImageUrl}) async {
-  //   UserDataBox.instance.put_allUserData(
-  //       id: userId,
-  //       name: userName,
-  //       email: userEmail,
-  //       imageUrl: userImageUrl,
-  //       phoneNumber: phoneNumber,
-  //       credintial: userCredintial);
-  // }
+  Future<void> uploadUserDataToFirestore_thenStoreDataLocally(
+      {required UserCredential userCredential,
+      String userName = "",
+      String userEmail = "",
+      String userImageUrl = "",
+      String phoneNumber = "",
+      int earnedCash = 0,
+      int savedCo2 = 0,
+      int recycledItems = 0,
+      bool reviewBefore = false,
+      String credintial = "normal_user"}) async {
+    var user_id;
+    try {
+      await FirebaseFirestore.instance.collection('user_logs').add({
+        _key_userName: userName,
+        _key_userEmail: userEmail,
+        _key_userImageUrl: userImageUrl,
+        _key_userPhoneNumber: phoneNumber,
+        _key_userEarnedCash: earnedCash,
+        _key_userSavedCo2: savedCo2,
+        _key_userRecycledItems: recycledItems,
+        _key_userReviewBefore: reviewBefore,
+        _key_userCredintial: credintial
+      }).then((document) async {
+        user_id = document.id;
+        /**
+             * update user data on firestore by adding id .
+             */
+        await FirebaseFirestore.instance
+            .collection(_key_collection_user_logs)
+            .doc(document.id)
+            .update({_key_userId: document.id});
+      });
+
+      /**
+                   * add user data into UserDataModel
+                   */
+      UserDataBox.instance.put_allUserData(
+          id: user_id,
+          name: userName,
+          email: userEmail,
+          imageUrl: userImageUrl,
+          phoneNumber: phoneNumber,
+          credintial: credintial,
+          earned: earnedCash,
+          recycledItems: recycledItems,
+          savedCo2: savedCo2,
+          loggedIn: true,
+          reviewedBefore: reviewBefore);
+    } catch (e) {
+      CustomToast.showRedToast(messsage: "error : ${e.toString()}");
+    }
+  }
 
   /**
-   * Sign in with email and password : 
+   * When user try to login with user name and password
    */
-  static Future<User?> signInWithEmailAndPassword({
-    required String email,
-    required String password,
-  }) async {
+  Future<void> signInUser_withEmailAndPassword_thenStoreDataLocally(
+      {required TextEditingController emailController,
+      required TextEditingController passwordController}) async {
     try {
-      FirebaseAuth auth = FirebaseAuth.instance;
-      User? user;
-      try {
-        UserCredential userCredential = await auth.signInWithEmailAndPassword(
-            email: email, password: password);
-        user = userCredential.user;
-      } on FirebaseAuthException catch (e) {
-        if (e.code == 'user-not-found') {
-          print("no user found for this email");
-        } else if (e.code == 'Wrong-password') {
-          print('Wrong password provided');
-        }
-        return user;
-      }
+      /**
+                 * Sign in with email and password 
+                 */
+      await FirebaseAuth.instance
+          .signInWithEmailAndPassword(
+              email: emailController.text, password: passwordController.text)
+          .then((value) async {
+        /**
+                   * Fetch user data from FireStore .
+                   */
+        final result = await FirebaseFirestore.instance
+            .collection(_key_collection_user_logs)
+            .where(_key_userEmail, isEqualTo: emailController.text)
+            .get()
+            .then((value) async {
+          /**
+               * Get user document and store it in userDocument variable .
+               */
+          var userDocument = value.docs.map((e) => e.data()).first;
+          /**
+                 * add data to user data box .
+                 */
+          UserDataBox.instance.put_allUserData(
+              id: userDocument[_key_userId],
+              name: userDocument[_key_userName],
+              email: userDocument[_key_userEmail],
+              imageUrl: userDocument[_key_userImageUrl],
+              phoneNumber: userDocument[_key_userPhoneNumber],
+              credintial: userDocument[_key_userCredintial],
+              earned: userDocument[_key_userEarnedCash],
+              loggedIn: true,
+              recycledItems: userDocument[_key_userRecycledItems],
+              reviewedBefore: userDocument[_key_userReviewBefore],
+              savedCo2: userDocument[_key_userSavedCo2]);
+        });
+      });
     } catch (e) {
-      CustomToast.showRedToast(
-          messsage:
-              "error when sign in with email and password : \n ${e.toString()}");
+      CustomToast.showRedToast(messsage: 'error : ${e.toString()}');
     }
   }
 
   /**
            * Register user in firebase Auth
            */
-  static Future<void> registerNewUser({
+  Future<void> registerNewUser({
     required String email,
     required String password,
     required String firstName,
     required String lastName,
-    required String userNumber,
-    required String userCredintial,
+    required String phoneNumber,
+    required String credintial,
   }) async {
-    await FirebaseAuth.instance
-        .createUserWithEmailAndPassword(email: email, password: password)
-        .then((value) async {
-      String userName = "${firstName} ${lastName}";
-      /**
+    try {
+      await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(email: email, password: password)
+          .then((userCredintial) async {
+        String userName = "${firstName} ${lastName}";
+        /**
                        * Store user data in fireStore , but without id : 
                        */
-      await FirebaseFirestore.instance.collection('user_logs').add({
-        'user_name': userName,
-        'user_first_name': firstName,
-        'user_last_name': lastName,
-        'user_email': email,
-        'user_image_url':
-            "https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg",
-        'user_phone_number': userNumber,
-        'user_credintial': userCredintial
-      }).then((value) async {
-        String id = value.id;
 
-        // UserDataBox.instance.put_allUserData(
-        //     id: id,
-        //     name: userName,
-        //     email: email,
-        //     imageUrl:
-        //         "https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg",
-        //     phoneNumber: userNumber,
-        //     credintial: userCredintial);
-        /**
-                     * update the same record by adding id to .
-                     */
-        await FirebaseFirestore.instance
-            .collection('user_logs')
-            .doc(id)
-            .update({'user_id': id});
+        await uploadUserDataToFirestore_thenStoreDataLocally(
+          userCredential: userCredintial,
+          userName: userName,
+          credintial: credintial,
+          phoneNumber: phoneNumber,
+          userEmail: email,
+          userImageUrl:
+              "https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg",
+        );
       });
-    });
+    } on FirebaseException catch (e) {
+      CustomToast.showRedToast(
+          messsage: 'account already exist , just login !!');
+      Get.back();
+      throw FirebaseException(
+          plugin: 'this account is already exist !! , login Directly');
+    }
   }
 
- static Future<void> updateUserName(
+  Future<void> updateUserName(
       {required BuildContext context, required String newName}) async {
     UserDataBox.instance.put_userName(userName: newName);
     showDialog(
@@ -192,14 +242,18 @@ class FirebaseCustomServices {
         );
       },
     );
-    await FirebaseFirestore.instance
-        .collection('user_logs')
-        .doc(UserDataBox.instance.get_id())
-        .update({'user_name': newName});
+    try {
+      await FirebaseFirestore.instance
+          .collection(_key_collection_user_logs)
+          .doc(UserDataBox.instance.get_id())
+          .update({_key_userName: newName});
+    } catch (e) {
+      CustomToast.showRedToast(messsage: 'error : ${e.toString()}');
+    }
     Get.back();
   }
 
-  static Future<void> updatePhoneNumber(
+  Future<void> updatePhoneNumber(
       {required BuildContext context, required String phoneNumber}) async {
     UserDataBox.instance.put_userPhoneNumber(phoneNumber: phoneNumber);
     showDialog(
@@ -211,10 +265,9 @@ class FirebaseCustomServices {
       },
     );
     await FirebaseFirestore.instance
-        .collection('user_logs')
+        .collection(_key_collection_user_logs)
         .doc(UserDataBox.instance.get_id())
-        .update({'user_phone_number': phoneNumber});
+        .update({_key_userPhoneNumber: phoneNumber});
     Get.back();
   }
-
 }

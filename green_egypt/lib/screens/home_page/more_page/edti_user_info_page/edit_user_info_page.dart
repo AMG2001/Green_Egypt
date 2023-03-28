@@ -70,12 +70,12 @@ class EditUserInfoPage extends StatelessWidget {
                                   // this mean user not changes any thing , so only move back .
                                 } else if (initialeUserName !=
                                     _tf_userName.text) {
-                                  FirebaseCustomServices.updateUserName(
+                                  FirebaseCustomServices.instance.updateUserName(
                                       context: context,
                                       newName: _tf_userName.text);
                                 } else if (initialPhoneNumber !=
                                     _tf_phoneNumber.text) {
-                                  FirebaseCustomServices.updatePhoneNumber(
+                                  FirebaseCustomServices.instance.updatePhoneNumber(
                                       context: context,
                                       phoneNumber: _tf_phoneNumber.text);
                                 }
