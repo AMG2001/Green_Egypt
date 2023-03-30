@@ -16,7 +16,7 @@ dependencies:
   bottom_navy_bar: ^6.0.0
   cloud_firestore: ^4.0.2
   cupertino_icons: ^1.0.2
-  firebase_auth: ^4.0.2
+  firebase_auth: ^4.4.0
   firebase_storage: ^11.0.2
   flutter:
     sdk: flutter
