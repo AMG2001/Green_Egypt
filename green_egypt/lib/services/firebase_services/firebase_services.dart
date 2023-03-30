@@ -2,9 +2,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:green_egypt/config/pages_names.dart';
 import 'package:green_egypt/config/theme/default_colors.dart';
 import 'package:green_egypt/services/console_message.dart';
 import 'package:green_egypt/services/custom_toast.dart';
+import 'package:lottie/lottie.dart';
 import '../boxes/user_data_db.dart';
 
 class FirebaseCustomServices {
@@ -91,11 +93,10 @@ class FirebaseCustomServices {
    * this method is used
    */
   Future<void> uploadUserDataToFirestore_thenStoreDataLocally(
-      {required UserCredential userCredential,
-      String userName = "",
-      String userEmail = "",
-      String userImageUrl = "",
-      String phoneNumber = "",
+      {required String userName,
+      required String userEmail,
+      required String userImageUrl,
+      required String phoneNumber,
       int earnedCash = 0,
       int savedCo2 = 0,
       int recycledItems = 0,
@@ -103,7 +104,9 @@ class FirebaseCustomServices {
       String credintial = "normal_user"}) async {
     var user_id;
     try {
-      await FirebaseFirestore.instance.collection('user_logs').add({
+      await FirebaseFirestore.instance
+          .collection(_key_collection_user_logs)
+          .add({
         _key_userName: userName,
         _key_userEmail: userEmail,
         _key_userImageUrl: userImageUrl,
@@ -213,7 +216,6 @@ class FirebaseCustomServices {
                        */
 
         await uploadUserDataToFirestore_thenStoreDataLocally(
-          userCredential: userCredintial,
           userName: userName,
           credintial: credintial,
           phoneNumber: phoneNumber,
@@ -229,6 +231,115 @@ class FirebaseCustomServices {
       throw FirebaseException(
           plugin: 'this account is already exist !! , login Directly');
     }
+  }
+
+  void showLoadingIndicator({required BuildContext context}) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return Center(
+          child: CircularProgressIndicator(color: Colors.white),
+        );
+      },
+    );
+  }
+
+  void removeLoadingIndicator() {
+    Get.back();
+  }
+
+  void showSuccessAnimation_thenNavigateToHomePage(
+      {required BuildContext context}) {
+    /**
+     * show login Success Animation :
+     */
+    showDialog(
+        context: context,
+        builder: (context) {
+          Future.delayed(Duration(seconds: 3), () {
+            /**
+                        * Remove Success Animation
+                        */
+            Get.back();
+            /**
+                         * Navigate to Home Screen 
+                         */
+            Get.offAllNamed(PagesNames.homePage);
+          });
+          return Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: Lottie.asset('assets/animated_vectors/login_success.json',
+                repeat: false),
+          );
+        });
+  }
+
+  Future<void> access_withGoogle_thenStoreDataLocally(
+      {required UserCredential userCredential,
+      required BuildContext context}) async {
+    try {
+      showLoadingIndicator(context: context);
+      final document = await FirebaseFirestore.instance
+          .collection(_key_collection_user_logs)
+          .where(_key_userEmail, isEqualTo: userCredential.user!.email)
+          .get();
+
+      ConsoleMessage.successMessage(
+          'user document data : ${document.docs.first}');
+
+      /**
+         * if there is no errors ✔ , it mean that this user account is registered before on firestore,
+         * so get account data in map and then store it in UserDataModel .
+         * then navigate to HomePage
+         */
+      var userData = document.docs.map((e) => e.data()).first;
+      /**
+           * Store fetched data in user data box .
+           */
+      ConsoleMessage.successMessage(
+          "signed user name : ${userData[_key_userName]}");
+
+      UserDataBox.instance.put_allUserData(
+          id: userData[_key_userId],
+          name: userData[_key_userName],
+          email: userData[_key_userEmail],
+          imageUrl: userData[_key_userImageUrl],
+          phoneNumber: userData[_key_userPhoneNumber],
+          credintial: userData[_key_userCredintial],
+          earned: userData[_key_userEarnedCash],
+          savedCo2: userData[_key_userSavedCo2],
+          recycledItems: userData[_key_userRecycledItems],
+          loggedIn: true,
+          reviewedBefore: userData[_key_userReviewBefore]);
+      removeLoadingIndicator();
+      showSuccessAnimation_thenNavigateToHomePage(context: context);
+    } catch (e) {
+      ConsoleMessage.errorMessage(
+          'Account not logged before , call access_withGoogle_firstTime_thenStoreDataLocally()',
+          e.toString());
+      await access_withGoogle_firstTime_thenStoreDataLocally(
+          userCredintial: userCredential, context: context);
+    }
+  }
+
+  Future<void> access_withGoogle_firstTime_thenStoreDataLocally(
+      {required UserCredential userCredintial,
+      required BuildContext context}) async {
+    showLoadingIndicator(context: context);
+    ConsoleMessage.successMessage(
+        'user first time google account with : ${userCredintial.user!.email} \n name : ${userCredintial.user!.displayName} \n phoneNumber : ${userCredintial.user!.phoneNumber} \n imageUrl : ${userCredintial.user!.photoURL}');
+    FirebaseCustomServices.instance
+        .uploadUserDataToFirestore_thenStoreDataLocally(
+            userName: userCredintial.user!.displayName!,
+            userEmail: userCredintial.user!.email!,
+            userImageUrl: userCredintial.user!.photoURL!,
+            phoneNumber: userCredintial.user!.phoneNumber ?? "")
+        .then((value) {
+      ConsoleMessage.successMessage(
+          'signed user name : ${userCredintial.user!.displayName!}');
+      removeLoadingIndicator();
+      showSuccessAnimation_thenNavigateToHomePage(context: context);
+    });
   }
 
   Future<void> updateUserName(

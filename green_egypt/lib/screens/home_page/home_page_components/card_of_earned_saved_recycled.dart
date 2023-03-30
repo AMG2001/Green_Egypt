@@ -4,6 +4,7 @@ import 'package:green_egypt/config/dimensions.dart';
 import 'package:green_egypt/config/theme/default_colors.dart';
 import 'package:green_egypt/screens/home_page/home_page_components/home_page_animations_controller.dart';
 import 'package:green_egypt/screens/home_page/home_page_components/user_detail_column.dart';
+import 'package:green_egypt/services/boxes/user_data_db.dart';
 
 class CardOfEarnedSavedRecycled extends StatelessWidget {
   @override
@@ -33,7 +34,8 @@ class CardOfEarnedSavedRecycled extends StatelessWidget {
                     Icons.currency_exchange_rounded,
                     color: Colors.yellow[400],
                   ),
-                  detailValue: '1250',
+                  detailValue: '${UserDataBox.instance.get_earnedCash()}',
+                  valueMark: "\$",
                   detailTitle: 'EARNED'.tr,
                   animationMilliSeconds: 500),
               Column(
@@ -52,7 +54,8 @@ class CardOfEarnedSavedRecycled extends StatelessWidget {
                     color: Colors.grey[350],
                     size: 28,
                   ),
-                  detailValue: '350g',
+                  detailValue: '${UserDataBox.instance.get_savedCo2()}',
+                  valueMark: "g",
                   detailTitle: 'SAVED CO2'.tr,
                   animationMilliSeconds: 500),
               Column(
@@ -71,7 +74,8 @@ class CardOfEarnedSavedRecycled extends StatelessWidget {
                     color: Colors.green[800],
                     size: 28,
                   ),
-                  detailValue: '17',
+                  detailValue: '${UserDataBox.instance.get_recycledItems()}',
+                  valueMark: "",
                   detailTitle: 'RECYCLED'.tr,
                   animationMilliSeconds: 500),
               Column(

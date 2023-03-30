@@ -8,9 +8,11 @@ class UserDetailColumn extends StatelessWidget {
   String detailValue;
   String detailTitle;
   int animationMilliSeconds;
+  String valueMark;
   UserDetailColumn(
       {required this.icon,
       required this.detailValue,
+      required this.valueMark,
       required this.detailTitle,
       required this.animationMilliSeconds});
 
@@ -34,12 +36,31 @@ class UserDetailColumn extends StatelessWidget {
                       duration: Duration(milliseconds: 750),
                       height: controller.animatedContainerHeight),
                   icon,
-                  Text(
-                    detailValue,
-                    style: TextStyle(
-                        fontSize: 32,
-                        color: Colors.yellow[50]!.withOpacity(.9),
-                        fontWeight: FontWeight.w500),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        valueMark + " ",
+                        style: TextStyle(
+                            fontSize: 18,
+                            color: Colors.yellow[50]!.withOpacity(0),
+                            fontWeight: FontWeight.w500),
+                      ),
+                      Text(
+                        detailValue,
+                        style: TextStyle(
+                            fontSize: 32,
+                            color: Colors.yellow[50]!.withOpacity(.9),
+                            fontWeight: FontWeight.w500),
+                      ),
+                      Text(
+                        " " + valueMark,
+                        style: TextStyle(
+                            fontSize: 18,
+                            color: Colors.yellow[50]!.withOpacity(.9),
+                            fontWeight: FontWeight.w500),
+                      )
+                    ],
                   ),
                   Text(
                     detailTitle,
