@@ -12,33 +12,13 @@ class MorePageHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: Dimensions.height * .32,
+      // height: Dimensions.height * .32,
       child:
           Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-        // TODO
         CircleAvatar(
           backgroundImage:
               NetworkImage(UserDataBox.instance.get_userImageUrl()),
           radius: 65,
-          // child: CachedNetworkImage(
-          //   // imageBuilder: (context, imageProvider) => Container(
-          //   //   decoration: BoxDecoration(
-          //   //     borderRadius: BorderRadius.circular(25),
-          //   //     image: DecorationImage(
-          //   //       image: imageProvider,
-          //   //       fit: BoxFit.cover,
-          //   //     ),
-          //   //   ),
-          //   // ),
-          //   imageUrl: UserDataModel.userImageURL,
-          //   width: Dimensions.width * .35,
-          //   progressIndicatorBuilder: (context, url, downloadProgress) =>
-          //       CircularProgressIndicator(value: downloadProgress.progress),
-          //   errorWidget: (context, url, error) => Icon(
-          //     Icons.error,
-          //     color: Colors.red,
-          //   ),
-          // ),
         ),
         SizedBox(
           height: Dimensions.height * .02,

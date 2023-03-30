@@ -36,6 +36,9 @@ class UserDetailColumn extends StatelessWidget {
                       duration: Duration(milliseconds: 750),
                       height: controller.animatedContainerHeight),
                   icon,
+                  const SizedBox(
+                    height: 12,
+                  ),
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -61,6 +64,9 @@ class UserDetailColumn extends StatelessWidget {
                             fontWeight: FontWeight.w500),
                       )
                     ],
+                  ),
+                  const SizedBox(
+                    height: 12,
                   ),
                   Text(
                     detailTitle,

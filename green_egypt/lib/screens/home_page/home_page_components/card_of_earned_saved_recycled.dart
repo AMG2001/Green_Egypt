@@ -13,8 +13,9 @@ class CardOfEarnedSavedRecycled extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Container(
+          padding: EdgeInsets.symmetric(vertical: Dimensions.height * .04),
           width: Dimensions.width,
-          height: Dimensions.height * .2,
+          // height: Dimensions.height * .2,
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage(

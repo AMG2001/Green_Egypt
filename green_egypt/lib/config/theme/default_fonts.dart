@@ -1,4 +1,4 @@
 class DefaultFonts {
-  static String defaultLondrinaSolidBold = 'LondrinaSolid_Bold';
-  static String defaultLondrinaSolidThin = 'LondrinaSolid_Thin';
+  static String defaultLondrinaSolidBold = 'Roboto_Bold';
+  static String defaultLondrinaSolidThin = 'Roboto_Thin';
 }

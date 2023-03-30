@@ -63,7 +63,7 @@ class StartScreen extends StatelessWidget {
                   ],
                 ),
                 SizedBox(
-                  height: Dimensions.height * .12,
+                  height: Dimensions.height * .11,
                 ),
                 Text(
                   "Don't have an Account !",
@@ -152,9 +152,9 @@ class StartScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(
-                  height: Get.height * .03,
-                )
+                // SizedBox(
+                //   height: Get.height * .03,
+                // )
               ],
             ),
           ),
