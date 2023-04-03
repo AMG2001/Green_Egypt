@@ -32,65 +32,62 @@ class FirebaseCustomServices {
   String _key_userReviewBefore = "review_before";
   String _key_userCredintial = "user_credintial";
 
-  /**
-   * After login with google , if this is first time user logged in
-   * then get user data and upload it to firestore .
-   */
-  Future<void> googleLogin_uploadUserDataToFirestore_thenStoreDataLocally(
-      {required UserCredential userCredential,
-      String userName = "",
-      String userEmail = "",
-      String userImageUrl = "",
-      String phoneNumber = "",
-      int earnedCash = 0,
-      int savedCo2 = 0,
-      int recycledItems = 0,
-      bool reviewBefore = false,
-      String credintial = "normal_user"}) async {
-    var user_id;
-    try {
-      await FirebaseFirestore.instance.collection('user_logs').add({
-        _key_userName: userCredential.user!.displayName,
-        _key_userEmail: userCredential.user!.email,
-        _key_userImageUrl: userCredential.user!.photoURL,
-        _key_userPhoneNumber: "",
-        _key_userEarnedCash: 0,
-        _key_userSavedCo2: 0,
-        _key_userRecycledItems: 0,
-        _key_userReviewBefore: false,
-        _key_userCredintial: "normal_user"
-      }).then((document) async {
-        user_id = document.id;
-        /**
-             * update user data on firestore by adding id .
-             */
-        await FirebaseFirestore.instance
-            .collection(_key_collection_user_logs)
-            .doc(document.id)
-            .update({_key_userId: document.id});
-      });
-      /**
-                   * add user data into UserDataModel
-                   */
-      UserDataBox.instance.put_allUserData(
-          id: user_id,
-          name: userCredential.user!.displayName!,
-          email: userCredential.user!.email!,
-          imageUrl: userCredential.user!.photoURL!,
-          phoneNumber: "",
-          credintial: 'normal_user',
-          earned: 0,
-          recycledItems: 0,
-          savedCo2: 0,
-          loggedIn: true,
-          reviewedBefore: false);
-    } catch (e) {
-      CustomToast.showRedToast(messsage: "error : ${e.toString()}");
-    }
-  }
+  // Future<void> googleLogin_uploadUserDataToFirestore_thenStoreDataLocally(
+  //     {required UserCredential userCredential,
+  //     String userName = "",
+  //     String userEmail = "",
+  //     String userImageUrl = "",
+  //     String phoneNumber = "",
+  //     int earnedCash = 0,
+  //     int savedCo2 = 0,
+  //     int recycledItems = 0,
+  //     bool reviewBefore = false,
+  //     String credintial = "normal_user"}) async {
+  //   var user_id;
+  //   try {
+  //     await FirebaseFirestore.instance.collection('user_logs').add({
+  //       _key_userName: userCredential.user!.displayName,
+  //       _key_userEmail: userCredential.user!.email,
+  //       _key_userImageUrl: userCredential.user!.photoURL,
+  //       _key_userPhoneNumber: "",
+  //       _key_userEarnedCash: 0,
+  //       _key_userSavedCo2: 0,
+  //       _key_userRecycledItems: 0,
+  //       _key_userReviewBefore: false,
+  //       _key_userCredintial: "normal_user"
+  //     }).then((document) async {
+  //       user_id = document.id;
+  //       /**
+  //            * update user data on firestore by adding id .
+  //            */
+  //       await FirebaseFirestore.instance
+  //           .collection(_key_collection_user_logs)
+  //           .doc(document.id)
+  //           .update({_key_userId: document.id});
+  //     });
+  //     /**
+  //                  * add user data into UserDataModel
+  //                  */
+  //     UserDataBox.instance.put_allUserData(
+  //         id: user_id,
+  //         name: userCredential.user!.displayName!,
+  //         email: userCredential.user!.email!,
+  //         imageUrl: userCredential.user!.photoURL!,
+  //         phoneNumber: "",
+  //         credintial: 'normal_user',
+  //         earned: 0,
+  //         recycledItems: 0,
+  //         savedCo2: 0,
+  //         loggedIn: true,
+  //         reviewedBefore: false);
+  //   } catch (e) {
+  //     CustomToast.showRedToast(messsage: "error : ${e.toString()}");
+  //   }
+  // }
 
   /**
-   * this method is used
+   * After logging with facebook or google , this method get user credintial data 
+   * and upload it to firestore .
    */
   Future<void> uploadUserDataToFirestore_thenStoreDataLocally(
       {required String userName,
@@ -196,7 +193,7 @@ class FirebaseCustomServices {
   }
 
   /**
-           * Register user in firebase Auth
+           * Register new User into firebase Auth
            */
   Future<void> registerNewUser({
     required String email,
@@ -244,10 +241,16 @@ class FirebaseCustomServices {
     );
   }
 
+  /**
+   * this method is used to remove loading indicator .
+   */
   void removeLoadingIndicator() {
     Get.back();
   }
 
+  /**
+   * to show success animation after any success proccess .
+   */
   void showSuccessAnimation_thenNavigateToHomePage(
       {required BuildContext context}) {
     /**
@@ -274,6 +277,17 @@ class FirebaseCustomServices {
         });
   }
 
+
+
+  /**
+   * **************************** Google Auth methods section *******************************
+   */
+  /**
+   * this method is used to access user with google account data if the user is logged before .
+   * 
+   * if the user logging for first time , this method will call access_withGoogle_firstTime() .
+   * which is the below method 👇👇.
+   */
   Future<void> access_withGoogle_thenStoreDataLocally(
       {required UserCredential userCredential,
       required BuildContext context}) async {
@@ -321,7 +335,9 @@ class FirebaseCustomServices {
           userCredintial: userCredential, context: context);
     }
   }
-
+  /**
+   * this method is used to sign in user with google first first time with default data .
+   */
   Future<void> access_withGoogle_firstTime_thenStoreDataLocally(
       {required UserCredential userCredintial,
       required BuildContext context}) async {
@@ -342,6 +358,95 @@ class FirebaseCustomServices {
     });
   }
 
+
+  /**
+   * ***************************** Facebook auth methods section ******************************
+   */
+
+  /**
+   * this method is used to access user with google account data if the user is logged before .
+   * 
+   * if the user logging for first time , this method will call access_withGoogle_firstTime() .
+   * which is the below method 👇👇.
+   */
+  Future<void> access_withFacebook_thenStoreDataLocally(
+      {required Map<String,dynamic> userCredential,
+      required BuildContext context}) async {
+    try {
+      showLoadingIndicator(context: context);
+      final document = await FirebaseFirestore.instance
+          .collection(_key_collection_user_logs)
+          .where(_key_userEmail, isEqualTo: userCredential['email'])
+          .get();
+
+      ConsoleMessage.successMessage(
+          'user document data : ${document.docs.first}');
+
+      /**
+         * if there is no errors ✔ , it mean that this user account is registered before on firestore,
+         * so get account data in map and then store it in UserDataModel .
+         * then navigate to HomePage
+         */
+      var userData = document.docs.map((e) => e.data()).first;
+      /**
+           * Store fetched data in user data box .
+           */
+      ConsoleMessage.successMessage(
+          "signed user name : ${userData[_key_userName]}");
+
+      UserDataBox.instance.put_allUserData(
+          id: userData[_key_userId],
+          name: userData[_key_userName],
+          email: userData[_key_userEmail],
+          imageUrl: userData[_key_userImageUrl],
+          phoneNumber: userData[_key_userPhoneNumber],
+          credintial: userData[_key_userCredintial],
+          earned: userData[_key_userEarnedCash],
+          savedCo2: userData[_key_userSavedCo2],
+          recycledItems: userData[_key_userRecycledItems],
+          loggedIn: true,
+          reviewedBefore: userData[_key_userReviewBefore]);
+      removeLoadingIndicator();
+      showSuccessAnimation_thenNavigateToHomePage(context: context);
+    } catch (e) {
+      ConsoleMessage.errorMessage(
+          'Account not logged before , call access_withGoogle_firstTime_thenStoreDataLocally()',
+          e.toString());
+      await access_withFacebook_firstTime_thenStoreDataLocally(
+          userCredintial: userCredential, context: context);
+    }
+  }
+  /**
+   * this method is used to sign in user with google first first time with default data .
+   */
+  Future<void> access_withFacebook_firstTime_thenStoreDataLocally(
+      {required Map<String,dynamic> userCredintial,
+      required BuildContext context}) async {
+    showLoadingIndicator(context: context);
+    ConsoleMessage.successMessage(
+        'user first time google account with : ${userCredintial['email']} \n name : ${userCredintial['name']} \n phoneNumber : empty because this is facebook \n imageUrl : ${userCredintial['picture']['data']['url']}');
+    FirebaseCustomServices.instance
+        .uploadUserDataToFirestore_thenStoreDataLocally(
+            userName: userCredintial['name'],
+            userEmail: userCredintial['email'],
+            userImageUrl: userCredintial['picture']['data']['url'],
+            phoneNumber: "")
+        .then((value) {
+      ConsoleMessage.successMessage(
+          'signed user name : ${userCredintial['name']}');
+      removeLoadingIndicator();
+      showSuccessAnimation_thenNavigateToHomePage(context: context);
+    });
+  }
+
+
+  /**
+   * ****************************** Edit user firestore data section ******************************
+   */
+
+  /**
+   * method used in edit user data info page to update his/her user name in firststore .
+   */
   Future<void> updateUserName(
       {required BuildContext context, required String newName}) async {
     UserDataBox.instance.put_userName(userName: newName);
@@ -363,7 +468,9 @@ class FirebaseCustomServices {
     }
     Get.back();
   }
-
+  /**
+   * method used in edit user data info page to update his/her phone number in firststore .
+   */
   Future<void> updatePhoneNumber(
       {required BuildContext context, required String phoneNumber}) async {
     UserDataBox.instance.put_userPhoneNumber(phoneNumber: phoneNumber);
@@ -381,4 +488,6 @@ class FirebaseCustomServices {
         .update({_key_userPhoneNumber: phoneNumber});
     Get.back();
   }
+
+
 }

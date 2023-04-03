@@ -2,6 +2,5 @@
 <resource>
     <string name="app_name">green_egypt</string>
     <string name="facebook_app_id">5869207683103239</string>
-    <string name="fb_login_protocol_scheme">fb5869207683103239</string>
-    <string name="facebook_client_token">abe9d3f27e8bca650c259c3871e87430</string>
+    <string name="fb_login_protocol_scheme">fb2ff9cc755c1165cb58dd082e35d4b080</string>
 </resource>

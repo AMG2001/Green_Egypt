@@ -17,6 +17,7 @@ class QrCodePage extends StatefulWidget {
 }
 
 class _QrCodePageState extends State<QrCodePage> {
+  int _pageIndex = 1;
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
   Barcode? result;
   QRViewController? controller;
@@ -40,8 +41,14 @@ class _QrCodePageState extends State<QrCodePage> {
     PagesNames.morePage
   ];
 
-  void navigateToPageWithIndex(int pageIndex) {
-    Get.offAllNamed(homePagesNames[pageIndex]);
+  void navigateToPageWithIndex(
+      {required int sourcePageIndex, required int destinationPageIndex}) {
+    if (sourcePageIndex != destinationPageIndex) {
+      if (destinationPageIndex == 3) {
+        Get.toNamed(homePagesNames[destinationPageIndex]);
+      } else
+        Get.offAllNamed(homePagesNames[destinationPageIndex]);
+    }
   }
 
   // void resumeCamera() async {
@@ -90,7 +97,8 @@ class _QrCodePageState extends State<QrCodePage> {
           if (value == 3)
             Get.toNamed(PagesNames.morePage);
           else
-            navigateToPageWithIndex(value);
+            navigateToPageWithIndex(
+                sourcePageIndex: _pageIndex, destinationPageIndex: value);
         },
       ),
       body: Column(

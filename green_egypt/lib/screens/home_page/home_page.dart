@@ -32,13 +32,17 @@ class _HomePageState extends State<HomePage> {
     PagesNames.morePage
   ];
 
-  void navigateToPageWithIndex(int pageIndex) {
-    pageIndex == 2
-        ? Get.toNamed(homePagesNames[pageIndex])
-        : Get.offNamed(homePagesNames[pageIndex]);
-    Get.offNamed(homePagesNames[pageIndex]);
+  void navigateToPageWithIndex(
+      {required int sourcePageIndex, required int destinationPageIndex}) {
+    if (sourcePageIndex != destinationPageIndex) {
+      if (destinationPageIndex == 3) {
+        Get.toNamed(homePagesNames[destinationPageIndex]);
+      } else
+        Get.offAllNamed(homePagesNames[destinationPageIndex]);
+    }
   }
 
+  int _pageIndex = 0;
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomePageController>(
@@ -80,7 +84,8 @@ class _HomePageState extends State<HomePage> {
                 if (value == 3)
                   Get.toNamed(PagesNames.morePage);
                 else
-                  navigateToPageWithIndex(value);
+                  navigateToPageWithIndex(
+                      sourcePageIndex: _pageIndex, destinationPageIndex: value);
               },
             ),
             body: SafeArea(
