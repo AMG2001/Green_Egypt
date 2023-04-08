@@ -251,11 +251,9 @@ class WasteCategoryView extends StatelessWidget {
                               ),
                             ],
                           ),
-
-                          // background:
                         ),
                       ),
-                    )
+                    ),
                   ];
                 },
                 body: list[0]),

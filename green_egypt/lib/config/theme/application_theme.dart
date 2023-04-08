@@ -5,7 +5,7 @@ class ApplicationTheme {
   /**
    ####################### Application dark theme property ##############################
    */
-  static ThemeData applicationDarkTheme = ThemeData.dark(useMaterial3: true).copyWith(
+  static ThemeData applicationDarkTheme = ThemeData.dark().copyWith(
       textTheme: TextTheme(
         button: TextStyle(
             color: Colors.white,
@@ -184,7 +184,7 @@ class ApplicationTheme {
    * ############################# Application light theme property ###########################
    */
 
-  static ThemeData applicationLightTheme = ThemeData.light(useMaterial3: true).copyWith(
+  static ThemeData applicationLightTheme = ThemeData.light().copyWith(
       /**
      * -------------------- Scaffold Background Color -----------------------
      */

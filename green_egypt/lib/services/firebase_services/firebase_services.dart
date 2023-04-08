@@ -270,7 +270,7 @@ class FirebaseCustomServices {
             Get.offAllNamed(PagesNames.homePage);
           });
           return Padding(
-            padding: const EdgeInsets.all(12.0),
+            padding: const EdgeInsets.all(36.0),
             child: Lottie.asset('assets/animated_vectors/login_success.json',
                 repeat: false),
           );
