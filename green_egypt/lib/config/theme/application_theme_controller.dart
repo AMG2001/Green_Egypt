@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class ApplicationThemeController extends GetxController {
   late bool isDark;
+  static late Color appBarColor;
   late SharedPreferences currentThemeSharedPref;
 
   late ThemeData currentTheme;
@@ -25,6 +26,7 @@ class ApplicationThemeController extends GetxController {
        */
       await currentThemeSharedPref.setBool("isDark", false);
       isDark = false;
+      appBarColor = Colors.white;
       currentTheme = ApplicationTheme.applicationLightTheme;
       update();
     } else {
@@ -32,10 +34,13 @@ class ApplicationThemeController extends GetxController {
        * to get last theme value.
        */
       isDark = currentThemeSharedPref.getBool("isDark")!;
-      if (isDark == true)
+      if (isDark == true) {
         currentTheme = ApplicationTheme.applicationDarkTheme;
-      else
+        appBarColor = Colors.black;
+      } else {
         currentTheme = ApplicationTheme.applicationLightTheme;
+        appBarColor = Colors.white;
+      }
       update();
     }
   }
@@ -51,9 +56,11 @@ class ApplicationThemeController extends GetxController {
       isDark = val;
       if (val == true) {
         currentTheme = ApplicationTheme.applicationDarkTheme;
+        appBarColor = Colors.black;
         update();
       } else {
         currentTheme = ApplicationTheme.applicationLightTheme;
+        appBarColor = Colors.white;
         update();
       }
     });

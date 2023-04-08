@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:green_egypt/config/pages_names.dart';
+import 'package:green_egypt/config/theme/application_theme_controller.dart';
 import 'package:green_egypt/config/theme/default_colors.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -64,66 +65,70 @@ class _QrCodePageState extends State<QrCodePage> {
   @override
   Widget build(BuildContext context) {
     // resumeCamera();
-    return Scaffold(
-      bottomNavigationBar: BottomNavyBar(
-        selectedIndex: 1,
-        curve: Curves.linear,
-        iconSize: 20.sp,
-        items: [
-          BottomNavyBarItem(
-              icon: Icon(Icons.home_outlined),
-              title: Text("home"),
-              textAlign: TextAlign.center,
-              activeColor: Colors.black),
-          BottomNavyBarItem(
-              icon: Icon(Icons.qr_code_scanner_rounded),
-              title: Text(
-                "qr code",
-              ),
-              textAlign: TextAlign.center,
-              activeColor: DefaultColors.defaultGreen),
-          BottomNavyBarItem(
-              icon: Icon(Icons.bookmarks_outlined),
-              title: Text("Transactions"),
-              textAlign: TextAlign.center,
-              activeColor: Colors.black),
-          BottomNavyBarItem(
-              icon: Icon(Icons.more_horiz_outlined),
-              title: Text("more"),
-              textAlign: TextAlign.center,
-              activeColor: Colors.black),
-        ],
-        onItemSelected: (value) {
-          if (value == 3)
-            Get.toNamed(PagesNames.morePage);
-          else
-            navigateToPageWithIndex(
-                sourcePageIndex: _pageIndex, destinationPageIndex: value);
-        },
-      ),
-      body: Column(
-        children: <Widget>[
-          Expanded(
-            flex: 4,
-            child: QRView(
-              overlay: QrScannerOverlayShape(
-                  borderColor: Colors.red, borderRadius: 16.0),
-              cameraFacing: CameraFacing.back,
-              key: qrKey,
-              onQRViewCreated: _onQRViewCreated,
-            ),
+    return GetBuilder<ApplicationThemeController>(
+      builder: (themeController) {
+        return Scaffold(
+          bottomNavigationBar: BottomNavyBar(
+            selectedIndex: 1,
+            curve: Curves.linear,
+            iconSize: 20.sp,
+            items: [
+              BottomNavyBarItem(
+                  icon: Icon(Icons.home_outlined),
+                  title: Text("home"),
+                  textAlign: TextAlign.center,
+                  activeColor: themeController.isDark? Colors.white : Colors.black),
+              BottomNavyBarItem(
+                  icon: Icon(Icons.qr_code_scanner_rounded),
+                  title: Text(
+                    "qr code",
+                  ),
+                  textAlign: TextAlign.center,
+                  activeColor: DefaultColors.defaultGreen),
+              BottomNavyBarItem(
+                  icon: Icon(Icons.bookmarks_outlined),
+                  title: Text("Transactions"),
+                  textAlign: TextAlign.center,
+                  activeColor: themeController.isDark? Colors.white : Colors.black),
+              BottomNavyBarItem(
+                  icon: Icon(Icons.more_horiz_outlined),
+                  title: Text("more"),
+                  textAlign: TextAlign.center,
+                  activeColor: themeController.isDark? Colors.white : Colors.black),
+            ],
+            onItemSelected: (value) {
+              if (value == 3)
+                Get.toNamed(PagesNames.morePage);
+              else
+                navigateToPageWithIndex(
+                    sourcePageIndex: _pageIndex, destinationPageIndex: value);
+            },
           ),
-          Expanded(
-            flex: 2,
-            child: Center(
-              child: (result != null)
-                  ? Text(
-                      'Barcode Type: ${describeEnum(result!.format)}  \nData: ${result!.code}')
-                  : Text('Scan a code'),
-            ),
-          )
-        ],
-      ),
+          body: Column(
+            children: <Widget>[
+              Expanded(
+                flex: 4,
+                child: QRView(
+                  overlay: QrScannerOverlayShape(
+                      borderColor: Colors.red, borderRadius: 16.0),
+                  cameraFacing: CameraFacing.back,
+                  key: qrKey,
+                  onQRViewCreated: _onQRViewCreated,
+                ),
+              ),
+              Expanded(
+                flex: 2,
+                child: Center(
+                  child: (result != null)
+                      ? Text(
+                          'Barcode Type: ${describeEnum(result!.format)}  \nData: ${result!.code}')
+                      : Text('Scan a code'),
+                ),
+              )
+            ],
+          ),
+        );
+      }
     );
   }
 

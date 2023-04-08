@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:green_egypt/config/dimensions.dart';
+import 'package:green_egypt/config/theme/application_theme.dart';
+import 'package:green_egypt/config/theme/application_theme_controller.dart';
 import 'package:green_egypt/screens/home_page/more_page/edti_user_info_page/edit_user_info_page.dart';
 import 'package:green_egypt/services/boxes/user_data_db.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -34,27 +36,31 @@ class MorePageHeader extends StatelessWidget {
           "user account : ${UserDataBox.instance.get_email()}",
           style: TextStyle(color: Colors.grey, fontSize: 14.sp),
         ),
-        SizedBox(
+       const SizedBox(
           height: 16,
         ),
         FittedBox(
           child: ElevatedButton(
               onPressed: () {
                 Get.to(() => EditUserInfoPage(),
-                    duration: Duration(milliseconds: 800),
+                    duration: const Duration(milliseconds: 800),
                     curve: Curves.easeInOutCubic,
                     transition: Transition.downToUp);
               },
               child: Row(
                 mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text("Edit Profile"),
+                children:const [
+                  Text(
+                    "Edit Profile",
+                    style: TextStyle(color: Colors.white),
+                  ),
                   SizedBox(
                     width: 8,
                   ),
                   Icon(
                     Icons.arrow_forward_ios_outlined,
                     size: 16,
+                    color: Colors.white,
                   )
                 ],
               )),

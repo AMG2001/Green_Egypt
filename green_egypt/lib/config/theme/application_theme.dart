@@ -5,7 +5,7 @@ class ApplicationTheme {
   /**
    ####################### Application dark theme property ##############################
    */
-  static ThemeData applicationDarkTheme = ThemeData.dark().copyWith(
+  static ThemeData applicationDarkTheme = ThemeData.dark(useMaterial3: true).copyWith(
       textTheme: TextTheme(
         button: TextStyle(
             color: Colors.white,
@@ -56,7 +56,7 @@ class ApplicationTheme {
       /**
   * -------------------------- AppBar Theme --------------------------
   */
-      appBarTheme: AppBarTheme(backgroundColor: Color(0xFF90AD19)),
+      appBarTheme: AppBarTheme(backgroundColor: Colors.black),
       /***
      * -------------------------- Prrmary Text Theme --------------------------
      */
@@ -174,8 +174,7 @@ class ApplicationTheme {
       /**
                * *************************** Cursor Color **********************************
                */
-      textSelectionTheme:
-          TextSelectionThemeData(cursorColor: Color(0xFF90AD19)),
+      textSelectionTheme: TextSelectionThemeData(cursorColor: Color(0xFF90AD19)),
       /**
            * ************************* TF prefix - postfix themeing **********************
            */
@@ -185,7 +184,7 @@ class ApplicationTheme {
    * ############################# Application light theme property ###########################
    */
 
-  static ThemeData applicationLightTheme = ThemeData.light().copyWith(
+  static ThemeData applicationLightTheme = ThemeData.light(useMaterial3: true).copyWith(
       /**
      * -------------------- Scaffold Background Color -----------------------
      */
@@ -197,7 +196,7 @@ class ApplicationTheme {
       /**
   * -------------------------- AppBar Theme --------------------------
   */
-      appBarTheme: AppBarTheme(backgroundColor: Color(0xFF90AD19)),
+      appBarTheme: AppBarTheme(backgroundColor: Colors.white),
       /***
      * -------------------------- Prrmary Text Theme --------------------------
      */
@@ -354,8 +353,7 @@ class ApplicationTheme {
       /**
                * *************************** Cursor Color **********************************
                */
-      textSelectionTheme:
-          TextSelectionThemeData(cursorColor: Color(0xFF90AD19)),
+      textSelectionTheme: TextSelectionThemeData(cursorColor: Color(0xFF90AD19)),
       /**
            * ************************* TF prefix - postfix themeing **********************
            */
