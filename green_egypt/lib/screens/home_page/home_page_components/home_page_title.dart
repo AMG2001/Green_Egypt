@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:green_egypt/config/theme/application_theme_controller.dart';
+import 'package:green_egypt/config/theme/application_theme_controller_box.dart';
 import 'package:green_egypt/config/theme/default_fonts.dart';
 import 'package:green_egypt/services/boxes/user_data_db.dart';
 

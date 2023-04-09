@@ -198,9 +198,9 @@ class ApplicationTheme {
   * -------------------------- AppBar Theme --------------------------
   */
       appBarTheme: AppBarTheme(
-          backgroundColor: Colors.white,
-          color: Colors.black,
-          titleTextStyle: TextStyle(color: Colors.black),),
+        backgroundColor: Colors.white,
+        titleTextStyle: TextStyle(color: Colors.black),
+      ),
       /***
      * -------------------------- Prrmary Text Theme --------------------------
      */

@@ -1,10 +1,7 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:green_egypt/config/dimensions.dart';
-import 'package:green_egypt/config/pages_names.dart';
-import 'package:green_egypt/config/theme/application_theme_controller.dart';
+import 'package:green_egypt/config/theme/application_theme_controller_box.dart';
 import 'package:green_egypt/screens/home_page/more_page/more_page_components/application_theme_option.dart';
 import 'package:green_egypt/screens/home_page/more_page/more_page_components/green_egypt_machines_option.dart';
 import 'package:green_egypt/screens/home_page/more_page/more_page_components/green_egypt_support_divider.dart';
@@ -13,11 +10,8 @@ import 'package:green_egypt/screens/home_page/more_page/more_page_components/lan
 import 'package:green_egypt/screens/home_page/more_page/more_page_components/logout_option.dart';
 import 'package:green_egypt/screens/home_page/more_page/more_page_components/more_page_header.dart';
 import 'package:green_egypt/screens/home_page/more_page/more_page_components/send_feedback_option.dart';
-import 'package:green_egypt/screens/home_page/more_page/more_page_components/settings_option.dart';
 import 'package:green_egypt/screens/home_page/more_page/more_page_components/transaction_option.dart';
 import 'package:green_egypt/screens/home_page/more_page/more_page_components/user_support_divider.dart';
-import 'package:green_egypt/services/custom_toast.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
 
 class MorePage extends StatelessWidget {
   @override

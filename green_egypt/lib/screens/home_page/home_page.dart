@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:green_egypt/config/dimensions.dart';
 import 'package:green_egypt/config/pages_names.dart';
-import 'package:green_egypt/config/theme/application_theme_controller.dart';
+import 'package:green_egypt/config/theme/application_theme_controller_box.dart';
 import 'package:green_egypt/config/theme/default_fonts.dart';
 import 'package:green_egypt/screens/home_page/home_page_components/card_of_earned_saved_recycled.dart';
 import 'package:green_egypt/screens/home_page/home_page_components/eco_friendly_tips_row.dart';
@@ -17,7 +17,6 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:badges/badges.dart' as badges;
 
 class HomePage extends StatefulWidget {
-  final applicationThemeController = Get.put(ApplicationThemeController());
   final homePageAnimationsController = Get.put(HomePageAnimationsController());
   final homePageController = Get.put(HomePageController());
   HomePage({super.key});

@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:green_egypt/config/pages_names.dart';
-import 'package:green_egypt/config/theme/application_theme_controller.dart';
+import 'package:green_egypt/config/theme/application_theme_controller_box.dart';
 
 class ApplicationThemeOption extends StatefulWidget {
   late bool darkThemeBool;
@@ -29,8 +29,7 @@ class _ApplicationThemeOptionState extends State<ApplicationThemeOption> {
         title: Text("Dark Mode"),
         trailing: CupertinoSwitch(
           onChanged: (value) async {
-            await widget.applicationThemeController
-                .changeApplicationTheme(value);
+            await widget.applicationThemeController.changeApplicationTheme(newValue: value);
 
             setState(() {
               widget.darkThemeBool = value;

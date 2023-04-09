@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:green_egypt/config/pages_names.dart';
-import 'package:green_egypt/config/theme/application_theme_controller.dart';
+import 'package:green_egypt/config/theme/application_theme_controller_box.dart';
 import 'package:green_egypt/services/boxes/user_data_db.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 

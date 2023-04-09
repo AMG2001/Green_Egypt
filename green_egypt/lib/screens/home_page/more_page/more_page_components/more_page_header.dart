@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:green_egypt/config/dimensions.dart';
-import 'package:green_egypt/config/theme/application_theme.dart';
-import 'package:green_egypt/config/theme/application_theme_controller.dart';
 import 'package:green_egypt/screens/home_page/more_page/edti_user_info_page/edit_user_info_page.dart';
 import 'package:green_egypt/services/boxes/user_data_db.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-
 class MorePageHeader extends StatelessWidget {
   const MorePageHeader({super.key});
 

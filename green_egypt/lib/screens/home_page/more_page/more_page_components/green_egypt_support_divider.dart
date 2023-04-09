@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:green_egypt/config/dimensions.dart';
-import 'package:green_egypt/config/theme/application_theme.dart';
-import 'package:green_egypt/config/theme/application_theme_controller.dart';
+import 'package:green_egypt/config/theme/application_theme_controller_box.dart';
 
 class GreenEgyptSupportDivider extends StatelessWidget {
   late ApplicationThemeController applicationThemeController;
