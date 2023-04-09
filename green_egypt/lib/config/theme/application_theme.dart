@@ -174,7 +174,8 @@ class ApplicationTheme {
       /**
                * *************************** Cursor Color **********************************
                */
-      textSelectionTheme: TextSelectionThemeData(cursorColor: Color(0xFF90AD19)),
+      textSelectionTheme:
+          TextSelectionThemeData(cursorColor: Color(0xFF90AD19)),
       /**
            * ************************* TF prefix - postfix themeing **********************
            */
@@ -196,7 +197,10 @@ class ApplicationTheme {
       /**
   * -------------------------- AppBar Theme --------------------------
   */
-      appBarTheme: AppBarTheme(backgroundColor: Colors.white),
+      appBarTheme: AppBarTheme(
+          backgroundColor: Colors.white,
+          color: Colors.black,
+          titleTextStyle: TextStyle(color: Colors.black),),
       /***
      * -------------------------- Prrmary Text Theme --------------------------
      */
@@ -353,7 +357,8 @@ class ApplicationTheme {
       /**
                * *************************** Cursor Color **********************************
                */
-      textSelectionTheme: TextSelectionThemeData(cursorColor: Color(0xFF90AD19)),
+      textSelectionTheme:
+          TextSelectionThemeData(cursorColor: Color(0xFF90AD19)),
       /**
            * ************************* TF prefix - postfix themeing **********************
            */

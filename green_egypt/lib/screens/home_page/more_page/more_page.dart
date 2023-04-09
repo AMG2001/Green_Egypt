@@ -22,78 +22,74 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 class MorePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("more page"),
-      ),
-      body: GetBuilder<ApplicationThemeController>(
-          init: ApplicationThemeController(),
-          builder: (applicationThemeController) {
-            return SafeArea(
-              child: Container(
-                width: Dimensions.width,
-                height: Dimensions.height,
-                child: ListView(
-                  // mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    SizedBox(
-                      height: Dimensions.height * .02,
-                    ),
-                    /**
-                   * ************************************ More page Header *******************************
-                   */
-                    MorePageHeader(),
-                    SizedBox(
-                      height: Dimensions.height * .03,
-                    ),
-                    /**
-                   * ************************************** Green Egypt Support ****************************
-                   */
-                    GreenEgyptSupportDivider(
-                        applicationThemeController: applicationThemeController),
+    return GetBuilder<ApplicationThemeController>(builder: (themeController) {
+      return Scaffold(
+          appBar: AppBar(
+            
+            title: Text("more page"),
+          ),
+          body: SafeArea(
+            child: Container(
+              width: Dimensions.width,
+              height: Dimensions.height,
+              child: ListView(
+                // mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  SizedBox(
+                    height: Dimensions.height * .02,
+                  ),
+                  /**
+                       * ************************************ More page Header *******************************
+                       */
+                  MorePageHeader(),
+                  SizedBox(
+                    height: Dimensions.height * .03,
+                  ),
+                  /**
+                       * ************************************** Green Egypt Support ****************************
+                       */
+                  GreenEgyptSupportDivider(
+                      applicationThemeController: themeController),
 
-                    /**
-                       * ************************************* Transactions History option **********************************
+                  /**
+                           * ************************************* Transactions History option **********************************
+                           */
+                  TransactionsOption(),
+                  /**
+                           * *************************************** Green Egypt Machines Locations option *************************
+                           */
+                  GreenEgyptMachinesOption(),
+                  /**
+                       * **************************** Help Option ***************************
                        */
-                    TransactionsOption(),
-                    /**
-                       * *************************************** Green Egypt Machines Locations option *************************
+                  HelpOption(),
+                  /**
+                       * ************************** User Support divider *****************************
                        */
-                    GreenEgyptMachinesOption(),
-                    /**
-                   * **************************** Help Option ***************************
-                   */
-                    HelpOption(),
-                    /**
-                   * ************************** User Support divider *****************************
-                   */
-                    UserSupportDivider(
-                        applicationThemeController: applicationThemeController),
-                    /**
-                   * ****************************** Language Option ******************************
-                   */
-                    LanguageOption(
-                        applicationThemeController: applicationThemeController),
-                    /**
-                   * **************************** Application theme Option *****************************
-                   */
-                    ApplicationThemeOption(
-                        applicationThemeController: applicationThemeController,
-                        darkThemeBool: applicationThemeController.isDark),
-                    /**
-                       * ****************************** Send Feedback Option *************************
+                  UserSupportDivider(
+                      applicationThemeController: themeController),
+                  /**
+                       * ****************************** Language Option ******************************
                        */
-                    SendFeedbackOption(),
-                    /**
-                   * ********************************** Logout option *************************
-                   */
-                    LogoutOption(
-                        applicationThemeController: applicationThemeController)
-                  ],
-                ),
+                  LanguageOption(applicationThemeController: themeController),
+                  /**
+                       * **************************** Application theme Option *****************************
+                       */
+                  ApplicationThemeOption(
+                      applicationThemeController: themeController,
+                      darkThemeBool: themeController.isDark),
+                  /**
+                           * ****************************** Send Feedback Option *************************
+                           */
+                  SendFeedbackOption(),
+                  /**
+                       * ********************************** Logout option *************************
+                       */
+                  LogoutOption(applicationThemeController: themeController)
+                ],
               ),
-            );
-          }),
-    );
+            ),
+          ));
+    });
   }
 }
