@@ -23,7 +23,7 @@ class FacebookSignInButton extends StatelessWidget {
       ),
       onPressed: () async {
         try {
-          // await FacebookCustomAuth.signInWithFacebook();
+          await FacebookCustomAuth.signInWithFacebook(context: context);
           CustomToast.showBlackToast(
               messsage: 'this functionallity disabled for Future Fix');
         } catch (e) {

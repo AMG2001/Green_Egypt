@@ -56,7 +56,7 @@ class ApplicationTheme {
       /**
   * -------------------------- AppBar Theme --------------------------
   */
-      appBarTheme: AppBarTheme(backgroundColor: Color(0xFF90AD19)),
+      appBarTheme: AppBarTheme(backgroundColor: Colors.black),
       /***
      * -------------------------- Prrmary Text Theme --------------------------
      */
@@ -197,7 +197,11 @@ class ApplicationTheme {
       /**
   * -------------------------- AppBar Theme --------------------------
   */
-      appBarTheme: AppBarTheme(backgroundColor: Color(0xFF90AD19)),
+      appBarTheme: AppBarTheme(
+        iconTheme: IconThemeData(color: Colors.black),
+        backgroundColor: Colors.white,
+        titleTextStyle: TextStyle(color: Colors.black),
+      ),
       /***
      * -------------------------- Prrmary Text Theme --------------------------
      */

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:green_egypt/config/dimensions.dart';
 import 'package:green_egypt/config/pages_names.dart';
+import 'package:green_egypt/config/theme/application_theme_controller_box.dart';
 import 'package:green_egypt/config/theme/default_fonts.dart';
 import 'package:green_egypt/screens/home_page/home_page_components/card_of_earned_saved_recycled.dart';
 import 'package:green_egypt/screens/home_page/home_page_components/eco_friendly_tips_row.dart';
@@ -32,57 +33,73 @@ class _HomePageState extends State<HomePage> {
     PagesNames.morePage
   ];
 
-  void navigateToPageWithIndex(int pageIndex) {
-    pageIndex == 2
-        ? Get.toNamed(homePagesNames[pageIndex])
-        : Get.offNamed(homePagesNames[pageIndex]);
-    Get.offNamed(homePagesNames[pageIndex]);
+  void navigateToPageWithIndex(
+      {required int sourcePageIndex, required int destinationPageIndex}) {
+    if (sourcePageIndex != destinationPageIndex) {
+      if (destinationPageIndex == 3) {
+        Get.toNamed(homePagesNames[destinationPageIndex]);
+      } else
+        Get.offAllNamed(homePagesNames[destinationPageIndex]);
+    }
   }
 
+  int _pageIndex = 0;
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomePageController>(
         init: HomePageController(),
         builder: (controller) {
           return Scaffold(
+            // TODO Need to make appbar flexible with Theme Changes .
             appBar: AppBar(
+                /**
+               * Bill Icon that in Appbar .
+               */
                 actions: [HomePageActions()],
                 elevation: 0,
-                backgroundColor: Colors.white,
                 title: HomePageTitle()),
-            bottomNavigationBar: BottomNavyBar(
-              selectedIndex: controller.currentIndex,
-              curve: Curves.linear,
-              iconSize: 20.sp,
-              items: [
-                BottomNavyBarItem(
+            bottomNavigationBar: GetBuilder<ApplicationThemeController>(
+                builder: (themeController) {
+              return BottomNavyBar(
+                selectedIndex: controller.currentIndex,
+                curve: Curves.linear,
+                iconSize: 20.sp,
+                items: [
+                  BottomNavyBarItem(
                     icon: Icon(Icons.home_outlined),
                     title: Text("home"),
                     textAlign: TextAlign.center,
-                    activeColor: Color(0xFF90AD19)),
-                BottomNavyBarItem(
-                    icon: Icon(Icons.qr_code_scanner_rounded),
-                    title: Text("qr code"),
-                    textAlign: TextAlign.center,
-                    activeColor: Colors.black),
-                BottomNavyBarItem(
-                    icon: Icon(Icons.bookmarks_outlined),
-                    title: Text("Transactions"),
-                    textAlign: TextAlign.center,
-                    activeColor: Colors.black),
-                BottomNavyBarItem(
-                    icon: Icon(Icons.more_horiz_outlined),
-                    title: Text("more"),
-                    textAlign: TextAlign.center,
-                    activeColor: Colors.black),
-              ],
-              onItemSelected: (value) {
-                if (value == 3)
-                  Get.toNamed(PagesNames.morePage);
-                else
-                  navigateToPageWithIndex(value);
-              },
-            ),
+                    activeColor: Color(0xFF90AD19),
+                  ),
+                  BottomNavyBarItem(
+                      icon: Icon(Icons.qr_code_scanner_rounded),
+                      title: Text("qr code"),
+                      textAlign: TextAlign.center,
+                      activeColor:
+                          themeController.isDark ? Colors.white : Colors.black),
+                  BottomNavyBarItem(
+                      icon: Icon(Icons.bookmarks_outlined),
+                      title: Text("Transactions"),
+                      textAlign: TextAlign.center,
+                      activeColor:
+                          themeController.isDark ? Colors.white : Colors.black),
+                  BottomNavyBarItem(
+                      icon: Icon(Icons.more_horiz_outlined),
+                      title: Text("more"),
+                      textAlign: TextAlign.center,
+                      activeColor:
+                          themeController.isDark ? Colors.white : Colors.black),
+                ],
+                onItemSelected: (value) {
+                  if (value == 3)
+                    Get.toNamed(PagesNames.morePage);
+                  else
+                    navigateToPageWithIndex(
+                        sourcePageIndex: _pageIndex,
+                        destinationPageIndex: value);
+                },
+              );
+            }),
             body: SafeArea(
               child: Padding(
                 padding: EdgeInsets.only(left: 16, right: 16, top: 16),

@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:green_egypt/config/localization/locale.dart';
 import 'package:green_egypt/config/pages_names.dart';
-import 'package:green_egypt/config/theme/application_theme_controller.dart';
+import 'package:green_egypt/config/theme/application_theme.dart';
+import 'package:green_egypt/config/theme/application_theme_controller_box.dart';
 import 'package:green_egypt/firebase_options.dart';
 import 'package:green_egypt/services/Shared_preferences/shared_preferences_class.dart';
 import 'package:green_egypt/services/boxes/user_data_db.dart';
@@ -16,8 +17,11 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // initaite Hive Boxes instead of SharedPreferences .
   await Hive.initFlutter();
+
+  await ApplicationThemeController.instance
+      .initApplicationThemeController_ThemeAndBox();
   // to initiate all Application Shared Preferences in one line 🔥 .
-  SharedPreferencesClass.initAllSharedPreferences();
+  await SharedPreferencesClass.initAllSharedPreferences();
   /**
    * Initializing Firebase on Application Level .
    */
@@ -47,7 +51,7 @@ class GreenEgypt extends StatelessWidget {
            * Changing theme logic stored in ApplicationThemeController
            * theme itself is stored in ApplicationTheme .
            */
-            init: ApplicationThemeController(),
+            init: ApplicationThemeController.instance,
             builder: (controller) {
               return GetMaterialApp(
                 translations: ApplicationLocal(),
@@ -59,7 +63,7 @@ class GreenEgypt extends StatelessWidget {
                 /**
              * Application Title
              */
-                title: "Green_Egypt 🍀",
+                title: "Green Egypt",
                 /**
              * Hide debug banner
              */

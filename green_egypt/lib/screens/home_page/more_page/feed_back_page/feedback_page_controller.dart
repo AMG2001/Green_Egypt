@@ -36,16 +36,6 @@ class FeedbackPageController extends GetxController {
 
   void uploadUserReview_OnFireStore(
       {required String review, required int userRatingsStars}) async {
-    showLoadingIdicator();
-    uploadReveiwToFirestore().then((value) {
-      showSuccessAnimation();
-    });
-  }
-
-  /**
-   * First show circular loading indicator .
-   */
-  void showLoadingIdicator() {
     showDialog(
         context: context,
         builder: (context) {
@@ -53,6 +43,9 @@ class FeedbackPageController extends GetxController {
             child: CircularProgressIndicator(color: Colors.white),
           );
         });
+    uploadReveiwToFirestore().then((value) {
+      showSuccessAnimation();
+    });
   }
 
   /**
@@ -68,7 +61,7 @@ class FeedbackPageController extends GetxController {
       'user_name': userName,
       'user_phone_number': userPhoneNumber,
       'user_review': review,
-      'rating':'${rating} / 5',
+      'rating': '${rating} / 5',
       'review_date_and_time': currentDateAndTime
     });
   }
