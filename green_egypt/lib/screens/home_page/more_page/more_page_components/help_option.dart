@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:green_egypt/screens/home_page/more_page/contact_us_page/contact.dart';
 import 'package:green_egypt/services/custom_toast.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:get/get.dart';
 
 class HelpOption extends StatelessWidget {
   const HelpOption({super.key});
@@ -10,7 +12,12 @@ class HelpOption extends StatelessWidget {
     return ListTile(
       horizontalTitleGap: 0,
       onTap: () {
-        CustomToast.showBlackToast(messsage: "This Function not added yet !");
+        Get.to(
+          () => ContactPage(),
+          transition: Transition.rightToLeft,
+          curve: Curves.easeInCubic,
+          duration: Duration(milliseconds: 500),
+        );
       },
       leading: Icon(
         Icons.help,
