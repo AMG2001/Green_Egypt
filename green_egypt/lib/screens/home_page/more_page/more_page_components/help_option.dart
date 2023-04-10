@@ -15,15 +15,15 @@ class HelpOption extends StatelessWidget {
         Get.to(
           () => ContactPage(),
           transition: Transition.rightToLeft,
-          curve: Curves.easeInCubic,
+          curve: Curves.easeInOutCubic,
           duration: Duration(milliseconds: 500),
         );
       },
       leading: Icon(
-        Icons.help,
+        Icons.quick_contacts_dialer_outlined,
         color: Colors.blue[300],
       ),
-      title: Text("Help"),
+      title: Text("Contact us"),
       trailing: Icon(
         Icons.arrow_forward_ios,
         size: 18.sp,

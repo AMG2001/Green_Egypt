@@ -46,8 +46,6 @@ class ContactUsPageHeader extends StatelessWidget {
                 'assets/animated_vectors/contact_us_animation.json'),
           )),
           Container(
-            height: 90,
-            width: 100,
             alignment: Alignment.center,
             child: Text("Contact Us",
                 style: TextStyle(
