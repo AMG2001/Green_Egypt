@@ -34,6 +34,9 @@ class FeedbackPage extends StatelessWidget {
                       children: [
                         CustomAppBar(),
                         SizedBox(height: Constants.kDefaultPadding * 4),
+                        /**
+                         * Circle avatar that show user image .
+                         */
                         CircleAvatar(
                           backgroundImage:
                               NetworkImage(controller.userImageUrl),
@@ -53,7 +56,6 @@ class FeedbackPage extends StatelessWidget {
                         Text(
                           'Hi , ' + UserDataBox.instance.get_userName(),
                           style: TextStyle(
-                            color: DefaultColors.kTextLightColor,
                             fontSize: 18,
                           ),
                         ),
@@ -62,8 +64,7 @@ class FeedbackPage extends StatelessWidget {
                         ),
                         Text(
                           'How Would You Rate Our App?',
-                          style: TextStyle(
-                              color: DefaultColors.kTextColor, fontSize: 18),
+                          style: TextStyle(fontSize: 18),
                         ),
                         SizedBox(height: Constants.kDefaultPadding),
                         StatefulBuilder(builder: (context, setState) {

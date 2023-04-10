@@ -198,6 +198,7 @@ class ApplicationTheme {
   * -------------------------- AppBar Theme --------------------------
   */
       appBarTheme: AppBarTheme(
+        iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Colors.white,
         titleTextStyle: TextStyle(color: Colors.black),
       ),
