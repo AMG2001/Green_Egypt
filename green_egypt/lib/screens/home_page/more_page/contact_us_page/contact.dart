@@ -57,22 +57,6 @@ class _contactstate extends State<contact> {
                         ],
                       ),
                     ),
-                   // SizedBox(
-                     // width: 20,
-                   // ),
-                    
-                   // SizedBox(width: 80,),
-                    //Container(
-                    //child: Column(
-                      //      children: [
-                        //      Image.asset(
-                          //      "images/contact.jpg",
-                            //    height: 50,
-                              //  width: 50,
-                             // )
-                            //],
-                         // ),
-                    //),
                   ],
                 ),
                 Container(
