@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:green_egypt/config/pages_names.dart';
 import 'package:green_egypt/config/theme/application_theme_controller_box.dart';
 import 'package:green_egypt/services/boxes/user_data_db.dart';
@@ -17,6 +18,7 @@ class LogoutOption extends StatelessWidget {
       onTap: () async {
         Get.offAllNamed(PagesNames.loginScreen);
         UserDataBox.instance.userLoggedOut();
+        await GoogleSignIn().signOut();
         await FirebaseAuth.instance.signOut();
       },
       leading: Icon(
