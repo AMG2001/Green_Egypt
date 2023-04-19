@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:green_egypt/config/localization/language_box.dart';
 import 'package:green_egypt/config/localization/locale.dart';
 import 'package:green_egypt/config/pages_names.dart';
 import 'package:green_egypt/config/theme/application_theme.dart';
@@ -39,7 +40,7 @@ class GreenEgypt extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //localController controller =Get.put(localController());
+    // inject local controller to use enable language change option .
     Get.put(localController());
     /**
      * Resposive sizer is a new Package that used to handle Text Size depending on screen Ratio using .sp
@@ -60,7 +61,7 @@ class GreenEgypt extends StatelessWidget {
               return GetMaterialApp(
                 translations: ApplicationLocal(),
                 // locale: controller.initallang,
-                locale: Get.deviceLocale,
+                locale: LanguageBox.instance.applicationLanguageLocal,
                 /**
                  * Get Current theme and if changed , change application theme .
                  */
