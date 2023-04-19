@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class GreenEgyptMachinesOption extends StatelessWidget {
@@ -12,7 +13,7 @@ class GreenEgyptMachinesOption extends StatelessWidget {
         Icons.location_on_outlined,
         color: Colors.green,
       ),
-      title: Text("Green Egypt machines Locations"),
+      title: Text('Green Egypt machines Locations'.tr),
       trailing: Icon(
         Icons.arrow_forward_ios,
         size: 18.sp,

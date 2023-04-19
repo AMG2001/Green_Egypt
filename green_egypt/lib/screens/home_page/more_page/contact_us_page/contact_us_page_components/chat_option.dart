@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:green_egypt/services/custom_toast.dart';
 
 class ChatOption extends StatelessWidget {
@@ -27,7 +28,7 @@ class ChatOption extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "Chat",
+                  'Chat'.tr,
                   style: TextStyle(fontSize: 20, color: Color(0xff800080)),
                 ),
               ],

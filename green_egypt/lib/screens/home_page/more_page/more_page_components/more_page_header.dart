@@ -4,6 +4,7 @@ import 'package:green_egypt/config/dimensions.dart';
 import 'package:green_egypt/screens/home_page/more_page/edti_user_info_page/edit_user_info_page.dart';
 import 'package:green_egypt/services/boxes/user_data_db.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+
 class MorePageHeader extends StatelessWidget {
   const MorePageHeader({super.key});
 
@@ -29,10 +30,10 @@ class MorePageHeader extends StatelessWidget {
           height: Dimensions.height * .02,
         ),
         Text(
-          "user account : ${UserDataBox.instance.get_email()}",
+          'user account'.tr + " :  " + UserDataBox.instance.get_email(),
           style: TextStyle(color: Colors.grey, fontSize: 14.sp),
         ),
-       const SizedBox(
+        const SizedBox(
           height: 16,
         ),
         FittedBox(
@@ -45,9 +46,9 @@ class MorePageHeader extends StatelessWidget {
               },
               child: Row(
                 mainAxisSize: MainAxisSize.min,
-                children:const [
+                children: [
                   Text(
-                    "Edit Profile",
+                    'Edit Profile'.tr,
                     style: TextStyle(color: Colors.white),
                   ),
                   SizedBox(

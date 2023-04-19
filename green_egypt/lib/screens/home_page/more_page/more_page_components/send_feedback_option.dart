@@ -18,7 +18,7 @@ class SendFeedbackOption extends StatelessWidget {
         Icons.feedback,
         color: Colors.purple[300],
       ),
-      title: Text("Send feedback"),
+      title: Text('Send feedback'.tr),
       trailing: Icon(
         Icons.arrow_forward_ios,
         color: Colors.grey,

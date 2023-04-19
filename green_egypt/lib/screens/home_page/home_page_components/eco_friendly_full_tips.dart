@@ -14,8 +14,9 @@ class EcoFriendlyFullTips extends StatelessWidget {
      * Implement List view with 15 tip .
      */
     return Scaffold(
-      backgroundColor:
-          ApplicationThemeController.instance.isDark ? Colors.black : Color(0xfffefefc),
+      backgroundColor: ApplicationThemeController.instance.isDark
+          ? Colors.black
+          : Color(0xfffefefc),
       body: Column(
         children: [
           Row(
@@ -56,20 +57,17 @@ class EcoFriendlyFullTips extends StatelessWidget {
                 */
                 FriendlyTipsItem(
                   tipImagePath: 'assets/images/friendly_tips_images/socket.png',
-                  tipTitle: "Switch off your plug sockets",
-                  tipSubtitle:
-                      "Save energy - and money! - by turning off your plugs.",
+                  tipTitle: 'switch_socket'.tr,
+                  tipSubtitle: 'switch_socket-subtitle'.tr,
                 ),
 
                 /**
                 * two -friendly tip
                 */
                 FriendlyTipsItem(
-                  tipImagePath: 'assets/images/friendly_tips_images/oven.png',
-                  tipTitle: "Use your microwave",
-                  tipSubtitle:
-                      "microwaves are a lot more energy-efficient than conventional ovens.",
-                ),
+                    tipImagePath: 'assets/images/friendly_tips_images/oven.png',
+                    tipTitle: 'Use_microwave'.tr,
+                    tipSubtitle: 'Use_microwave_subtitle'.tr),
 
                 /**
                 * three -friendly tip
@@ -78,9 +76,8 @@ class EcoFriendlyFullTips extends StatelessWidget {
                 FriendlyTipsItem(
                   tipImagePath:
                       'assets/images/friendly_tips_images/plastic.png',
-                  tipTitle: "Reduce your plastic consumption",
-                  tipSubtitle:
-                      "why not pick up loose fruit and vegetable, instead of pre-wrapped packs? And don't forget your canvas bag!.",
+                  tipTitle: 'Reduce_plastic'.tr,
+                  tipSubtitle: 'Reduce_plastic_subtitle'.tr,
                 ),
 
                 /**
@@ -90,10 +87,8 @@ class EcoFriendlyFullTips extends StatelessWidget {
                 FriendlyTipsItem(
                   tipImagePath:
                       'assets/images/friendly_tips_images/water-bottle.png',
-                  tipTitle:
-                      "Keep a reusable water bottle and coffee cup on you",
-                  tipSubtitle:
-                      "This will help you reduce your use of single-waste plastic.",
+                  tipTitle: 'reusable_water'.tr,
+                  tipSubtitle: 'reusable_water_subtitle'.tr,
                 ),
 
                 /**
@@ -102,112 +97,102 @@ class EcoFriendlyFullTips extends StatelessWidget {
                 FriendlyTipsItem(
                   tipImagePath:
                       'assets/images/friendly_tips_images/vehicles.png',
-                  tipTitle: "Use public transport",
-                  tipSubtitle:
-                      "A car may be the easiest and fastest option, but by taking the bus or train, or choosing to cycle or walk, you will help to pollute less.",
+                  tipTitle: 'public_transport'.tr,
+                  tipSubtitle: 'public_transport_subtitle'.tr,
                 ),
 
                 /**
                 * six -friendly tip
                 */
-
                 FriendlyTipsItem(
                   tipImagePath: 'assets/images/friendly_tips_images/socket.png',
-                  tipTitle: "Switch off your plug sockets",
-                  tipSubtitle:
-                      "Save energy - and money! - by turning off your plugs.",
-                ),
-                /**
-                * seven -friendly tip
-                */
-                FriendlyTipsItem(
-                  tipImagePath: 'assets/images/friendly_tips_images/oven.png',
-                  tipTitle: "Use your microwave",
-                  tipSubtitle:
-                      "microwaves are a lot more energy-efficient than conventional ovens.",
+                  tipTitle: 'switch_socket'.tr,
+                  tipSubtitle: 'switch_socket-subtitle'.tr,
                 ),
 
                 /**
-                * eight -friendly tip
+                * two -friendly tip
                 */
+                FriendlyTipsItem(
+                    tipImagePath: 'assets/images/friendly_tips_images/oven.png',
+                    tipTitle: 'Use_microwave'.tr,
+                    tipSubtitle: 'Use_microwave_subtitle'.tr),
+
+                /**
+                * three -friendly tip
+                */
+
                 FriendlyTipsItem(
                   tipImagePath:
                       'assets/images/friendly_tips_images/plastic.png',
-                  tipTitle: "Reduce your plastic consumption",
-                  tipSubtitle:
-                      "why not pick up loose fruit and vegetable, instead of pre-wrapped packs? And don't forget your canvas bag!.",
+                  tipTitle: 'Reduce_plastic'.tr,
+                  tipSubtitle: 'Reduce_plastic_subtitle'.tr,
                 ),
+
                 /**
-                * nine -friendly tip
+                * four -friendly tip
                 */
+
                 FriendlyTipsItem(
                   tipImagePath:
                       'assets/images/friendly_tips_images/water-bottle.png',
-                  tipTitle:
-                      "Keep a reusable water bottle and coffee cup on you",
-                  tipSubtitle:
-                      "This will help you reduce your use of single-waste plastic.",
+                  tipTitle: 'reusable_water'.tr,
+                  tipSubtitle: 'reusable_water_subtitle'.tr,
                 ),
+
                 /**
-                * ten -friendly tip
+                * five -friendly tip
                 */
                 FriendlyTipsItem(
                   tipImagePath:
                       'assets/images/friendly_tips_images/vehicles.png',
-                  tipTitle: "Use public transport",
-                  tipSubtitle:
-                      "A car may be the easiest and fastest option, but by taking the bus or train, or choosing to cycle or walk, you will help to pollute less.",
+                  tipTitle: 'public_transport'.tr,
+                  tipSubtitle: 'public_transport_subtitle'.tr,
                 ),
-                /**
-                * eleven -friendly tip
-                */
-
                 FriendlyTipsItem(
                   tipImagePath: 'assets/images/friendly_tips_images/socket.png',
-                  tipTitle: "Switch off your plug sockets",
-                  tipSubtitle:
-                      "Save energy - and money! - by turning off your plugs.",
-                ),
-                /**
-                * twelve -friendly tip
-                */
-                FriendlyTipsItem(
-                  tipImagePath: 'assets/images/friendly_tips_images/oven.png',
-                  tipTitle: "Use your microwave",
-                  tipSubtitle:
-                      "microwaves are a lot more energy-efficient than conventional ovens.",
+                  tipTitle: 'switch_socket'.tr,
+                  tipSubtitle: 'switch_socket-subtitle'.tr,
                 ),
 
                 /**
-                * thirteen -friendly tip
+                * two -friendly tip
                 */
+                FriendlyTipsItem(
+                    tipImagePath: 'assets/images/friendly_tips_images/oven.png',
+                    tipTitle: 'Use_microwave'.tr,
+                    tipSubtitle: 'Use_microwave_subtitle'.tr),
+
+                /**
+                * three -friendly tip
+                */
+
                 FriendlyTipsItem(
                   tipImagePath:
                       'assets/images/friendly_tips_images/plastic.png',
-                  tipTitle: "Reduce your plastic consumption",
-                  tipSubtitle:
-                      "why not pick up loose fruit and vegetable, instead of pre-wrapped packs? And don't forget your canvas bag!.",
+                  tipTitle: 'Reduce_plastic'.tr,
+                  tipSubtitle: 'Reduce_plastic_subtitle'.tr,
                 ),
+
                 /**
-                * fourteenth -friendly tip
+                * four -friendly tip
                 */
+
                 FriendlyTipsItem(
                   tipImagePath:
                       'assets/images/friendly_tips_images/water-bottle.png',
-                  tipTitle:
-                      "Keep a reusable water bottle and coffee cup on you",
-                  tipSubtitle:
-                      "This will help you reduce your use of single-waste plastic.",
+                  tipTitle: 'reusable_water'.tr,
+                  tipSubtitle: 'reusable_water_subtitle'.tr,
                 ),
+
                 /**
-                * ten -friendly tip
+                * five -friendly tip
                 */
                 FriendlyTipsItem(
                   tipImagePath:
                       'assets/images/friendly_tips_images/vehicles.png',
-                  tipTitle: "Use public transport",
-                  tipSubtitle:
-                      "A car may be the easiest and fastest option, but by taking the bus or train, or choosing to cycle or walk, you will help to pollute less.",
+                  tipTitle: 'public_transport'.tr,
+                  tipSubtitle: 'public_transport_subtitle'.tr,
                 ),
               ],
             ),

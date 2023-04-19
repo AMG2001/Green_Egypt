@@ -12,6 +12,8 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:hive/hive.dart';
 
+import 'config/localization/locale_controller.dart';
+
 void main() async {
   // this line because i made main method Async 👀
   WidgetsFlutterBinding.ensureInitialized();
@@ -37,6 +39,8 @@ class GreenEgypt extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //localController controller =Get.put(localController());
+    Get.put(localController());
     /**
      * Resposive sizer is a new Package that used to handle Text Size depending on screen Ratio using .sp
      * fontSize : 18.sp -> will take 18% if screen size responsive with it's ratio and orientation .
@@ -55,6 +59,7 @@ class GreenEgypt extends StatelessWidget {
             builder: (controller) {
               return GetMaterialApp(
                 translations: ApplicationLocal(),
+                // locale: controller.initallang,
                 locale: Get.deviceLocale,
                 /**
                  * Get Current theme and if changed , change application theme .

@@ -36,7 +36,7 @@ class CardOfEarnedSavedRecycled extends StatelessWidget {
                     color: Colors.yellow[400],
                   ),
                   detailValue: '${UserDataBox.instance.get_earnedCash()}',
-                  valueMark: "\$",
+                  valueMark: '\$'.tr,
                   detailTitle: 'EARNED'.tr,
                   animationMilliSeconds: 500),
               Column(
@@ -56,7 +56,7 @@ class CardOfEarnedSavedRecycled extends StatelessWidget {
                     size: 28,
                   ),
                   detailValue: '${UserDataBox.instance.get_savedCo2()}',
-                  valueMark: "g",
+                  valueMark: 'g'.tr,
                   detailTitle: 'SAVED CO2'.tr,
                   animationMilliSeconds: 500),
               Column(

@@ -19,7 +19,7 @@ class EditUserInfoPage extends StatelessWidget {
     _tf_phoneNumber.text = initialPhoneNumber;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Edit your Profile"),
+        title: Text('Edit your Profile'.tr),
       ),
       body: Form(
         child: Form(
@@ -38,7 +38,7 @@ class EditUserInfoPage extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("User Name :"),
+                          Text('User Name :'.tr),
                           SizedBox(
                             height: 12,
                           ),
@@ -49,13 +49,13 @@ class EditUserInfoPage extends StatelessWidget {
                                     : Colors.black),
                             controller: _tf_userName,
                             decoration: InputDecoration(
-                              hintText: "user name",
+                              hintText: 'user name'.tr,
                             ),
                           ),
                           SizedBox(
                             height: 12,
                           ),
-                          Text("Phone Number :"),
+                          Text('Phone Number :'.tr),
                           SizedBox(
                             height: 12,
                           ),
@@ -66,7 +66,7 @@ class EditUserInfoPage extends StatelessWidget {
                                     : Colors.black),
                             controller: _tf_phoneNumber,
                             decoration: InputDecoration(
-                              hintText: "phone number",
+                              hintText: 'phone number'.tr,
                             ),
                           ),
                           SizedBox(
@@ -97,7 +97,7 @@ class EditUserInfoPage extends StatelessWidget {
                                 child: Row(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    Text("Apply Changes "),
+                                    Text('Apply Changes'.tr),
                                     Icon(Icons.done_all)
                                   ],
                                 )),

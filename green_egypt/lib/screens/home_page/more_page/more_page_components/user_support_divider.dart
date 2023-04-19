@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:green_egypt/config/dimensions.dart';
 import 'package:green_egypt/config/theme/application_theme_controller_box.dart';
 class UserSupportDivider extends StatelessWidget {
@@ -17,7 +18,7 @@ class UserSupportDivider extends StatelessWidget {
         child: Row(
           children: [
             Text(
-              "USER SETTINGS",
+             'USER SETTINGS'.tr,
               style: TextStyle(
                   color: applicationThemeController.isDark
                       ? Colors.grey[100]

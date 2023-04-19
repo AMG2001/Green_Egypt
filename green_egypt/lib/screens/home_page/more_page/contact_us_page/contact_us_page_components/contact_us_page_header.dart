@@ -47,7 +47,7 @@ class ContactUsPageHeader extends StatelessWidget {
           )),
           Container(
             alignment: Alignment.center,
-            child: Text("Contact Us",
+            child: Text('Contact Us'.tr,
                 style: TextStyle(
                     fontSize: 26,
                     color: Colors.black,
@@ -59,7 +59,7 @@ class ContactUsPageHeader extends StatelessWidget {
           Container(
             alignment: Alignment.center,
             child: Text(
-              "🍀 Our Team Would like To Hear You ! 🍀",
+              '🍀 Our Team Would like To Hear You ! 🍀'.tr,
               style: Theme.of(context).textTheme.bodyMedium,
             ),
           )

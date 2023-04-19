@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:green_egypt/config/theme/default_colors.dart';
 import 'package:green_egypt/services/boxes/user_data_db.dart';
 
@@ -10,11 +11,11 @@ class PointStats extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         PointInfo(
-          title: 'collect:',
+          title: 'collect:'.tr,
           value: UserDataBox.instance.get_recycledItems().toString(),
         ),
         PointInfo(
-          title: 'Earned:',
+          title: 'Earned:'.tr,
           value: UserDataBox.instance.get_earnedCash().toString() + " \$",
         ),
       ],

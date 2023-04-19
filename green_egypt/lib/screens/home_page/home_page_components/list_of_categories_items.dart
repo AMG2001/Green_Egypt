@@ -27,31 +27,34 @@ class ListOfCategoriesItems extends StatelessWidget {
                   width: controller.wasteCategoriesListAnimatedContainerWidth,
                 ),
                 CategoriesListItem(
-                    applicationThemeController: ApplicationThemeController.instance,
+                    applicationThemeController:
+                        ApplicationThemeController.instance,
                     heroTag: 'plastic',
                     itemImagePath:
                         'assets/images/main_page_images/Plastic_bag.png',
-                    itemType: "Plastic",
+                    itemType: 'Plastic'.tr,
                     itemShowPage: WasteCategoryView(
                       heroTag: 'plastic',
                       imagePath:
                           'assets/images/main_page_images/Plastic_bag.png',
                     )),
                 CategoriesListItem(
-                    applicationThemeController: ApplicationThemeController.instance,
+                    applicationThemeController:
+                        ApplicationThemeController.instance,
                     heroTag: 'glass',
                     itemImagePath: 'assets/images/main_page_images/glass.png',
-                    itemType: "Glass",
+                    itemType: 'Glass'.tr,
                     itemShowPage: WasteCategoryView(
                       heroTag: 'glass',
                       imagePath: 'assets/images/main_page_images/glass.png',
                     )),
                 CategoriesListItem(
-                    applicationThemeController: ApplicationThemeController.instance,
+                    applicationThemeController:
+                        ApplicationThemeController.instance,
                     heroTag: 'paper',
                     itemImagePath:
                         'assets/images/main_page_images/paper_box.png',
-                    itemType: "Paper",
+                    itemType: 'Paper'.tr,
                     itemShowPage: WasteCategoryView(
                       heroTag: 'paper',
                       imagePath: 'assets/images/main_page_images/paper_box.png',

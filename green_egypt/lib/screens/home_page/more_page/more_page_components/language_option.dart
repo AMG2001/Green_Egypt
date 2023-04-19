@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:green_egypt/config/dimensions.dart';
-import 'package:green_egypt/config/pages_names.dart';
 import 'package:green_egypt/config/theme/application_theme_controller_box.dart';
 import 'package:green_egypt/config/theme/default_colors.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+
+import '../../../../config/localization/locale_controller.dart';
 
 class LanguageOption extends StatelessWidget {
   late ApplicationThemeController applicationThemeController;
@@ -12,6 +13,7 @@ class LanguageOption extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    localController controllerlang = Get.find();
     return ListTile(
       horizontalTitleGap: 0,
       onTap: () {
@@ -52,7 +54,7 @@ class LanguageOption extends StatelessWidget {
                     SizedBox(
                       height: Dimensions.height * .03,
                     ),
-                    Text("Select your Language :"),
+                    Text('Select your Language :'.tr),
                     SizedBox(
                       height: Dimensions.height * .03,
                     ),
@@ -65,8 +67,10 @@ class LanguageOption extends StatelessWidget {
                                   ? Colors.white
                                   : Colors.black)),
                       child: ListTile(
-                        onTap: () {},
-                        leading: Text("ENGLISH"),
+                        onTap: () {
+                          controllerlang.changeLang("en");
+                        },
+                        leading: Text('ENGLISH'.tr),
                         trailing: Icon(
                           Icons.check_circle_outline,
                           color: DefaultColors.defaultGreen,
@@ -85,8 +89,10 @@ class LanguageOption extends StatelessWidget {
                                   ? Colors.white
                                   : Colors.black)),
                       child: ListTile(
-                        onTap: () {},
-                        leading: Text("ARABIC"),
+                        onTap: () {
+                          controllerlang.changeLang("ar");
+                        },
+                        leading: Text('ARABIC'.tr),
                         trailing: Icon(
                           Icons.check_circle_outline,
                           color: DefaultColors.defaultGreen,
@@ -107,12 +113,12 @@ class LanguageOption extends StatelessWidget {
         Icons.language_rounded,
         color: Colors.purple[300],
       ),
-      title: Text("Language"),
+      title: Text('Language'.tr),
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            "English",
+            'English'.tr,
             style: TextStyle(color: Colors.grey[500]),
           ),
           SizedBox(

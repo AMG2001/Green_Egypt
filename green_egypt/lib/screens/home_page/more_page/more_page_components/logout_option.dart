@@ -25,7 +25,7 @@ class LogoutOption extends StatelessWidget {
         Icons.login_sharp,
         color: applicationThemeController.isDark ? Colors.white : Colors.black,
       ),
-      title: Text("Logout"),
+      title: Text('Logout'.tr),
       trailing: Icon(
         Icons.arrow_forward_ios,
         size: 18.sp,

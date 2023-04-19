@@ -28,7 +28,7 @@ class EcoFriendlyTipsRow extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Eco-friendly tips",
+                          'Eco-friendly tips'.tr,
                           style: TextStyle(
                               fontFamily: DefaultFonts.defaultLondrinaSolidThin,
                               fontSize: 22),
@@ -41,7 +41,7 @@ class EcoFriendlyTipsRow extends StatelessWidget {
                                 duration: Duration(seconds: 1));
                           },
                           child: Text(
-                            "View All",
+                            'View All'.tr,
                             style: TextStyle(
                                 color: DefaultColors.defaultGreen,
                                 fontWeight: FontWeight.w500),

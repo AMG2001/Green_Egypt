@@ -23,7 +23,7 @@ class HelpOption extends StatelessWidget {
         Icons.quick_contacts_dialer_outlined,
         color: Colors.blue[300],
       ),
-      title: Text("Contact us"),
+      title: Text('Contact us'.tr),
       trailing: Icon(
         Icons.arrow_forward_ios,
         size: 18.sp,
