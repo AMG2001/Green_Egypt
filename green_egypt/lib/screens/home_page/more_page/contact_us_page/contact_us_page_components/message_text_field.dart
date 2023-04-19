@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class MessageTextField extends StatelessWidget {
   const MessageTextField({super.key});
@@ -24,7 +25,7 @@ class MessageTextField extends StatelessWidget {
         decoration: InputDecoration(
           filled: true,
           fillColor: Colors.white,
-          hintText: 'Your Message',
+          hintText: 'Your Message'.tr,
           hintStyle: TextStyle(
             fontSize: 18,
             color: Color.fromARGB(255, 89, 87, 87),

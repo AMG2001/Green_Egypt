@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class EmailUsOption extends StatelessWidget {
@@ -36,7 +37,7 @@ class EmailUsOption extends StatelessWidget {
                     height: 42,
                   ),
                 ),
-                Text("Email Us",
+                Text('Email Us'.tr,
                     style: TextStyle(fontSize: 20, color: Color(0xff86c447))),
               ],
             ),

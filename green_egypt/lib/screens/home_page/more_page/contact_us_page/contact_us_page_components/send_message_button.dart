@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SendMessageButton extends StatelessWidget {
   const SendMessageButton({super.key});
@@ -23,7 +24,7 @@ class SendMessageButton extends StatelessWidget {
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text('Send', style: TextStyle(fontSize: 18)),
+              Text('Send'.tr, style: TextStyle(fontSize: 18)),
               SizedBox(width: 5),
               Icon(
                 Icons.arrow_forward,

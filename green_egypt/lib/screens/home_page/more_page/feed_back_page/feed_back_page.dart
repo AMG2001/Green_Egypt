@@ -54,7 +54,7 @@ class FeedbackPage extends StatelessWidget {
                         ),
                         SizedBox(height: Constants.kDefaultPadding),
                         Text(
-                          'Hi , ' + UserDataBox.instance.get_userName(),
+                          'Hi ,'.tr +" "+ UserDataBox.instance.get_userName(),
                           style: TextStyle(
                             fontSize: 18,
                           ),
@@ -63,7 +63,7 @@ class FeedbackPage extends StatelessWidget {
                           height: 12,
                         ),
                         Text(
-                          'How Would You Rate Our App?',
+                          'How Would You Rate Our App?'.tr,
                           style: TextStyle(fontSize: 18),
                         ),
                         SizedBox(height: Constants.kDefaultPadding),

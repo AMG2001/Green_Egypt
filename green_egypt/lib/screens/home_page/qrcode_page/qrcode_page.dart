@@ -75,24 +75,24 @@ class _QrCodePageState extends State<QrCodePage> {
             items: [
               BottomNavyBarItem(
                   icon: Icon(Icons.home_outlined),
-                  title: Text("home"),
+                  title: Text('home'.tr),
                   textAlign: TextAlign.center,
                   activeColor: themeController.isDark? Colors.white : Colors.black),
               BottomNavyBarItem(
                   icon: Icon(Icons.qr_code_scanner_rounded),
                   title: Text(
-                    "qr code",
+                    'qr code'.tr,
                   ),
                   textAlign: TextAlign.center,
                   activeColor: DefaultColors.defaultGreen),
               BottomNavyBarItem(
                   icon: Icon(Icons.bookmarks_outlined),
-                  title: Text("Transactions"),
+                  title: Text('Transactions'.tr),
                   textAlign: TextAlign.center,
                   activeColor: themeController.isDark? Colors.white : Colors.black),
               BottomNavyBarItem(
                   icon: Icon(Icons.more_horiz_outlined),
-                  title: Text("more"),
+                  title: Text('more'.tr),
                   textAlign: TextAlign.center,
                   activeColor: themeController.isDark? Colors.white : Colors.black),
             ],
@@ -122,7 +122,7 @@ class _QrCodePageState extends State<QrCodePage> {
                   child: (result != null)
                       ? Text(
                           'Barcode Type: ${describeEnum(result!.format)}  \nData: ${result!.code}')
-                      : Text('Scan a code'),
+                      : Text('Scan a code'.tr),
                 ),
               )
             ],

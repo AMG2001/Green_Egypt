@@ -19,8 +19,7 @@ class MorePage extends StatelessWidget {
     return GetBuilder<ApplicationThemeController>(builder: (themeController) {
       return Scaffold(
           appBar: AppBar(
-            
-            title: Text("more page"),
+            title: Text('more page'.tr),
           ),
           body: SafeArea(
             child: Container(

@@ -26,7 +26,7 @@ class _ApplicationThemeOptionState extends State<ApplicationThemeOption> {
           Icons.nightlight_outlined,
           color: Colors.blueAccent,
         ),
-        title: Text("Dark Mode"),
+        title: Text('Dark Mode'.tr),
         trailing: CupertinoSwitch(
           onChanged: (value) async {
             await widget.applicationThemeController.changeApplicationTheme(newValue: value);

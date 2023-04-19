@@ -11,6 +11,7 @@ class HomePageTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     String imageUrl = UserDataBox.instance.get_userImageUrl();
     String userName = UserDataBox.instance.get_userName();
+
     return GetBuilder<ApplicationThemeController>(builder: (themeController) {
       return Row(
         children: [
@@ -31,7 +32,7 @@ class HomePageTitle extends StatelessWidget {
            * hello message with the name of the user text .
            */
           Text(
-            "Hello , ${userName}",
+            'Hello'.tr + ", " + userName,
             style: TextStyle(
                 color: themeController.isDark ? Colors.white : Colors.black,
                 fontSize: 16,

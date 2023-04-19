@@ -67,7 +67,7 @@ class _HomePageState extends State<HomePage> {
                 items: [
                   BottomNavyBarItem(
                     icon: Icon(Icons.home_outlined),
-                    title: Text("home"),
+                    title: Text('home'.tr),
                     textAlign: TextAlign.center,
                     activeColor: Color(0xFF90AD19),
                   ),
@@ -112,7 +112,7 @@ class _HomePageState extends State<HomePage> {
                       Row(
                         children: [
                           Text(
-                            "Waste Categories",
+                            'Waste Categories'.tr,
                             style: TextStyle(
                                 fontWeight: FontWeight.w500,
                                 fontSize: 24,

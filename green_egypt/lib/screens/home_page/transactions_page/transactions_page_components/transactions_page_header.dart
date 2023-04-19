@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:green_egypt/config/dimensions.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -27,7 +28,7 @@ class TransactionsPageHeader extends StatelessWidget {
                             MaterialStateProperty.all<Color>(Colors.black)),
                     onPressed: () {},
                     child: Text(
-                      "Week",
+                      'Week'.tr,
                       style: TextStyle(color: Colors.white),
                     )),
                 ElevatedButton(
@@ -36,7 +37,7 @@ class TransactionsPageHeader extends StatelessWidget {
                             MaterialStateProperty.all<Color>(Colors.black)),
                     onPressed: () {},
                     child: Text(
-                      "Month",
+                      'Month'.tr,
                       style: TextStyle(color: Colors.white),
                     )),
                 ElevatedButton(
@@ -45,7 +46,7 @@ class TransactionsPageHeader extends StatelessWidget {
                             MaterialStateProperty.all<Color>(Colors.white)),
                     onPressed: () {},
                     child: Text(
-                      "6 Month",
+                      '6 Month'.tr,
                       style: TextStyle(color: Colors.black),
                     )),
                 ElevatedButton(
@@ -54,7 +55,7 @@ class TransactionsPageHeader extends StatelessWidget {
                             MaterialStateProperty.all<Color>(Colors.black)),
                     onPressed: () {},
                     child: Text(
-                      "Year",
+                      'Year'.tr,
                       style: TextStyle(color: Colors.white),
                     ))
               ],
@@ -68,7 +69,7 @@ class TransactionsPageHeader extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "Total : 15.689 \$",
+              'Total : 15.689 \$'.tr,
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 18.sp,

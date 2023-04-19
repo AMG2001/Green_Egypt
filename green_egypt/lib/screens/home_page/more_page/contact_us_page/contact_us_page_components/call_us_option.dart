@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class CallUsOption extends StatelessWidget {
@@ -35,7 +36,7 @@ class CallUsOption extends StatelessWidget {
                     height: 36,
                   ),
                 ),
-                Text("Call Us",
+                Text('Call Us'.tr ,
                     style: TextStyle(
                       fontSize: 20,
                       color: Color(0xfffec569),

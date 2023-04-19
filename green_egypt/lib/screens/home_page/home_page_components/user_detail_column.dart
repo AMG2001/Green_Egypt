@@ -43,13 +43,6 @@ class UserDetailColumn extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        valueMark + " ",
-                        style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.yellow[50]!.withOpacity(0),
-                            fontWeight: FontWeight.w500),
-                      ),
-                      Text(
                         detailValue,
                         style: TextStyle(
                             fontSize: 32,

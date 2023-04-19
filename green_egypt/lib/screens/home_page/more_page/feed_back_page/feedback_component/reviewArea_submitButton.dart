@@ -33,9 +33,9 @@ class ReviewArea_SubmitButton extends StatelessWidget {
             child: TextFormField(
               validator: (value) {
                 if (value == "" || value!.isEmpty) {
-                  return 'you cant leave this Field empty';
+                  return 'you cant leave this Field empty'.tr;
                 } else if (value.length <= 3) {
-                  return 'this is not enough !!';
+                  return 'this is not enough !!'.tr;
                 }
               },
               onChanged: (value) => controller.setReview = value,
@@ -44,7 +44,7 @@ class ReviewArea_SubmitButton extends StatelessWidget {
               maxLines: 3,
               decoration: InputDecoration(
                 border: InputBorder.none,
-                hintText: 'Additional comment',
+                hintText: 'Additional comment'.tr,
                 hintStyle: TextStyle(
                   color: DefaultColors.kTextLightColor,
                 ),
@@ -56,7 +56,7 @@ class ReviewArea_SubmitButton extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Text(
-                'Submit',
+                'Submit'.tr,
                 style: TextStyle(
                     color: DefaultColors.kPrimaryColor,
                     fontWeight: FontWeight.bold,

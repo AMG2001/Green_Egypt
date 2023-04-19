@@ -56,7 +56,7 @@ class WasteCategoryView extends StatelessWidget {
                       width: Dimensions.width * 0.04,
                     ),
                     Text(
-                      "How to recycle ${heroTag}",
+                      'How to recycle'.tr + " " + heroTag,
                       style: TextStyle(
                         fontWeight: FontWeight.w100,
                         fontSize: 22.sp,
@@ -86,8 +86,7 @@ class WasteCategoryView extends StatelessWidget {
                         fontSize: 18.sp),
                   ),
                   title: Text(
-                    "Find out the difference between recyclable and non-recyclable paper. Such paper as waxed, laminated or painted is not recyclable.But you can recycle newspapers, magazines, packaging, cardboard, envelopes , office paper and any other paper of this type .",
-                    // textAlign: TextAlign.left,
+                    '1.plastic'.tr, // textAlign: TextAlign.left,
                     style: TextStyle(
                       fontSize: 17.sp,
                       color: Color.fromARGB(255, 122, 116, 116),
@@ -116,8 +115,7 @@ class WasteCategoryView extends StatelessWidget {
                         fontSize: 18.sp),
                   ),
                   title: Text(
-                    "Remove all dirty or greasy paper. The paper is recycled using water. In the presence of pollutants , they can spoil the entire batch, regardless of whether they are soluble in water or not.",
-                    // textAlign: TextAlign.left,
+                    '2.plastic'.tr, // textAlign: TextAlign.left,
                     style: TextStyle(
                       fontSize: 17.sp,
                       color: Color.fromARGB(255, 122, 116, 116),
@@ -146,8 +144,7 @@ class WasteCategoryView extends StatelessWidget {
                         fontSize: 18.sp),
                   ),
                   title: Text(
-                    "Sort the paper . Different types of paper have a different fiber length, and thus a different quality. That's why it's important to have them sorted by type. Cardboard goes to cardboard, office paper goes to office paper, etc.",
-                    // textAlign: TextAlign.left,
+                    '3.plastic'.tr, // textAlign: TextAlign.left,
                     style: TextStyle(
                       fontSize: 17.sp,
                       color: Color.fromARGB(255, 122, 116, 116),
@@ -175,8 +172,7 @@ class WasteCategoryView extends StatelessWidget {
                         fontSize: 18.sp),
                   ),
                   title: Text(
-                    "Bring your sorted paper to the closest recycling centre.",
-                    // textAlign: TextAlign.left,
+                    '4.plastic'.tr, // textAlign: TextAlign.left,
                     style: TextStyle(
                       fontSize: 17.sp,
                       color: Color.fromARGB(255, 122, 116, 116),
