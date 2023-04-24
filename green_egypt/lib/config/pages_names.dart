@@ -1,8 +1,6 @@
 import 'package:get/get.dart';
 import 'package:green_egypt/screens/home_page/more_page/feed_back_page/feed_back_page.dart';
 import 'package:green_egypt/screens/home_page/home_page.dart';
-import 'package:green_egypt/screens/home_page/qrcode_page/qrcode_page.dart';
-import 'package:green_egypt/screens/home_page/transactions_page/transactions_page.dart';
 import 'package:green_egypt/screens/introduction_screen/intro_screen_2.dart';
 import 'package:green_egypt/screens/login_screen/login_screen.dart';
 import 'package:green_egypt/screens/home_page/more_page/more_page.dart';
@@ -48,17 +46,16 @@ class PagesNames {
         name: feedBackPage,
         page: () => FeedbackPage(),
         transition: Transition.rightToLeft),
-    GetPage(
-        name: morePage, page: () => MorePage(), transition: Transition.fade),
-    GetPage(
-        name: qrcodePage,
-        page: () => QrCodePage(),
-        transition: Transition.fade),
-    GetPage(
-        name: morePage, page: () => MorePage(), transition: Transition.fade),
-    GetPage(
-        name: transactionsHistoryPage,
-        page: () => TransactionPage(),
-        transition: Transition.fade),
+    // GetPage(
+    //     name: morePage, page: () => MorePage(), transition: Transition.fade),
+    // GetPage(
+    //     name: qrcodePage,
+    //     page: () => QrCodePageBody(),
+    //     transition: Transition.fade),
+
+    // GetPage(
+    //     name: transactionsHistoryPage,
+    //     page: () => TransactionPage(),
+    //     transition: Transition.fade),
   ];
 }

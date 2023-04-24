@@ -13,76 +13,72 @@ import 'package:green_egypt/screens/home_page/more_page/more_page_components/sen
 import 'package:green_egypt/screens/home_page/more_page/more_page_components/transaction_option.dart';
 import 'package:green_egypt/screens/home_page/more_page/more_page_components/user_support_divider.dart';
 
-class MorePage extends StatelessWidget {
+class MorePageBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<ApplicationThemeController>(builder: (themeController) {
       return Scaffold(
-          appBar: AppBar(
-            title: Text('more page'.tr),
-          ),
           body: SafeArea(
-            child: Container(
-              width: Dimensions.width,
-              height: Dimensions.height,
-              child: ListView(
-                // mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  SizedBox(
-                    height: Dimensions.height * .02,
-                  ),
-                  /**
+        child: Container(
+          width: Dimensions.width,
+          height: Dimensions.height,
+          child: ListView(
+            // mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              SizedBox(
+                height: Dimensions.height * .02,
+              ),
+              /**
                        * ************************************ More page Header *******************************
                        */
-                  MorePageHeader(),
-                  SizedBox(
-                    height: Dimensions.height * .03,
-                  ),
-                  /**
+              MorePageHeader(),
+              SizedBox(
+                height: Dimensions.height * .03,
+              ),
+              /**
                        * ************************************** Green Egypt Support ****************************
                        */
-                  GreenEgyptSupportDivider(
-                      applicationThemeController: themeController),
+              GreenEgyptSupportDivider(
+                  applicationThemeController: themeController),
 
-                  /**
+              /**
                            * ************************************* Transactions History option **********************************
                            */
-                  TransactionsOption(),
-                  /**
+              TransactionsOption(),
+              /**
                            * *************************************** Green Egypt Machines Locations option *************************
                            */
-                  GreenEgyptMachinesOption(),
-                  /**
+              GreenEgyptMachinesOption(),
+              /**
                        * **************************** Help Option ***************************
                        */
-                  HelpOption(),
-                  /**
+              HelpOption(),
+              /**
                        * ************************** User Support divider *****************************
                        */
-                  UserSupportDivider(
-                      applicationThemeController: themeController),
-                  /**
+              UserSupportDivider(applicationThemeController: themeController),
+              /**
                        * ****************************** Language Option ******************************
                        */
-                  LanguageOption(applicationThemeController: themeController),
-                  /**
+              LanguageOption(applicationThemeController: themeController),
+              /**
                        * **************************** Application theme Option *****************************
                        */
-                  ApplicationThemeOption(
-                      applicationThemeController: themeController,
-                      darkThemeBool: themeController.isDark),
-                  /**
+              ApplicationThemeOption(
+                  applicationThemeController: themeController,
+                  darkThemeBool: themeController.isDark),
+              /**
                            * ****************************** Send Feedback Option *************************
                            */
-                  SendFeedbackOption(),
-                  /**
+              SendFeedbackOption(),
+              /**
                        * ********************************** Logout option *************************
                        */
-                  LogoutOption(applicationThemeController: themeController)
-                ],
-              ),
-            ),
-          ));
+              LogoutOption(applicationThemeController: themeController)
+            ],
+          ),
+        ),
+      ));
     });
   }
 }

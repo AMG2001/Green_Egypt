@@ -48,7 +48,7 @@ class UserNameTextField extends StatelessWidget {
                   FontAwesomeIcons.user,
                   color: userNameController.labelColor,
                 )),
-            labelText: "UserName",
+            labelText: "Email",
             labelStyle: TextStyle(color: controller.labelColor),
             focusColor: Colors.green,
             focusedBorder: OutlineInputBorder(
