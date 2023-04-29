@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:green_egypt/config/theme/application_theme_controller_box.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class EmailUsOption extends StatelessWidget {
@@ -44,7 +45,9 @@ class EmailUsOption extends StatelessWidget {
             height: 90,
             width: 100,
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: ApplicationThemeController.instance.isDark
+                  ? Colors.grey.withOpacity(.2)
+                  : Colors.white,
               borderRadius: BorderRadius.circular(10), //border corner radius
               boxShadow: [
                 BoxShadow(

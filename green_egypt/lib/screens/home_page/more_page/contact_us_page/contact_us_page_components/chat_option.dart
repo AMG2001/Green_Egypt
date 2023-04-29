@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:green_egypt/config/theme/application_theme_controller_box.dart';
 import 'package:green_egypt/services/custom_toast.dart';
 
 class ChatOption extends StatelessWidget {
@@ -36,7 +37,9 @@ class ChatOption extends StatelessWidget {
             height: 90,
             width: 100,
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: ApplicationThemeController.instance.isDark
+                  ? Colors.grey.withOpacity(.2)
+                  : Colors.white,
               borderRadius: BorderRadius.circular(10), //border corner radius
               boxShadow: [
                 BoxShadow(

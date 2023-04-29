@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:green_egypt/config/dimensions.dart';
+import 'package:green_egypt/config/theme/application_theme_controller_box.dart';
 import 'package:lottie/lottie.dart';
 
 class ContactUsPageHeader extends StatelessWidget {
@@ -25,7 +26,9 @@ class ContactUsPageHeader extends StatelessWidget {
                 height: 40,
                 width: 50,
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: ApplicationThemeController.instance.isDark
+                      ? Colors.grey.withOpacity(.2)
+                      : Colors.white,
                   borderRadius:
                       BorderRadius.circular(15), //border corner radius
                   boxShadow: [

@@ -129,7 +129,9 @@ class LanguageOption extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            'English'.tr,
+            LanguageBox.instance.applicationLanguageCode == 'en'
+                ? 'English'.tr
+                : "Arabic".tr,
             style: TextStyle(color: Colors.grey[500]),
           ),
           SizedBox(

@@ -10,6 +10,7 @@ class ApplicationLocal implements Translations {
    */
   Map<String, Map<String, String>> get keys => {
         'ar': {
+          'Arabic': 'عربيه',
           'EARNED': 'مكسب',
           'SAVED CO2': 'حفظ Co2',
           'RECYCLED': "اعيد تدويره",
@@ -36,7 +37,7 @@ class ApplicationLocal implements Translations {
               'قد تكون السيارة هي الخيار الأسهل والأسرع ، ولكن من خلال ركوب الحافلة أو القطار ، أو اختيار ركوب الدراجة أو المشي ، سوف تساعد في تقليل التلوث.',
           'Hello': 'هاي',
           'Waste Categories': 'تصنيفات النفايات',
-          '\$': 'دولار',
+          '\$': 'نقطه',
           'g': 'جرام',
           'more page': 'المزيد من الصفحات',
           'user account ': 'حساب المستخدم',
@@ -105,7 +106,8 @@ class ApplicationLocal implements Translations {
               'تعرف على الفرق بين الورق القابل للتدوير والورق غير القابل للتدوير. الورق المشمع أو المغلف أو المصبوغ لا يمكن إعادة تدويره. ولكن يمكنك إعادة تدوير الصحف والمجلات والتغليف والورق المقوى والظروف وورق المكتب وأي ورق من هذا النوع.',
           '2.plastic':
               'إزالة جميع الأوراق القذرة أو الدهنية. يتم إعادة تدوير الورق باستخدام الماء. في حال وجود الملوثات، فإنها يمكن أن تفسد الدفعة بأكملها، بغض النظر عما إذا كانت قابلة للذوبان في الماء أم لا.',
-          '3.plastic': 'فرز الورق. تختلف أنواع الورق المختلفة في طول الألياف وبالتالي في الجودة المختلفة. ولذلك فمن المهم فرزها حسب النوع. يذهب الكرتون إلى الكرتون، ويذهب الورق المكتبي إلى الورق المكتبي، وهكذا.',
+          '3.plastic':
+              'فرز الورق. تختلف أنواع الورق المختلفة في طول الألياف وبالتالي في الجودة المختلفة. ولذلك فمن المهم فرزها حسب النوع. يذهب الكرتون إلى الكرتون، ويذهب الورق المكتبي إلى الورق المكتبي، وهكذا.',
           '4.plastic': '"أحضر ورقك المفرز إلى أقرب مركز لإعادة التدوير."',
           '': '',
           '': '',
@@ -113,6 +115,7 @@ class ApplicationLocal implements Translations {
           '': '',
         },
         'en': {
+          'Arabic': 'Arabic',
           'EARNED': 'earned',
           'SAVED CO2': 'saved co2',
           'RECYCLED': "recycled",
@@ -207,8 +210,10 @@ class ApplicationLocal implements Translations {
               'Find out the difference between recyclable and non-recyclable paper. Such paper as waxed, laminated or painted is not recyclable.But you can recycle newspapers, magazines, packaging, cardboard, envelopes , office paper and any other paper of this type .',
           '2.plastic':
               'Remove all dirty or greasy paper. The paper is recycled using water. In the presence of pollutants , they can spoil the entire batch, regardless of whether they are soluble in water or not.',
-          '3.plastic': 'Sort the paper . Different types of paper have a different fiber length, and thus a different quality. That\'s why it\'s important to have them sorted by type. Cardboard goes to cardboard, office paper goes to office paper, etc.',
-          '4.plastic': 'Bring your sorted paper to the closest recycling centre.',
+          '3.plastic':
+              'Sort the paper . Different types of paper have a different fiber length, and thus a different quality. That\'s why it\'s important to have them sorted by type. Cardboard goes to cardboard, office paper goes to office paper, etc.',
+          '4.plastic':
+              'Bring your sorted paper to the closest recycling centre.',
         }
       };
 }

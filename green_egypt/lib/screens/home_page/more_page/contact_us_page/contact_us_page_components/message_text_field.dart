@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:green_egypt/config/theme/application_theme_controller_box.dart';
 
 class MessageTextField extends StatelessWidget {
   const MessageTextField({super.key});
@@ -9,7 +10,7 @@ class MessageTextField extends StatelessWidget {
     return Container(
       margin: EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        // color: Colors.white,
         borderRadius: new BorderRadius.circular(8.0),
         boxShadow: [
           BoxShadow(
@@ -21,10 +22,12 @@ class MessageTextField extends StatelessWidget {
       ),
       child: TextFormField(
         maxLines: 4,
-        style: TextStyle(height: 1),
+        // style: TextStyle(height: 1),
         decoration: InputDecoration(
           filled: true,
-          fillColor: Colors.white,
+          fillColor: ApplicationThemeController.instance.isDark
+              ? Colors.grey.withOpacity(.2)
+              : Colors.white,
           hintText: 'Your Message'.tr,
           hintStyle: TextStyle(
             fontSize: 18,
@@ -39,7 +42,7 @@ class MessageTextField extends StatelessWidget {
             ),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(8),
             borderSide: BorderSide(
               color: Colors.green,
               width: 2.0,
