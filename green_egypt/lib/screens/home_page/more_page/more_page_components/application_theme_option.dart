@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:green_egypt/config/pages_names.dart';
 import 'package:green_egypt/config/theme/application_theme_controller_box.dart';
 
 class ApplicationThemeOption extends StatefulWidget {
@@ -19,8 +18,13 @@ class _ApplicationThemeOptionState extends State<ApplicationThemeOption> {
   Widget build(BuildContext context) {
     return ListTile(
         horizontalTitleGap: 0,
-        onTap: () {
-          Get.toNamed(PagesNames.feedBackPage);
+        onTap: () async {
+          await widget.applicationThemeController.changeApplicationTheme(
+              newValue: !ApplicationThemeController.instance.isDark);
+
+          setState(() {
+            widget.darkThemeBool = !ApplicationThemeController.instance.isDark;
+          });
         },
         leading: Icon(
           Icons.nightlight_outlined,
@@ -29,7 +33,8 @@ class _ApplicationThemeOptionState extends State<ApplicationThemeOption> {
         title: Text('Dark Mode'.tr),
         trailing: CupertinoSwitch(
           onChanged: (value) async {
-            await widget.applicationThemeController.changeApplicationTheme(newValue: value);
+            await widget.applicationThemeController
+                .changeApplicationTheme(newValue: value);
 
             setState(() {
               widget.darkThemeBool = value;

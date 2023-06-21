@@ -1,12 +1,14 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:green_egypt/config/constants.dart';
 import 'package:green_egypt/config/dimensions.dart';
 import 'package:green_egypt/config/images_paths.dart';
 import 'package:green_egypt/config/pages_names.dart';
 import 'package:green_egypt/config/theme/default_colors.dart';
+import 'package:green_egypt/screens/start_screen/components/start_screen_login_button.dart';
+import 'package:green_egypt/screens/start_screen/components/start_screen_register_button.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:lottie/lottie.dart';
 
 class StartScreen extends StatelessWidget {
   const StartScreen({super.key});
@@ -17,57 +19,34 @@ class StartScreen extends StatelessWidget {
       body: Container(
         width: Dimensions.width,
         height: Dimensions.height,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage(
-                  'assets/images/start_screen_images/start_screen_background_drak.png'),
-              fit: BoxFit.cover),
-        ),
         child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                Lottie.asset('assets/animated_vectors/hello.json', width: 350),
                 SizedBox(
-                  height: Dimensions.height * .4,
-                ),
-                Image(
-                  image: AssetImage(ImagesPaths.applicationLogo),
-                  width: Dimensions.width * .1,
-                  height: Dimensions.height * .1,
-                ),
-                SizedBox(
-                  height: Dimensions.height * .04,
-                ),
-                /**
-                 * Row of recycling icon and Animated Text
-                 */
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    /**
-                     * Animated text "Green_Egypt"
-                     */
-                    AnimatedTextKit(
-                      repeatForever: true,
-                      animatedTexts: [
-                        TypewriterAnimatedText(
-                          'Green_Egypt',
-                          speed: Duration(milliseconds: 500),
-                          textStyle:
-                              TextStyle(color: Colors.black, fontSize: 20.sp),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: Dimensions.height * .11,
+                  height: 24,
                 ),
                 Text(
-                  "Don't have an Account !",
-                  style: TextStyle(color: Colors.white),
+                  "We are happy to see you in Green Egypt",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                ),
+                SizedBox(
+                  height: 48,
+                ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Don't have an Account !",
+                    style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500),
+                  ),
                 ),
                 SizedBox(
                   height: 12,
@@ -75,46 +54,18 @@ class StartScreen extends StatelessWidget {
                 /**
                  * Regsiter button
                  */
-                OutlinedButton(
-                  style: ButtonStyle(
-                    side: MaterialStateProperty.all<BorderSide>(BorderSide(
-                        color: DefaultColors.defaultGreen, width: 2)),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        side: BorderSide(color: DefaultColors.defaultGreen),
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                    ),
-                  ),
-                  onPressed: () {
-                    /**
-                     * Navigate to Register Page
-                     */
-                    Get.toNamed(PagesNames.registerPage);
-                  },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Register",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      SizedBox(
-                        width: 12,
-                      ),
-                      Icon(
-                        Icons.person_add_alt_outlined,
-                        color: DefaultColors.defaultGreen,
-                      )
-                    ],
-                  ),
-                ),
+                StartScreenRegisterButton(),
                 SizedBox(
                   height: 12,
                 ),
-                Text(
-                  "Already have an Account !",
-                  style: TextStyle(color: Colors.white),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Already have an Account !",
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
+                  ),
                 ),
                 SizedBox(
                   height: 12,
@@ -122,39 +73,7 @@ class StartScreen extends StatelessWidget {
                 /**
                  * Login button
                  */
-                ElevatedButton(
-                  style: ButtonStyle(
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          side: BorderSide(color: DefaultColors.defaultGreen),
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                      ),
-                      backgroundColor: MaterialStateProperty.all<Color>(
-                          DefaultColors.defaultGreen)),
-                  onPressed: () {
-                    Get.toNamed(PagesNames.loginScreen);
-                  },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Login",
-                        style: TextStyle(color: Colors.white, fontSize: 16),
-                      ),
-                      SizedBox(
-                        width: 12,
-                      ),
-                      Icon(
-                        Icons.done_all_outlined,
-                        color: Colors.white,
-                      )
-                    ],
-                  ),
-                ),
-                // SizedBox(
-                //   height: Get.height * .03,
-                // )
+                StartScreenLoginButton()
               ],
             ),
           ),

@@ -20,70 +20,19 @@ class FirebaseCustomServices {
 
   static FirebaseCustomServices get instance => _instance;
 
-  String _key_collection_user_logs = 'user_logs';
-  String _key_userId = "user_id";
-  String _key_userName = "user_name";
-  String _key_userEmail = "user_email";
-  String _key_userImageUrl = "userImageUrl";
-  String _key_userPhoneNumber = "phone_number";
-  String _key_userEarnedCash = "earned_cash";
-  String _key_userSavedCo2 = "saved_co2";
-  String _key_userRecycledItems = "recycled_items";
-  String _key_userReviewBefore = "review_before";
-  String _key_userCredintial = "user_credintial";
-
-  // Future<void> googleLogin_uploadUserDataToFirestore_thenStoreDataLocally(
-  //     {required UserCredential userCredential,
-  //     String userName = "",
-  //     String userEmail = "",
-  //     String userImageUrl = "",
-  //     String phoneNumber = "",
-  //     int earnedCash = 0,
-  //     int savedCo2 = 0,
-  //     int recycledItems = 0,
-  //     bool reviewBefore = false,
-  //     String credintial = "normal_user"}) async {
-  //   var user_id;
-  //   try {
-  //     await FirebaseFirestore.instance.collection('user_logs').add({
-  //       _key_userName: userCredential.user!.displayName,
-  //       _key_userEmail: userCredential.user!.email,
-  //       _key_userImageUrl: userCredential.user!.photoURL,
-  //       _key_userPhoneNumber: "",
-  //       _key_userEarnedCash: 0,
-  //       _key_userSavedCo2: 0,
-  //       _key_userRecycledItems: 0,
-  //       _key_userReviewBefore: false,
-  //       _key_userCredintial: "normal_user"
-  //     }).then((document) async {
-  //       user_id = document.id;
-  //       /**
-  //            * update user data on firestore by adding id .
-  //            */
-  //       await FirebaseFirestore.instance
-  //           .collection(_key_collection_user_logs)
-  //           .doc(document.id)
-  //           .update({_key_userId: document.id});
-  //     });
-  //     /**
-  //                  * add user data into UserDataModel
-  //                  */
-  //     UserDataBox.instance.put_allUserData(
-  //         id: user_id,
-  //         name: userCredential.user!.displayName!,
-  //         email: userCredential.user!.email!,
-  //         imageUrl: userCredential.user!.photoURL!,
-  //         phoneNumber: "",
-  //         credintial: 'normal_user',
-  //         earned: 0,
-  //         recycledItems: 0,
-  //         savedCo2: 0,
-  //         loggedIn: true,
-  //         reviewedBefore: false);
-  //   } catch (e) {
-  //     CustomToast.showRedToast(messsage: "error : ${e.toString()}");
-  //   }
-  // }
+  final String _key_collection_user_logs = 'user_logs';
+  final String _key_userId = "user_id";
+  final String _key_userName = "user_name";
+  final String _key_userEmail = "user_email";
+  final String _key_userImageUrl = "userImageUrl";
+  final String _key_userPhoneNumber = "phone_number";
+  final String _key_userEarnedCash = "earned_cash";
+  final String _key_userSavedCo2 = "saved_co2";
+  final String _key_totalRecycledItems = "total_recycled_items";
+  final String _key_recycledCansItems = "recycled_cans_items";
+  final String _key_recycledPlasticItems = "recycled_plastic_items";
+  final String _key_userReviewBefore = "review_before";
+  final String _key_userCredintial = "user_credintial";
 
   /**
    * After logging with facebook or google , this method get user credintial data 
@@ -96,7 +45,9 @@ class FirebaseCustomServices {
       required String phoneNumber,
       int earnedCash = 0,
       int savedCo2 = 0,
-      int recycledItems = 0,
+      int totalRecycledItems = 0,
+      int plasticItemsNumber=0,
+      int cansItemsNumber=0,
       bool reviewBefore = false,
       String credintial = "normal_user"}) async {
     var user_id;
@@ -110,7 +61,9 @@ class FirebaseCustomServices {
         _key_userPhoneNumber: phoneNumber,
         _key_userEarnedCash: earnedCash,
         _key_userSavedCo2: savedCo2,
-        _key_userRecycledItems: recycledItems,
+        _key_totalRecycledItems: totalRecycledItems,
+        _key_recycledPlasticItems: plasticItemsNumber,
+        _key_recycledCansItems:cansItemsNumber,
         _key_userReviewBefore: reviewBefore,
         _key_userCredintial: credintial
       }).then((document) async {
@@ -135,7 +88,9 @@ class FirebaseCustomServices {
           phoneNumber: phoneNumber,
           credintial: credintial,
           earned: earnedCash,
-          recycledItems: recycledItems,
+          totalRecycledItems: totalRecycledItems,
+          plasticItemsNumber: plasticItemsNumber,
+          cansItemsNumber: cansItemsNumber,
           savedCo2: savedCo2,
           loggedIn: true,
           reviewedBefore: reviewBefore);
@@ -182,7 +137,9 @@ class FirebaseCustomServices {
               credintial: userDocument[_key_userCredintial],
               earned: userDocument[_key_userEarnedCash],
               loggedIn: true,
-              recycledItems: userDocument[_key_userRecycledItems],
+              totalRecycledItems: userDocument[_key_totalRecycledItems],
+              plasticItemsNumber: userDocument[_key_recycledPlasticItems],
+              cansItemsNumber: userDocument[_key_recycledCansItems],
               reviewedBefore: userDocument[_key_userReviewBefore],
               savedCo2: userDocument[_key_userSavedCo2]);
         });
@@ -322,7 +279,9 @@ class FirebaseCustomServices {
           credintial: userData[_key_userCredintial],
           earned: userData[_key_userEarnedCash],
           savedCo2: userData[_key_userSavedCo2],
-          recycledItems: userData[_key_userRecycledItems],
+          totalRecycledItems: userData[_key_totalRecycledItems],
+          plasticItemsNumber: userData[_key_recycledPlasticItems],
+          cansItemsNumber: userData[_key_recycledCansItems],
           loggedIn: true,
           reviewedBefore: userData[_key_userReviewBefore]);
       removeLoadingIndicator();
@@ -403,7 +362,9 @@ class FirebaseCustomServices {
           credintial: userData[_key_userCredintial],
           earned: userData[_key_userEarnedCash],
           savedCo2: userData[_key_userSavedCo2],
-          recycledItems: userData[_key_userRecycledItems],
+          totalRecycledItems: userData[_key_totalRecycledItems],
+          plasticItemsNumber: userData[_key_recycledPlasticItems],
+          cansItemsNumber: userData[_key_recycledCansItems],
           loggedIn: true,
           reviewedBefore: userData[_key_userReviewBefore]);
       removeLoadingIndicator();

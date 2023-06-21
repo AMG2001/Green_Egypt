@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:green_egypt/config/theme/application_theme.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:green_egypt/config/theme/application_theme.dart';
 
 class ApplicationThemeController extends GetxController {
   /**

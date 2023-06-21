@@ -63,7 +63,8 @@ class ApplicationTheme {
       primaryTextTheme: TextTheme(
         button: TextStyle(
             color: Colors.white,
-            fontSize: 18,
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
             fontFamily: DefaultFonts.defaultLondrinaSolidThin),
         headline1: TextStyle(
             color: Colors.white,
@@ -92,10 +93,12 @@ class ApplicationTheme {
         bodyText2: TextStyle(
             color: Colors.white,
             fontSize: 16,
+            fontWeight: FontWeight.w500,
             fontFamily: DefaultFonts.defaultLondrinaSolidThin),
         subtitle1: TextStyle(
             color: Colors.white,
             fontSize: 16,
+            fontWeight: FontWeight.w500,
             fontFamily: DefaultFonts.defaultLondrinaSolidThin),
       ),
       /**
@@ -209,7 +212,8 @@ class ApplicationTheme {
       textTheme: TextTheme(
         button: TextStyle(
             color: Colors.black,
-            fontSize: 18,
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
             fontFamily: DefaultFonts.defaultLondrinaSolidThin),
         headline1: TextStyle(
             color: Colors.black,
@@ -233,14 +237,17 @@ class ApplicationTheme {
             fontFamily: DefaultFonts.defaultLondrinaSolidThin),
         headline6: TextStyle(
             color: Colors.black,
+            fontWeight: FontWeight.w500,
             fontSize: 16,
             fontFamily: DefaultFonts.defaultLondrinaSolidThin),
         bodyText2: TextStyle(
             color: Colors.black,
+            fontWeight: FontWeight.w500,
             fontSize: 16,
             fontFamily: DefaultFonts.defaultLondrinaSolidThin),
         subtitle1: TextStyle(
             color: Colors.black,
+            fontWeight: FontWeight.w500,
             fontSize: 16,
             fontFamily: DefaultFonts.defaultLondrinaSolidThin),
       ),
@@ -275,10 +282,12 @@ class ApplicationTheme {
             fontFamily: DefaultFonts.defaultLondrinaSolidThin),
         bodyText2: TextStyle(
             color: Colors.black,
+            fontWeight: FontWeight.w500,
             fontSize: 16,
             fontFamily: DefaultFonts.defaultLondrinaSolidThin),
         subtitle1: TextStyle(
             color: Colors.black,
+            fontWeight: FontWeight.w500,
             fontSize: 16,
             fontFamily: DefaultFonts.defaultLondrinaSolidThin),
       ),

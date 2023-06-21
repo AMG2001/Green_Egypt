@@ -1,9 +1,6 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
-import 'package:get/get.dart';
-import 'package:green_egypt/config/pages_names.dart';
-import 'package:green_egypt/services/boxes/user_data_db.dart';
+
 import 'package:green_egypt/services/firebase_services/firebase_services.dart';
 
 class FacebookCustomAuth {

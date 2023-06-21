@@ -16,7 +16,7 @@ class PointStats extends StatelessWidget {
         ),
         PointInfo(
           title: 'Earned:'.tr,
-          value: UserDataBox.instance.get_earnedCash().toString() + " \$",
+          value: UserDataBox.instance.get_totalPoints().toString() + " \$",
         ),
       ],
     );

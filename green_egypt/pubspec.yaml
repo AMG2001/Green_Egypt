@@ -66,7 +66,7 @@ flutter:
     - assets/images/main_page_images/
     - assets/images/friendly_tips_images/
     - assets/images/splach_screen_images/
-    - assets/images/start_screen_images/
+    
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see
