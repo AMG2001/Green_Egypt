@@ -44,7 +44,7 @@ class MorePageBody extends StatelessWidget {
               /**
                            * ************************************* Transactions History option **********************************
                            */
-              TransactionsOption(),
+              GetCash(),
               /**
                            * *************************************** Green Egypt Machines Locations option *************************
                            */

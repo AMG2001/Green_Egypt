@@ -21,7 +21,7 @@ void main() async {
       .initApplicationThemeController_ThemeAndBox();
   // to initiate all Application Shared Preferences in one line 🔥 .
   await SharedPreferencesClass.initAllSharedPreferences();
-  /**
+  /**f
    * Initializing Firebase on Application Level .
    */
   await Firebase.initializeApp(
