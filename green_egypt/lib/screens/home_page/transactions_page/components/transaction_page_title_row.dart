@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:green_egypt/config/dimensions.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+import '../../../../config/theme/application_theme_controller_box.dart';
+
 class TransactionsPageTitleRow extends StatelessWidget {
   const TransactionsPageTitleRow({super.key});
 
@@ -19,14 +21,15 @@ class TransactionsPageTitleRow extends StatelessWidget {
           ),
           Text(
             'Transactions'.tr,
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(color:ApplicationThemeController.instance.isDark?Colors.white:Colors.black,
+),
           ),
           SizedBox(
             width: 12,
           ),
           Icon(
             Icons.history,
-            color: Colors.white,
+                  color:ApplicationThemeController.instance.isDark?Colors.white:Colors.black,
             size: 20.sp,
           )
         ],

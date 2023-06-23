@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:green_egypt/config/dimensions.dart';
 import 'package:green_egypt/config/theme/application_theme_controller_box.dart';
-import 'package:green_egypt/screens/home_page/transactions_page/components/top_container/bottom_container.dart';
-import 'package:green_egypt/screens/home_page/transactions_page/components/top_container/top_container.dart';
+import 'package:green_egypt/screens/home_page/transactions_page/components/bottom_container.dart';
+
+import 'components/Transaction_header.dart';
 
 class TransactionPageBody extends StatelessWidget {
   TransactionPageBody({super.key});
@@ -20,14 +21,15 @@ class TransactionPageBody extends StatelessWidget {
                 SliverAppBar(
                   automaticallyImplyLeading: false,
                   centerTitle: true,
-                  expandedHeight: Dimensions.height * 0.42,
+                  expandedHeight: Dimensions.height * 0.5,
                   backgroundColor: themeController.isDark
                       ? Colors.grey[850]
                       : Color(0xfff7f5f5),
-                  flexibleSpace: FlexibleSpaceBar(background: TopContainer()),
+                  flexibleSpace: FlexibleSpaceBar(background: Transaction_header()),
                 ),
               ];
             },
+            
             body: BottomContainer()),
       );
     });
