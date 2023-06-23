@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class GetCashPageController extends GetxController {
@@ -22,7 +21,6 @@ class GetCashPageController extends GetxController {
         update();
       },
     );
-
     super.onReady();
   }
 }
