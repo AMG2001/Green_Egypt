@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:green_egypt/config/dimensions.dart';
+import 'package:green_egypt/screens/home_page/more_page/get_cash_page/components/cash_qrcode.dart';
+import 'package:green_egypt/screens/home_page/more_page/get_cash_page/components/grey_container.dart';
+import 'package:green_egypt/screens/home_page/more_page/get_cash_page/components/scan_and_earn_row.dart';
 import 'package:green_egypt/screens/home_page/more_page/get_cash_page/controller/get_cash_page_controller.dart';
 import 'package:green_egypt/services/boxes/user_data_db.dart';
 import 'package:syncfusion_flutter_barcodes/barcodes.dart';
@@ -27,71 +30,18 @@ class GetCashPage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Container(
-                            decoration: BoxDecoration(
-                                color: Colors.grey.withOpacity(.5),
-                                borderRadius: BorderRadius.circular(32)),
-                            width: Dimensions.width * .3,
-                            height: 8,
-                          ),
+                          GreyContainer(),
                           Text(
                               "Thanks for Suppoting Recycling \n\n ${UserDataBox.instance.get_userName()}",
                               textAlign: TextAlign.center),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "Now , Scan",
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.w600),
-                              ),
-                              SizedBox(
-                                width: 12,
-                              ),
-                              FaIcon(
-                                FontAwesomeIcons.qrcode,
-                              ),
-                              SizedBox(
-                                width: 12,
-                              ),
-                              Text(
-                                "And Earn",
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.w600),
-                              ),
-                              SizedBox(
-                                width: 8,
-                              ),
-                              FaIcon(
-                                FontAwesomeIcons.moneyBill,
-                              )
-                            ],
-                          ),
-                          Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Container(
-                                height: 200,
-                                child: SfBarcodeGenerator(
-                                  value: '35 Points : 4.5 le',
-                                  symbology: QRCode(),
-                                ),
-                              ),
-                              SizedBox(
-                                height: 12,
-                              ),
-                              Text(
-                                "35 point : 12 le",
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.w500),
-                              )
-                            ],
-                          ),
+                          ScanAndEarnRow(),
+                          CashQrcode(),
                           ElevatedButton(
-                              onPressed: () {
-                                Get.back();
-                              },
-                              child: Text("I'm Done"))
+                            onPressed: () {
+                              Get.back();
+                            },
+                            child: Text("I'm Done"),
+                          ),
                         ],
                       ),
                     ),

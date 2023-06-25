@@ -1,13 +1,8 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
+
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:green_egypt/config/dimensions.dart';
-import 'package:green_egypt/config/images_paths.dart';
-import 'package:green_egypt/config/pages_names.dart';
-import 'package:green_egypt/config/theme/default_colors.dart';
 import 'package:green_egypt/screens/start_screen/components/start_screen_login_button.dart';
 import 'package:green_egypt/screens/start_screen/components/start_screen_register_button.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:lottie/lottie.dart';
 
 class StartScreen extends StatelessWidget {

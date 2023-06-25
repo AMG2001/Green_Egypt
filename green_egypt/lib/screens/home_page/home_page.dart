@@ -47,7 +47,7 @@ class _HomePageState extends State<HomePage> {
                   iconSize: 20.sp,
                   items: [
                     BottomNavyBarItem(
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.home_outlined,
                           size: 24,
                         ),
@@ -59,7 +59,7 @@ class _HomePageState extends State<HomePage> {
                                 ? Colors.white
                                 : Colors.black),
                     BottomNavyBarItem(
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.qr_code_scanner_rounded,
                           size: 24,
                         ),
@@ -71,7 +71,7 @@ class _HomePageState extends State<HomePage> {
                                 ? Colors.white
                                 : Colors.black),
                     BottomNavyBarItem(
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.bookmarks_outlined,
                           size: 24,
                         ),
@@ -83,7 +83,7 @@ class _HomePageState extends State<HomePage> {
                                 ? Colors.white
                                 : Colors.black),
                     BottomNavyBarItem(
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.more_horiz_outlined,
                           size: 24,
                         ),
@@ -110,7 +110,7 @@ class _HomePageState extends State<HomePage> {
                           ? TransactionPageBody()
                           : controller.pageIndex == 3
                               ? MorePageBody()
-                              : SizedBox());
+                              : const SizedBox());
         });
   }
 }
