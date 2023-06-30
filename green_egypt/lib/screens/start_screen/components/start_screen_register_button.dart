@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:green_egypt/config/pages_names.dart';
 import 'package:green_egypt/config/theme/default_colors.dart';
 
+import '../../../config/theme/application_theme_controller_box.dart';
+
 class StartScreenRegisterButton extends StatelessWidget {
   const StartScreenRegisterButton({super.key});
 
@@ -30,7 +32,9 @@ class StartScreenRegisterButton extends StatelessWidget {
         children: [
           Text(
             "Register",
-            style: TextStyle(color: Colors.black),
+            style: TextStyle(color:ApplicationThemeController.instance.isDark
+                                        ? Colors.white
+                                        : Colors.black),
           ),
           SizedBox(
             width: 12,

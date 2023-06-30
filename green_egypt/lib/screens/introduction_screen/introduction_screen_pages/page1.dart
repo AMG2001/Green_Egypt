@@ -66,7 +66,7 @@ class Page1 extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    width: Dimensions.width * .1,
+                    width: Dimensions.width * .05,
                   ),
                   SmoothPageIndicator(
                     controller: controller,

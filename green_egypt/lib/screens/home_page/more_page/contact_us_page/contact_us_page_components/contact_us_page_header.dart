@@ -23,22 +23,15 @@ class ContactUsPageHeader extends StatelessWidget {
                   icon: Icon(Icons.arrow_back),
                   color: Colors.green,
                 ),
-                height: 40,
-                width: 50,
+                height: Dimensions.height*0.05,
+                width: Dimensions.width*0.15,
                 decoration: BoxDecoration(
                   color: ApplicationThemeController.instance.isDark
-                      ? Colors.grey.withOpacity(.2)
+                      ? Colors.black
                       : Colors.white,
                   borderRadius:
                       BorderRadius.circular(15), //border corner radius
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.1), //color of shadow
-                      spreadRadius: 5, //spread radius
-                      blurRadius: 7, // blur radius
-                      offset: Offset(0, 2), // changes position of shadow
-                    ),
-                  ],
+                  
                 ),
               ),
             ],

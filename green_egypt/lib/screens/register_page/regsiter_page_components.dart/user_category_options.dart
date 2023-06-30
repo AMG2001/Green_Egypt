@@ -41,7 +41,7 @@ class UserCategoryOptions extends StatelessWidget {
               ],
             ),
             SizedBox(
-              width: Dimensions.width * .06,
+              width: Dimensions.width * .05,
             ),
             Row(
               mainAxisSize: MainAxisSize.min,

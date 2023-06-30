@@ -9,6 +9,8 @@ import 'package:green_egypt/screens/home_page/more_page/get_cash_page/controller
 import 'package:green_egypt/services/boxes/user_data_db.dart';
 import 'package:syncfusion_flutter_barcodes/barcodes.dart';
 
+import '../../../../config/theme/application_theme_controller_box.dart';
+
 class GetCashPage extends StatelessWidget {
   const GetCashPage({super.key});
   @override
@@ -19,7 +21,9 @@ class GetCashPage extends StatelessWidget {
             init: GetCashPageController(),
             builder: (controller) {
               return Container(
-                color: Colors.black.withOpacity(.5),
+                color: ApplicationThemeController.instance.isDark
+                    ? Colors.black
+                    : Colors.white,
                 child: Center(
                   child: Container(
                     child: AnimatedOpacity(
@@ -32,8 +36,15 @@ class GetCashPage extends StatelessWidget {
                         children: [
                           GreyContainer(),
                           Text(
-                              "Thanks for Suppoting Recycling \n\n ${UserDataBox.instance.get_userName()}",
-                              textAlign: TextAlign.center),
+                            "Thanks for Suppoting Recycling \n\n ${UserDataBox.instance.get_userName()}",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                color:ApplicationThemeController.instance.isDark
+                                        ? Colors.white
+                                        : Colors.black),
+                          ),
                           ScanAndEarnRow(),
                           CashQrcode(),
                           ElevatedButton(
@@ -46,7 +57,9 @@ class GetCashPage extends StatelessWidget {
                       ),
                     ),
                     decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: ApplicationThemeController.instance.isDark
+                            ? Color.fromARGB(255, 25, 25, 25)
+                            : Color.fromARGB(255, 235, 235, 235),
                         borderRadius: BorderRadius.circular(16)),
                     width: Dimensions.width * .8,
                     height: Dimensions.height * .6,

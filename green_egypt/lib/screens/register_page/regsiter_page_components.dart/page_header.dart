@@ -31,7 +31,7 @@ class PageHeader extends StatelessWidget {
           alignment: Alignment.center,
           child: Text(
             "🍀 Regsiter now to be one of Green_Egypt Family 🍀",
-            style: Theme.of(context).textTheme.bodyMedium,
+            style: TextStyle(fontSize: 18.sp,)
           ),
         ),
         /**

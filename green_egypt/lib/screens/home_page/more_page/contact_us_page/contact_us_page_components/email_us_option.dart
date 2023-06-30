@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:green_egypt/config/theme/application_theme_controller_box.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../../../../config/dimensions.dart';
+
 class EmailUsOption extends StatelessWidget {
   const EmailUsOption({super.key});
 
@@ -35,29 +37,21 @@ class EmailUsOption extends StatelessWidget {
                 Container(
                   child: Image.asset(
                     'assets/images/email.png',
-                    height: 42,
+                    height: Dimensions.height*0.065,
                   ),
                 ),
                 Text('Email Us'.tr,
                     style: TextStyle(fontSize: 20, color: Color(0xff86c447))),
               ],
             ),
-            height: 90,
-            width: 100,
+           height: Dimensions.height*0.1,
+           width: Dimensions.width*0.3,
             decoration: BoxDecoration(
-              color: ApplicationThemeController.instance.isDark
-                  ? Colors.grey.withOpacity(.2)
-                  : Colors.white,
+            color: ApplicationThemeController.instance.isDark
+                  ?  Colors.black 
+                  :  Colors.white , 
               borderRadius: BorderRadius.circular(10), //border corner radius
-              boxShadow: [
-                BoxShadow(
-                  color: Color.fromARGB(255, 235, 225, 225)
-                      .withOpacity(0.1), //color of shadow
-                  spreadRadius: 5, //spread radius
-                  blurRadius: 7, // blur radius
-                  offset: Offset(0, 2), // changes position of shadow
-                ),
-              ],
+              
             ),
           ),
         ],

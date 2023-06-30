@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_state_manager/src/simple/get_state.dart';
 import 'package:syncfusion_flutter_barcodes/barcodes.dart';
+
+import '../../../../../config/theme/application_theme_controller_box.dart';
 
 class CashQrcode extends StatelessWidget {
   const CashQrcode({super.key});
 
   @override
   Widget build(BuildContext context) {
+        return GetBuilder<ApplicationThemeController>(builder: (themeController) {
+
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -14,6 +19,9 @@ class CashQrcode extends StatelessWidget {
           child: SfBarcodeGenerator(
             value: '35 Points : 4.5 le',
             symbology: QRCode(),
+            backgroundColor: themeController.isDark
+                      ? const Color.fromARGB(255, 25, 25, 25)
+                      : const Color.fromARGB(255, 235, 235, 235),
           ),
         ),
         SizedBox(
@@ -21,9 +29,13 @@ class CashQrcode extends StatelessWidget {
         ),
         Text(
           "35 point : 12 le",
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500,
+           color: ApplicationThemeController.instance.isDark
+            ? Colors.white
+            : Colors.black),
         )
       ],
     );
+    });
   }
 }

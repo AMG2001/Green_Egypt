@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../../../../../config/theme/application_theme_controller_box.dart';
+
 class ScanAndEarnRow extends StatelessWidget {
   const ScanAndEarnRow({super.key});
 
@@ -11,7 +13,10 @@ class ScanAndEarnRow extends StatelessWidget {
       children: [
         Text(
           "Now , Scan",
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600,
+         color: ApplicationThemeController.instance.isDark
+            ? Colors.white
+            : Colors.black),
         ),
         SizedBox(
           width: 12,
@@ -24,7 +29,10 @@ class ScanAndEarnRow extends StatelessWidget {
         ),
         Text(
           "And Earn",
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600,
+         color: ApplicationThemeController.instance.isDark
+            ? Colors.white
+            : Colors.black),
         ),
         SizedBox(
           width: 8,
