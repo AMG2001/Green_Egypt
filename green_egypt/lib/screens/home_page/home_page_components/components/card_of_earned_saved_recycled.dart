@@ -76,7 +76,7 @@ class CardOfEarnedSavedRecycled extends StatelessWidget {
                     color: Colors.yellow[400],
                     size: 28,
                   ),
-                  detailValue: '${UserDataBox.instance.get_recycledItems()}',
+                  detailValue: '${UserDataBox.instance.get_totalPoints()}',
                   valueMark: "",
                   detailTitle: 'Points'.tr,
                   animationMilliSeconds: 500),

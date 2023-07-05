@@ -148,7 +148,8 @@ class UserDataBox {
   /**
    *  **************************** total Recycled items operations ***********************************
    */
-  void put_totalrecycledItems({required int newTotalNumber}) async {
+  void put_totalrecycledItems(
+    {required int newTotalNumber}) async {
     await _userDataBox.put(_key_userTotalRecycledItems, newTotalNumber);
   }
 
