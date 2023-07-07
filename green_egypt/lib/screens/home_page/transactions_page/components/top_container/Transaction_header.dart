@@ -51,7 +51,7 @@ class _Transaction_headerState extends State<Transaction_header> {
                   ),
                 ),
               ),
-              child: Text('Weak',
+              child: Text('Weak'.tr,
                   style: TextStyle(fontSize: 24, color: Colors.white)),
               onPressed: () {
                 setState(() {
@@ -70,7 +70,7 @@ class _Transaction_headerState extends State<Transaction_header> {
                   ),
                 ),
               ),
-              child: Text('Month',
+              child: Text('Month'.tr,
                   style: TextStyle(fontSize: 24, color: Colors.white)),
               onPressed: () {
                 setState(() {
@@ -89,7 +89,7 @@ class _Transaction_headerState extends State<Transaction_header> {
                   ),
                 ),
               ),
-              child: Text('Year',
+              child: Text('Year'.tr,
                   style: TextStyle(fontSize: 24, color: Colors.white)),
               onPressed: () {
                 setState(() {

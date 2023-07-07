@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../../config/dimensions.dart';
 import '../../../../config/theme/application_theme_controller_box.dart';
@@ -19,65 +20,74 @@ class Transaction_model_week extends StatelessWidget {
         
       ),
       
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+
         children: [
+          SizedBox(width: 10,),
           /************************ Column Of Percentile Degrees ************************/
           Column(
             children: [
               SizedBox(
-                height: Dimensions.height * 0.03
+                height: Dimensions.height * 0.032
               ),
               Text(
-                "100%",
-                style: TextStyle(fontSize: 20),
+                "100%".tr,
+                style: TextStyle(fontSize: 18),
               ),
               SizedBox(
-                height: Dimensions.height * 0.02
+                height: Dimensions.height * 0.025
               ),
               Text(
-                "75%",
-                style: TextStyle(fontSize: 20),
+                "75%".tr,
+                style: TextStyle(fontSize: 18),
               ),
               SizedBox(
-                height: Dimensions.height * 0.02
+                height: Dimensions.height * 0.025
               ),
               Text(
-                "50%",
-                style: TextStyle(fontSize: 20),
+                "50%".tr,
+                style: TextStyle(fontSize: 18),
               ),
               SizedBox(
-                height: Dimensions.height * 0.02
+                height: Dimensions.height * 0.025
               ),
               Text(
-                "25%",
-                style: TextStyle(fontSize: 20),
+                "25%".tr,
+                style: TextStyle(fontSize: 18),
               ),
               SizedBox(
-                height: Dimensions.height * 0.02
+                height: Dimensions.height * 0.025
               ),
               Text(
-                "0%",
-                style: TextStyle(fontSize: 20),
+                "0%".tr,
+                style: TextStyle(fontSize: 18),
               )
             ],
           ),
           /************************ Model For Week ************************/
+          SizedBox(width: 12),
           Container_model(
-              content: 'Sat', Height: Dimensions.height * 0.15),
+              content: 'Sat'.tr, Height: Dimensions.height * 0.15),
+          SizedBox(width: 20),
           Container_model(
-              content: 'San', Height: Dimensions.height * 0.12),
+              content: 'San'.tr, Height: Dimensions.height * 0.12),
+              SizedBox(width: 20),
           Container_model(
-              content: 'Mon', Height: Dimensions.height * 0.13),
+              content: 'Mon'.tr, Height: Dimensions.height * 0.13),
+              SizedBox(width: 20),
           Container_model(
-              content: 'Tue', Height: Dimensions.height * 0.11),
+              content: 'Tue'.tr, Height: Dimensions.height * 0.11),
+              SizedBox(width: 20),
           Container_model(
-              content: 'Wed', Height: Dimensions.height * 0.09),
+              content: 'Wed'.tr, Height: Dimensions.height * 0.09),
+              SizedBox(width: 20),
           Container_model(
-              content: 'Thu', Height: Dimensions.height * 0.14),
+              content: 'Thu'.tr, Height: Dimensions.height * 0.14),
+              SizedBox(width: 20),
           Container_model(
-              content: 'Fai', Height: Dimensions.height * 0.11),
+              content: 'Fai'.tr, Height: Dimensions.height * 0.11),
+              SizedBox(width: 20),
         ],
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../../config/dimensions.dart';
 import '../../../../config/theme/application_theme_controller_box.dart';
@@ -32,53 +33,52 @@ class Transaction_model_month extends StatelessWidget {
           Column(
             children: [
               SizedBox(
-                height: Dimensions.height * 0.03
+                height: Dimensions.height * 0.032
               ),
               Text(
-                "100%",
-                style: TextStyle(fontSize: 20),
+                "100%".tr,
+                style: TextStyle(fontSize: 18),
               ),
               SizedBox(
-                height: Dimensions.height * 0.02
+                height: Dimensions.height * 0.025
               ),
               Text(
-                "75%",
-                style: TextStyle(fontSize: 20),
+                "75%".tr,
+                style: TextStyle(fontSize: 18),
               ),
               SizedBox(
-                height: Dimensions.height * 0.02
+                height: Dimensions.height * 0.025
               ),
               Text(
-                "50%",
-                style: TextStyle(fontSize: 20),
+                "50%".tr,
+                style: TextStyle(fontSize: 18),
               ),
               SizedBox(
-                height: Dimensions.height * 0.02
+                height: Dimensions.height * 0.025
               ),
               Text(
-                "25%",
-                style: TextStyle(fontSize: 20),
+                "25%".tr,
+                style: TextStyle(fontSize: 18),
               ),
               SizedBox(
-                height: Dimensions.height * 0.02
+                height: Dimensions.height * 0.025
               ),
               Text(
-                "0%",
-                style: TextStyle(fontSize: 20),
+                "0%".tr,
+                style: TextStyle(fontSize: 18),
               )
             ],
           ),
 
           /************************ Model For Month ************************/
           Container_model(
-              content: 'Week 1',
-              Height: Dimensions.height * 0.125),
+              content: 'Week 1'.tr,Height: Dimensions.height * 0.125),
           Container_model(
-              content: 'Week 2', Height: Dimensions.height * 0.09),
+              content: 'Week 2'.tr, Height: Dimensions.height * 0.09),
           Container_model(
-              content: 'Week 3', Height: Dimensions.height * 0.14),
+              content: 'Week 3'.tr, Height: Dimensions.height * 0.14),
           Container_model(
-              content: 'Week 4', Height: Dimensions.height * 0.11),
+              content: 'Week 4'.tr, Height: Dimensions.height * 0.11),
         ],
       ),
     );

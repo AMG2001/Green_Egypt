@@ -17,7 +17,7 @@ class CallUsOption extends StatelessWidget {
 
         final Uri params = Uri(
           scheme: 'tel',
-          path: phoneNumber,
+          path: "phoneNumber",
         );
 
 // Launch the URL with the phone number parameter.
@@ -33,12 +33,12 @@ class CallUsOption extends StatelessWidget {
                   padding: EdgeInsets.only(top: 10),
                   child: Image.asset(
                     'assets/images/call.png',
-                    height: Dimensions.height*0.05,
+                    height: Dimensions.height*0.047,
                   ),
                 ),
                 Text('Call Us'.tr,
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 18,
                       color: Color(0xfffec569),
                     )),
               ],

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../../config/dimensions.dart';
 import '../../../../config/theme/application_theme_controller_box.dart';
@@ -26,101 +27,101 @@ class Transaction_model_Year extends StatelessWidget {
           Column(
             children: [
               SizedBox(
-                height: Dimensions.height * 0.03
+                height: Dimensions.height * 0.032
               ),
               Text(
-                "100%",
-                style: TextStyle(fontSize: 20),
+                "100%".tr,
+                style: TextStyle(fontSize: 18),
               ),
               SizedBox(
-                height: Dimensions.height * 0.02
+                height: Dimensions.height * 0.025
               ),
               Text(
-                "75%",
-                style: TextStyle(fontSize: 20),
+                "75%".tr,
+                style: TextStyle(fontSize: 18),
               ),
               SizedBox(
-                height: Dimensions.height * 0.02
+                height: Dimensions.height * 0.025
               ),
               Text(
-                "50%",
-                style: TextStyle(fontSize: 20),
+                "50%".tr,
+                style: TextStyle(fontSize: 18),
               ),
               SizedBox(
-                height: Dimensions.height * 0.02
+                height: Dimensions.height * 0.025
               ),
               Text(
-                "25%",
-                style: TextStyle(fontSize: 20),
+                "25%".tr,
+                style: TextStyle(fontSize: 18),
               ),
               SizedBox(
-                height: Dimensions.height * 0.02
+                height: Dimensions.height * 0.025
               ),
               Text(
-                "0%",
-                style: TextStyle(fontSize: 20),
+                "0%".tr,
+                style: TextStyle(fontSize: 18),
               )
             ],
           ),
           /************************ Model For Year ************************/
           SizedBox(width: 12),
           Container_model(
-            content: 'Jan',
+            content: 'Jan'.tr,
             Height: Dimensions.height * 0.15,
           ),
           SizedBox(width: 20),
           Container_model(
-            content: 'Feb',
+            content: 'Feb'.tr,
             Height: Dimensions.height * 0.10,
           ),
           SizedBox(width: 20),
           Container_model(
-            content: 'Mar',
+            content: 'Mar'.tr,
             Height: Dimensions.height * 0.09,
           ),
           SizedBox(width: 20),
           Container_model(
-            content: 'Apr',
+            content: 'Apr'.tr,
             Height: Dimensions.height * 0.14,
           ),
           SizedBox(width: 20),
           Container_model(
-            content: 'May',
+            content: 'May'.tr,
             Height: Dimensions.height * 0.11,
           ),
           SizedBox(width: 20),
           Container_model(
-            content: 'Jun',
+            content: 'Jun'.tr,
             Height: Dimensions.height * 0.09,
           ),
           SizedBox(width: 20),
           Container_model(
-            content: 'Jul',
+            content: 'Jul'.tr,
             Height: Dimensions.height * 0.16,
           ),
           SizedBox(width: 20),
           Container_model(
-            content: 'Aug',
+            content: 'Aug'.tr,
             Height: Dimensions.height * 0.10,
           ),
           SizedBox(width: 20),
           Container_model(
-            content: 'Sep',
+            content: 'Sep'.tr,
             Height: Dimensions.height * 0.13,
           ),
           SizedBox(width: 20),
           Container_model(
-            content: 'Oct',
+            content: 'Oct'.tr,
             Height: Dimensions.height * 0.09,
           ),
           SizedBox(width: 20),
           Container_model(
-            content: 'Nov',
+            content: 'Nov'.tr,
             Height: Dimensions.height * 0.12,
           ),
           SizedBox(width: 20),
           Container_model(
-            content: 'Dec',
+            content: 'Dec'.tr,
             Height: Dimensions.height * 0.14,
           ),
           SizedBox(width: 10),

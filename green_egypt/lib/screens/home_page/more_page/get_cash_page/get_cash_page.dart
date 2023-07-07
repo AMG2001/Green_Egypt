@@ -36,7 +36,7 @@ class GetCashPage extends StatelessWidget {
                         children: [
                           GreyContainer(),
                           Text(
-                            "Thanks for Suppoting Recycling \n\n ${UserDataBox.instance.get_userName()}",
+                            "Thanks for Supporting Recycling \n\n ${UserDataBox.instance.get_userName()}".tr,
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 fontSize: 16,
@@ -51,7 +51,7 @@ class GetCashPage extends StatelessWidget {
                             onPressed: () {
                               Get.back();
                             },
-                            child: Text("I'm Done"),
+                            child: Text("I'm Done".tr),
                           ),
                         ],
                       ),

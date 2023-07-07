@@ -114,8 +114,8 @@ class QrcodePageController {
                       color: Colors.grey.withOpacity(.5),
                       borderRadius: BorderRadius.circular(36)),
                 ),
-                const Text(
-                  "Transaction Done",
+                 Text(
+                  "Transaction Done" .tr,
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                 ),
                 Lottie.asset("assets/animated_vectors/transaction_done.json",
@@ -124,22 +124,22 @@ class QrcodePageController {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Items :",
+                      "Items :".tr,
                       style:
                           TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
                     ),
                     Text(
-                      "$plasticNumber Plastic ,",
+                      "$plasticNumber Plastic ," .tr,
                       style:
                           TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
                     ),
                     Text(
-                      " $cansNumber Cans ,",
+                      " $cansNumber Cans ,".tr,
                       style:
                           TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
                     ),
                     Text(
-                      " $totalPointsNumber Points",
+                      " $totalPointsNumber Points".tr,
                       style:
                           TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
                     ),
@@ -171,7 +171,7 @@ class QrcodePageController {
                         color: Colors.white,
                       ),
                       label: Text(
-                        "Rescan",
+                        "Rescan".tr,
                         style: TextStyle(fontSize: 14),
                       ),
                     ),
@@ -228,7 +228,7 @@ class QrcodePageController {
                         color: Colors.white,
                       ),
                       label: Text(
-                        "I'm done",
+                        "I'm done".tr,
                         style: TextStyle(fontSize: 14),
                       ),
                     )
@@ -273,7 +273,7 @@ class QrcodePageController {
                 height: 12,
               ),
               Text(
-                "Warning",
+                "Warning".tr,
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
               ),
               SizedBox(
@@ -285,7 +285,7 @@ class QrcodePageController {
                 height: 12,
               ),
               Text(
-                "This Qrcode Scanned before !!",
+                "This Qrcode Scanned before !!".tr,
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
               ),
               SizedBox(
@@ -305,7 +305,7 @@ class QrcodePageController {
                       width: 8,
                     ),
                     Text(
-                      "Back",
+                      "Back".tr,
                       style:
                           TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
                     ),

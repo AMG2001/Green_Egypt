@@ -2,19 +2,32 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:green_egypt/config/theme/application_theme_controller_box.dart';
 import 'package:green_egypt/services/custom_toast.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../../config/dimensions.dart';
 
 class ChatOption extends StatelessWidget {
-  const ChatOption({super.key});
+  
+  String url = "https://wa.me/201281190072?";
+
+
+   ChatOption({super.key});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        CustomToast.showBlackToast(
-            messsage: 'this Functionallity will be added soon');
-      },
+      onTap: () async {
+      //To remove the keyboard when button is pressed
+      FocusManager.instance.primaryFocus?.unfocus();
+       
+       List<String> parts = url.split('?');
+       String phone = parts[0].replaceAll('https://wa.me/', '');
+      
+
+      var whatsappUrl = "whatsapp://send?phone=+$phone";
+      await launch(whatsappUrl);
+      
+    },
       child: Column(
         children: [
           SizedBox(
@@ -27,12 +40,12 @@ class ChatOption extends StatelessWidget {
                 Container(
                   child: Image.asset(
                     'assets/images/chat.png',
-                    height: Dimensions.height*0.068,
+                    height: Dimensions.height*0.06,
                   ),
                 ),
                 Text(
                   'Chat'.tr,
-                  style: TextStyle(fontSize: 20, color: Color(0xff800080)),
+                  style: TextStyle(fontSize: 18, color: Color(0xff800080)),
                 ),  
               ],
             ),

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../config/dimensions.dart';
 import '../../../../config/theme/application_theme_controller_box.dart';
 
 
@@ -38,8 +39,8 @@ class _Container_modelState extends State<Container_model> {
       children: [
         Stack(children: [
           Container(
-            width: 15,
-            height: 150,
+            width: Dimensions.width * 0.04,
+            height: Dimensions.height * 0.23,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(20)),
                 color: Color(0xFF6cb0ed)),
@@ -48,7 +49,7 @@ class _Container_modelState extends State<Container_model> {
             bottom: 0,
             child: AnimatedContainer(
               duration: Duration(milliseconds: 400),
-              width: 15,
+              width: Dimensions.width * 0.04,
               height: containerHieght,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(20)),

@@ -52,7 +52,7 @@ class BottomContainer extends StatelessWidget {
                             'Plastic : ${transactionsBoxController.allStoredTransactions[index]['plastic']} , Cans :  ${transactionsBoxController.allStoredTransactions[index]['cans']}'
                                 .tr,
                         points:
-                            '${transactionsBoxController.allStoredTransactions[index]['points']}');
+                            '${transactionsBoxController.allStoredTransactions[index]['points']}'.tr);
                   },
                 ),
               )

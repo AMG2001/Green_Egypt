@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 
 import '../../../../../config/theme/application_theme_controller_box.dart';
 
@@ -12,7 +13,7 @@ class ScanAndEarnRow extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          "Now , Scan",
+          "Now , Scan".tr,
           style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600,
          color: ApplicationThemeController.instance.isDark
             ? Colors.white
@@ -28,7 +29,7 @@ class ScanAndEarnRow extends StatelessWidget {
           width: 12,
         ),
         Text(
-          "And Earn",
+          "And Earn".tr,
           style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600,
          color: ApplicationThemeController.instance.isDark
             ? Colors.white

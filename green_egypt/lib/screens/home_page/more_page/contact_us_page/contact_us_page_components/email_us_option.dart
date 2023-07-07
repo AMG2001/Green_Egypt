@@ -37,11 +37,11 @@ class EmailUsOption extends StatelessWidget {
                 Container(
                   child: Image.asset(
                     'assets/images/email.png',
-                    height: Dimensions.height*0.065,
+                    height: Dimensions.height*0.06,
                   ),
                 ),
                 Text('Email Us'.tr,
-                    style: TextStyle(fontSize: 20, color: Color(0xff86c447))),
+                    style: TextStyle(fontSize: 18, color: Color(0xff86c447))),
               ],
             ),
            height: Dimensions.height*0.1,
