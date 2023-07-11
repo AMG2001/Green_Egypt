@@ -4,7 +4,7 @@ import 'package:green_egypt/config/dimensions.dart';
 import 'package:green_egypt/config/theme/application_theme_controller_box.dart';
 import 'package:green_egypt/screens/home_page/transactions_page/components/bottom_container.dart';
 
-import '../components/top_container/Transaction_header.dart';
+import 'components/top_container/Transaction_header.dart';
 
 class TransactionPageBody extends StatelessWidget {
   TransactionPageBody({super.key});
@@ -23,9 +23,10 @@ class TransactionPageBody extends StatelessWidget {
                   centerTitle: true,
                   expandedHeight: Dimensions.height * 0.6,
                   backgroundColor: themeController.isDark
-                      ? Colors.grey[850]
+                      ? Colors.grey.withOpacity(.3)
                       : Color(0xfff7f5f5),
-                  flexibleSpace: FlexibleSpaceBar(background: Transaction_header()),
+                  flexibleSpace:
+                      FlexibleSpaceBar(background: Transaction_header()),
                 ),
               ];
             },

@@ -44,7 +44,7 @@ class _Transaction_headerState extends State<Transaction_header> {
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(Colors.grey[800]),
                 minimumSize: MaterialStateProperty.all(
-                    Size(Dimensions.width * 0.3, Dimensions.height * 0.05)),
+                    Size(Dimensions.width * 0.25, Dimensions.height * 0.05)),
                 shape: MaterialStateProperty.all(
                   RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
@@ -52,7 +52,7 @@ class _Transaction_headerState extends State<Transaction_header> {
                 ),
               ),
               child: Text('Weak'.tr,
-                  style: TextStyle(fontSize: 24, color: Colors.white)),
+                  style: TextStyle(fontSize: 18, color: Colors.white)),
               onPressed: () {
                 setState(() {
                   pageController.jumpToPage(0);
@@ -63,7 +63,7 @@ class _Transaction_headerState extends State<Transaction_header> {
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(Colors.grey[800]),
                 minimumSize: MaterialStateProperty.all(
-                    Size(Dimensions.width * 0.3, Dimensions.height * 0.05)),
+                    Size(Dimensions.width * 0.25, Dimensions.height * 0.05)),
                 shape: MaterialStateProperty.all(
                   RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
@@ -71,7 +71,7 @@ class _Transaction_headerState extends State<Transaction_header> {
                 ),
               ),
               child: Text('Month'.tr,
-                  style: TextStyle(fontSize: 24, color: Colors.white)),
+                  style: TextStyle(fontSize: 18, color: Colors.white)),
               onPressed: () {
                 setState(() {
                   pageController.jumpToPage(1);
@@ -82,7 +82,7 @@ class _Transaction_headerState extends State<Transaction_header> {
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(Colors.grey[800]),
                 minimumSize: MaterialStateProperty.all(
-                    Size(Dimensions.width * 0.3, Dimensions.height * 0.05)),
+                    Size(Dimensions.width * 0.25, Dimensions.height * 0.05)),
                 shape: MaterialStateProperty.all(
                   RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
@@ -90,7 +90,7 @@ class _Transaction_headerState extends State<Transaction_header> {
                 ),
               ),
               child: Text('Year'.tr,
-                  style: TextStyle(fontSize: 24, color: Colors.white)),
+                  style: TextStyle(fontSize: 18, color: Colors.white)),
               onPressed: () {
                 setState(() {
                   pageController.jumpToPage(2);
@@ -100,7 +100,7 @@ class _Transaction_headerState extends State<Transaction_header> {
           ],
         ),
         SizedBox(
-          height: 12,
+          height: Dimensions.height * .03,
         ),
 
         /**
@@ -114,15 +114,15 @@ class _Transaction_headerState extends State<Transaction_header> {
               'Total : ${UserDataBox.instance.get_totalPoints()} point'.tr,
               style: TextStyle(
                   color: ApplicationThemeController.instance.isDark
-                  ? Color(0xfff7f5f5)
-                  : Colors.black , 
+                      ? Color(0xfff7f5f5)
+                      : Colors.black,
                   fontSize: 18.sp,
                   fontWeight: FontWeight.w500),
             )
           ],
         ),
         SizedBox(
-          height: 12,
+          height: Dimensions.height * .03,
         ),
 
         /**

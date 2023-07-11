@@ -10,7 +10,7 @@ import 'package:green_egypt/screens/home_page/more_page/more_page.dart';
 import 'package:green_egypt/screens/home_page/qrcode_page/qrcode_page.dart';
 import 'package:green_egypt/screens/home_page/qrcode_page/components/qrcode_page_appbar.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:green_egypt/screens/home_page/transactions_page/controller/transactions_page_body.dart';
+import 'package:green_egypt/screens/home_page/transactions_page/transactions_page_body.dart';
 
 class HomePage extends StatefulWidget {
   final homePageAnimationsController = Get.put(HomePageAnimationsController());

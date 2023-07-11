@@ -21,9 +21,11 @@ class TransactionsPageTitleRow extends StatelessWidget {
           ),
           Text(
             'Transactions'.tr,
-            style: TextStyle(color: ApplicationThemeController.instance.isDark
-                  ? Color(0xfff7f5f5)
-                  : Colors.black , ),
+            style: TextStyle(
+                color: ApplicationThemeController.instance.isDark
+                    ? Color(0xfff7f5f5)
+                    : Colors.black,
+                fontWeight: FontWeight.w600),
           ),
           SizedBox(
             width: 12,
@@ -31,8 +33,8 @@ class TransactionsPageTitleRow extends StatelessWidget {
           Icon(
             Icons.history,
             color: ApplicationThemeController.instance.isDark
-                  ? Color(0xfff7f5f5)
-                  : Colors.black , 
+                ? Color(0xfff7f5f5)
+                : Colors.black,
             size: 20.sp,
           )
         ],

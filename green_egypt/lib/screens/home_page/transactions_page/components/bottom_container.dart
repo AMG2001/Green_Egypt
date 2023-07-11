@@ -18,7 +18,7 @@ class BottomContainer extends StatelessWidget {
           child: Column(
             children: [
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16),
+                padding: EdgeInsets.only(right: 16, left: 16, top: 16),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -28,15 +28,6 @@ class BottomContainer extends StatelessWidget {
                       style:
                           TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
                     ),
-                    TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        'View All'.tr,
-                        style: TextStyle(
-                            color: Color(0XFFD9D9D9),
-                            fontWeight: FontWeight.w600),
-                      ),
-                    )
                   ],
                 ),
               ),
@@ -52,7 +43,8 @@ class BottomContainer extends StatelessWidget {
                             'Plastic : ${transactionsBoxController.allStoredTransactions[index]['plastic']} , Cans :  ${transactionsBoxController.allStoredTransactions[index]['cans']}'
                                 .tr,
                         points:
-                            '${transactionsBoxController.allStoredTransactions[index]['points']}'.tr);
+                            '${transactionsBoxController.allStoredTransactions[index]['points']}'
+                                .tr);
                   },
                 ),
               )

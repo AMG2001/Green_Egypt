@@ -63,9 +63,22 @@ android {
 
    buildTypes {
        release {
-           signingConfig signingConfigs.debug
+           signingConfig getSigningConfig()
        }
    }
+}
+
+def getSigningConfig() {
+    def keyPropertiesFile = rootProject.file('key.properties')
+    def keyProperties = new Properties()
+    keyProperties.load(new FileInputStream(keyPropertiesFile))
+
+    return signingConfigs.create('release', {
+        keyAlias keyProperties['keyAlias']
+        keyPassword keyProperties['keyPassword']
+        storeFile file(keyProperties['storeFile'])
+        storePassword keyProperties['storePassword']
+    })
 }
 
 flutter {
