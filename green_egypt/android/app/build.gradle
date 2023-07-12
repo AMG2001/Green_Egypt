@@ -61,24 +61,22 @@ android {
         versionName flutterVersionName
     }
 
+    signingConfigs {
+        release {
+            storeFile file('/android/upload-keystore.jks') // Replace with the path to your release keystore file
+            storePassword '01096482183' // Replace with your store password
+            keyAlias 'myalias' // Replace with your key alias
+            keyPassword '01096482183' // Replace with your key password
+        }
+    }
+
    buildTypes {
        release {
-           signingConfig getSigningConfig()
+          // Other release configuration options
+
+          signingConfig signingConfigs.release
        }
    }
-}
-
-def getSigningConfig() {
-    def keyPropertiesFile = rootProject.file('key.properties')
-    def keyProperties = new Properties()
-    keyProperties.load(new FileInputStream(keyPropertiesFile))
-
-    return signingConfigs.create('release', {
-        keyAlias keyProperties['keyAlias']
-        keyPassword keyProperties['keyPassword']
-        storeFile file(keyProperties['storeFile'])
-        storePassword keyProperties['storePassword']
-    })
 }
 
 flutter {
