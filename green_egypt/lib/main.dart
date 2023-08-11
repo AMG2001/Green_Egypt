@@ -6,18 +6,22 @@ import 'package:green_egypt/config/localization/locale.dart';
 import 'package:green_egypt/config/pages_names.dart';
 import 'package:green_egypt/config/theme/application_theme_controller_box.dart';
 import 'package:green_egypt/firebase_options.dart';
-import 'package:green_egypt/services/Shared_preferences/shared_preferences_class.dart';
+import 'package:green_egypt/services/biometric_auth.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'config/localization/locale_controller.dart';
+import 'package:green_egypt/services/Shared_preferences/shared_preferences_class.dart';
 
 void main() async {
   // this line because i made main method Async 👀
   WidgetsFlutterBinding.ensureInitialized();
   // initaite Hive Boxes instead of SharedPreferences .
   await Hive.initFlutter();
+  // init application theme controller .
   await ApplicationThemeController.instance
       .initApplicationThemeController_ThemeAndBox();
+  // init biometric auth controller 
+  await BiometricController.instance.initBiometricAuth();
   // to initiate all Application Shared Preferences in one line 🔥 .
   await SharedPreferencesClass.initAllSharedPreferences();
   /**f

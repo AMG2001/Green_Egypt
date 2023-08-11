@@ -63,7 +63,7 @@ android {
 
     signingConfigs {
         release {
-            storeFile file('/android/upload-keystore.jks') // Replace with the path to your release keystore file
+            storeFile file('upload-keystore.jks') // Replace with the path to your release keystore file
             storePassword '01096482183' // Replace with your store password
             keyAlias 'myalias' // Replace with your key alias
             keyPassword '01096482183' // Replace with your key password
@@ -72,8 +72,6 @@ android {
 
    buildTypes {
        release {
-          // Other release configuration options
-
           signingConfig signingConfigs.release
        }
    }
